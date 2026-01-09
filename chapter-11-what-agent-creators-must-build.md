@@ -1111,3 +1111,39 @@ Ten chapters diagnosed what's broken and why it matters. Chapter 11 completes th
 The technology is new. The failures are real. Hallucinations will continue. But the solutions exist: validation layers, confidence scoring, and honest acknowledgment of uncertainty. Both sides need to implement them.
 
 That's how we build a web that works for everyone - human and machine alike.
+
+## What Comes Next: The Universal Identity Layer
+
+The missing piece I've described in this chapter - a universal identity delegation layer - doesn't exist yet. But it should. And I'm considering building it as my next project.
+
+**The vision:** An open-source identity delegation framework that works across platforms and agents. Portable authorisation tokens. User-controlled permissions. Auditable delegation trails. Support for OAuth 2.0 delegation extensions. Abstraction layers that let agents support proprietary systems today whilst preparing for open standards tomorrow.
+
+This isn't a commercial product to lock in users. It's infrastructure the ecosystem needs. If platforms won't build interoperability, perhaps the community can.
+
+**What it would provide:**
+
+- Reference implementation of universal identity delegation
+- Open specifications for portable authorisation tokens
+- Tools for agent creators to integrate identity abstraction
+- User-facing dashboard for managing all active delegations
+- Documentation for businesses implementing identity delegation
+- Test suites for verifying compliance with open standards
+
+**Who this is for:**
+
+Agent creators who want to support multiple platforms without building proprietary integrations for each one. Businesses who want to verify user identity regardless of which agent the user chooses. Users who want control over their authorisations without platform lock-in.
+
+**The challenge:**
+
+This requires collaboration across competing interests. Agent platforms benefit from proprietary systems. But users benefit from portability. Businesses benefit from standardisation. The question is whether there's enough collective will to build the open alternative before the closed systems become entrenched.
+
+**If you're interested in contributing:**
+
+- Email: tom.cranstoun@gmail.com
+- Website: <https://allabout.network>
+
+I'm looking for collaborators with expertise in identity systems, OAuth implementations, agent architectures, and open standards development. This isn't a project one person can build alone. It needs a coalition of agent creators, businesses, and users who recognise that interoperability serves everyone better than fragmentation.
+
+The platforms are racing to lock in users. We have a narrow window to build the open alternative before that window closes. If this matters to you - if you believe users should control their identity delegation rather than platforms controlling it for them - get in touch.
+
+Let's build the infrastructure the ecosystem needs, even if it's not the infrastructure platforms want.

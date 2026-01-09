@@ -399,6 +399,37 @@ He remains convinced that the web we've built is less accessible than it should 
 
 ---
 
+## What Comes Next: Building the Universal Identity Layer
+
+One critical piece is missing from the AI agent ecosystem: a universal identity delegation layer that works across platforms and agents.
+
+Right now, Microsoft has built proprietary identity for Copilot Checkout. Anthropic's Claude for Chrome inherits browser sessions. Google and Apple will build their own systems. Each platform creating walled gardens that lock users into their ecosystem.
+
+**Tom is considering building the open alternative as his next project.**
+
+An open-source identity delegation framework that provides:
+
+- Reference implementation of universal identity delegation
+- Portable authorisation tokens that work across agents
+- User-controlled permissions and auditable delegation trails
+- OAuth 2.0 delegation extension support
+- Abstraction layers for agent creators
+- Documentation for businesses implementing identity delegation
+
+This isn't a commercial product to lock in users. It's infrastructure the ecosystem needs. If platforms won't build interoperability, perhaps the community can.
+
+**The challenge:** This requires collaboration across competing interests. Agent platforms benefit from proprietary systems, but users benefit from portability. Businesses benefit from standardisation.
+
+**If you're interested in contributing:**
+
+Looking for collaborators with expertise in identity systems, OAuth implementations, agent architectures, and open standards development. This isn't a project one person can build alone. It needs a coalition of agent creators, businesses, and users who recognise that interoperability serves everyone better than fragmentation.
+
+The platforms are racing to lock in users. There's a narrow window to build the open alternative before that window closes.
+
+**Contact:** tom.cranstoun@gmail.com | <https://allabout.network>
+
+---
+
 December 2025
 
 York, England
