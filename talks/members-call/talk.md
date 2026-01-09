@@ -271,6 +271,42 @@ Sites that adapt early gain advantage. Sites that don't get quietly bypassed.
 
 ---
 
+## What Comes Next: The Universal Identity Layer [TIME: 2 minutes]
+
+Beyond fixing websites and building validation layers, there's a critical infrastructure gap in the AI agent ecosystem.
+
+**The Missing Piece:**
+
+Every major platform is building proprietary identity delegation systems:
+
+- Microsoft Copilot Checkout uses Microsoft's own identity layer
+- Claude for Chrome inherits browser sessions through Anthropic
+- Google and Apple are building their own walled gardens
+
+**The problem:** Users face lock-in. Agent creators face fragmentation. Businesses face complexity.
+
+**The Next Project:**
+
+I'm considering building an open-source universal identity delegation framework that provides:
+
+- Portable authorisation tokens that work across platforms and agents
+- User-controlled permissions and auditable delegation trails
+- OAuth 2.0 delegation extension support
+- Abstraction layers for agent creators
+- Community infrastructure before proprietary lock-in becomes entrenched
+
+**This isn't a commercial product** - it's infrastructure the ecosystem needs. If platforms won't build interoperability, perhaps the community can.
+
+**The challenge:** This requires collaboration across competing interests - building a coalition of agent creators, businesses, and users who recognise that interoperability serves everyone better than fragmentation.
+
+**Timeline:** We have a narrow window (12-18 months) before proprietary systems become entrenched. Regulatory pressure will eventually force interoperability (similar to mobile number portability), but early involvement positions organisations as authority figures when standards emerge.
+
+**Looking for collaborators** with expertise in identity systems, OAuth implementations, agent architectures, and open standards development.
+
+If this matters to you - if you believe users should control their identity delegation rather than platforms controlling it for them - get in touch.
+
+---
+
 ## Key Takeaways [TIME: Closing]
 
 **Five Essential Messages:**
@@ -322,3 +358,4 @@ Tom Cranstoun
 - Legal landscape (web scraping, copyright)
 - Content creator concerns (advertising model impact)
 - Agency/consultancy opportunities
+- Identity layer project (collaboration opportunities, technical challenges, regulatory outlook)
