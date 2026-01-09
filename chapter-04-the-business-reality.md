@@ -139,6 +139,18 @@ Agent shopping behaviour:
 
 An agent sent to "buy size 10 running shoes from Nike" will complete that purchase if the site lets it. The retailer doesn't need to convince, nurture, or remind. The human has already made the decision; the agent is just executing it.
 
+### Real-World Validation: Microsoft Copilot Checkout
+
+In January 2025, Microsoft launched Copilot Checkout - complete purchase transactions within the AI assistant, processing real orders with partner retailers including Urban Outfitters, Anthropologie, Etsy, and Shopify stores.
+
+This validates the transaction-based benefit thesis discussed above: when agents can complete transactions smoothly, conversion rates improve for retailers who've implemented agent-friendly patterns.
+
+**Identity preservation:** Unlike the anonymous agent transactions discussed in "The Severed Customer Relationship" section below, Microsoft's implementation maintains customer identity - solving one of the critical business challenges whilst creating new platform dependency.
+
+**Strategic implication:** The competitive dynamics discussed in "Platform Power Shifts" are no longer speculative. Microsoft now controls distribution for agent-mediated commerce. Retailers who haven't optimised for agent compatibility are excluded from these high-conversion transactions.
+
+See Appendix J for complete analysis of this development and its implications for the patterns discussed throughout this book.
+
 ---
 
 ## The Price Comparison Death Spiral

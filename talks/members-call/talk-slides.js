@@ -5,8 +5,10 @@ function createInvisibleUsersDeck() {
     // Title Slide
     ["The Invisible Users", "Designing the Web for AI Agents and Everyone Else\n\nTom Cranstoun | Q1 2026"],
 
-    // Opening Hook Section (3 minutes) - 2 slides
-    ["The £203,000 Cruise", "Real example: December 2024\n\n• AI assistant researching Danube cruises\n• Returned: £203,000-£402,000 per person\n• Actual price: £2,030-£4,020 per person\n• 100x multiplication error\n\n£201,000 potential mistake if booking.\nValidation layers are essential, not optional."],
+    // Opening Hook Section (3 minutes) - 3 slides
+    ["Real Example from Claude For Chrome", "January 2025: Testing Claude for Chrome whilst writing the book.\n\nMultiple Danube cruises ending in Budapest (May 2026):\n\n• 'Scenic Gems of the Danube 2026' - Vienna to Budapest (7 nights)\n• 'Delightful Danube' - Various starting points to Budapest\n• 'Romantic Danube' - Multiple options ending in Budapest\n\nOne cruise showed: 'From £203,000-£402,000'\nActual price: £2,030-£4,020\n\n100x multiplication error from European formatting (€2.030,00)."],
+
+    ["The £203,000 Cruise", "Real example: January 2025\n\n• AI assistant researching Danube cruises\n• Returned: £203,000-£402,000 per person\n• Actual price: £2,030-£4,020 per person\n• 100x multiplication error (using a European site with €2.030,00)\n\n£201,000 potential mistake if booking.\n\nFor Agent Creators, validation layers are essential, not optional."],
 
     ["What Caused This?", "The Error Chain:\n\n• Decimal separator confusion (€2.030,00 vs £2,030)\n• No range validation (£203k > £15k maximum)\n• No comparative checks (58x higher than peers)\n• No cross-referencing against structured data\n• No confidence scoring\n\nProfessional formatting masked the problem.\nError presented with same confidence as verified data."],
 
@@ -38,12 +40,17 @@ function createInvisibleUsersDeck() {
 
     ["Web Audit Suite", "Available as separate purchase or professional audit service.\n\n• Implements patterns from the book\n• Generates detailed reports\n• Shows exactly where sites break for agents\n• Provides specific fix recommendations\n\nNot included with book - separate offering.\n\nMeasure what you can't see."],
 
-    ["Call to Action", "Start with one pattern:\n\n1. Pick highest-impact, lowest-effort change\n2. Implement it\n3. Measure the improvement\n4. Tackle the next one\n\nSites that adapt early gain advantage.\nSites that don't get quietly bypassed.\n\nQuestions? Let's discuss your specific challenges."],
+    ["Call to Action", "Start with one pattern:\n\n1. Pick highest-impact, lowest-effort change\n2. Implement it\n3. Measure the improvement\n4. Tackle the next one\n\nSites that adapt early gain advantage.\nSites that don't get quietly bypassed."],
+
+    // Major Developments Section - 2 slides
+    ["December 2024: Timeline Accelerated", "Two major launches within weeks validate everything:\n\nClaude for Chrome (20 December 2024):\n• Browser automation for all paid subscribers\n• Used whilst writing this book's case studies\n• Session inheritance (agents inherit your login)\n• Makes traditional bot detection nearly impossible\n\nMicrosoft Copilot Checkout (January 2025):\n• Complete purchases within AI assistant\n• Partner retailers: Urban Outfitters, Anthropologie, Etsy\n• Microsoft reports improved conversion rates\n• Processing real transactions in production"],
+
+    ["Why This Matters Now", "The window to act is smaller than expected:\n\n• Claude for Chrome: Millions can install today\n• Copilot Checkout: Processing real transactions now\n• Partner retailers report improved conversion rates\n• Non-optimised sites excluded from high-conversion traffic\n\nAgent traffic isn't coming. It's here.\n\nTest your site with Claude for Chrome immediately.\nImplement Priority 1-2 patterns urgently."],
 
     // Closing - 2 slides
     ["Key Takeaways", "Five Essential Messages:\n\n1. This is happening now (not speculative)\n2. Commercial pressure exists (preference = advantage)\n3. Solutions are accessible (small changes, big impact)\n4. Universal benefit (humans and machines)\n5. Start with quick wins (measure and iterate)"],
 
-    ["Book & Contact", "The Invisible Users:\nDesigning the Web for AI Agents and Everyone Else\n\nDue Q1 2026\n\nTom Cranstoun\ntom.cranstoun@gmail.com\nallabout.network\n\nQuestions? Discussion? Your challenges?"]
+    ["Book & Contact", "The Invisible Users:\nDesigning the Web for AI Agents and Everyone Else\n\nDue Q1 2026\n\nTom Cranstoun\ntom.cranstoun@gmail.com\nhttps://allabout.network\n\nQuestions? Discussion? Your challenges?"]
   ];
 
   // Remove the default initial slide
