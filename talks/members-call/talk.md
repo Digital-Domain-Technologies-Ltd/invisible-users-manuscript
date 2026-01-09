@@ -295,7 +295,7 @@ I'm considering building an open-source universal identity delegation framework 
 - Abstraction layers for agent creators
 - Community infrastructure before proprietary lock-in becomes entrenched
 
-**This isn't a commercial product** - it's infrastructure the ecosystem needs. If platforms won't build interoperability, perhaps the community can.
+**Unlike the book and Web Audit Suite** (which are professional offerings), **this would be open-source community infrastructure** - not a commercial product. It's infrastructure the ecosystem needs. If platforms won't build interoperability, perhaps an open community effort can.
 
 **The challenge:** This requires collaboration across competing interests - building a coalition of agent creators, businesses, and users who recognise that interoperability serves everyone better than fragmentation.
 

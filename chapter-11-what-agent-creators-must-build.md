@@ -1118,7 +1118,7 @@ The missing piece I've described in this chapter - a universal identity delegati
 
 **The vision:** An open-source identity delegation framework that works across platforms and agents. Portable authorisation tokens. User-controlled permissions. Auditable delegation trails. Support for OAuth 2.0 delegation extensions. Abstraction layers that let agents support proprietary systems today whilst preparing for open standards tomorrow.
 
-This isn't a commercial product to lock in users. It's infrastructure the ecosystem needs. If platforms won't build interoperability, perhaps the community can.
+Unlike the book and Web Audit Suite (which are professional offerings), this would be open-source community infrastructure - not a commercial product to lock in users. It's infrastructure the ecosystem needs. If platforms won't build interoperability, perhaps an open community effort can.
 
 **What it would provide:**
 

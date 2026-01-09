@@ -416,7 +416,7 @@ An open-source identity delegation framework that provides:
 - Abstraction layers for agent creators
 - Documentation for businesses implementing identity delegation
 
-This isn't a commercial product to lock in users. It's infrastructure the ecosystem needs. If platforms won't build interoperability, perhaps the community can.
+Unlike the book and Web Audit Suite (which are professional offerings), this would be open-source community infrastructure - not a commercial product to lock in users. It's infrastructure the ecosystem needs. If platforms won't build interoperability, perhaps an open community effort can.
 
 **The challenge:** This requires collaboration across competing interests. Agent platforms benefit from proprietary systems, but users benefit from portability. Businesses benefit from standardisation.
 
