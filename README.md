@@ -1,27 +1,135 @@
 # Invisible Users Manuscript
 
-## About
+**The Invisible Users: Designing the Web for AI Agents and Everyone Else**
 
-This repository contains proprietary manuscript content by Tom Cranstoun.
+A practical guide examining how modern web design optimized for human users fails for AI agents, and how fixing this benefits everyone.
+
+## About This Repository
+
+This is the manuscript repository for "The Invisible Users" by Tom Cranstoun. The content is maintained separately from the main project repository and integrated as a git submodule.
+
+**Main Repository:** <https://github.com/ddttom/invisible-users>
+
+**Status:** Complete manuscript (11 chapters, 9 appendices, ~57,000 words)
+
+## Repository Structure
+
+```text
+/
+├── README.md                   # This file
+├── CLAUDE.md                   # AI assistant guidance
+├── .claude/                    # Claude Code configuration
+│   ├── hooks/                  # Git hooks for workflow automation
+│   ├── commands/               # Custom commands (step-commit, md-fix)
+│   └── skills/                 # AI agent skills
+├── preface.md                  # Author's journey
+├── executive-summary.md        # Condensed overview
+├── chapter-01-*.md through chapter-11-*.md  # 11 chapters
+├── Glossary.md                 # 60+ technical terms
+├── appendix-*.md               # 9 appendices (A-I)
+├── agent-friendly-starter-kit/ # Code examples (good vs bad patterns)
+├── code-examples/              # Production-ready implementations
+│   ├── apache/                 # Apache configuration
+│   ├── nginx/                  # Nginx configuration
+│   ├── nextjs/                 # Next.js examples
+│   ├── wordpress/              # WordPress integration
+│   ├── eds/                    # Adobe EDS examples
+│   ├── static-site/            # Static site generators
+│   ├── monitoring/             # Analytics and logging
+│   └── validation/             # Verification scripts
+├── blog/                       # Blog and promotional materials
+│   ├── blog.md                 # Promotional blog post
+│   ├── blog.svg                # Blog illustration
+│   └── AI-Native.blog          # AI-native website guide
+├── talks/                      # Presentation materials
+│   └── members-call/           # Members call presentations
+├── illustrations/              # Chapter illustrations (SVG + PNG)
+├── metadata.yaml               # Pandoc metadata for PDF
+├── metadata-kindle.yaml        # Metadata for Kindle/EPUB
+└── cover-page.tex              # LaTeX cover template
+```
+
+## Content Overview
+
+### Core Manuscript (~57,000 words)
+
+- **Preface** (~1,700 words): Author's discovery of the problem
+- **11 Chapters** (~54,850 words): Complete narrative from problem to solutions
+- **9 Appendices** (~22,000 words): Implementation guides and references
+- **Glossary**: 60+ technical terms with cross-references
+
+### Code Examples
+
+- **agent-friendly-starter-kit/**: Good vs bad patterns for AI agent compatibility
+- **code-examples/**: Platform-specific implementations (Apache, Nginx, Next.js, WordPress, EDS, static sites) plus monitoring and validation tools
+
+### Blog & Talks
+
+- **blog/**: Promotional materials including AI-Native website implementation guide
+- **talks/**: Presentation materials for members calls and conferences
+
+## Key Themes
+
+1. **The Convergence Principle**: What AI agents need is mostly what everyone needs
+2. **Session Inheritance Problem**: In-browser agents inherit authenticated sessions
+3. **Identity Delegation**: Solutions for agent-mediated commerce
+4. **Dual Responsibility Framework**: Technical fixes + user care in high-stakes scenarios
+
+## Parent Repository Integration
+
+This manuscript repository is a git submodule of the main invisible-users repository. Build tools and npm scripts are maintained in the parent repository:
+
+```bash
+# To build PDF from parent repository:
+cd /path/to/invisible-users
+npm run pdf:generate        # Full A4 PDF with cover
+npm run pdf:kindle          # 6"×9" Kindle Direct Publishing format
+npm run pdf:simple          # Simplified PDF
+
+# To generate illustrations:
+npm run illustrations:generate
+
+# To check word counts:
+npm run wordcount
+```
+
+## Working with This Repository
+
+### As a Submodule
+
+When cloning the parent repository:
+
+```bash
+git clone https://github.com/ddttom/invisible-users.git
+cd invisible-users
+git submodule update --init --recursive
+```
+
+### Making Changes
+
+This repository is the source of truth for manuscript content. To make changes:
+
+1. Navigate to manuscript directory (as a submodule)
+2. Create a branch for your changes
+3. Commit and push to this repository
+4. Update parent repository's submodule pointer
+
+See parent repository's README for detailed submodule workflow.
 
 ## Copyright Notice
 
-Copyright (c) 2026 Tom Cranstoun. All Rights Reserved.
+Copyright © Tom Cranstoun. All rights reserved.
 
-This is proprietary and confidential content. All rights are reserved by the copyright owner.
+This manuscript is not licensed for public use, reproduction, or distribution.
 
-## Repository Status
-
-**Read-Only**: This repository is made publicly available for reading and reference purposes only. Contributions, pull requests, and issues are not accepted.
-
-## Usage
-
-This content may be read and referenced, but may not be reproduced, distributed, or transmitted without prior written permission from the copyright owner.
+**Repository Status:** Public repository for reading and reference. This is proprietary content made available for transparency. Contributions, pull requests, and issues are not accepted.
 
 ## Contact
 
-For permission requests or inquiries, please contact Tom Cranstoun.
+**Author:** Tom Cranstoun
+**Email:** <tom.cranstoun@gmail.com>
+**LinkedIn:** <https://www.linkedin.com/in/tom-cranstoun/>
 
 ## License
 
-See [LICENSE](LICENSE) for full copyright and usage terms.
+All content is proprietary and confidential. See LICENSE file for full copyright and usage terms.
