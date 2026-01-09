@@ -679,6 +679,8 @@ The strategic challenge is to identify which parts of your business benefit from
 
 Before deciding on a response strategy, assess your specific exposure to agent-mediated commerce. This framework helps you understand your vulnerability and prioritise actions.
 
+**Timeline acceleration note (January 2026):** This framework was originally developed with a "two years" assumption before significant agent traffic. Major platform launches in January 2026 (Amazon Alexa.com on 5 Jan, Microsoft Copilot Checkout expansion on 8 Jan) compress this timeline to approximately 12 months for reaching 10-20% agent-mediated shopping. The assessment framework remains valid, but urgency increases significantly for high-exposure businesses. See Appendix J for details on these developments.
+
 ### Assessment Framework
 
 Answer these questions about your business:
@@ -722,7 +724,7 @@ Based on your answers, categorise your business:
 - Depend on page views and engagement metrics
 - Examples: Recipe blogs, general news sites, commodity content
 
-**High exposure - Action within 3-6 months:**
+**High exposure - Action within 3-6 months:** *(Update January 2026: Now immediate - Amazon Alexa+ and Microsoft Copilot Checkout are processing real transactions)*
 
 - Transaction-based but with agent-hostile patterns (hidden pricing, complex flows)
 - Mixed revenue model with some advertising dependence
@@ -845,6 +847,8 @@ Mixed outlook. Agent access may add value (by enabling customers to accomplish m
 
 You probably don't need to act immediately. But pay attention. In three years, 20-30% of your traffic may come from agents. The sites that work reliably will win the bookings, purchases, and appointments that agents facilitate.
 
+**Update (January 2026):** Major platform launches in January 2026 (Amazon Alexa.com, Microsoft Copilot Checkout expansion) suggest this timeline may be compressed to 12-18 months rather than three years. The advice remains the same, but urgency increases.
+
 Fix the obvious problems now: transparent pricing, visible errors, and complete information. That's enough to start.
 
 ---
@@ -913,7 +917,7 @@ Before investing in AI agent optimization, assess the specific value dimensions 
 
 **For E-commerce:**
 
-- What percentage of your traffic could be agent-mediated within 2 years?
+- What percentage of your traffic could be agent-mediated within 2 years? *(Note: January 2026 platform launches suggest 12 months may be more realistic - see Appendix J)*
 - How many cart abandonments are due to UI friction?
 - What's the cost of manual intervention for failed transactions?
 - How important is accessibility in your market?

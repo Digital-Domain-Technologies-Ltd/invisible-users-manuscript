@@ -408,23 +408,25 @@ The reason was clearly stated - at the top of a page the agent had scrolled past
 
 "Errors are logged to console. The agent can see those."
 
-No. It usually can't.
+You cannot assume that.
 
 Developer tools - the console, network tab, and element inspector - are debugging interfaces for humans. They're not part of the page the agent sees. They're browser features that require explicit access.
 
-Most agent implementations see what a screen reader sees: the DOM, accessibility attributes, and visible text. Console output, network requests, JavaScript exceptions - these exist in a parallel universe that the agent cannot access.
+**Some agents CAN read console output.** Claude for Chrome (launched August-December 2025) reads browser console including errors, network requests, and DOM state. This enables sophisticated debugging workflows where agents correlate console errors with UI failures. But you cannot assume other agents have this capability.
+
+**Many agent implementations see what a screen reader sees:** the DOM, accessibility attributes, and visible text. Console output, network requests, JavaScript exceptions - these may exist in a parallel universe that these agents cannot access.
 
 This means:
 
-**Silent JavaScript errors don't surface.** A script throws an exception. The feature breaks. Nothing visible has changed. The console shows a red error message. The agent has no idea.
+**Silent JavaScript errors may not surface.** A script throws an exception. The feature breaks. Nothing visible has changed. The console shows a red error message. Agents without console access have no idea.
 
-**Failed network requests go unnoticed.** An API call returns a 500 error. The error handling doesn't update the UI. The console shows the failure. The agent sees nothing.
+**Failed network requests may go unnoticed.** An API call returns a 500 error. The error handling doesn't update the UI. The console shows the failure. Agents without console access see nothing.
 
-**Validation logic in JavaScript is not communicating.** Client-side validation runs, determines input is invalid, but only logs the reason to the console without updating the DOM. The agent cannot comply with requirements it cannot see.
+**Validation logic in JavaScript may not communicate.** Client-side validation runs, determines input is invalid, but only logs the reason to the console without updating the DOM. Agents without console access cannot comply with requirements they cannot see.
 
-**If it's not in the DOM, it doesn't exist for the agent.**
+**If it's not in the DOM, you cannot assume the agent will see it.**
 
-Every error, every state change, every piece of information must be represented in the visible page structure. Console logging is fine for developers debugging issues. It's useless for communicating with automated visitors.
+Every error, every state change, every piece of information must be represented in the visible page structure. Console logging is fine for developers debugging issues. Some advanced agents (like Claude for Chrome) can read it, but relying on console output excludes many agent types from successfully completing tasks.
 
 ---
 

@@ -884,6 +884,7 @@ Important foundational work that builds on quick wins.
 - **Implement semantic HTML throughout** - Use proper heading hierarchy, landmark regions, and appropriate elements
 - **Add agent detection and logging** - Track agent visits separately to measure impact and identify problems
 - **Review checkout flow for agent compatibility** - Test critical paths with clear state indicators at each step
+- **Test against multiple agent platforms** - Claude for Chrome, Microsoft Copilot, Amazon Alexa+ (see multi-platform testing section in Chapter 10)
 - **Create agent-friendly API documentation** - If offering API access, document it clearly in llms.txt
 
 ### Priority 3: Core Infrastructure

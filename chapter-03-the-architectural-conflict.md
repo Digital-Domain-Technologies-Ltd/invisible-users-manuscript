@@ -361,23 +361,25 @@ The fifteen years of learned behaviour that tells a human "this looks like a che
 
 Developers often assume that debugging information is available to automated visitors. "The error is logged to the console. The agent can check the console."
 
-This reflects a fundamental misunderstanding of what agents see.
+You cannot assume that.
 
-Developer tools - console, network tab, debugger - are browser features for human developers. They're not part of the rendered page. They require specific access that agents typically don't have.
+Developer tools - console, network tab, debugger - are browser features for human developers. They're not part of the rendered page. They require specific access that you cannot assume agents have.
 
-Most agents see what a screen reader sees: the DOM tree, accessibility attributes, and visible text content. Console messages exist in a parallel universe that the agent cannot access.
+**Some agents CAN read console output.** Claude for Chrome (launched August-December 2025) reads browser console including errors, network requests, and DOM state. This capability enables debugging workflows where agents correlate console errors with UI failures, track network timing, and detect DOM mutations. But this is an advanced capability, not a universal one.
+
+**Many agents see what a screen reader sees:** the DOM tree, accessibility attributes, and visible text content. Console messages may exist in a parallel universe that these agents cannot access.
 
 This means:
 
-**Silent JavaScript exceptions go unnoticed.** A script crashes. A feature stops working. The console shows a red error. The agent has no idea that anything went wrong.
+**Silent JavaScript exceptions may go unnoticed.** A script crashes. A feature stops working. The console shows a red error. Agents without console access have no idea that anything went wrong.
 
-**Network failures are invisible.** An API request returns 500. The response never arrives. Error handling doesn't update the DOM. The agent sees only that the expected content didn't appear.
+**Network failures may be invisible.** An API request returns 500. The response never arrives. Error handling doesn't update the DOM. Agents without console access see only that the expected content didn't appear.
 
-**Debugging information doesn't transfer.** All those helpful `console.log` statements explaining what the code is doing? Invisible. The agent is flying blind.
+**Debugging information may not transfer.** All those helpful `console.log` statements explaining what the code is doing? Agents without console access are flying blind.
 
-The implication is clear: **if it's not in the DOM, it doesn't exist for the agent.**
+The implication is clear: **if it's not in the DOM, you cannot assume the agent will see it.**
 
-Every error, every state change, every critical piece of information must be represented in the visible page structure. The developer console is for developers. The DOM is for users - both human and machine.
+Every error, every state change, every critical piece of information must be represented in the visible page structure. The developer console is for developers. Some advanced agents can read it, but the DOM is the universal interface for all users - both human and machine.
 
 ---
 

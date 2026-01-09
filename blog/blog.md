@@ -87,14 +87,18 @@ Three reasons:
 
 ### 1. The Commercial Pressure Is Already Here
 
-Companies are building agent-first products right now:
+**Production reality (January 2026):** Multiple proprietary agent platforms are now live and processing real transactions:
 
-- Shopping assistants that compare prices across retailers
-- Booking agents that handle travel arrangements
-- Research agents that gather information from multiple sources
-- Task automation that completes repetitive web workflows
+- **Amazon Alexa+** (5 January 2026): Browser-based shopping agent with 3x purchase increase
+- **Microsoft Copilot Checkout** (8 January 2026): Complete transactions with partner retailers
+- **Claude for Chrome** (August-December 2025): Browser automation available to millions of paid subscribers
+- **Google and Apple** expected to build their own walled gardens
 
-If your competitors make their sites agent-compatible first, they win those transactions. All of them. Because agents don't retry on sites that fail.
+**Critical reality:** You cannot assume your site works for "AI agents" in general. Each platform has different capabilities, different identity systems, and different failure modes. Testing against one doesn't guarantee compatibility with others.
+
+**The proprietary lock-in problem:** Major platforms are building closed identity systems to establish first-mover advantages before open standards emerge. Every integration creates lock-in for your customers and dependency for your business. The industry must work to build open standards whilst platforms pursue proprietary systems.
+
+If your competitors make their sites compatible with multiple platforms first, they win those transactions. All of them. Because agents don't retry on sites that fail, and users cannot easily switch between proprietary systems once locked in.
 
 ### 2. Your Human Users Need This Too
 
@@ -149,6 +153,27 @@ The book presents both established standards and proposed patterns. When you see
 - **ai-* meta tags, data-agent-visible** - these are proposed patterns, not yet standardised
 
 All proposed patterns are designed to be forward-compatible - they won't break anything if agents don't recognise them. Think of them as progressive enhancement for AI. The book clearly distinguishes what's deployed in production today versus logical extensions that may become standards as the ecosystem matures.
+
+## Test Against Multiple Platforms
+
+**Critical action:** Test your site with multiple agent platforms immediately:
+
+**Claude for Chrome:**
+1. Install the extension (available to all paid Claude subscribers)
+2. Instruct Claude to complete your checkout flow
+3. Observe where it fails or succeeds
+4. Note: Claude for Chrome CAN read browser console (errors, network requests, DOM state), but you cannot assume other agents have this capability
+
+**Amazon Alexa+:**
+- Test through Alexa.com (if you have Early Access)
+- Verify product discovery and purchase flows work
+- Check pricing and availability display correctly
+
+**Microsoft Copilot:**
+- Test conversational checkout flow (if partnered)
+- Verify structured data and transaction states
+
+Each platform has different capabilities. What works for one may fail for others. Design for the universal patterns (DOM state, semantic HTML, persistent feedback) rather than relying on advanced features (like console reading) that only some platforms support.
 
 ## The Solutions Are Simpler Than You Think
 
@@ -403,7 +428,7 @@ He remains convinced that the web we've built is less accessible than it should 
 
 One critical piece is missing from the AI agent ecosystem: a universal identity delegation layer that works across platforms and agents.
 
-Right now, Microsoft has built proprietary identity for Copilot Checkout. Anthropic's Claude for Chrome inherits browser sessions. Google and Apple will build their own systems. Each platform creating walled gardens that lock users into their ecosystem.
+Right now, Microsoft has built proprietary identity for Copilot Checkout. Anthropic's Claude for Chrome inherits browser sessions. Google and Apple are expected to build their own systems. Each platform creating walled gardens that lock users into their ecosystem.
 
 **Tom is considering building the open alternative as his next project.**
 

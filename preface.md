@@ -10,7 +10,7 @@ I caught the error, and that led me down a path I hadn't anticipated. I started 
 
 We'd built a web that worked brilliantly for one specific type of user: someone with good vision, working on a desktop, with focused attention and plenty of time. Everyone else had been struggling quietly for years. Now AI agents were struggling loudly, and there was finally commercial pressure to fix the problems.
 
-Since I began this research, the landscape has shifted dramatically. In December 2024, Anthropic launched Claude for Chrome to all paid subscribers. In January 2025, Microsoft launched Copilot Checkout - complete purchase transactions within AI assistants, processing real orders with partner retailers including Urban Outfitters, Anthropologie, and Etsy.
+Since I began this research, the landscape has shifted dramatically. In August 2025, Anthropic launched Claude for Chrome as a research preview, expanding to all paid subscribers by December 2025. In January 2025, Microsoft launched Copilot Checkout - complete purchase transactions within AI assistants, processing real orders with partner retailers including Urban Outfitters, Anthropologie, and Etsy.
 
 These aren't experimental prototypes. They're production systems available today. Browser extensions now bring agents directly into your workflow, operating within your browser, logged in with your credentials, seeing your screen, clicking buttons, filling forms, and working across multiple tabs whilst you handle other tasks. This isn't agents fetching pages remotely anymore. This is agents working alongside you, in your context, on your actual work.
 

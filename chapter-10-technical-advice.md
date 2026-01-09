@@ -1476,6 +1476,62 @@ For practical implementation, monitor emerging standards rather than building cu
 
 Before deploying changes, test them from an agent's perspective. Then measure whether they work.
 
+### Multi-Platform Agent Testing
+
+**Critical reality (January 2026):** Multiple proprietary agent platforms are now live and processing real transactions. Amazon Alexa+ (launched 5 January 2026) and Microsoft Copilot Checkout (expanded 8 January 2026) demonstrate that businesses must test against multiple agent systems, not just one.
+
+**The proprietary lock-in problem:**
+
+As predicted in Chapter 11, major platforms are building closed identity systems to establish first-mover advantages before open standards emerge. This creates strategic complexity:
+
+- **Microsoft Copilot Checkout** uses Microsoft's proprietary identity delegation (payment details, shipping addresses, order history stored in Microsoft's ecosystem)
+- **Amazon Alexa+** controls shopping behaviour through Amazon's platform (3x purchase increase validates transaction control)
+- **Google and Apple** expected to build their own walled gardens
+- **Result:** User lock-in, agent fragmentation, business dependency on multiple proprietary systems
+
+**What this means for testing:**
+
+You cannot assume your site works for "AI agents" in general. You must test against specific platforms that your customers actually use:
+
+1. **Test with Claude for Chrome** (Anthropic, available to all paid subscribers)
+2. **Test with Microsoft Copilot** (if selling to enterprise or retail customers)
+3. **Test with Amazon Alexa+** (if selling products or services)
+4. **Test with ChatGPT** (OpenAI, when browser automation launches)
+5. **Test with Google Gemini** (when shopping agents launch)
+
+Each platform has different capabilities, different identity systems, and different failure modes.
+
+**Testing checklist by platform:**
+
+**Claude for Chrome (browser-based):**
+- Install extension (<https://chromewebstore.google.com/detail/claude-for-chrome/>)
+- Instruct Claude to complete your checkout flow
+- Observe where it fails or succeeds
+- Check console for errors Claude reports
+- Verify session inheritance doesn't create security issues
+
+**Microsoft Copilot Checkout (if partnered):**
+- Test through Copilot interface (conversational checkout)
+- Verify structured data is correct (Schema.org Product markup)
+- Test transaction state indicators at each step
+- Confirm identity delegation preserves customer relationship
+
+**Amazon Alexa+ (browser-based):**
+- Access through Alexa.com (requires Early Access)
+- Test product discovery and purchase flows
+- Verify pricing and availability are clear
+- Check multi-step workflows complete successfully
+
+**The standards gap:**
+
+This fragmentation validates the book's warning: platforms are racing to establish proprietary first-mover advantages before standards emerge. The industry must work to build open standards for identity delegation and agent interoperability, but until that happens, businesses face the practical reality of supporting multiple proprietary systems.
+
+**Strategic implication:**
+
+Every integration with a proprietary platform creates lock-in for your customers and dependency for your business. Choose carefully which platforms to support, knowing that early decisions may be difficult to reverse.
+
+See Appendix J for complete analysis of Amazon Alexa.com and Microsoft Copilot Checkout implementations, including technical details and business model implications.
+
 ### Automated Agent Testing
 
 ```javascript
