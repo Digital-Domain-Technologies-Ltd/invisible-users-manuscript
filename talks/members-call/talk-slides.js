@@ -49,8 +49,10 @@ function createInvisibleUsersDeck() {
 
     ["Why This Matters Now", "The window to act is smaller than expected:\n\n• Claude for Chrome: Millions can install today\n• Copilot Checkout: Processing real transactions now\n• Partner retailers report improved conversion rates\n• Non-optimised sites excluded from high-conversion traffic\n\nAgent traffic isn't coming. It's here.\n\nTest your site with Claude for Chrome immediately.\nImplement Priority 1-2 patterns urgently."],
 
-    // Closing - 3 slides
+    // Closing - 4 slides
     ["Our Responsibility", "Clear professional obligation:\n\nAs designers, developers, product owners, and executives:\n• We have the responsibility to ensure agents navigate successfully\n• This isn't optional - it's a professional obligation\n• Parallels accessibility, security, user experience\n• When agents fail, that's a design gap affecting everyone\n\nAgent failures expose problems that affect humans too.\nWe're finally fixing issues we should have fixed years ago."],
+
+    ["What Comes Next: Identity Layer", "The Missing Infrastructure:\n\nPlatforms building proprietary identity systems:\n• Microsoft Copilot Checkout (Microsoft identity)\n• Claude for Chrome (Anthropic sessions)\n• Google and Apple building walled gardens\n\nNext Project: Open-source universal identity delegation framework\n• Portable authorisation tokens across platforms\n• User-controlled permissions and audit trails\n• OAuth 2.0 delegation extension support\n• Community infrastructure before proprietary lock-in\n\nLooking for collaborators with identity systems, OAuth, and agent architecture expertise.\n\nContact: tom.cranstoun@gmail.com"],
 
     ["Key Takeaways", "Five Essential Messages:\n\n1. This is happening now (not speculative)\n2. Commercial pressure exists (preference = advantage)\n3. Solutions are accessible (small changes, big impact)\n4. Universal benefit (humans and machines)\n5. Start with quick wins (measure and iterate)"],
 
