@@ -690,6 +690,109 @@ async function handleLowConfidenceData(data, confidence) {
 
 This pattern acknowledges that humans have domain knowledge agents lack. A travel agent might know that £203,000 for a luxury around-the-world cruise is plausible, even though it's 100x higher than typical river cruises. The agent shouldn't refuse - it should seek confirmation.
 
+## The Missing Identity Layer
+
+Here's what agent creators don't talk about: every major platform is building closed identity systems that lock users into their ecosystem. They're racing to establish first-mover advantages before standards emerge.
+
+**What's missing:** A universal identity delegation layer that works across platforms and agents. When you authorise an agent to act on your behalf, that authorisation should be portable. You should be able to switch agents without losing access to services. Businesses should be able to verify your identity regardless of which agent you use.
+
+**What we have instead:** Proprietary solutions. Microsoft's Copilot Checkout preserves customer identity through Microsoft's own delegation system. Claude for Chrome inherits your browser session through Anthropic's extension. ChatGPT will undoubtedly build its own approach. Each platform creates a walled garden.
+
+**The first-mover advantage they're pursuing:**
+
+When Microsoft establishes Copilot as the identity layer for e-commerce transactions, retailers who integrate with Microsoft's system create switching costs. Users who've authorised Copilot to make purchases have their payment details, shipping addresses, and order history stored in Microsoft's delegation framework. Moving to a competing agent means re-entering all that information, re-authorising access to retailers, and losing transaction history.
+
+This isn't accidental. It's deliberate platform strategy: establish your identity system as the standard before open protocols emerge. Once users have authorised dozens of services through your delegation layer, they're locked in. Competing agents face a cold-start problem - they need to rebuild all those authorisations from scratch.
+
+**Why this matters for agent creators:**
+
+If you're building an agent now, you face a choice: integrate with existing proprietary systems (creating dependency on platform providers) or wait for open standards (missing the market whilst users adopt closed platforms). Neither option is ideal.
+
+The technically correct solution - build on open standards like OAuth, implement portable delegation tokens, and support cross-platform identity - doesn't exist yet because platforms have no incentive to create it. They're racing to lock in users before standards bodies can negotiate interoperability.
+
+**What agent creators should build anyway:**
+
+Even knowing the platforms won't cooperate initially, build for eventual interoperability:
+
+```javascript
+// Identity delegation architecture that could work across platforms
+class UniversalIdentityLayer {
+  async delegateAccess(service, scope, duration) {
+    // Request delegation token from identity provider
+    const token = await this.identityProvider.createDelegationToken({
+      service: service,           // Which service gets access
+      scope: scope,               // What permissions granted
+      duration: duration,         // How long token remains valid
+      principal: this.userId,     // Who is delegating
+      agent: this.agentId         // Which agent receives delegation
+    });
+
+    // Token should be:
+    // - Portable (works with any compliant agent)
+    // - Revocable (user can revoke at any time)
+    // - Auditable (user can see all active delegations)
+    // - Standard (follows OAuth 2.0 delegation extension)
+
+    return token;
+  }
+
+  async revokeAccess(service) {
+    // User can revoke delegation without agent cooperation
+    await this.identityProvider.revokeDelegationToken({
+      service: service,
+      principal: this.userId
+    });
+  }
+
+  async listActiveDelegations() {
+    // User sees all services with active agent access
+    return await this.identityProvider.listDelegations(this.userId);
+  }
+}
+```
+
+This architecture exists in OAuth specifications. Platforms aren't implementing it because they want proprietary control.
+
+**The uncomfortable truth:**
+
+Agent creators who build for open standards will be at a competitive disadvantage during the land-grab phase. Users will choose agents that work with Microsoft's Copilot Checkout, Google's Shopping integration, and Amazon's agent API - all proprietary systems that don't interoperate.
+
+But the long-term outcome is predictable: regulators will eventually force interoperability (just as they forced mobile number portability and bank account switching). Agent creators who built for open standards from the start will be positioned to benefit when the closed systems are forced open.
+
+**Practical recommendation:**
+
+Build the identity layer as an abstraction. Support proprietary systems today (you need market access) but design the architecture to support open standards when they emerge. Make it possible to swap identity providers without rewriting your agent.
+
+```javascript
+// Abstraction layer that works with proprietary systems today
+// but can support open standards tomorrow
+class IdentityAbstraction {
+  constructor(provider) {
+    // Support Microsoft, Google, Apple identity systems
+    // but isolate them behind standard interface
+    this.provider = provider;
+  }
+
+  async authorize(service, scope) {
+    // Translate to provider-specific API
+    return await this.provider.delegateAccess(service, scope);
+  }
+}
+
+// When open standards emerge, add new provider
+// without changing agent code
+const openStandardProvider = new OAuth2DelegationProvider();
+const identity = new IdentityAbstraction(openStandardProvider);
+```
+
+This costs more to build today but positions you correctly for the inevitable standardisation.
+
+**Why I'm highlighting this:**
+
+Agent creators need to understand what game they're playing. The platforms are racing to establish proprietary identity systems because whoever controls identity controls the ecosystem. Your validation layers and confidence scoring are important. But the business model depends on identity delegation, and that's currently a winner-take-all competition.
+
+Build validation layers for reliability. Build identity abstraction for survival.
+
 ## Agent Architecture Considerations
 
 Different agent types have different resource constraints. The level of validation sophistication should match the agent's capabilities and use case.
