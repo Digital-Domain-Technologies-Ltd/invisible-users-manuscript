@@ -1,0 +1,55 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Thumbnails
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.sublime-*
+
+# Build outputs
+*.pdf
+*.epub
+*.mobi
+*.azw3
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Images
+*.png
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*~
+
+# Node modules (if using any tooling)
+node_modules/
+
+# Python (if using any tooling)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Personal notes
+notes/
+drafts/
+.private/
