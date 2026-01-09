@@ -42,12 +42,16 @@ function createInvisibleUsersDeck() {
 
     ["Call to Action", "Start with one pattern:\n\n1. Pick highest-impact, lowest-effort change\n2. Implement it\n3. Measure the improvement\n4. Tackle the next one\n\nSites that adapt early gain advantage.\nSites that don't get quietly bypassed."],
 
-    // Major Developments Section - 2 slides
+    // Major Developments Section - 3 slides
     ["December 2024: Timeline Accelerated", "Two major launches within weeks validate everything:\n\nClaude for Chrome (20 December 2024):\n• Browser automation for all paid subscribers\n• Used whilst writing this book's case studies\n• Session inheritance (agents inherit your login)\n• Makes traditional bot detection nearly impossible\n\nMicrosoft Copilot Checkout (January 2025):\n• Complete purchases within AI assistant\n• Partner retailers: Urban Outfitters, Anthropologie, Etsy\n• Microsoft reports improved conversion rates\n• Processing real transactions in production"],
+
+    ["VPNs and Hidden Guardrails", "Two realities affecting every agent:\n\nBrowser extensions inherit network configuration:\n• User in Manchester appears in Amsterdam (VPN exit)\n• IP-based location detection becomes unreliable\n• Fraud systems may flag legitimate transactions\n• Affects all privacy-conscious users\n\nSystem prompts exist but are insufficient:\n• All agents have hidden guardrails\n• They work at reasoning level, not data extraction\n• £203k cruise error happened despite guardrails\n• Need programmatic validation: range checks, cross-referencing\n• Hallucinations will continue - validation catches them"],
 
     ["Why This Matters Now", "The window to act is smaller than expected:\n\n• Claude for Chrome: Millions can install today\n• Copilot Checkout: Processing real transactions now\n• Partner retailers report improved conversion rates\n• Non-optimised sites excluded from high-conversion traffic\n\nAgent traffic isn't coming. It's here.\n\nTest your site with Claude for Chrome immediately.\nImplement Priority 1-2 patterns urgently."],
 
-    // Closing - 2 slides
+    // Closing - 3 slides
+    ["Our Responsibility", "Clear professional obligation:\n\nAs designers, developers, product owners, and executives:\n• We have the responsibility to ensure agents navigate successfully\n• This isn't optional - it's a professional obligation\n• Parallels accessibility, security, user experience\n• When agents fail, that's a design gap affecting everyone\n\nAgent failures expose problems that affect humans too.\nWe're finally fixing issues we should have fixed years ago."],
+
     ["Key Takeaways", "Five Essential Messages:\n\n1. This is happening now (not speculative)\n2. Commercial pressure exists (preference = advantage)\n3. Solutions are accessible (small changes, big impact)\n4. Universal benefit (humans and machines)\n5. Start with quick wins (measure and iterate)"],
 
     ["Book & Contact", "The Invisible Users:\nDesigning the Web for AI Agents and Everyone Else\n\nDue Q1 2026\n\nTom Cranstoun\ntom.cranstoun@gmail.com\nhttps://allabout.network\n\nQuestions? Discussion? Your challenges?"]

@@ -83,6 +83,14 @@ If 10% of paid Claude subscribers use the Chrome extension for web automation, t
 
 The timeline I projected in the book - "businesses have two years before agent traffic becomes significant" - just compressed dramatically.
 
+### VPN and Location Detection Challenges
+
+Browser extensions like Claude for Chrome inherit the user's entire network configuration - including VPN connections, corporate proxies, and mobile network routing. A user in Manchester might appear to be in Amsterdam (VPN exit node), London (corporate proxy), or Leeds (mobile carrier routing).
+
+This breaks traditional assumptions about IP-based geolocation. Fraud detection systems may flag legitimate agent-assisted transactions as suspicious. Pricing strategies based on geography become unreliable. Content delivery optimised for regional audiences may serve wrong variants.
+
+This isn't agent-specific vulnerability. It's a limitation of IP-based detection that affects any privacy-conscious user. But agent adoption accelerates the problem - every browser extension inherits network configuration that masks true location.
+
 ## The Copilot Checkout Significance
 
 ### Microsoft's Reported Impact
@@ -149,6 +157,8 @@ Claude for Chrome demonstrates production-grade validation patterns:
 - Admin controls for enterprise deployment
 
 Study Anthropic's implementation as a reference for building your own agent systems.
+
+**Critical insight on system prompts:** All agents operate with hidden system prompts and guardrails, but these are insufficient protection against errors. The £203,000 cruise pricing error (detailed in Chapter 11) occurred despite whatever guardrails existed. System prompts work at the reasoning level - they cannot catch pipeline failures that occur during data extraction before reasoning begins. Agent creators need programmatic validation layers: range checking, comparative analysis, structured data cross-referencing, confidence scoring, and audit trails. Hallucinations will continue to happen - they're inherent to how language models work - but validation layers catch errors before they reach users.
 
 ## Technical Patterns That Enabled This
 

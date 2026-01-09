@@ -775,6 +775,23 @@ For each exposure level, consider these approaches:
 - **Stay informed:** Understand emerging patterns in your industry
 - **Reassess annually:** Your exposure may change as agent adoption grows
 
+### The Location Detection Challenge
+
+Browser extensions and "smart AI" browsers may be operated by users with VPNs, corporate proxies, or mobile networks that mask their actual location. Do you really know where your visitors are located?
+
+Traditional geolocation detection assumes IP addresses reliably indicate user location. This assumption breaks when agents operate through VPN connections, corporate networks, or mobile carriers with dynamic IP allocation. A user in Manchester might appear to be in Amsterdam (VPN exit node), London (corporate proxy), or Leeds (mobile carrier routing).
+
+**Implications for businesses:**
+
+- **Fraud detection systems** that rely on IP-based location may flag legitimate agent-assisted transactions as suspicious
+- **Pricing strategies** based on geography become unreliable when you cannot verify visitor location
+- **Content delivery** optimised for regional audiences may serve wrong variants
+- **Compliance requirements** for age verification or regional restrictions become harder to enforce
+
+This isn't agent-specific vulnerability. It's a limitation of IP-based detection that affects any automated or privacy-conscious user. But agent adoption accelerates the problem - every browser extension inherits the user's network configuration, including VPN connections.
+
+**Practical response:** Design systems that don't depend solely on IP-based location detection. For critical operations (age verification, legal restrictions, fraud prevention), use multiple signals rather than trusting IP addresses alone.
+
 ### Decision Matrix: Embrace vs. Resist
 
 Use this matrix to decide your strategic response:

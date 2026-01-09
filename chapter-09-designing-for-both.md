@@ -12,6 +12,8 @@ In Chapter 1, I mentioned that what agents need is mostly what everyone needs. N
 
 **A note on universal patterns:** The solutions in this chapter work across the entire agent ecosystem - server-based agents, CLI agents, browser agents, browser extensions, IDE-integrated tools, and local agents. This is deliberate. We're not designing for a specific agent architecture; we're designing for a principle: explicit state, semantic structure, and persistent feedback. A pattern that requires JavaScript execution to work excludes half the ecosystem. A pattern that relies on session inheritance only helps browser extensions. Universal patterns benefit everyone - agents and humans alike - regardless of their technical constraints.
 
+**Clear responsibility:** As designers, developers, product owners, and executives, we have the clear responsibility to ensure that AI agents can navigate successfully. This isn't optional or aspirational. It's a professional obligation that parallels our existing responsibilities for accessibility, security, and user experience. When agents fail to complete tasks on your site, that's not just the agent's problem - it's a design and implementation gap that affects both automated and human users.
+
 ![Designing for Both - the convergence principle of accessibility and agent-friendly design](illustrations/chapter-09-convergence-principle.png)
 
 ## The Convergence Principle

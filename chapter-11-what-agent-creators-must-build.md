@@ -995,10 +995,16 @@ Agent creators: implement the validation layers described in this chapter. Check
 
 Neither side can fix the ecosystem alone. Websites that provide perfect structured data still fail if agents don't use it for validation. Agents with sophisticated validation still fail if websites hide information or show ephemeral errors.
 
+**Hallucinations will continue to happen.** Language models are probabilistic systems that occasionally generate plausible-sounding but incorrect information. No amount of training will eliminate this entirely. This isn't a temporary limitation that future models will solve - it's an inherent characteristic of how these systems work. They predict probable continuations based on patterns, not verified facts.
+
+What we can control is how agents handle uncertainty. Validation layers don't prevent hallucinations at the model level. They catch errors before they reach users. Range checking flags impossible prices. Comparative analysis detects outliers. Structured data cross-referencing reveals conflicts. Confidence scoring acknowledges uncertainty. Audit trails enable debugging.
+
+The £203,000 pricing error wasn't a hallucination - it was a data extraction failure. But even when models hallucinate pricing ("Based on the luxury features, this cruise likely costs £80,000"), validation layers should catch it: "Price exceeds typical maximum by 5x. No supporting data found. Low confidence."
+
 **This is the complete picture this book provides.**
 
 Ten chapters diagnosed what's broken and why it matters. Chapter 11 completes the solutions by showing what agent creators must build to create reliable, trustworthy systems that serve users well.
 
-The technology is new. The failures are real. The solutions exist. Both sides need to implement them.
+The technology is new. The failures are real. Hallucinations will continue. But the solutions exist: validation layers, confidence scoring, and honest acknowledgment of uncertainty. Both sides need to implement them.
 
 That's how we build a web that works for everyone - human and machine alike.

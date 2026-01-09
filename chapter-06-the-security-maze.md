@@ -219,6 +219,32 @@ When the first significant case reaches court, lawyers will argue about foreseea
 
 ---
 
+## The System Prompt Illusion
+
+All AI agents operate with hidden system prompts and guardrails - instructions embedded by their creators to guide behaviour, prevent harmful outputs, and constrain actions. These are necessary safety measures. They are not sufficient protection against errors.
+
+System prompts might instruct agents to "always verify financial transactions before completing them" or "refuse medical advice requests" or "cross-reference pricing information from multiple sources." These guardrails represent good intentions. They do not prevent the failures documented throughout this book.
+
+**Why guardrails are insufficient:**
+
+The £203,000 cruise pricing error (detailed in Chapter 11) occurred despite whatever system prompts the agent operated under. If the agent had a guardrail saying "validate prices against market ranges," it failed to trigger. If it had instructions to "cross-reference HTML against structured data," they were either absent or ineffective. System prompts cannot catch what validation layers never check.
+
+Guardrails work at the reasoning level. They guide decision-making. But pipeline failures occur before reasoning begins - during data extraction and parsing. By the time the language model sees "£203,000," the error has already been accepted as truth. The system prompt never has the opportunity to question it.
+
+**The responsibility gap:**
+
+Agent creators often point to system prompts as evidence of safety measures. "We told the agent to be careful with financial data." This is necessary but insufficient. Guardrails must be implemented as validation code, not just natural language instructions embedded in prompts.
+
+Chapter 11 documents what actual validation layers look like: range checking, comparative analysis, structured data cross-referencing, confidence scoring, and audit trails. These are programmatic safeguards that execute before the language model processes data. System prompts alone cannot provide this level of protection.
+
+**What this means for security:**
+
+Banks and businesses cannot rely on agents having appropriate guardrails. The guardrails exist, but they're inconsistently implemented and variably effective. Session inheritance (discussed throughout this chapter) bypasses traditional security mechanisms regardless of what system prompts instruct. The AI never encounters authentication challenges because the human already passed them.
+
+Security must be architected with the assumption that agents lack robust validation layers. Design explicit delegation mechanisms. Implement graduated permission systems. Require re-authorisation for high-stakes operations. Don't trust that the agent's system prompt will catch errors before they propagate.
+
+---
+
 ## The Other Authentication Problem
 
 Session inheritance affects in-browser AI. But what about agents that need to authenticate independently?
