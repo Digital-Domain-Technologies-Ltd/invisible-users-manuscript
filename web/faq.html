@@ -364,18 +364,18 @@
     <section class="faq-section" data-section-type="about-book">
       <h2>About the Book</h2>
 
-      <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">What is The Invisible Users about?</h3>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text"><strong>The Invisible Users: Designing the Web for AI Agents and Everyone Else</strong> examines how modern web design optimised for human users fails for AI agents, and how fixing this benefits everyone. The book provides practical guidance for making websites accessible to both humans and AI agents through semantic HTML, explicit state management, and structured data.</p>
+      <article class="faq-item">
+        <h3>What is The Invisible Users about?</h3>
+        <div>
+          <p><strong>The Invisible Users: Designing the Web for AI Agents and Everyone Else</strong> examines how modern web design optimised for human users fails for AI agents, and how fixing this benefits everyone. The book provides practical guidance for making websites accessible to both humans and AI agents through semantic HTML, explicit state management, and structured data.</p>
         </div>
       </article>
 
-      <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">Who should read this book?</h3>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">The book targets four primary audiences:</p>
-          <ul itemprop="text">
+      <article class="faq-item">
+        <h3>Who should read this book?</h3>
+        <div>
+          <p>The book targets four primary audiences:</p>
+          <ul>
             <li><strong>Web Professionals</strong> - developers, designers, accessibility specialists looking to future-proof their websites</li>
             <li><strong>Agent System Developers</strong> - engineers building AI agents that need to browse websites reliably</li>
             <li><strong>Business Leaders</strong> - CTOs and product owners making strategic decisions about agent-mediated commerce</li>
@@ -384,10 +384,10 @@
         </div>
       </article>
 
-      <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">What format is the book available in?</h3>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">The book is published in Kindle format (6"×9" paperback dimensions) with a planned publication in Q1 2026. All ten appendices are freely available online at <a href="https://allabout.network/invisible-users/web/appendix-index.html">https://allabout.network/invisible-users/web/appendix-index.html</a>.</p>
+      <article class="faq-item">
+        <h3>What format is the book available in?</h3>
+        <div>
+          <p>The book is published in Kindle format (6"×9" paperback dimensions) with a planned publication in Q1 2026. All ten appendices are freely available online at <a href="https://allabout.network/invisible-users/web/appendix-index.html">https://allabout.network/invisible-users/web/appendix-index.html</a>.</p>
         </div>
       </article>
 
@@ -396,11 +396,11 @@
     <section class="faq-section" data-section-type="technical">
       <h2>Technical Concepts</h2>
 
-      <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">What are AI agents in the context of this book?</h3>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">AI agents are autonomous software systems that browse websites on behalf of users. The book addresses a diverse ecosystem:</p>
-          <ul itemprop="text">
+      <article class="faq-item">
+        <h3>What are AI agents in the context of this book?</h3>
+        <div>
+          <p>AI agents are autonomous software systems that browse websites on behalf of users. The book addresses a diverse ecosystem:</p>
+          <ul>
             <li><strong>CLI agents</strong> - Command-line tools running locally (e.g., Claude Code, Cline)</li>
             <li><strong>Browser automation agents</strong> - Using tools like Playwright or Selenium</li>
             <li><strong>Server-based agents</strong> - Cloud-hosted agents accessing websites remotely</li>
@@ -410,38 +410,38 @@
         </div>
       </article>
 
-      <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">How is this different from accessibility?</h3>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Whilst there's significant overlap with accessibility best practices (semantic HTML, clear structure, explicit feedback), AI agent compatibility has distinct requirements:</p>
-          <ul itemprop="text">
+      <article class="faq-item">
+        <h3>How is this different from accessibility?</h3>
+        <div>
+          <p>Whilst there's significant overlap with accessibility best practices (semantic HTML, clear structure, explicit feedback), AI agent compatibility has distinct requirements:</p>
+          <ul>
             <li>Agents need explicit state attributes (data-state, data-validation-state)</li>
             <li>Structured data for machine reading (Schema.org JSON-LD)</li>
             <li>Clear feedback that persists in the DOM (not transient animations)</li>
             <li>Form field naming conventions (email, firstName, lastName vs custom names)</li>
           </ul>
-          <p itemprop="text">The book demonstrates how these patterns benefit both agents and humans, creating a universally accessible web.</p>
+          <p>The book demonstrates how these patterns benefit both agents and humans, creating a universally accessible web.</p>
         </div>
       </article>
 
-      <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">Are the patterns in this book standardised?</h3>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">The book carefully distinguishes between different maturity levels:</p>
-          <ul itemprop="text">
+      <article class="faq-item">
+        <h3>Are the patterns in this book standardised?</h3>
+        <div>
+          <p>The book carefully distinguishes between different maturity levels:</p>
+          <ul>
             <li><strong>Established Standards</strong> - Schema.org, semantic HTML, ARIA (use with confidence)</li>
             <li><strong>Emerging Conventions</strong> - llms.txt from <a href="https://llmstxt.org">llmstxt.org</a> (early adoption phase)</li>
             <li><strong>Proposed Patterns</strong> - ai-* meta tags, data-agent-visible (not yet standardised)</li>
           </ul>
-          <p itemprop="text">All proposed patterns are forward-compatible and won't break if agents don't recognise them.</p>
+          <p>All proposed patterns are forward-compatible and won't break if agents don't recognise them.</p>
         </div>
       </article>
 
-      <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">What is identity delegation?</h3>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Identity delegation addresses a critical problem in agent-mediated commerce: when AI agents make purchases, businesses lose customer identity and users lose control over authorisations.</p>
-          <p itemprop="text">The Universal Identity Delegation Infrastructure project provides portable OAuth 2.0 delegation tokens that work across platforms whilst preserving user control. Learn more at <a href="https://allabout.network/invisible-users/web/identity-layer.html">the identity delegation project page</a>.</p>
+      <article class="faq-item">
+        <h3>What is identity delegation?</h3>
+        <div>
+          <p>Identity delegation addresses a critical problem in agent-mediated commerce: when AI agents make purchases, businesses lose customer identity and users lose control over authorisations.</p>
+          <p>The Universal Identity Delegation Infrastructure project provides portable OAuth 2.0 delegation tokens that work across platforms whilst preserving user control. Learn more at <a href="https://allabout.network/invisible-users/web/identity-layer.html">the identity delegation project page</a>.</p>
         </div>
       </article>
 
@@ -450,11 +450,11 @@
     <section class="faq-section" data-section-type="implementation">
       <h2>Implementation and Resources</h2>
 
-      <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">Where can I find the appendices?</h3>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">All ten appendices are available online at <a href="https://allabout.network/invisible-users/web/appendix-index.html">https://allabout.network/invisible-users/web/appendix-index.html</a>. They include:</p>
-          <ul itemprop="text">
+      <article class="faq-item">
+        <h3>Where can I find the appendices?</h3>
+        <div>
+          <p>All ten appendices are available online at <a href="https://allabout.network/invisible-users/web/appendix-index.html">https://allabout.network/invisible-users/web/appendix-index.html</a>. They include:</p>
+          <ul>
             <li><strong>Appendix A</strong> - Implementation Cookbook (quick-reference recipes)</li>
             <li><strong>Appendix B</strong> - Battle-Tested Lessons (production learnings)</li>
             <li><strong>Appendix C</strong> - Web Audit Suite User Guide</li>
@@ -469,40 +469,40 @@
         </div>
       </article>
 
-      <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">How do I get started with implementation?</h3>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Start with <a href="https://allabout.network/invisible-users/web/appendix-f.html">Appendix F (Implementation Roadmap)</a> which provides priority-based guidance:</p>
-          <ul itemprop="text">
+      <article class="faq-item">
+        <h3>How do I get started with implementation?</h3>
+        <div>
+          <p>Start with <a href="https://allabout.network/invisible-users/web/appendix-f.html">Appendix F (Implementation Roadmap)</a> which provides priority-based guidance:</p>
+          <ul>
             <li><strong>Priority 1: Critical Quick Wins</strong> - Semantic HTML, form field naming, Schema.org structured data</li>
             <li><strong>Priority 2: Essential Improvements</strong> - Error handling, state attributes, llms.txt file</li>
             <li><strong>Priority 3: Core Infrastructure</strong> - Platform-wide patterns and consistency</li>
             <li><strong>Priority 4: Advanced Features</strong> - Comprehensive long-term enhancements</li>
           </ul>
-          <p itemprop="text"><a href="https://allabout.network/invisible-users/web/appendix-a.html">Appendix A (Implementation Cookbook)</a> provides code examples for common patterns.</p>
+          <p><a href="https://allabout.network/invisible-users/web/appendix-a.html">Appendix A (Implementation Cookbook)</a> provides code examples for common patterns.</p>
         </div>
       </article>
 
-      <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">What is the Web Audit Suite?</h3>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">The Web Audit Suite is a comprehensive Node.js tool that analyses websites for:</p>
-          <ul itemprop="text">
+      <article class="faq-item">
+        <h3>What is the Web Audit Suite?</h3>
+        <div>
+          <p>The Web Audit Suite is a comprehensive Node.js tool that analyses websites for:</p>
+          <ul>
             <li>AI agent compatibility (LLM suitability metrics)</li>
             <li>SEO performance</li>
             <li>Accessibility compliance (WCAG 2.1)</li>
             <li>Performance metrics</li>
             <li>Security headers</li>
           </ul>
-          <p itemprop="text">The tool implements the patterns described in the book and generates detailed reports. It's available as a separate purchase or professional audit service. See <a href="https://allabout.network/invisible-users/web/appendix-c.html">Appendix C</a> for complete documentation.</p>
+          <p>The tool implements the patterns described in the book and generates detailed reports. It's available as a separate purchase or professional audit service. See <a href="https://allabout.network/invisible-users/web/appendix-c.html">Appendix C</a> for complete documentation.</p>
         </div>
       </article>
 
-      <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <h3 itemprop="name">Where can I find code examples?</h3>
-        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Code examples are available in multiple locations:</p>
-          <ul itemprop="text">
+      <article class="faq-item">
+        <h3>Where can I find code examples?</h3>
+        <div>
+          <p>Code examples are available in multiple locations:</p>
+          <ul>
             <li><strong>Implementation Cookbook</strong> (<a href="https://allabout.network/invisible-users/web/appendix-a.html">Appendix A</a>) - Quick-reference code snippets</li>
             <li><strong>AI-Friendly HTML Guide</strong> (<a href="https://allabout.network/invisible-users/web/appendix-d.html">Appendix D</a>) - Comprehensive patterns with examples</li>
             <li><strong>GitHub Repository</strong> - <a href="https://github.com/Digital-Domain-Technologies-Ltd/invisible-users-manuscript">agent-friendly-starter-kit/</a> directory with good vs bad examples</li>

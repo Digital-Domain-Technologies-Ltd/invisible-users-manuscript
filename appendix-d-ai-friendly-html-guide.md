@@ -1146,6 +1146,66 @@ The most useful schema types for different businesses:
 }
 ```
 
+**FAQPage (Support Documentation and Q&A Content):**
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Web Design Questions",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is semantic HTML?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Semantic HTML uses elements that clearly describe their meaning to both browsers and developers. Elements like <main>, <nav>, <article>, and <section> convey structure and purpose, whilst <div> and <span> are generic containers with no inherent meaning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I implement form validation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use native HTML5 validation attributes (required, pattern, min, max) combined with clear error messages via aria-invalid and role=alert. Validate on blur, not just on submit, and show persistent error feedback that doesn't disappear."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What structured data should I add first?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with Schema.org structured data relevant to your content type: Product for e-commerce, LocalBusiness for shops, Article for blogs, and FAQPage for Q&A content. Use JSON-LD format in the page head for simplest implementation."
+      }
+    }
+  ]
+}
+```
+
+**Required Properties:**
+
+- `mainEntity`: Array of Question objects
+- Each Question needs `name` (the question text) and `acceptedAnswer`
+- Each Answer needs `@type: "Answer"` and `text` (the answer content)
+
+**Implementation Approach:**
+
+Use JSON-LD only, not combined formats. Modern best practices (2024-2025) recommend against dual-format markup:
+
+- **Avoid:** JSON-LD in head + microdata attributes in body
+- **Use:** JSON-LD only in head
+
+**Why JSON-LD Only:**
+
+1. **No attribute merging** - Google and AI agents don't merge properties across formats
+2. **Maintenance burden** - Every FAQ update requires changing both JSON-LD and HTML attributes
+3. **No additional benefit** - Agents that parse JSON-LD ignore microdata; combining formats doubles work without improving results
+4. **Official guidance** - Google Search Central recommends JSON-LD as primary format
+
+**Real-world example:** This book's FAQ page demonstrates this pattern. View source at: <https://allabout.network/invisible-users/web/faq.html>
+
+**Research insight:** Pages with FAQPage schema achieve 41% citation rate in LLM answers versus 15% without structured data (2.7x improvement, July 2025 study).
+
 Add to your page's `<head>` section wrapped in `<script type="application/ld+json">`.
 
 ### Agent-Readable Purchase Instructions
