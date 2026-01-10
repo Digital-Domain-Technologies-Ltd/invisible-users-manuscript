@@ -232,11 +232,11 @@ Microsoft's reported improvements (though unvalidated by independent research) s
 
 ## The New Industry Appendix (Online)
 
-All book appendices are now published separately online at <https://about.network/invisible-users/web/> to ensure they remain current.
+All book appendices are now published separately online at <https://allabout.network/invisible-users/web/> to ensure they remain current.
 
 Appendix J ("Industry Developments") tracks major implementations like Claude for Chrome and Copilot Checkout. This appendix documents real-world validation (or challenges) to the patterns discussed throughout the book. Copilot Checkout and Claude for Chrome are the first two entries. More will follow as the ecosystem develops.
 
-**For readers:** Check Appendix J at <https://about.network/invisible-users/web/appendix-j.html> to see how the landscape is evolving. Cross-references connect developments to relevant chapters, helping you understand implications for your specific situation.
+**For readers:** Check Appendix J at <https://allabout.network/invisible-users/web/appendix-j.html> to see how the landscape is evolving. Cross-references connect developments to relevant chapters, helping you understand implications for your specific situation.
 
 ## Practical Action Steps
 
@@ -318,15 +318,15 @@ Chapter 6 covers these patterns in detail. They're no longer theoretical recomme
 
 **If you've read the book:**
 
-- Check Appendix J (online at <https://about.network/invisible-users/web/appendix-j.html>) for complete analysis of both launches
-- Review Appendix F - Implementation Roadmap (online at <https://about.network/invisible-users/web/appendix-f.html>) with new urgency
+- Check Appendix J (online at <https://allabout.network/invisible-users/web/appendix-j.html>) for complete analysis of both launches
+- Review Appendix F - Implementation Roadmap (online at <https://allabout.network/invisible-users/web/appendix-f.html>) with new urgency
 - Consider whether your Agent Exposure Assessment needs updating
 - Test your site with Claude for Chrome immediately
 
 **If you're implementing now:**
 
-- Use Appendix A - Implementation Cookbook (online at <https://about.network/invisible-users/web/appendix-a.html>) for quick patterns
-- Reference Appendix D - AI-Friendly HTML Guide (online at <https://about.network/invisible-users/web/appendix-d.html>) for comprehensive patterns
+- Use Appendix A - Implementation Cookbook (online at <https://allabout.network/invisible-users/web/appendix-a.html>) for quick patterns
+- Reference Appendix D - AI-Friendly HTML Guide (online at <https://allabout.network/invisible-users/web/appendix-d.html>) for comprehensive patterns
 - See Chapter 10 for working code examples
 - Read Chapter 11 if you're building agent systems
 
@@ -401,7 +401,7 @@ Get in touch: tom.cranstoun@gmail.com | <https://allabout.network>
 ### The Invisible Users: Designing the Web for AI Agents and Everyone Else
 
 - 11 chapters covering technical, business, ethical, and human implications
-- ~57,000 words core manuscript + 10 appendices published online at <https://about.network/invisible-users/web/>
+- ~57,000 words core manuscript + 10 appendices published online at <https://allabout.network/invisible-users/web/>
 - Working code examples you can implement immediately
 - All 10 appendices published separately online for easy reference and updates
 - Available now

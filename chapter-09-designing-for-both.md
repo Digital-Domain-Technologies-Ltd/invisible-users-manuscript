@@ -64,7 +64,7 @@ More pragmatically: the patterns that work for agents also work for everyone usi
 
 **Solving for agents means solving for the edges. And the edges are where you lose customers.**
 
-**Production validation:** In January 2025, Microsoft launched Copilot Checkout with partner retailers including Urban Outfitters, Anthropologie, and Etsy. Microsoft reports improved conversion rates for retailers implementing these patterns, though the figures have not been independently validated. Partner retailers provide structured data (Schema.org), explicit state indicators, and clear transaction feedback - precisely the convergence patterns we're about to explore. See online Appendix J (<https://about.network/invisible-users/web/appendix-j.html>) for complete analysis.
+**Production validation:** In January 2025, Microsoft launched Copilot Checkout with partner retailers including Urban Outfitters, Anthropologie, and Etsy. Microsoft reports improved conversion rates for retailers implementing these patterns, though the figures have not been independently validated. Partner retailers provide structured data (Schema.org), explicit state indicators, and clear transaction feedback - precisely the convergence patterns we're about to explore. See online Appendix J (<https://allabout.network/invisible-users/web/appendix-j.html>) for complete analysis.
 
 ## Clear State, Always Visible
 

@@ -2,7 +2,7 @@
 
 ## New Online Appendix Tracking Industry Developments
 
-All appendices are now published separately online at <https://about.network/invisible-users/web/> to ensure they remain current as this fast-moving field evolves.
+All appendices are now published separately online at <https://allabout.network/invisible-users/web/> to ensure they remain current as this fast-moving field evolves.
 
 Appendix J tracks major developments in AI agent-mediated commerce and browser automation. This appendix documents real-world implementations that validate (or challenge) the patterns discussed throughout the book.
 
@@ -167,8 +167,8 @@ The framework is established. Each new development gets analysed through the sam
 
 The updates are available now in the manuscript. If you've already read the book:
 
-- Check **Appendix J** (online at <https://about.network/invisible-users/web/appendix-j.html>) for complete analysis of both launches
-- Review **Appendix F (Implementation Roadmap)** (online at <https://about.network/invisible-users/web/appendix-f.html>) with new urgency - timeline acceleration makes Priority 1-2 tasks urgent
+- Check **Appendix J** (online at <https://allabout.network/invisible-users/web/appendix-j.html>) for complete analysis of both launches
+- Review **Appendix F (Implementation Roadmap)** (online at <https://allabout.network/invisible-users/web/appendix-f.html>) with new urgency - timeline acceleration makes Priority 1-2 tasks urgent
 - Consider whether your Agent Exposure Assessment needs updating
 - Test your site with Claude for Chrome immediately
 
@@ -307,7 +307,7 @@ Amazon and Microsoft demonstrate two approaches: Amazon built their own agent pl
 **Microsoft Copilot Checkout expansion:**
 
 - [Microsoft News announcement](https://news.microsoft.com/source/2026/01/08/microsoft-propels-retail-forward-with-agentic-ai-capabilities-that-power-intelligent-automation-for-every-retail-function/)
-- [Microsoft Ads Blog](https://about.ads.microsoft.com/en/blog/post/january-2026/conversations-that-convert-copilot-checkout-and-brand-agents)
+- [Microsoft Ads Blog](https://allabout.ads.microsoft.com/en/blog/post/january-2026/conversations-that-convert-copilot-checkout-and-brand-agents)
 - [Engadget coverage](https://www.engadget.com/ai/microsoft-is-now-integrating-shopping-directly-into-copilot-181022989.html)
 
 **Note on unverified statistics:** Claims about "2x purchase likelihood" and "7x AI-driven retail traffic" come from industry newsletters without independent validation. Treat as indicative trends rather than verified metrics.
@@ -333,7 +333,7 @@ Are you ready?
 - 11 chapters covering technical, business, ethical, and human implications
 - ~57,000 words core manuscript + 10 appendices published online
 - Working code examples you can implement immediately
-- All 10 appendices published online at <https://about.network/invisible-users/web/> including industry developments tracking
+- All 10 appendices published online at <https://allabout.network/invisible-users/web/> including industry developments tracking
 - Available now
 
 **Contact:** <tom.cranstoun@gmail.com>

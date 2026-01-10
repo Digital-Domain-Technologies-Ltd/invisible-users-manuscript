@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Tom Cranstoun" />
+  <meta name="description" content="Practical guidance from The Invisible Users book on designing AI agent-friendly websites" />
   <title>Appendix D: Appendix D: AI-Friendly HTML Guide</title>
   <style>
     html {
@@ -233,6 +234,41 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+
+  <!-- AI-specific meta tags (proposed pattern from Chapter 10) -->
+  <meta name="ai-preferred-access" content="html">
+  <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
+  <meta name="ai-freshness" content="monthly">
+  <meta name="ai-structured-data" content="json-ld">
+  <meta name="ai-attribution" content="required">
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "name": "Appendix D: Appendix D: AI-Friendly HTML Guide",
+    "description": "Practical guidance from The Invisible Users book on designing AI agent-friendly websites",
+    "author": {
+      "@type": "Person",
+      "name": "Tom Cranstoun",
+      "email": "tom.cranstoun@gmail.com",
+      "url": "https://allabout.network"
+    },
+    "inLanguage": "en-GB",
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10",
+    "isPartOf": {
+      "@type": "Book",
+      "name": "The Invisible Users",
+      "author": {
+        "@type": "Person",
+        "name": "Tom Cranstoun"
+      },
+      "url": "https://allabout.network"
+    },
+    "position": "4"
+  }
+  </script>
 </head>
 <body>
 <header id="title-block-header">
@@ -241,7 +277,7 @@
 <p class="author">Tom Cranstoun</p>
 <p class="date">January 2026</p>
 </header>
-<nav id="TOC" role="doc-toc">
+<nav id="TOC" role="navigation" aria-label="Table of Contents">
 <ul>
 <li><a href="#appendix-d-ai-friendly-html-guide"
 id="toc-appendix-d-ai-friendly-html-guide">Appendix D: AI-Friendly HTML
@@ -1271,7 +1307,7 @@ times, and destination context.</p>
 <p>Stop splitting content unnecessarily. Show everything with good
 organisation.</p>
 <p><strong>Bad — Forced pagination:</strong></p>
-<pre class="text"><code>Day 1: Bangkok details
+<pre class="text" data-language="text"><code>Day 1: Bangkok details
 [Page 1 of 14] [Next →]</code></pre>
 <p><strong>Good — Complete with navigation:</strong></p>
 <div class="sourceCode" id="cb25"><pre
@@ -1500,7 +1536,7 @@ guidelines and attribution requirements.</p>
 <li>Contact information — How to reach you regarding AI access</li>
 </ul>
 <p><strong>Comprehensive template:</strong></p>
-<pre class="text"><code># TechStore
+<pre class="text" data-language="text"><code># TechStore
 
 Electronics retailer serving the UK market with a focus on consumer tech and smart home products.
 
@@ -1700,7 +1736,7 @@ and llms.txt</h3>
 </tbody>
 </table>
 <p><strong>robots.txt — Access Control:</strong></p>
-<pre class="text"><code># robots.txt
+<pre class="text" data-language="text"><code># robots.txt
 User-agent: *
 Disallow: /admin/
 Disallow: /account/
@@ -1740,12 +1776,12 @@ class="sourceCode xml"><code class="sourceCode xml"><span id="cb36-1"><a href="#
 content types or interaction. AI agents can use it to discover pages,
 but need llms.txt for guidance.</p>
 <p><strong>How They Work Together:</strong></p>
-<pre class="text"><code>1. Agent checks robots.txt → &quot;Am I allowed to access this site?&quot;
+<pre class="text" data-language="text"><code>1. Agent checks robots.txt → &quot;Am I allowed to access this site?&quot;
 2. Agent fetches llms.txt → &quot;How should I interact? What are the rules?&quot;
 3. Agent consults sitemap.xml → &quot;What pages exist?&quot;
 4. Agent accesses pages → Respects rate limits from llms.txt</code></pre>
 <p><strong>Reference llms.txt from robots.txt:</strong></p>
-<pre class="text"><code># robots.txt
+<pre class="text" data-language="text"><code># robots.txt
 User-agent: *
 Disallow: /admin/
 
@@ -1757,7 +1793,7 @@ Sitemap: https://example.com/sitemap.xml</code></pre>
 <p>Use all three together for maximum clarity:</p>
 <p><strong>Layer 1 — llms.txt (site-wide defaults)</strong> — Emerging
 Convention:</p>
-<pre class="text"><code># /llms.txt
+<pre class="text" data-language="text"><code># /llms.txt
 &gt; Example Shop - Electronics retailer
 preferred-access: api
 api-endpoint: https://api.example.com/v1
@@ -1959,7 +1995,7 @@ class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb45
 <li>Relationship data (categories, related items)</li>
 </ul>
 <p>Document these endpoints in your llms.txt file:</p>
-<pre class="text"><code>## AI API Access
+<pre class="text" data-language="text"><code>## AI API Access
 - [Product Data](https://api.example.com/ai/products/): AI-optimised product information
 - [Search](https://api.example.com/ai/search/): Structured search results
 - Rate limit: 60 requests per hour
@@ -2114,7 +2150,7 @@ class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb49
 <span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
 <p><strong>Consent via HTTP Header:</strong></p>
 <p>AI agents can signal consent preferences:</p>
-<pre class="http"><code>GET /products HTTP/1.1
+<pre class="http" data-language="http"><code>GET /products HTTP/1.1
 Host: example.com
 User-Agent: ClaudeBot/1.0
 Sec-GPC: 1</code></pre>
@@ -2203,7 +2239,7 @@ class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb53
 <span id="cb53-20"><a href="#cb53-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-21"><a href="#cb53-21" aria-hidden="true" tabindex="-1"></a>app<span class="op">.</span><span class="fu">use</span>(<span class="st">&#39;/products&#39;</span><span class="op">,</span> agentLimiter<span class="op">,</span> humanLimiter)<span class="op">;</span></span></code></pre></div>
 <p><strong>Document your bot policy in llms.txt:</strong></p>
-<pre class="text"><code>## Bot Protection
+<pre class="text" data-language="text"><code>## Bot Protection
 
 We use rate limiting rather than captcha for verified AI agents.
 - Verified agents: 100 requests/hour
@@ -2214,7 +2250,7 @@ We use rate limiting rather than captcha for verified AI agents.
 <p>Single-page applications create ambiguity. Traditional patterns
 provide clarity.</p>
 <p><strong>Form submission flow:</strong></p>
-<pre class="text"><code>1. User submits form (POST /checkout)
+<pre class="text" data-language="text"><code>1. User submits form (POST /checkout)
 2. Server processes request
 3. Server responds with 303 See Other, Location: /checkout/confirmation
 4. Browser follows redirect (GET /checkout/confirmation)
@@ -2246,7 +2282,7 @@ class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb56
 <p>When rate limiting, tell agents exactly what happened and when to
 retry:</p>
 <p><strong>HTTP Response:</strong></p>
-<pre class="http"><code>HTTP/1.1 429 Too Many Requests
+<pre class="http" data-language="http"><code>HTTP/1.1 429 Too Many Requests
 Retry-After: 60
 X-RateLimit-Limit: 100
 X-RateLimit-Remaining: 0
@@ -2292,7 +2328,7 @@ site navigation guidance when a page doesn’t exist.</p>
 <p><strong>Nginx Configuration for AI Fallback:</strong></p>
 <p>Configure your server to provide llms.txt as a fallback with
 appropriate headers:</p>
-<pre class="nginx"><code># Nginx configuration for AI error handling
+<pre class="nginx" data-language="nginx"><code># Nginx configuration for AI error handling
 location @llms_fallback {
     try_files /llms.txt =404;
     add_header Content-Type text/markdown;
@@ -3004,13 +3040,13 @@ output.</p>
 <p>Use folder names that encode meaning. AI can’t interpret conventions
 the way humans do.</p>
 <p><strong>Bad — Requires human interpretation:</strong></p>
-<pre class="text"><code>project/
+<pre class="text" data-language="text"><code>project/
 |-- src/
     |-- components/
     |-- utils/
     +-- lib/</code></pre>
 <p><strong>Good — Self-documenting:</strong></p>
-<pre class="text"><code>project/
+<pre class="text" data-language="text"><code>project/
 |-- user-management/
 |   |-- authentication/
 |   |-- profile-updates/
@@ -3023,7 +3059,7 @@ the way humans do.</p>
 <h3 id="modification-boundaries">Modification Boundaries</h3>
 <p>In codebases spanning multiple services, AI needs explicit guidance
 about what it can safely change:</p>
-<pre class="text"><code>project/
+<pre class="text" data-language="text"><code>project/
 |-- core/                     # AI: Never modify
 |   |-- framework/           # Protected framework files
 |   +-- vendor/              # Third-party dependencies
@@ -3048,7 +3084,7 @@ works.</p>
 documentation optimised for AI consumption. This is not project
 requirements or AI personas — it’s architectural knowledge that helps AI
 assistants understand your codebase deeply:</p>
-<pre class="text"><code>docs/
+<pre class="text" data-language="text"><code>docs/
 |-- for-humans/
 |   |-- getting-started.md
 |   +-- user-guides/
@@ -3159,7 +3195,7 @@ class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb73
 <span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a><span class="co"> * Changes to this file will be lost on next build.</span></span>
 <span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a><span class="co"> */</span></span></code></pre></div>
 <p>Or use file naming conventions:</p>
-<pre class="text"><code>build/
+<pre class="text" data-language="text"><code>build/
 |-- UserCard.generated.js
 |-- routes.generated.js
 +-- api-client.generated.js</code></pre>

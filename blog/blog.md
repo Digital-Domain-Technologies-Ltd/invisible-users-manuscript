@@ -309,7 +309,7 @@ Agencies and investors looking for the next growth category. You get the **Metho
 - Common pitfalls
 - Standalone prescriptive guide (Appendix D: AI-Friendly HTML Guide, ~9,050 words) with 12-part builder's reference
 - Quick-reference HTML patterns for AI assistants (Appendix E: AI Patterns Quick Reference, ~1,300 words)
-- All 10 appendices published separately online at <https://about.network/invisible-users/web/>
+- All 10 appendices published separately online at <https://allabout.network/invisible-users/web/>
 - Complete AI-native website blueprint (AI-Native.blog, ~5,000 words) covering 7-layer architecture
 
 ## The Promise

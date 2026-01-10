@@ -690,6 +690,211 @@ async function handleLowConfidenceData(data, confidence) {
 
 This pattern acknowledges that humans have domain knowledge agents lack. A travel agent might know that £203,000 for a luxury around-the-world cruise is plausible, even though it's 100x higher than typical river cruises. The agent shouldn't refuse - it should seek confirmation.
 
+### Guardrail 6: Transparency and Disclosure
+
+Chapter 6 explored the System Prompt Illusion - the hidden instructions that guide agent behaviour but remain invisible to users and businesses. System prompts exist. They're necessary. But they're not published. This opacity creates a trust problem.
+
+Guardrails 1-5 showed what validation layers agents need internally. Range checking, audit trails, comparative analysis, graceful degradation, human-in-the-loop options - these are all internal mechanisms. They operate behind the scenes. Users never see them. Businesses cannot verify they exist.
+
+Now I need to address what should be visible externally.
+
+If agents operate with hidden instructions, users cannot evaluate reliability before trusting critical tasks. Businesses cannot debug failures when extractions go wrong. The ecosystem cannot improve collectively when every agent is a black box. When users encounter failures from poorly implemented agents, they lose trust in all agents. The damage extends beyond that single tool.
+
+**Guardrail 6 addresses this:** Agent creators should publish their system prompts and technical guardrails for public inspection.
+
+#### What to Publish
+
+A transparency manifest should include:
+
+**System prompt:** The full instructions given to the model. Not a vague summary ("we told it to be careful"), but the actual prompt text showing core instructions and constraints.
+
+**Technical guardrails:** The validation layers described in Guardrails 1-5. Range checking methodologies, confidence scoring rules, multi-source verification requirements, comparative analysis thresholds. The programmatic safeguards that execute before the reasoning engine sees data.
+
+**Confidence scoring methodology:** How the agent quantifies uncertainty. What factors reduce confidence. What thresholds trigger warnings or refusals. Make the scoring logic transparent so users understand what "80% confidence" actually means.
+
+**Known limitations:** Clear examples of what can fail. "Cannot validate prices for niche luxury products without market comparables" is more honest and useful than silence about edge cases.
+
+**Documented failure modes:** Real examples of what goes wrong in practice. The £203,000 pricing error should be documented as a known failure pattern that prompted validation improvements.
+
+#### Why This Matters
+
+**User awareness:** Users can evaluate agent reliability before trusting critical tasks. Like ingredient lists on food packaging - transparency enables informed choice. If an agent publishes comprehensive validation layers, users know they can trust it for financial decisions. If another agent publishes minimal safeguards, users know to verify outputs manually.
+
+**Debugging capability:** When agents fail, developers need to understand why. Published system prompts and guardrails extend the internal audit trails from Guardrail 2 to external inspection. Internal trails help you debug. External disclosure helps others debug and learn from your mistakes.
+
+**Trust signalling:** Transparency signals confidence in implementation quality. Agents that publish comprehensive validation methodologies demonstrate they've thought about failure modes and built defences. Agents that hide their methodology look like they have something to conceal.
+
+**Ecosystem health:** Published approaches become de facto standards. When enough agents publish similar validation patterns, those patterns become expectations. Like robots.txt becoming standard through adoption, published transparency manifests could establish baseline quality expectations.
+
+**Standards emergence:** The field needs quality standards. We have no certification programmes, no independent testing, no way to differentiate reliable agents from negligent ones. Publishing methodology is a first step towards collective standards.
+
+#### The Uncomfortable Truth
+
+I won't pretend this is cost-free.
+
+**Gaming concern:** Users might craft requests to bypass known guardrails. If agents publish "I refuse medical advice requests," users will try creative phrasing to circumvent detection. This is the jailbreaking problem - well-documented, actively researched, genuinely concerning.
+
+**Competitive concern:** Published validation methodologies reveal technical advantages competitors can copy. If you've built sophisticated range checking for 50 product categories, publishing those ranges gives competitors a head start. You've invested in market knowledge research; they get it free.
+
+**First-mover disadvantage:** Early transparency adopters expose capabilities whilst competitors stay hidden. Users might prefer opaque alternatives that seem more capable because limitations aren't disclosed. "This agent admits it can't validate luxury yacht pricing" sounds worse than silence about the same limitation.
+
+But opacity has costs too, and they compound over time.
+
+**Users cannot differentiate quality:** When all agents are black boxes, users cannot distinguish robust implementations from negligent ones. Every agent looks equally trustworthy until it fails. The £203,000 error looked like any other output - reported with full confidence, no warnings, no caveats. A user had to spot the error. That's not sustainable.
+
+**Ecosystem trust degrades:** When failures are unexplained, trust degrades for all agents. Users who encounter the £203,000 error don't just lose confidence in that specific agent. They question whether any agent can be trusted for pricing research. The damage extends beyond that single tool.
+
+**Proprietary advantage is temporary:** Competitors reverse-engineer validation rules through testing anyway. Black box testing reveals behaviour patterns. Publishing proactively just accelerates the inevitable whilst building trust advantage.
+
+**Trust advantage compounds:** First movers build reputation. Early transparency adopters establish themselves as quality leaders. Late adopters look defensive - forced to reveal methodology after failures rather than volunteering it confidently.
+
+The question isn't whether to reveal guardrails, but whether to reveal them proactively (building trust) or reactively (after failures force explanation).
+
+#### Implementation Pattern
+
+Here's what a transparency manifest could look like:
+
+```javascript
+// Public transparency manifest
+// Published at: https://agent.example/transparency.json
+// Machine-readable format enables automated trust verification
+
+{
+  "agent": {
+    "name": "TravelAssistant",
+    "version": "2.1.0",
+    "updated": "2025-01-15",
+    "provider": "ExampleCorp"
+  },
+
+  "systemPrompt": {
+    "summary": "Extract travel information, validate pricing against market ranges, compare options across operators, refuse bookings without verification",
+    "fullPrompt": "You are a travel research assistant. Your role is to help users research travel options by extracting information from operator websites, validating pricing data, and comparing alternatives. You must never make bookings without explicit user confirmation. You must flag unusual pricing for verification. You must refuse medical advice requests.",
+    "coreInstructions": [
+      "Always cross-reference prices from multiple sources (HTML, JSON-LD, microdata)",
+      "Flag prices exceeding market range maximums for human verification",
+      "Never make bookings or purchases without explicit user confirmation",
+      "Refuse medical advice requests - always direct to qualified professionals",
+      "Report confidence scores explicitly for all extractions",
+      "When data conflicts, trust structured data (JSON-LD) over HTML"
+    ]
+  },
+
+  "guardrails": {
+    "priceValidation": {
+      "enabled": true,
+      "methodology": "Range-based validation against maintained market averages",
+      "categories": {
+        "riverCruiseEurope": { "min": 800, "max": 15000, "currency": "GBP" },
+        "hotelLondon": { "min": 80, "max": 1000, "currency": "GBP" },
+        "flightEurope": { "min": 40, "max": 1200, "currency": "GBP" }
+      },
+      "outlierThreshold": "10x above category maximum triggers MAGNITUDE_ERROR_LIKELY flag",
+      "confidencePenalty": "40% confidence reduction for prices outside range"
+    },
+
+    "multiSourceVerification": {
+      "enabled": true,
+      "minimumSources": 2,
+      "methodology": "Compare HTML extraction, JSON-LD structured data, microdata, API when available",
+      "confidenceScoring": {
+        "noDataFound": 0,
+        "singleSourceOnly": 60,
+        "twoSourcesAgree": 95,
+        "sourcesConflict": 30
+      }
+    },
+
+    "structuredDataCrossReference": {
+      "enabled": true,
+      "precedence": "Structured data (JSON-LD) takes precedence over HTML when conflicts detected",
+      "confidencePenalty": "20% reduction when no structured data available for verification"
+    },
+
+    "comparativeAnalysis": {
+      "enabled": true,
+      "methodology": "Compare extracted data against competitor averages from same search",
+      "outlierDetection": "Flag values >10x from competitor average",
+      "minimumCompleteness": "50% of sources must return data, else trigger manual verification"
+    },
+
+    "actionThresholds": {
+      "readInformation": 50,
+      "makeRecommendation": 80,
+      "executePurchase": 95,
+      "medicalAdvice": "REFUSE_ALWAYS"
+    }
+  },
+
+  "knownLimitations": [
+    "Cannot validate prices for niche luxury products without market comparables",
+    "Date format ambiguity (US MM/DD/YYYY vs UK DD/MM/YYYY) may cause errors without explicit ISO 8601",
+    "Incomplete data (<50% of expected sources) triggers manual verification requirement",
+    "Cannot detect when websites show different prices to agents vs humans (A/B testing)",
+    "Currency conversion relies on explicit markers - unmarked amounts may be misinterpreted"
+  ],
+
+  "documentedFailureModes": [
+    "Price extraction errors when HTML structure conflicts with structured data (see case study: £203,000 cruise pricing error)",
+    "Availability misinterpretation when temporal qualifiers are ambiguous ('expected March' vs 'in stock')",
+    "Quantity/unit confusion when HTML shows pack pricing without clear per-item breakdown"
+  ],
+
+  "contactForErrors": "errors@agent.example",
+  "lastSecurityAudit": "2025-01-10",
+  "changeLog": "https://agent.example/transparency/changelog",
+  "documentationURL": "https://agent.example/docs/how-we-validate"
+}
+```
+
+This manifest provides complete transparency about how the agent operates. Users see the full system prompt - not a marketing summary, but the actual instructions constraining behaviour. Developers see validation methodologies with specific thresholds and scoring rules. Everyone sees known limitations and documented failures.
+
+**Where to publish:** A standard location like `https://agent.example/transparency.json` (analogous to `robots.txt` for crawlers). Machine-readable JSON enables automated verification tools. Human-readable documentation alongside for accessibility. Version numbers and dates track changes over time. Change logs show methodology evolution.
+
+**How this extends Guardrail 2:** Guardrail 2 (Audit Trails) handles internal logging for debugging after failures. Guardrail 6 handles external disclosure for evaluation before trust. Together: complete accountability. Internal trails let you debug. External disclosure lets users evaluate before trusting.
+
+**Real-world precedents:** This pattern isn't unprecedented. Websites publish `robots.txt` declaring crawler policies. GDPR requires companies to disclose data handling practices. Open-source software publishes code for inspection. The pattern is established: publish rules that govern automated systems.
+
+**Emerging practice status:** No agent currently publishes complete transparency manifests like this example. This is a proposed standard, not established convention. Early adopters will establish what ecosystem expectations become. Forward-compatible: publishing harms nothing if the ecosystem doesn't adopt the pattern. The information helps regardless.
+
+#### Addressing Gaming Concerns Directly
+
+The obvious objection: won't users craft prompts to bypass published guardrails? Won't websites optimise to fool agents with known validation rules?
+
+These are legitimate concerns. Let me address them directly.
+
+**Why user jailbreaking is manageable:**
+
+Users already try to bypass guardrails. Jailbreaking is a well-documented phenomenon. Publication doesn't enable fundamentally new attacks. Users who want to bypass can test iteratively anyway through black box exploration. They try variations until something works.
+
+The difference: transparent agents can explain refusals. "I cannot provide medical advice because my system prompt explicitly prohibits it" is more defensible than a mysterious refusal. Users understand constraints. Publishing validation rules doesn't make agents more vulnerable. It makes refusals more defensible.
+
+Guardrails can evolve. Published methodology allows public discussion of improvements. Security researchers can identify weaknesses and propose better patterns. The ecosystem improves collectively.
+
+**Why website gaming is less problematic:**
+
+Websites that fool agents hurt themselves. Failed transactions mean lost sales. Poor user experience damages reputation. Gaming published validation rules requires more effort than implementing good patterns honestly. If agents flag prices exceeding £15,000 for cruises, gaming that rule means hiding actual luxury pricing - which makes the site less useful for legitimate luxury customers.
+
+Validation evolves. Agents update rules when gaming is detected. Gaming becomes whack-a-mole - not worth playing. The £203,000 pricing error happened because the agent lacked validation, not because the website was gaming known rules. Most failures are website design problems (Chapter 2) or agent implementation problems (this chapter), not deliberate gaming attempts.
+
+**Frame the bigger risk:**
+
+Gaming concerns are real but manageable. Trust collapse is fatal. When users cannot differentiate quality agents from negligent ones, ecosystem trust degrades. Every agent operates in darkness. Failures are unexplained. Improvements are invisible. Users abandon the category entirely.
+
+That's the risk we should fear. Not that some users will try to bypass known guardrails (they already do), but that opacity prevents the ecosystem from establishing quality standards.
+
+#### Closing
+
+This guardrail is about ecosystem health, not just individual agent quality.
+
+Transparency doesn't solve all problems. You still need Guardrails 1-5 - validation layers, confidence scoring, audit trails, graceful degradation, human-in-the-loop options. Publishing methodology without implementing robust validation is theatre. But combined with robust validation, transparency creates accountable, improvable, trustworthy systems.
+
+Publish what you've built. Let users evaluate quality before trusting critical tasks. Let developers debug failures using your methodology. Let the ecosystem improve collectively by learning from documented limitations and failure modes.
+
+Chapter 10 showed what websites should publish: structured data, explicit state, semantic HTML, clear feedback. Guardrail 6 shows what agents should publish: system prompts, validation rules, confidence methodology, known limitations.
+
+Both sides making their logic explicit. Both sides enabling inspection. That's how reliable systems get built - through transparency, accountability, and collective improvement.
+
 ## The Missing Identity Layer
 
 Here's what agent creators don't talk about: every major platform is building closed identity systems that lock users into their ecosystem. They're racing to establish first-mover advantages before standards emerge.

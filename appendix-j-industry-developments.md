@@ -584,7 +584,7 @@ Copilot Checkout demonstrates validation patterns in production - study their er
 **January 2026 expansion:**
 
 - [Microsoft News: Microsoft propels retail forward with agentic AI capabilities](https://news.microsoft.com/source/2026/01/08/microsoft-propels-retail-forward-with-agentic-ai-capabilities-that-power-intelligent-automation-for-every-retail-function/)
-- [Microsoft Ads Blog: Conversations that Convert - Copilot Checkout and Brand Agents](https://about.ads.microsoft.com/en/blog/post/january-2026/conversations-that-convert-copilot-checkout-and-brand-agents)
+- [Microsoft Ads Blog: Conversations that Convert - Copilot Checkout and Brand Agents](https://allabout.ads.microsoft.com/en/blog/post/january-2026/conversations-that-convert-copilot-checkout-and-brand-agents)
 - [Engadget: Microsoft is now integrating shopping directly into Copilot](https://www.engadget.com/ai/microsoft-is-now-integrating-shopping-directly-into-copilot-181022989.html)
 
 **Note on unverified statistics:** Claims about "2x purchase likelihood" and "7x AI-driven retail traffic" from industry newsletters lack official Microsoft validation.

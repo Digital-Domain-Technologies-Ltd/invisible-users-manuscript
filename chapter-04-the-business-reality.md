@@ -149,7 +149,7 @@ This validates the transaction-based benefit thesis discussed above: when agents
 
 **Strategic implication:** The competitive dynamics discussed in "Platform Power Shifts" are no longer speculative. Microsoft now controls distribution for agent-mediated commerce. Retailers who haven't optimised for agent compatibility are excluded from these high-conversion transactions.
 
-See online Appendix J (<https://about.network/invisible-users/web/appendix-j.html>) for complete analysis of this development and its implications for the patterns discussed throughout this book.
+See online Appendix J (<https://allabout.network/invisible-users/web/appendix-j.html>) for complete analysis of this development and its implications for the patterns discussed throughout this book.
 
 ---
 
@@ -679,7 +679,7 @@ The strategic challenge is to identify which parts of your business benefit from
 
 Before deciding on a response strategy, assess your specific exposure to agent-mediated commerce. This framework helps you understand your vulnerability and prioritise actions.
 
-**Timeline acceleration note (January 2026):** This framework was originally developed with a "two years" assumption before significant agent traffic. Major platform launches in January 2026 (Amazon Alexa.com on 5 Jan, Microsoft Copilot Checkout expansion on 8 Jan) compress this timeline to approximately 12 months for reaching 10-20% agent-mediated shopping. The assessment framework remains valid, but urgency increases significantly for high-exposure businesses. See online Appendix J (<https://about.network/invisible-users/web/appendix-j.html>) for details on these developments.
+**Timeline acceleration note (January 2026):** This framework was originally developed with a "two years" assumption before significant agent traffic. Major platform launches in January 2026 (Amazon Alexa.com on 5 Jan, Microsoft Copilot Checkout expansion on 8 Jan) compress this timeline to approximately 12 months for reaching 10-20% agent-mediated shopping. The assessment framework remains valid, but urgency increases significantly for high-exposure businesses. See online Appendix J (<https://allabout.network/invisible-users/web/appendix-j.html>) for details on these developments.
 
 ### Assessment Framework
 
@@ -917,7 +917,7 @@ Before investing in AI agent optimization, assess the specific value dimensions 
 
 **For E-commerce:**
 
-- What percentage of your traffic could be agent-mediated within 2 years? *(Note: January 2026 platform launches suggest 12 months may be more realistic - see online Appendix J at <https://about.network/invisible-users/web/appendix-j.html>)*
+- What percentage of your traffic could be agent-mediated within 2 years? *(Note: January 2026 platform launches suggest 12 months may be more realistic - see online Appendix J at <https://allabout.network/invisible-users/web/appendix-j.html>)*
 - How many cart abandonments are due to UI friction?
 - What's the cost of manual intervention for failed transactions?
 - How important is accessibility in your market?

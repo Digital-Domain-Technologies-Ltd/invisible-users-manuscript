@@ -8,7 +8,7 @@ This book examines how modern web design optimised for human users fails for AI 
 
 As this is a fast-moving field, comprehensive appendices and additional materials are maintained online to ensure they remain current and relevant. These resources include practical implementation guides, quick references, and real-world case studies.
 
-**Visit:** <https://about.network/invisible-users/web/>
+**Visit:** <https://allabout.network/invisible-users/web/>
 
 ## What You'll Find Online
 
