@@ -307,8 +307,9 @@ Agencies and investors looking for the next growth category. You get the **Metho
 - Phased rollout plans
 - Success metrics
 - Common pitfalls
-- Standalone prescriptive guide (appendix-ai-friendly-html-guide.md, ~8,400 words) with 12-part builder's reference
-- Quick-reference HTML patterns for AI assistants (appendix-ai-patterns-quick-reference.md, ~1,200 words)
+- Standalone prescriptive guide (Appendix D: AI-Friendly HTML Guide, ~9,050 words) with 12-part builder's reference
+- Quick-reference HTML patterns for AI assistants (Appendix E: AI Patterns Quick Reference, ~1,300 words)
+- All 10 appendices published separately online at <https://about.network/invisible-users/web/>
 - Complete AI-native website blueprint (AI-Native.blog, ~5,000 words) covering 7-layer architecture
 
 ## The Promise
@@ -376,7 +377,7 @@ The patterns that break agents are patterns we should have fixed years ago. We d
 "The Invisible Users: Designing the Web for AI Agents and Everyone Else"
 
 - **11 chapters** covering technical, business, ethical, and human implications
-- **~65,500 words** of practical, actionable guidance
+- **~57,000 words** of practical, actionable guidance (core manuscript) + 10 appendices online
 - **Working code examples** you can implement tomorrow
 - **10 practical design patterns** with bad/good examples showing correct HTML structure
 - **Concrete examples** from websites demonstrating failures and fixes

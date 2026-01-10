@@ -1,10 +1,12 @@
 # Book Updates: January 2025
 
-## New Appendix Tracking Industry Developments
+## New Online Appendix Tracking Industry Developments
 
-I've added a new appendix to "The Invisible Users" that tracks major developments in AI agent-mediated commerce and browser automation. This appendix documents real-world implementations that validate (or challenge) the patterns discussed throughout the book.
+All appendices are now published separately online at <https://about.network/invisible-users/web/> to ensure they remain current as this fast-moving field evolves.
 
-**Why this matters:** The AI agent ecosystem is evolving rapidly. Rather than let the book become dated, Appendix J provides a living framework for tracking significant industry shifts whilst maintaining the book's focus on timeless principles.
+Appendix J tracks major developments in AI agent-mediated commerce and browser automation. This appendix documents real-world implementations that validate (or challenge) the patterns discussed throughout the book.
+
+**Why this matters:** The AI agent ecosystem is evolving rapidly. Rather than let the book become dated, Appendix J (published online) provides a living framework for tracking significant industry shifts whilst maintaining the book's focus on timeless principles.
 
 ## Two Major Developments Within Weeks
 
@@ -165,8 +167,8 @@ The framework is established. Each new development gets analysed through the sam
 
 The updates are available now in the manuscript. If you've already read the book:
 
-- Check **Appendix J** for complete analysis of both launches
-- Review **Appendix F (Implementation Roadmap)** with new urgency - timeline acceleration makes Priority 1-2 tasks urgent
+- Check **Appendix J** (online at <https://about.network/invisible-users/web/appendix-j.html>) for complete analysis of both launches
+- Review **Appendix F (Implementation Roadmap)** (online at <https://about.network/invisible-users/web/appendix-f.html>) with new urgency - timeline acceleration makes Priority 1-2 tasks urgent
 - Consider whether your Agent Exposure Assessment needs updating
 - Test your site with Claude for Chrome immediately
 
@@ -329,9 +331,9 @@ Are you ready?
 ### The Invisible Users: Designing the Web for AI Agents and Everyone Else
 
 - 11 chapters covering technical, business, ethical, and human implications
-- ~69,300 words of practical, actionable guidance
+- ~57,000 words core manuscript + 10 appendices published online
 - Working code examples you can implement immediately
-- Industry developments appendix tracking real-world implementations
+- All 10 appendices published online at <https://about.network/invisible-users/web/> including industry developments tracking
 - Available now
 
 **Contact:** <tom.cranstoun@gmail.com>
