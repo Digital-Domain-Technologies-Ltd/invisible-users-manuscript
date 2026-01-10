@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Tom Cranstoun" />
+  <meta name="description" content="Practical guides for designing AI agent-friendly websites" />
+  <title>The Invisible Users - Appendices</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+
+  <!-- AI-specific meta tags (proposed pattern from Chapter 10) -->
+  <meta name="ai-preferred-access" content="html">
+  <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
+  <meta name="ai-freshness" content="monthly">
+  <meta name="ai-structured-data" content="json-ld">
+  <meta name="ai-attribution" content="required">
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "The Invisible Users - Appendices",
+    "description": "Practical guidance from The Invisible Users book on designing AI agent-friendly websites",
+    "author": {
+      "@type": "Person",
+      "name": "Tom Cranstoun",
+      "email": "tom.cranstoun@gmail.com",
+      "url": "https://allabout.network"
+    },
+    "inLanguage": "en-GB",
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10",
+    "isPartOf": {
+      "@type": "Book",
+      "name": "The Invisible Users",
+      "author": {
+        "@type": "Person",
+        "name": "Tom Cranstoun"
+      },
+      "url": "https://allabout.network/invisible-users"
+    }
+  }
+  </script>
+  <style>
+    body {
+      max-width: 900px !important;
+      margin: 2rem auto !important;
+      padding: 0 2rem !important;
+      padding-left: 2rem !important;
+      padding-right: 2rem !important;
+      padding-top: 2rem !important;
+      padding-bottom: 2rem !important;
+      line-height: 1.6;
+    }
+    @media (max-width: 768px) {
+      body {
+        padding: 0 1rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        margin: 1rem auto !important;
+      }
+    }
+    /* Pre-publication header banner */
+    body::before {
+      content: "PRE-PUBLICATION SAMPLE - FOR REVIEWERS";
+      display: block;
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #fff3cd;
+      border-bottom: 2px solid #ff9800;
+      color: #856404;
+      text-align: center;
+      font-weight: bold;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.75rem 1rem;
+      margin: -2rem -2rem 2rem -2rem;
+      z-index: 1000;
+    }
+    @media (max-width: 768px) {
+      body::before {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.75rem;
+        margin: -1rem -1rem 1rem -1rem;
+      }
+    }
+    /* Link styling - override Pandoc's default black links */
+    a:not(.floating-home-button):not(.floating-top-button):not(.copy-button) {
+      color: #0066cc !important;
+      text-decoration: underline !important;
+    }
+    a:not(.floating-home-button):not(.floating-top-button):not(.copy-button):visited {
+      color: #551a8b !important;
+      text-decoration: underline !important;
+    }
+    a:not(.floating-home-button):not(.floating-top-button):not(.copy-button):hover {
+      color: #003d7a !important;
+      text-decoration: underline !important;
+    }
+    a:not(.floating-home-button):not(.floating-top-button):not(.copy-button):active {
+      color: #ff4500 !important;
+      text-decoration: underline !important;
+    }
+    /* Floating navigation buttons */
+    .floating-home-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #0066cc;
+      color: white !important;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none !important;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .floating-home-button:hover {
+      background-color: #003d7a !important;
+      color: white !important;
+      box-shadow: 0 6px 16px rgba(0, 102, 204, 0.4);
+      transform: translateY(-2px);
+    }
+    .floating-home-button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
+    }
+    .floating-home-button svg {
+      fill: white;
+    }
+    .floating-top-button {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #0066cc;
+      color: white !important;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none !important;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .floating-top-button:hover {
+      background-color: #003d7a !important;
+      color: white !important;
+      box-shadow: 0 6px 16px rgba(0, 102, 204, 0.4);
+      transform: translateY(-2px);
+    }
+    .floating-top-button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
+    }
+    .floating-top-button svg {
+      fill: white;
+    }
+    @media (max-width: 768px) {
+      .floating-home-button {
+        top: 15px;
+        left: 15px;
+        padding: 10px 16px;
+        font-size: 0.85rem;
+      }
+      .floating-top-button {
+        bottom: 15px;
+        left: 15px;
+        padding: 10px 16px;
+        font-size: 0.85rem;
+      }
+    }
+    /* Code block styling */
+    div.sourceCode {
+      position: relative !important;
+      border: 2px solid #000000 !important;
+      background-color: #f5f5f5 !important;
+      border-radius: 4px !important;
+      padding: 1rem !important;
+      margin: 1.5rem 0 !important;
+      overflow: visible !important;
+    }
+    pre.sourceCode {
+      background-color: transparent !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    code.sourceCode {
+      white-space: pre-wrap !important;
+    }
+    pre > code.sourceCode > span {
+      display: inline-block !important;
+      line-height: 1.25 !important;
+    }
+    /* Standalone code blocks (text, plain code without wrapper) */
+    pre.text,
+    pre[data-role="code-block"]:not(.sourceCode) {
+      position: relative !important;
+      border: 2px solid #000000 !important;
+      background-color: #f5f5f5 !important;
+      border-radius: 4px !important;
+      padding: 1rem !important;
+      margin: 1.5rem 0 !important;
+      overflow: auto !important;
+      white-space: pre-wrap !important;
+    }
+    /* Copy to clipboard button */
+    .copy-button {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 10;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .copy-button:hover {
+      background-color: #003d7a;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    .copy-button:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    .copy-button.copied {
+      background-color: #28a745;
+    }
+    .copy-button.copied::after {
+      content: " ✓";
+    }
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">The Invisible Users - Appendices</h1>
+<p class="author">Tom Cranstoun</p>
+<p class="date">January 2026</p>
+</header>
+<h1 id="the-invisible-users---appendices">The Invisible Users -
+Appendices</h1>
+<p>Practical guides for designing AI agent-friendly websites</p>
+<p>These appendices accompany the book “The Invisible Users: Designing
+the Web for AI Agents and Everyone Else” by Tom Cranstoun.</p>
+<h2 id="available-appendices">Available Appendices</h2>
+<h3 id="implementation-guides">Implementation Guides</h3>
+<p><strong><a href="appendix-a.html">Appendix A: Implementation
+Cookbook</a></strong> Quick-reference recipes for common AI agent
+compatibility patterns. Copy-paste solutions for forms, navigation,
+state management, and error handling.</p>
+<p><strong><a href="appendix-b.html">Appendix B: Battle-Tested
+Lessons</a></strong> Production learnings from real-world
+implementations. What works, what doesn’t, and why. Avoid common
+pitfalls.</p>
+<p><strong><a href="appendix-c.html">Appendix C: Web Audit Suite User
+Guide</a></strong> Complete documentation for the Web Audit Suite
+analysis tool. Installation, configuration, and interpreting
+results.</p>
+<p><strong><a href="appendix-d.html">Appendix D: AI-Friendly HTML
+Guide</a></strong> Comprehensive guide to semantic HTML patterns that
+work for AI agents. Detailed explanations with before/after
+examples.</p>
+<h3 id="quick-references">Quick References</h3>
+<p><strong><a href="appendix-e.html">Appendix E: AI Patterns Quick
+Reference</a></strong> One-page reference guide for data attributes and
+patterns. Essential for implementation teams.</p>
+<p><strong><a href="appendix-f.html">Appendix F: Implementation
+Roadmap</a></strong> Priority-based roadmap for adopting AI agent
+compatibility. Organised by impact and effort, not time estimates.</p>
+<p><strong><a href="appendix-g.html">Appendix G: Resource
+Directory</a></strong> Curated collection of 150+ resources: standards,
+tools, articles, and communities. Kept up-to-date with latest
+developments.</p>
+<h3 id="case-studies-and-examples">Case Studies and Examples</h3>
+<p><strong><a href="appendix-h.html">Appendix H: Example llms.txt
+File</a></strong> Working example of an llms.txt file following the
+llmstxt.org specification. Template for your own implementation.</p>
+<p><strong><a href="appendix-i.html">Appendix I: Pipeline Failure Case
+Study</a></strong> Detailed analysis of a £203,000 AI agent error. How
+poor form design caused pipeline failure and what to learn from it.</p>
+<p><strong><a href="appendix-j.html">Appendix J: Industry
+Developments</a></strong> Latest news and updates about AI agents,
+commerce platforms, and industry shifts. Regularly updated with verified
+sources.</p>
+<h2 id="for-ai-agents">For AI Agents</h2>
+<p>These pages use semantic HTML, proper heading structure, and explicit
+data attributes to ensure compatibility with all AI agent types (CLI,
+browser-based, and server-based). Each page includes:</p>
+<ul>
+<li>Semantic HTML5 elements (<code>&lt;main&gt;</code>,
+<code>&lt;nav&gt;</code>, <code>&lt;article&gt;</code>)</li>
+<li>Clear heading hierarchy</li>
+<li>Descriptive link text</li>
+<li>Structured tables with proper headers</li>
+<li>Code blocks with language specification</li>
+</ul>
+<h2 id="about-the-book">About the Book</h2>
+<p>“The Invisible Users” examines how modern web design optimised for
+human users fails for AI agents, and how fixing this benefits everyone.
+The book provides practical guidance for developers, designers, and
+business stakeholders navigating the shift to agent-mediated
+commerce.</p>
+<p><strong>Contact:</strong> <a href="mailto:tom.cranstoun@gmail.com"
+class="email">tom.cranstoun@gmail.com</a></p>
+<p><strong>Website:</strong> <a href="https://allabout.network"
+class="uri">https://allabout.network</a></p>
+<hr />
+<p>© 2026 Tom Cranstoun. All rights reserved.</p>
+
+  <!-- Floating home button (top-left) -->
+  <a href="index.html" class="floating-home-button" aria-label="Back to Home">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+      <path d="M8 0L0 8h3v8h10V8h3L8 0zm0 2.5L13.5 8H11v6H5V8H2.5L8 2.5z"/>
+    </svg>
+    Home
+  </a>
+  <!-- Floating back to top button (bottom-left) -->
+  <a href="#" class="floating-top-button" aria-label="Back to Top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+      <path d="M8 3.5l-5.5 5.5L4 10.5l3-3v8.5h2V7.5l3 3L13.5 9z"/>
+    </svg>
+    Top
+  </a>
+
+  <script>
+    // Add copy buttons to all code blocks
+    document.addEventListener('DOMContentLoaded', function() {
+      // Find both wrapped code blocks (div.sourceCode) and standalone pre blocks
+      const wrappedBlocks = document.querySelectorAll('div.sourceCode');
+      const standaloneBlocks = document.querySelectorAll('pre[data-role="code-block"]:not(.sourceCode)');
+
+      // Process wrapped code blocks (HTML, JavaScript, etc.)
+      wrappedBlocks.forEach(function(block) {
+        addCopyButton(block, function(block) {
+          const codeElement = block.querySelector('code');
+          let text = '';
+          const spans = codeElement.querySelectorAll('span[id^="cb"]');
+          spans.forEach(function(span) {
+            const nodes = Array.from(span.childNodes);
+            nodes.forEach(function(node) {
+              if (node.nodeType === Node.TEXT_NODE) {
+                text += node.textContent;
+              } else if (node.nodeName !== 'A') {
+                text += node.textContent;
+              }
+            });
+          });
+          return text;
+        });
+      });
+
+      // Process standalone pre blocks (text, robots.txt, etc.)
+      standaloneBlocks.forEach(function(block) {
+        addCopyButton(block, function(block) {
+          const codeElement = block.querySelector('code');
+          return codeElement ? codeElement.textContent : block.textContent;
+        });
+      });
+
+      // Helper function to add copy button to any block
+      function addCopyButton(block, extractTextFn) {
+        const button = document.createElement('button');
+        button.className = 'copy-button';
+        button.textContent = 'Copy';
+        button.setAttribute('aria-label', 'Copy code to clipboard');
+
+        button.addEventListener('click', function() {
+          const text = extractTextFn(block);
+
+          navigator.clipboard.writeText(text).then(function() {
+            button.textContent = 'Copied';
+            button.classList.add('copied');
+            setTimeout(function() {
+              button.textContent = 'Copy';
+              button.classList.remove('copied');
+            }, 2000);
+          }).catch(function(err) {
+            console.error('Failed to copy:', err);
+            button.textContent = 'Failed';
+            setTimeout(function() {
+              button.textContent = 'Copy';
+            }, 2000);
+          });
+        });
+
+        block.insertBefore(button, block.firstChild);
+      }
+    });
+  </script>
+</body>
+</html>

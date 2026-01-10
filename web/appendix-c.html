@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Tom Cranstoun" />
   <meta name="description" content="Practical guidance from The Invisible Users book on designing AI agent-friendly websites" />
-  <title>Appendix C: Appendix C: Web Audit Suite User Guide</title>
+  <title>Appendix C: Web Audit Suite User Guide</title>
   <style>
     html {
       color: #1a1a1a;
@@ -246,7 +246,7 @@
   {
     "@context": "https://schema.org",
     "@type": "TechArticle",
-    "name": "Appendix C: Appendix C: Web Audit Suite User Guide",
+    "name": "Appendix C: Web Audit Suite User Guide",
     "description": "Practical guidance from The Invisible Users book on designing AI agent-friendly websites",
     "author": {
       "@type": "Person",
@@ -288,12 +288,215 @@
         margin: 1rem auto !important;
       }
     }
+    /* Pre-publication header banner */
+    body::before {
+      content: "PRE-PUBLICATION SAMPLE - FOR REVIEWERS";
+      display: block;
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #fff3cd;
+      border-bottom: 2px solid #ff9800;
+      color: #856404;
+      text-align: center;
+      font-weight: bold;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.75rem 1rem;
+      margin: -2rem -2rem 2rem -2rem;
+      z-index: 1000;
+    }
+    @media (max-width: 768px) {
+      body::before {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.75rem;
+        margin: -1rem -1rem 1rem -1rem;
+      }
+    }
+    /* Link styling - override Pandoc's default black links */
+    a:not(.floating-home-button):not(.floating-top-button):not(.copy-button) {
+      color: #0066cc !important;
+      text-decoration: underline !important;
+    }
+    a:not(.floating-home-button):not(.floating-top-button):not(.copy-button):visited {
+      color: #551a8b !important;
+      text-decoration: underline !important;
+    }
+    a:not(.floating-home-button):not(.floating-top-button):not(.copy-button):hover {
+      color: #003d7a !important;
+      text-decoration: underline !important;
+    }
+    a:not(.floating-home-button):not(.floating-top-button):not(.copy-button):active {
+      color: #ff4500 !important;
+      text-decoration: underline !important;
+    }
+    /* Floating navigation buttons */
+    .floating-home-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #0066cc;
+      color: white !important;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none !important;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .floating-home-button:hover {
+      background-color: #003d7a !important;
+      color: white !important;
+      box-shadow: 0 6px 16px rgba(0, 102, 204, 0.4);
+      transform: translateY(-2px);
+    }
+    .floating-home-button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
+    }
+    .floating-home-button svg {
+      fill: white;
+    }
+    .floating-top-button {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #0066cc;
+      color: white !important;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none !important;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .floating-top-button:hover {
+      background-color: #003d7a !important;
+      color: white !important;
+      box-shadow: 0 6px 16px rgba(0, 102, 204, 0.4);
+      transform: translateY(-2px);
+    }
+    .floating-top-button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
+    }
+    .floating-top-button svg {
+      fill: white;
+    }
+    @media (max-width: 768px) {
+      .floating-home-button {
+        top: 15px;
+        left: 15px;
+        padding: 10px 16px;
+        font-size: 0.85rem;
+      }
+      .floating-top-button {
+        bottom: 15px;
+        left: 15px;
+        padding: 10px 16px;
+        font-size: 0.85rem;
+      }
+    }
+    /* Code block styling */
+    div.sourceCode {
+      position: relative !important;
+      border: 2px solid #000000 !important;
+      background-color: #f5f5f5 !important;
+      border-radius: 4px !important;
+      padding: 1rem !important;
+      margin: 1.5rem 0 !important;
+      overflow: visible !important;
+    }
+    pre.sourceCode {
+      background-color: transparent !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    code.sourceCode {
+      white-space: pre-wrap !important;
+    }
+    pre > code.sourceCode > span {
+      display: inline-block !important;
+      line-height: 1.25 !important;
+    }
+    /* Standalone code blocks (text, plain code without wrapper) */
+    pre.text,
+    pre[data-role="code-block"]:not(.sourceCode) {
+      position: relative !important;
+      border: 2px solid #000000 !important;
+      background-color: #f5f5f5 !important;
+      border-radius: 4px !important;
+      padding: 1rem !important;
+      margin: 1.5rem 0 !important;
+      overflow: auto !important;
+      white-space: pre-wrap !important;
+    }
+    /* Copy to clipboard button */
+    .copy-button {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 10;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .copy-button:hover {
+      background-color: #003d7a;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    .copy-button:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    .copy-button.copied {
+      background-color: #28a745;
+    }
+    .copy-button.copied::after {
+      content: " ✓";
+    }
   </style>
 </head>
 <body>
+<nav class="appendix-navigation" role="navigation" aria-label="Appendix Navigation">
+    <p><a href="appendix-index.html">← Back to Appendices Index</a></p>
+    <p>Quick navigation:
+        <a href="appendix-a.html">A</a> |
+        <a href="appendix-b.html">B</a> |
+        <a href="appendix-c.html">C</a> |
+        <a href="appendix-d.html">D</a> |
+        <a href="appendix-e.html">E</a> |
+        <a href="appendix-f.html">F</a> |
+        <a href="appendix-g.html">G</a> |
+        <a href="appendix-h.html">H</a> |
+        <a href="appendix-i.html">I</a> |
+        <a href="appendix-j.html">J</a>
+    </p>
+</nav>
+<hr>
 <header id="title-block-header">
-<h1 class="title">Appendix C: Appendix C: Web Audit Suite User
-Guide</h1>
+<h1 class="title">Appendix C: Web Audit Suite User Guide</h1>
 <p class="subtitle">The Invisible Users</p>
 <p class="author">Tom Cranstoun</p>
 <p class="date">January 2026</p>
@@ -330,26 +533,26 @@ Suite User Guide</h1>
 <p>Complete guide to auditing your website for AI agent compatibility
 using Web Audit Suite.</p>
 <h2 id="installation">Installation</h2>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/ddttom/invisible-users.git</span>
+<div class="sourceCode" id="cb1" data-role="code-container"><pre
+class="sourceCode bash"><code class="sourceCode bash" data-role="code-content"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/ddttom/invisible-users.git</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> invisible-users/web-audit-suite</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install</span></code></pre></div>
 <h2 id="basic-usage">Basic Usage</h2>
 <h3 id="single-page-audit">Single Page Audit</h3>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Audit your homepage</span></span>
+<div class="sourceCode" id="cb2" data-role="code-container"><pre
+class="sourceCode bash"><code class="sourceCode bash" data-role="code-content"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Audit your homepage</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> start <span class="at">--</span> <span class="at">-s</span> https://example.com <span class="at">-c</span> 10</span></code></pre></div>
 <h3 id="full-site-audit">Full Site Audit</h3>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Audit from sitemap (unlimited pages)</span></span>
+<div class="sourceCode" id="cb3" data-role="code-container"><pre
+class="sourceCode bash"><code class="sourceCode bash" data-role="code-content"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Audit from sitemap (unlimited pages)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> start <span class="at">--</span> <span class="at">-s</span> https://example.com/sitemap.xml <span class="at">-c</span> <span class="at">-1</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Audit specific number of pages</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> start <span class="at">--</span> <span class="at">-s</span> https://example.com/sitemap.xml <span class="at">-c</span> 50</span></code></pre></div>
 <h3 id="complete-audit-with-all-reports">Complete Audit with All
 Reports</h3>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> start <span class="at">--</span> <span class="at">-s</span> https://example.com <span class="dt">\</span></span>
+<div class="sourceCode" id="cb4" data-role="code-container"><pre
+class="sourceCode bash"><code class="sourceCode bash" data-role="code-content"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> start <span class="at">--</span> <span class="at">-s</span> https://example.com <span class="dt">\</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--enable-history</span> <span class="dt">\</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--generate-dashboard</span> <span class="dt">\</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--generate-executive-summary</span></span></code></pre></div>
@@ -647,8 +850,8 @@ checks</p>
 tracking</p>
 <h2 id="prioritizing-improvements">Prioritizing Improvements</h2>
 <h3 id="step-1-run-initial-audit">Step 1: Run Initial Audit</h3>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> start <span class="at">--</span> <span class="at">-s</span> https://example.com/sitemap.xml <span class="at">-c</span> <span class="at">-1</span> <span class="dt">\</span></span>
+<div class="sourceCode" id="cb5" data-role="code-container"><pre
+class="sourceCode bash"><code class="sourceCode bash" data-role="code-content"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> start <span class="at">--</span> <span class="at">-s</span> https://example.com/sitemap.xml <span class="at">-c</span> <span class="at">-1</span> <span class="dt">\</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--enable-history</span> <span class="dt">\</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--generate-dashboard</span> <span class="dt">\</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--generate-executive-summary</span></span></code></pre></div>
@@ -693,8 +896,8 @@ by Priority</h3>
 </ul>
 <h3 id="step-4-create-action-plan">Step 4: Create Action Plan</h3>
 <p>Based on your scores:</p>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Action Plan: [Your Site]</span></span>
+<div class="sourceCode" id="cb6" data-role="code-container"><pre
+class="sourceCode markdown"><code class="sourceCode markdown" data-role="code-content"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Action Plan: [Your Site]</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>**Audit Date:** <span class="co">[</span><span class="ot">Date</span><span class="co">]</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>**Overall Score:** <span class="co">[</span><span class="ot">Score</span><span class="co">]</span>/100</span>
@@ -721,14 +924,14 @@ class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><
 <span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span><span class="co">[</span><span class="ot">Monitoring and analytics</span><span class="co">]</span></span></code></pre></div>
 <h2 id="tracking-progress">Tracking Progress</h2>
 <h3 id="run-monthly-audits">Run Monthly Audits</h3>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Monthly audit with history</span></span>
+<div class="sourceCode" id="cb7" data-role="code-container"><pre
+class="sourceCode bash"><code class="sourceCode bash" data-role="code-content"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Monthly audit with history</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> start <span class="at">--</span> <span class="at">-s</span> https://example.com/sitemap.xml <span class="at">-c</span> <span class="at">-1</span> <span class="dt">\</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--enable-history</span> <span class="dt">\</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--generate-dashboard</span></span></code></pre></div>
 <h3 id="view-dashboard">View Dashboard</h3>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">open</span> results/dashboard.html</span></code></pre></div>
+<div class="sourceCode" id="cb8" data-role="code-container"><pre
+class="sourceCode bash"><code class="sourceCode bash" data-role="code-content"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">open</span> results/dashboard.html</span></code></pre></div>
 <p><strong>Dashboard shows:</strong></p>
 <ul>
 <li>Score trends over time</li>
@@ -869,8 +1072,8 @@ SaaS Application (High Score, Maintenance)</h3>
 <h2 id="advanced-usage">Advanced Usage</h2>
 <h3 id="custom-configuration">Custom Configuration</h3>
 <p>Create <code>.web-audit-config.json</code>:</p>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode json"><code class="sourceCode json"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<div class="sourceCode" id="cb9" data-role="code-container"><pre
+class="sourceCode json"><code class="sourceCode json" data-role="code-content"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;concurrency&quot;</span><span class="fu">:</span> <span class="dv">10</span><span class="fu">,</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;timeout&quot;</span><span class="fu">:</span> <span class="dv">30000</span><span class="fu">,</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;userAgent&quot;</span><span class="fu">:</span> <span class="st">&quot;Web-Audit-Suite/2.0&quot;</span><span class="fu">,</span></span>
@@ -888,8 +1091,8 @@ class="sourceCode json"><code class="sourceCode json"><span id="cb9-1"><a href="
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 <h3 id="cicd-integration">CI/CD Integration</h3>
 <p>Add to <code>.github/workflows/audit.yml</code>:</p>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Web Audit</span></span>
+<div class="sourceCode" id="cb10" data-role="code-container"><pre
+class="sourceCode yaml"><code class="sourceCode yaml" data-role="code-content"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Web Audit</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">schedule</span><span class="kw">:</span></span>
@@ -1021,7 +1224,7 @@ transform your site from theory to measurable AI agent
 compatibility.</p>
 <hr>
 <nav class="appendix-navigation" role="navigation" aria-label="Appendix Navigation">
-    <p><a href="index.html">← Back to Appendices Index</a></p>
+    <p><a href="appendix-index.html">← Back to Appendices Index</a></p>
     <p>Quick navigation:
         <a href="appendix-a.html">A</a> |
         <a href="appendix-b.html">B</a> |
@@ -1035,5 +1238,86 @@ compatibility.</p>
         <a href="appendix-j.html">J</a>
     </p>
 </nav>
+
+  <!-- Floating home button (top-left) -->
+  <a href="index.html" class="floating-home-button" aria-label="Back to Home">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+      <path d="M8 0L0 8h3v8h10V8h3L8 0zm0 2.5L13.5 8H11v6H5V8H2.5L8 2.5z"/>
+    </svg>
+    Home
+  </a>
+  <!-- Floating back to top button (bottom-left) -->
+  <a href="#" class="floating-top-button" aria-label="Back to Top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+      <path d="M8 3.5l-5.5 5.5L4 10.5l3-3v8.5h2V7.5l3 3L13.5 9z"/>
+    </svg>
+    Top
+  </a>
+
+  <script>
+    // Add copy buttons to all code blocks
+    document.addEventListener('DOMContentLoaded', function() {
+      // Find both wrapped code blocks (div.sourceCode) and standalone pre blocks
+      const wrappedBlocks = document.querySelectorAll('div.sourceCode');
+      const standaloneBlocks = document.querySelectorAll('pre[data-role="code-block"]:not(.sourceCode)');
+
+      // Process wrapped code blocks (HTML, JavaScript, etc.)
+      wrappedBlocks.forEach(function(block) {
+        addCopyButton(block, function(block) {
+          const codeElement = block.querySelector('code');
+          let text = '';
+          const spans = codeElement.querySelectorAll('span[id^="cb"]');
+          spans.forEach(function(span) {
+            const nodes = Array.from(span.childNodes);
+            nodes.forEach(function(node) {
+              if (node.nodeType === Node.TEXT_NODE) {
+                text += node.textContent;
+              } else if (node.nodeName !== 'A') {
+                text += node.textContent;
+              }
+            });
+          });
+          return text;
+        });
+      });
+
+      // Process standalone pre blocks (text, robots.txt, etc.)
+      standaloneBlocks.forEach(function(block) {
+        addCopyButton(block, function(block) {
+          const codeElement = block.querySelector('code');
+          return codeElement ? codeElement.textContent : block.textContent;
+        });
+      });
+
+      // Helper function to add copy button to any block
+      function addCopyButton(block, extractTextFn) {
+        const button = document.createElement('button');
+        button.className = 'copy-button';
+        button.textContent = 'Copy';
+        button.setAttribute('aria-label', 'Copy code to clipboard');
+
+        button.addEventListener('click', function() {
+          const text = extractTextFn(block);
+
+          navigator.clipboard.writeText(text).then(function() {
+            button.textContent = 'Copied';
+            button.classList.add('copied');
+            setTimeout(function() {
+              button.textContent = 'Copy';
+              button.classList.remove('copied');
+            }, 2000);
+          }).catch(function(err) {
+            console.error('Failed to copy:', err);
+            button.textContent = 'Failed';
+            setTimeout(function() {
+              button.textContent = 'Copy';
+            }, 2000);
+          });
+        });
+
+        block.insertBefore(button, block.firstChild);
+      }
+    });
+  </script>
 </body>
 </html>

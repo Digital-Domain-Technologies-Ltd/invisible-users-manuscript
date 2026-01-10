@@ -136,6 +136,49 @@ Use these consistently across your site:
 
 These patterns require minimal code changes and provide immediate benefit.
 
+### Visual Design Affects Humans, Not AI Agents
+
+Before diving into patterns that help AI agents, remember: **visual design problems are human problems**.
+
+AI agents parse HTML directly. They don't see colours, fonts, or visual styling. They read the underlying structure. This means:
+
+- **Poor colour contrast** - Humans struggle to read low-contrast text. Agents read it perfectly.
+- **Small font sizes** - Humans strain to read tiny text. Agents process it identically to large text.
+- **CSS opacity** - Humans see faded text. Agents read the full content.
+- **Visual-only indicators** - Humans see red error borders. Agents need explicit attributes.
+
+**Example - Low contrast header (human problem):**
+
+```html
+<header style="background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);">
+  <h1 style="color: white;">The Invisible Users</h1>
+  <p style="color: white; opacity: 0.7;">Designing the Web for AI Agents</p>
+</header>
+```
+
+The `opacity: 0.7` creates insufficient contrast for humans (fails WCAG AA). Agents read the content perfectly regardless.
+
+**Fixed for humans:**
+
+```html
+<header style="background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);">
+  <h1 style="color: white;">The Invisible Users</h1>
+  <p style="color: #e0e7ff;">Designing the Web for AI Agents</p>
+</header>
+```
+
+Using a lighter colour (`#e0e7ff`) instead of opacity ensures adequate contrast (passes WCAG AA at 4.5:1 ratio).
+
+**The lesson:** Fix visual design for humans. Fix explicit state and structure for AI agents. Both matter. Neither is optional. The patterns in this guide focus on structure because that's what agents need. But don't neglect the visual layer—that's what humans need.
+
+**WCAG contrast requirements:**
+
+- **Normal text:** 4.5:1 contrast ratio (WCAG AA)
+- **Large text:** 3:1 contrast ratio (WCAG AA)
+- **Enhanced:** 7:1 for normal text, 4.5:1 for large text (WCAG AAA)
+
+Use tools like WebAIM's contrast checker to verify your colour choices meet accessibility standards for human users.
+
 ### Show Authentication State Explicitly
 
 Make login status machine-readable:
@@ -268,6 +311,66 @@ When displaying tabular data, put machine-readable values in data attributes:
 ```
 
 Use `scope` attributes on headers. Put numeric values in data attributes separate from formatted display text.
+
+### Clarify Ambiguous Structure with Data Attributes
+
+When HTML structure uses the same class names for different purposes, add explicit data attributes to clarify semantic roles for AI agents.
+
+**Problem - Duplicate class names with different purposes:**
+
+Many tools (like Pandoc for markdown-to-HTML conversion) generate nested structures where multiple elements share the same class name:
+
+```html
+<div class="sourceCode" id="cb1">
+  <pre class="sourceCode html">
+    <code class="sourceCode html">
+      <!-- actual code content -->
+    </code>
+  </pre>
+</div>
+```
+
+This creates ambiguity:
+
+- Which `.sourceCode` element is the container?
+- Which contains the actual code content?
+- Should an agent selecting `.sourceCode` get three elements per code block?
+
+**Solution - Add explicit semantic roles:**
+
+```html
+<div class="sourceCode" id="cb1" data-role="code-container">
+  <pre class="sourceCode html"
+       data-role="code-block"
+       data-language="html">
+    <code class="sourceCode html"
+          data-role="code-content">
+      <!-- actual code content -->
+    </code>
+  </pre>
+</div>
+```
+
+Now agents can:
+
+- Select containers: `document.querySelectorAll('[data-role="code-container"]')`
+- Extract content: `container.querySelector('[data-role="code-content"]')`
+- Determine language: `block.getAttribute('data-language')`
+
+**Benefits:**
+
+- **Preserves existing CSS** - The original class names remain for styling
+- **Clarifies intent** - Semantic roles are explicit, not inferred
+- **Prevents duplication** - Agents won't process the same content multiple times
+- **Forward-compatible** - Older agents ignore unknown attributes
+
+This pattern applies whenever:
+
+- The same class appears on parent and child elements
+- Visual structure is clear but semantic purpose isn't
+- Multiple elements serve related but distinct functions
+
+**Real-world example:** The HTML appendices in this book use this pattern. View the source of any appendix page to see `data-role` attributes clarifying the three-level code block structure.
 
 ---
 
