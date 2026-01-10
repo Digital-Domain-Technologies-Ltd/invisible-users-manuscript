@@ -32,7 +32,7 @@ These changes provide immediate benefit with minimal effort.
 - [ ] **Use Schema.org vocabulary** - Follow standard types from schema.org
 - [ ] **Include essential fields** - Name, price, availability for products; address, hours for businesses
 
-**Example:**
+**Example (basic product):**
 
 ```html
 <script type="application/ld+json">
@@ -49,6 +49,66 @@ These changes provide immediate benefit with minimal effort.
 }
 </script>
 ```
+
+**Example (product with delivery and service charges):**
+
+This example shows how to represent the complete pricing breakdown mentioned above (Product: £99 + Delivery: £15 + Service: £5 = Total: £119) in Schema.org JSON-LD.
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Your Product Name",
+  "offers": {
+    "@type": "Offer",
+    "price": "119.00",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock",
+    "priceSpecification": [
+      {
+        "@type": "UnitPriceSpecification",
+        "price": "99.00",
+        "priceCurrency": "GBP",
+        "name": "Product price"
+      },
+      {
+        "@type": "DeliveryChargeSpecification",
+        "price": "15.00",
+        "priceCurrency": "GBP",
+        "name": "Delivery charge"
+      },
+      {
+        "@type": "PaymentChargeSpecification",
+        "price": "5.00",
+        "priceCurrency": "GBP",
+        "name": "Service charge"
+      }
+    ],
+    "priceValidUntil": "2026-12-31",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "15.00",
+        "currency": "GBP"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "GB"
+      }
+    }
+  }
+}
+</script>
+```
+
+**Key points:**
+
+- The main `price` field (£119.00) shows the total cost including all fees
+- `priceSpecification` array breaks down individual charges (product, delivery, service)
+- `shippingDetails` provides explicit delivery cost and destination information
+- This structured data allows AI agents to understand complete pricing before initiating purchases
 
 ---
 
