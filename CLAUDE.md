@@ -9,6 +9,13 @@ This is the manuscript repository for "The Invisible Users: Designing the Web fo
 **Main Repository:** <https://github.com/ddttom/invisible-users>
 **This Repository:** <https://github.com/Digital-Domain-Technologies-Ltd/invisible-users-manuscript>
 
+**PUBLICATION STATUS: IN REVIEW (Pre-Publication)**
+- Manuscript is complete and in review
+- Publication date: Due Q1 2026
+- Do NOT assume published status based on current date
+- User will explicitly confirm when published
+- Until then, all materials reference "Due Q1 2026"
+
 **Copyright Notice**: All content is proprietary and confidential. Copyright © Tom Cranstoun. All rights reserved. This is a public repository for reading and reference - contributions, pull requests, and issues are not accepted.
 
 ## Submodule Context
@@ -240,6 +247,24 @@ All implementation guidance uses priority levels, not time estimates:
 - **Priority 4**: Advanced Features - comprehensive long-term enhancements
 
 **Never use time references** (hours, days, weeks, months) when discussing implementation.
+
+## Common Mistakes to Avoid
+
+### Git Directory Navigation in Submodules
+
+**CRITICAL: Always run `pwd` first** before attempting directory navigation. This is a git submodule repository that can be accessed from the parent repository root at `invisible-users/manuscript/`, but if you're already inside this submodule directory, further `cd` attempts will fail with "No such file or directory" errors.
+
+Common mistake pattern:
+```bash
+# ❌ Wrong: Attempting cd without checking location
+cd invisible-users/manuscript  # Fails if already inside this submodule
+
+# ✅ Correct: Check location first
+pwd  # Verify current directory
+# Then use appropriate path based on actual location
+```
+
+**Best practice:** Check `pwd`, then use correct relative or absolute paths. When working with submodules, verify current location before every directory change or git operation.
 
 ## Contact Information
 
