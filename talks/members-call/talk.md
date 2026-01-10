@@ -325,7 +325,7 @@ If this matters to you - if you believe users should control their identity dele
 
 **The Invisible Users:** Designing the Web for AI Agents and Everyone Else
 
-Published January 2026
+Due Q1 2026
 
 Tom Cranstoun
 

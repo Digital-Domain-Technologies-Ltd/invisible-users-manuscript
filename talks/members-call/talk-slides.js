@@ -3,7 +3,7 @@ function createInvisibleUsersDeck() {
 
   var slideData = [
     // Title Slide
-    ["The Invisible Users", "Designing the Web for AI Agents and Everyone Else\n\nTom Cranstoun | Published January 2026"],
+    ["The Invisible Users", "Designing the Web for AI Agents and Everyone Else\n\nTom Cranstoun | Due Q1 2026"],
 
     // Opening Hook Section (3 minutes) - 3 slides
     ["Real Example from Claude For Chrome", "January 2025: Testing Claude for Chrome whilst writing the book.\n\nMultiple Danube cruises ending in Budapest (May 2026):\n\n• 'Scenic Gems of the Danube 2026' - Vienna to Budapest (7 nights)\n• 'Delightful Danube' - Various starting points to Budapest\n• 'Romantic Danube' - Multiple options ending in Budapest\n\nOne cruise showed: 'From £203,000-£402,000'\nActual price: £2,030-£4,020\n\n100x multiplication error from European formatting (€2.030,00)."],
@@ -56,7 +56,7 @@ function createInvisibleUsersDeck() {
 
     ["Key Takeaways", "Five Essential Messages:\n\n1. This is happening now (not speculative)\n2. Commercial pressure exists (preference = advantage)\n3. Solutions are accessible (small changes, big impact)\n4. Universal benefit (humans and machines)\n5. Start with quick wins (measure and iterate)"],
 
-    ["Book & Contact", "The Invisible Users:\nDesigning the Web for AI Agents and Everyone Else\n\nPublished January 2026\n\nTom Cranstoun\ntom.cranstoun@gmail.com\nhttps://allabout.network\n\nBook: https://allabout.network/invisible-users\nIdentity project: .../identity-layer.html\nNews: .../news.html\n\nQuestions? Discussion? Your challenges?"]
+    ["Book & Contact", "The Invisible Users:\nDesigning the Web for AI Agents and Everyone Else\n\nDue Q1 2026\n\nTom Cranstoun\ntom.cranstoun@gmail.com\nhttps://allabout.network\n\nBook: https://allabout.network/invisible-users\nIdentity project: .../identity-layer.html\nNews: .../news.html\n\nQuestions? Discussion? Your challenges?"]
   ];
 
   // Remove the default initial slide
