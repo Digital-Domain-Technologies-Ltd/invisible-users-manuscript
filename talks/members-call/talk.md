@@ -305,6 +305,8 @@ I'm considering building an open-source universal identity delegation framework 
 
 If this matters to you - if you believe users should control their identity delegation rather than platforms controlling it for them - get in touch.
 
+**Project details:** <https://allabout.network/invisible-users/identity-layer.html>
+
 ---
 
 ## Key Takeaways [TIME: Closing]
@@ -323,13 +325,19 @@ If this matters to you - if you believe users should control their identity dele
 
 **The Invisible Users:** Designing the Web for AI Agents and Everyone Else
 
-Due Q1 2026
+Published January 2026
 
 Tom Cranstoun
 
 <tom.cranstoun@gmail.com>
 
 <https://allabout.network>
+
+**Project Pages:**
+
+- Book website: <https://allabout.network/invisible-users>
+- Identity delegation project: <https://allabout.network/invisible-users/identity-layer.html>
+- Project news: <https://allabout.network/invisible-users/news.html>
 
 **Questions? Discussion? Your challenges?**
 
