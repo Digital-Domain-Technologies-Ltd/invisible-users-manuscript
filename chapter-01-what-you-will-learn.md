@@ -8,7 +8,7 @@ Introduction and the accessibility connection.
 
 The patterns that break AI agents also break humans. We didn't notice.
 
-The elderly user who misses a three-second toast notification. The person with ADHD who can't track state changes across 14 paginated screens. The screen reader user who can't navigate the visual hierarchy. The stressed parent trying to complete a form whilst distracted.
+The elderly user who misses a three-second toast notification. The person with ADHD who can't track state changes across paginated screens. The screen reader user who can't navigate the visual hierarchy. The stressed parent trying to complete a form whilst distracted.
 
 They've all been struggling with modern web design for years. We filed it under "accessibility" and moved on.
 
@@ -206,7 +206,7 @@ This book is your guide to that transition.
 
 These chapters are designed to be read in sequence. Each builds on concepts introduced earlier. Chapters 2 and 3 establish what's breaking and why. Chapters 4 through 8 examine the implications. Chapters 9 and 10 provide solutions.
 
-For reading paths tailored to your role and time constraints, see the navigation guide in the Preface (page X).
+For reading paths tailored to your role and time constraints, see the Reading Guide.
 
 ---
 
