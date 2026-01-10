@@ -371,6 +371,18 @@ As of January 2025, Amazon has blocked 47 AI bots (including all major AI compan
 
 **Sources:** [CNBC coverage](https://www.cnbc.com/2025/12/24/amazon-faces-a-dilemma-fight-ai-shopping-agents-or-join-them.html), [Retail Dive lawsuit coverage](https://www.retaildive.com/news/amazon-sues-perplexity-ai-shopping-agents/804871/)
 
+### Tailwind CSS: The Discovery Problem (January 2026)
+
+On 6 January 2026, Tailwind Labs laid off 75% of its engineering team (3 people) following an 80% revenue collapse. The cause: AI coding assistants generate Tailwind CSS code without visiting tailwind.com documentation.
+
+**The business model that broke:** Tailwind offered a free CSS framework whilst monetising through documentation traffic that converted to paid Tailwind UI component sales. AI tools like Cursor, v0, and Replit have Tailwind knowledge in training data - they generate Tailwind code without sending users to the documentation site. Traffic dropped 40%, revenue dropped 80%.
+
+**What this validates:** Chapter 10's llms.txt pattern (lines 1152-1185) and Appendix H's example implementation solve exactly this problem. If Tailwind had published llms.txt pointing to "For Tailwind UI components: /components (paid offering)", AI tools might have directed users to the monetisation funnel instead of generating free alternatives.
+
+**Why critics were wrong:** Many dismissed llms.txt as premature or unnecessary. Tailwind's collapse proves the discovery problem is already causing business failures. AI tools bypass documentation sites entirely when knowledge exists in training data - llms.txt provides the mechanism to redirect that traffic to monetisation opportunities.
+
+**Sources:** [Socket.dev announcement](https://socket.dev/blog/tailwind-css-announces-layoffs), [Analytics India coverage](https://analyticsindiamag.com/ai-news-updates/tailwind-cuts-75-jobs-as-ai-destroys-80-revenue/), [DEVCLASS analysis](https://devclass.com/2026/01/08/tailwind-labs-lays-off-75-percent-of-its-engineers-thanks-to-brutal-impact-of-ai/)
+
 ---
 
 ## Final Thought
@@ -403,6 +415,6 @@ Are you ready?
 
 **Updated:** 10 January 2026
 
-**Appendix J updated:** Added Agentic Commerce Protocol (29 Sep 2024), Amazon Alexa.com (5 Jan 2026), and expanded Microsoft Copilot Checkout coverage (8 Jan 2026)
+**Appendix J updated:** Added Agentic Commerce Protocol (29 Sep 2024), Amazon Alexa.com (5 Jan 2026), Amazon defensive posture (Dec 2024-Jan 2025), Tailwind CSS discovery problem (6 Jan 2026), and expanded Microsoft Copilot Checkout coverage (8 Jan 2026)
 
-**Chapters referenced:** ACP validates Chapter 11 identity abstraction approach; Amazon validates Chapter 4 platform power predictions; Microsoft expands Jan 2025 coverage in Chapters 4 & 9
+**Chapters referenced:** ACP validates Chapter 11 identity abstraction approach; Amazon validates Chapter 4 platform power predictions; Tailwind validates Chapter 10 llms.txt pattern and Appendix H; Microsoft expands Jan 2025 coverage in Chapters 4 & 9

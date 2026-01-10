@@ -754,6 +754,140 @@ Amazon's integration strategy (partner with major service platforms) provides al
 
 ---
 
+## Tailwind CSS Layoffs - Documentation Discovery Problem (6 January 2026)
+
+### Overview
+
+Tailwind Labs laid off 75% of its engineering team following an 80% revenue collapse caused by AI coding assistants generating Tailwind CSS code without visiting tailwind.com documentation. This validates the llms.txt discovery pattern (Chapter 10, Appendix H) by demonstrating real business impact when the pattern is absent.
+
+### Key Details
+
+**Date:** 6 January 2026
+**Layoffs:** 75% of engineering team (3 people)
+**Business Impact:** 80% revenue decline, 40% traffic decline
+**Root Cause:** AI coding assistants bypass documentation site
+**Business Model:** Free CSS framework + paid documentation traffic converting to Tailwind UI component sales
+**Category:** Business Model Impact
+
+### The Business Model That Failed
+
+**Tailwind's monetisation strategy:**
+
+- Free, open-source CSS framework (widely adopted)
+- Documentation site with comprehensive guides
+- Traffic converts to paid Tailwind UI component library sales
+- 75 million npm downloads monthly (high usage, low direct monetisation)
+
+**What changed with AI coding assistants:**
+
+AI tools like Cursor, v0, and Replit have Tailwind knowledge in training data. When developers ask "generate a card component with Tailwind," these tools produce code directly without sending users to tailwind.com documentation.
+
+Result: Traffic dropped 40%, revenue dropped 80%. The documentation site that drove conversions became unnecessary.
+
+### Significance for This Book
+
+**Chapter 10 validation - llms.txt Pattern (lines 1152-1185):**
+
+The book describes llms.txt as a discovery mechanism allowing sites to direct AI tools to specific resources. Critics dismissed this as premature or unnecessary. Tailwind's collapse validates the pattern by showing the cost of its absence.
+
+**What llms.txt could have solved:**
+
+If Tailwind had published `llms.txt` at `tailwind.com/llms.txt` with content like:
+
+```text
+# Tailwind CSS
+
+## Tailwind UI Components (Paid)
+- URL: https://tailwindui.com/components
+- Description: Production-ready components designed by Tailwind creators
+- Commercial: Paid product
+
+## Documentation
+- URL: https://tailwindcss.com/docs
+- Description: Framework documentation
+```
+
+AI coding assistants reading this file might have directed users: "For production components, visit Tailwind UI (paid). For custom implementations, here's the generated code."
+
+**Appendix H validation - Example llms.txt Implementation:**
+
+Appendix H provides a complete llms.txt example following llmstxt.org specification. Tailwind demonstrates why this pattern matters - without discovery mechanisms, AI tools bypass monetisation funnels entirely.
+
+### Business Model Implications
+
+**For documentation sites:**
+
+Any site that monetises through traffic converting to paid products faces Tailwind's problem when AI tools have knowledge in training data. This includes:
+
+- Component libraries (Material-UI, Chakra, Shadcn)
+- API documentation (Stripe, Twilio with paid tiers)
+- Educational platforms (MDN, W3Schools with premium content)
+- Tutorial sites converting to courses
+
+**For open-source projects:**
+
+Open-source frameworks with "free core + paid extensions" business models need discovery mechanisms directing AI tools to paid offerings. Without this, AI tools generate free alternatives exclusively.
+
+**Community response:**
+
+Within 24 hours of the announcement, Vercel and Google provided sponsorships to sustain Tailwind development. This demonstrates community recognition of Tailwind's value despite broken monetisation model.
+
+### Technical Implementation Insights
+
+**Why AI tools bypass documentation:**
+
+1. **Training data includes framework knowledge:** Large language models trained on code repositories understand Tailwind syntax without needing documentation
+2. **Real-time generation faster than browsing:** AI tools produce code instantly vs sending users to docs
+3. **No discovery mechanism:** Tools don't know about Tailwind UI paid components because no machine-readable file advertises them
+
+**Discovery problem vs content access:**
+
+This differs from content scraping issues. Tailwind's documentation is publicly accessible - the problem is AI tools don't send users there because they can answer questions directly. llms.txt solves discovery, not access control.
+
+### Questions Raised
+
+**Will other documentation sites face similar collapse?**
+
+Any documentation site whose traffic converts to paid products is vulnerable when AI tools have framework knowledge in training data. Only those with unique, regularly updated content that cannot be fully captured in training data maintain traffic value.
+
+**Will AI tool creators adopt llms.txt?**
+
+The llmstxt.org specification exists, but adoption requires AI tool creators (Cursor, v0, Replit, GitHub Copilot) to read and respect these files. Tailwind's collapse creates commercial pressure for this adoption.
+
+**Can sponsorship sustain open-source development?**
+
+Vercel and Google sponsorships provide immediate support, but relying on corporate sponsors rather than sustainable revenue from users creates different dependencies and incentive structures.
+
+### Strategic Implications
+
+**For documentation publishers:**
+
+Implement llms.txt immediately pointing AI tools to paid offerings, premium content, and updated resources. Don't assume AI tools will discover your monetisation funnel organically.
+
+**For framework developers:**
+
+"Free framework + paid documentation/components" business models are fragile when AI training data includes your framework. Consider alternative monetisation: hosting, support contracts, certification, or enterprise features.
+
+**For AI tool creators:**
+
+Reading and respecting llms.txt files benefits developers by directing them to official, maintained resources rather than potentially outdated training data. Tailwind demonstrates the ecosystem cost of bypassing discovery mechanisms.
+
+### Cross-References
+
+- **Chapter 10, lines 1152-1185:** llms.txt pattern description and rationale
+- **Appendix H:** Complete llms.txt example following llmstxt.org specification
+- **Appendix G:** Resource directory including llmstxt.org specification
+- **Chapter 4:** Business model implications of agent-mediated traffic
+
+### Sources
+
+- [Socket.dev: Tailwind CSS announces layoffs](https://socket.dev/blog/tailwind-css-announces-layoffs)
+- [Analytics India Magazine: Tailwind cuts 75% jobs as AI destroys 80% revenue](https://analyticsindiamag.com/ai-news-updates/tailwind-cuts-75-jobs-as-ai-destroys-80-revenue/)
+- [DEVCLASS: Tailwind Labs lays off 75 percent of its engineers thanks to brutal impact of AI](https://devclass.com/2026/01/08/tailwind-labs-lays-off-75-percent-of-its-engineers-thanks-to-brutal-impact-of-ai/)
+- [Office Chai: Google, Vercel, others come forward to sponsor Tailwind after company reveals 75% AI-related layoffs](https://officechai.com/ai/google-vercel-lovable-others-come-forward-to-sponsor-tailwind-after-company-reveals-75-ai-related-layoffs/)
+
+---
+
 ## Microsoft Copilot Checkout (January 2026 - Expanded)
 
 ### Copilot Overview
