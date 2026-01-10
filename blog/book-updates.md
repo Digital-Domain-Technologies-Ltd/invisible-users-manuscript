@@ -352,6 +352,25 @@ Amazon and Microsoft demonstrate two approaches: Amazon built their own agent pl
 
 **Note on unverified statistics:** Claims about "2x purchase likelihood" and "7x AI-driven retail traffic" come from industry newsletters without independent validation. Treat as indicative trends rather than verified metrics.
 
+### Amazon's Defensive Posture (December 2024 - January 2025)
+
+Whilst Microsoft and OpenAI race to enable agent commerce, Amazon has taken a defensive approach: blocking external AI agents from accessing Amazon.com and suing competitors who attempt workarounds.
+
+As of January 2025, Amazon has blocked 47 AI bots (including all major AI companies) through robots.txt updates. In November 2024, Amazon sued Perplexity AI over its Comet browser agent that makes purchases on users' behalf, alleging the startup "concealed" its agents to scrape Amazon without authorisation. Perplexity called the lawsuit a "bully tactic."
+
+**The tension:** Amazon is simultaneously blocking external agents whilst building proprietary tools:
+
+- **Rufus** (launched February 2024): AI shopping chatbot within Amazon's app
+- **Buy For Me** (beta testing): Agent that purchases from external sites on your behalf within Amazon's app
+
+**What this demonstrates:** Chapter 4's platform power dynamics in action. Amazon controls enough e-commerce volume to resist external agents whilst developing proprietary solutions. Smaller retailers lack this luxury - they must optimise for external agents or risk exclusion from agent-mediated traffic.
+
+**Frenemy strategies:** Walmart and Shopify demonstrate the middle ground - partnering with AI companies (Microsoft, OpenAI) whilst setting guardrails through robots.txt and terms of service. This hedges bets: gain distribution through agent platforms today, maintain negotiating leverage for tomorrow.
+
+**For most website owners:** You cannot block agents and build proprietary alternatives like Amazon. The practical path is agent-friendly patterns (Chapters 9-10) that work across platforms, not resistance.
+
+**Sources:** [CNBC coverage](https://www.cnbc.com/2025/12/24/amazon-faces-a-dilemma-fight-ai-shopping-agents-or-join-them.html), [Retail Dive lawsuit coverage](https://www.retaildive.com/news/amazon-sues-perplexity-ai-shopping-agents/804871/)
+
 ---
 
 ## Final Thought

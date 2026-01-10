@@ -465,6 +465,98 @@ Claude for Chrome demonstrates production-grade validation patterns you should i
 
 ---
 
+## Amazon Blocks External Agents, Sues Perplexity (November 2024 - January 2025)
+
+### Overview
+
+Amazon adopted a defensive strategy towards external AI shopping agents: blocking major AI companies from crawling Amazon.com through robots.txt restrictions, whilst filing lawsuits against competitors who circumvent these blocks. This demonstrates platform power dynamics where dominant e-commerce players can resist external agents whilst developing proprietary alternatives.
+
+### Key Details
+
+**Timeline:** November 2024 (Perplexity lawsuit) through January 2025 (47 bots blocked)
+**Action Type:** Defensive resistance + proprietary development
+**Bots Blocked:** 47 AI agents including OpenAI, Google, Meta, Anthropic, Perplexity, Mistral, Huawei
+**Legal Action:** Amazon vs. Perplexity AI (filed November 2024, Northern California)
+**Category:** Platform Integration Developments
+
+### Amazon's Dual Strategy
+
+**Blocking external agents:**
+
+- Updated robots.txt to prevent AI company crawlers from accessing product data
+- Blocks major AI platforms whilst developing proprietary tools (Rufus, Buy For Me)
+- Maintains control over shopping data and customer relationships
+
+**Building proprietary alternatives:**
+
+- **Rufus** (launched February 2024): AI shopping chatbot within Amazon's mobile app
+- **Buy For Me** (beta testing): Agent that purchases from external websites within Amazon's app
+- Both keep users inside Amazon's ecosystem
+
+### Perplexity Lawsuit Details
+
+Amazon sued Perplexity AI over its Comet browser agent, alleging:
+
+- Comet "disguises" itself as Google Chrome browser
+- Refuses to identify itself when operating in Amazon Store
+- Violates Computer Fraud and Abuse Act and state data access laws
+- Makes purchases without Amazon's authorisation
+
+Perplexity's response: Called the lawsuit a "bully tactic to suppress competition," arguing AI agents should have same rights as human users.
+
+### Significance for This Book
+
+**Chapter 4 validation - Platform Power Shifts:**
+Amazon demonstrates that dominant platforms can resist external agents whilst smaller retailers cannot. This validates the power dynamics discussed in Chapter 4: businesses with sufficient market leverage can block agents and build proprietary tools, whilst most must optimise for external agents or risk exclusion from agent-mediated traffic.
+
+**Strategic bifurcation:**
+The ecosystem is splitting into two approaches:
+
+1. **Amazon approach:** Block external agents, build proprietary tools (requires dominant market position)
+2. **Walmart/Shopify approach:** Partner with AI platforms whilst setting guardrails (practical for most businesses)
+
+### Questions Raised
+
+**Legal precedent:** Does Perplexity lawsuit establish AI agents' rights to access public websites? Courts will define whether agents operating with user credentials have same access rights as humans.
+
+**Sustainability:** Can Amazon maintain bot blocking long-term as agents become more sophisticated at mimicking human behaviour? Claude for Chrome's session inheritance makes detection increasingly difficult.
+
+**Competitive response:** Will other major retailers adopt blocking strategies, or will Amazon's resistance isolate them whilst competitors gain agent-mediated distribution?
+
+### Strategic Implications
+
+**For most website owners:**
+You cannot pursue Amazon's strategy unless you have comparable market leverage. The practical path is implementing agent-friendly patterns (Chapters 9-10) that work across platforms.
+
+**For agent creators:**
+Amazon's blocking demonstrates detection challenges discussed in Chapter 6. Session inheritance and browser-based agents make blocking increasingly difficult to enforce.
+
+**For policymakers:**
+Amazon vs. Perplexity represents first major legal battle defining agent access rights. Outcome will influence how platforms can restrict automated access.
+
+### Cross-References
+
+**Related chapters:**
+
+- Chapter 4, lines 117-157: Platform power dynamics and competitive positioning
+- Chapter 6: Detection challenges when agents inherit authenticated sessions
+- Chapter 10: Agent-friendly patterns that Amazon is actively blocking
+
+**Frenemy strategies comparison:**
+
+- Walmart partners with Microsoft Copilot whilst setting guardrails
+- Shopify partners with OpenAI (ACP) whilst controlling data access
+- Both gain agent distribution whilst maintaining negotiating leverage
+
+### Sources
+
+- [CNBC: Amazon faces a dilemma - fight AI shopping agents, or join them](https://www.cnbc.com/2025/12/24/amazon-faces-a-dilemma-fight-ai-shopping-agents-or-join-them.html) (24 Dec 2024)
+- [Retail Dive: Amazon sues Perplexity over AI shopping agents](https://www.retaildive.com/news/amazon-sues-perplexity-ai-shopping-agents/804871/) (Nov 2024)
+- [Modern Retail: Amazon quietly blocks AI bots from Meta, Google, Huawei and more](https://www.modernretail.co/technology/amazon-expands-its-fight-to-keep-ai-bots-off-its-e-commerce-site/)
+- [TechCrunch: Amazon's new AI agent will shop third-party sites for you](https://techcrunch.com/2025/04/03/amazons-new-ai-agent-will-shop-third-party-stores-for-you/) (Buy For Me)
+
+---
+
 ## Amazon Alexa.com - Browser-Based Shopping Agent (5 January 2026)
 
 ### Amazon Alexa.com Overview
