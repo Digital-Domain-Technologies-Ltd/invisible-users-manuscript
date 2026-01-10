@@ -14,6 +14,12 @@ Since I began this research, the landscape has shifted dramatically, with produc
 
 This book grew from that realisation. It's not a book about AI. It's a book about web design, and the assumptions we've embedded into it. AI agents are the lens, but the subject is broader: how do we build digital spaces that work for users we didn't anticipate?
 
+**The irony continued whilst writing this book.** When building the book's own website to demonstrate AI-friendly patterns, I initially used `opacity: 0.9` on header text for visual subtlety. AI agents and screen readers read it perfectly—they parse HTML structure directly and ignore CSS styling. But the low contrast failed WCAG accessibility standards for sighted humans. I'd built an AI-friendly interface that excluded people with low vision, exactly the pattern the book warns against.
+
+The fix was simple: replace opacity with explicit colours that meet contrast ratios. The lesson was profound: visual design problems and structural problems are separate. AI agents need explicit state and semantic markup. Humans need adequate contrast and readable text. Both matter. Neither is optional. We can't optimise for one group whilst neglecting another.
+
+This example now appears in Chapter 8 and Appendix D as a teaching case. It's the kind of real-world learning through failure that makes patterns stick.
+
 ---
 
 ## What This Book Is

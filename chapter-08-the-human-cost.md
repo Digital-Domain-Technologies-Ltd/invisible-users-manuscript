@@ -178,6 +178,49 @@ If websites optimise for agents while neglecting traditional accessibility, peop
 
 This isn't inevitable. Agent-friendly and accessibility-friendly design overlap substantially; both require clear structure, explicit state, and semantic markup. However, the overlap is incomplete, and priorities can diverge.
 
+### The Visual Design Divergence
+
+Here's an important distinction: **AI agents don't see your website's visual design**.
+
+Agents parse HTML structure directly. They read content, attributes, and semantic markup. They completely ignore:
+
+- Colour contrast ratios
+- Font sizes
+- CSS opacity
+- Visual spacing and layout
+- Animations and transitions
+- Background images
+
+**This creates a critical separation:**
+
+**For humans:** Poor colour contrast makes text unreadable. Using `opacity: 0.7` on text creates insufficient contrast ratios that fail WCAG accessibility standards. People with low vision, colour blindness, or viewing screens in bright sunlight struggle to read faded text.
+
+**For AI agents:** The same low-contrast text reads perfectly. Agents extract the content identically whether it's high contrast or completely invisible to humans.
+
+**Example from this book's own website:**
+
+Our initial index page used this header:
+
+```html
+<p style="color: white; opacity: 0.9;">A practical guide...</p>
+```
+
+Humans saw faded text with insufficient contrast. Screen reader users heard the content fine (they're parsing HTML like agents). AI agents read it perfectly. The contrast problem affected only sighted human users.
+
+**The lesson:** When optimising for AI agents, don't forget human visual needs. They're separate problems requiring separate solutions.
+
+- **For AI agents:** Add explicit state attributes, semantic HTML, structured data
+- **For humans:** Ensure adequate contrast (4.5:1 for normal text), readable fonts, clear visual hierarchy
+
+Both matter. Neither is optional. The overlap helps both groups, but each has unique needs.
+
+**WCAG contrast requirements for human users:**
+- Normal text: 4.5:1 minimum (WCAG AA)
+- Large text (18pt+): 3:1 minimum (WCAG AA)
+- Enhanced: 7:1 for normal text (WCAG AAA)
+
+AI agents don't need these ratios. Humans do. Design for both.
+
 ## The Education Gap
 
 Effective agent use is a skill. Skills require learning. Learning opportunities aren't equally distributed.
