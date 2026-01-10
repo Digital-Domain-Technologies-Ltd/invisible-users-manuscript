@@ -397,6 +397,86 @@ Are you ready?
 
 ---
 
+## Stack Overflow Usage Collapses 76% as Developers Shift to AI Tools (January 2025)
+
+The people who build websites are experiencing the shift they're designing for.
+
+Stack Overflow question volume has collapsed 76% since ChatGPT launched in November 2022 - from 108,563 monthly questions to just 25,566 by December 2024. Monthly question volume has fallen to 2009 levels, effectively erasing 15 years of growth in just two years.
+
+**Why this matters:** Developers aren't just building for AI-mediated workflows. They're living them. When 84% of developers report using AI tools in their daily workflows, and Stack Overflow sees 76% usage decline in 2 years, we're witnessing the behavioral shift the book describes - happening to the people who build the web.
+
+### The Two-Year Timeline Validated
+
+ChatGPT launched in November 2022. By December 2024 - just 2 years later - Stack Overflow question volume had dropped 76%. This validates the "two-year adoption timeline" discussed throughout the book.
+
+When developers (early adopters) abandon a 15-year-old platform in 2 years, mainstream consumers follow 1-2 years behind. The timeline for website owners to adapt is shorter than most realize.
+
+### What This Validates
+
+**From Chapter 1 - "Why This Matters Now":**
+
+The book argues AI agents "aren't a future concern. They're here." Stack Overflow decline provides concrete evidence. Developers delegating information-seeking to ChatGPT/Claude instead of community Q&A forums demonstrates the behavioral shift underlying the entire book.
+
+**From Chapter 8 - "The Capability Gap":**
+
+The book discusses how "the agent becomes a productivity multiplier. But multipliers amplify existing differences." Stack Overflow data shows this effect:
+
+- 81.4% of developers adopted OpenAI GPT models by 2024
+- Those with AI tools gain 10x coding efficiency
+- Those without fall further behind
+- 35% of developers now visit Stack Overflow only **after** AI-generated code fails - AI becomes primary, Stack Overflow becomes fallback
+
+**From Preface - Personal Delegation:**
+
+The preface begins with delegating holiday research to an AI assistant. Stack Overflow decline shows developers doing the same - delegating information-seeking to AI instead of traditional sources. This validates the behavioral shift underlying the book's thesis.
+
+### The Meta-Narrative for Website Builders
+
+This creates a powerful argument for website owners: You're experiencing this shift in your own workflows. Your users are experiencing it too.
+
+When you replace Stack Overflow with ChatGPT for coding questions, you're making the same delegation decision your customers make when they use AI shopping agents. The difference: you understand Stack Overflow is becoming less relevant because you see the statistics. Your customers won't tell you they're abandoning your site for agent-compatible competitors.
+
+### What This Challenges
+
+This isn't about agent-website compatibility problems. Stack Overflow works fine for AI agents - they can parse Q&A threads effectively. The decline isn't because agents fail to use Stack Overflow. It's because developers prefer conversational AI interfaces (ChatGPT/Claude) over structured forums.
+
+This demonstrates ecosystem maturity. The behavioral shift is real, happening now, and happening fast across multiple domains - not just e-commerce or content sites.
+
+### Questions This Raises
+
+**Velocity of displacement:**
+
+If developers abandoned Stack Overflow in 2 years, how quickly will customers abandon sites that don't work with agents? The book projects "two years" for significant agent traffic. Stack Overflow data validates this timeline but also shows how sudden the drop can be - gradual decline becomes steep collapse as adoption accelerates.
+
+**Advanced vs. routine questions:**
+
+Interestingly, advanced technical questions on Stack Overflow have **doubled** since 2023. Developers use AI for routine questions but return to human experts for complex problems. This suggests a future where agents handle routine transactions whilst humans handle edge cases - validating the book's recommendations for handling both gracefully.
+
+### What This Means for You
+
+**If you're a developer or product owner:**
+
+You're experiencing AI delegation firsthand. When you reach for ChatGPT instead of Stack Overflow, you're making the same shift your users make when they delegate shopping, booking, or research to AI agents. Design for it.
+
+**If you're a business leader:**
+
+Stack Overflow's 76% decline in 2 years demonstrates how quickly behavioral shifts happen. You don't have five years to make your site agent-compatible. You have 1-2 years before mainstream adoption accelerates. The window is smaller than you think.
+
+**If you're concerned about urgency:**
+
+The book discusses "commercial pressure" to fix agent compatibility problems. Stack Overflow decline demonstrates that pressure is real. A 15-year-old platform with millions of users saw 76% usage decline in 2 years. The same velocity applies to websites that don't work for AI-mediated access.
+
+### Sources
+
+All statistics verified against multiple independent sources:
+
+- [ByteIota: Stack Overflow Questions Collapse 76% Since ChatGPT](https://byteiota.com/stack-overflow-questions-collapse-76-since-chatgpt/)
+- [SimilarWeb: stackoverflow.com Traffic Analytics](https://www.similarweb.com/website/stackoverflow.com/)
+- [The Pragmatic Engineer: Are reports of StackOverflow's fall greatly exaggerated?](https://blog.pragmaticengineer.com/are-reports-of-stackoverflows-fall-exaggerated/)
+- [PPC Land: Stack Overflow traffic collapses as AI tools reshape how developers code](https://ppc.land/stack-overflow-traffic-collapses-as-ai-tools-reshape-how-developers-code/)
+
+---
+
 ## About the Book
 
 ### The Invisible Users: Designing the Web for AI Agents and Everyone Else
@@ -415,6 +495,6 @@ Are you ready?
 
 **Updated:** 10 January 2026
 
-**Appendix J updated:** Added Agentic Commerce Protocol (29 Sep 2024), Amazon Alexa.com (5 Jan 2026), Amazon defensive posture (Dec 2024-Jan 2025), Tailwind CSS discovery problem (6 Jan 2026), and expanded Microsoft Copilot Checkout coverage (8 Jan 2026)
+**Appendix J updated:** Added Stack Overflow usage decline (10 Jan 2026), Agentic Commerce Protocol (29 Sep 2024), Amazon Alexa.com (5 Jan 2026), Amazon defensive posture (Dec 2024-Jan 2025), Tailwind CSS discovery problem (6 Jan 2026), and expanded Microsoft Copilot Checkout coverage (8 Jan 2026)
 
-**Chapters referenced:** ACP validates Chapter 11 identity abstraction approach; Amazon validates Chapter 4 platform power predictions; Tailwind validates Chapter 10 llms.txt pattern and Appendix H; Microsoft expands Jan 2025 coverage in Chapters 4 & 9
+**Chapters referenced:** Stack Overflow validates Chapter 1 urgency, Chapter 8 capability gaps, and 2-year adoption timeline; ACP validates Chapter 11 identity abstraction approach; Amazon validates Chapter 4 platform power predictions; Tailwind validates Chapter 10 llms.txt pattern and Appendix H; Microsoft expands Jan 2025 coverage in Chapters 4 & 9
