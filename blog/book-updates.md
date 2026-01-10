@@ -56,6 +56,44 @@ Microsoft reports improved conversion rates, though these claims have not been i
 
 I assumed identity delegation would require industrywide standards negotiation. Microsoft built a proprietary solution and launched. Platform-specific implementations are emerging before standards consolidate.
 
+### Agentic Commerce Protocol (September 2024)
+
+Whilst Microsoft built proprietary systems, OpenAI and Stripe took a different approach: they published an open protocol. On 29 September 2024, OpenAI and Stripe announced the Agentic Commerce Protocol (ACP) - an open standard for AI commerce that enables programmatic purchase flows between buyers, AI agents, and businesses.
+
+**Key details:**
+
+- Open source (Apache 2.0 licensed) and community-designed
+- Powers "Instant Checkout" in ChatGPT
+- Available now: U.S. ChatGPT users can buy from Etsy sellers and over 1 million Shopify merchants
+- Leading brands onboarding: URBN (Anthropologie, Free People, Urban Outfitters), Ashley Furniture, Coach, Kate Spade, Revolve, Halara
+
+**What makes this significant:**
+
+ACP is **not** a proprietary walled garden. It's an open standard that any business can adopt with their existing payment providers, and it works across AI agents. The protocol specification is available on GitHub at <https://github.com/agentic-commerce-protocol/agentic-commerce-protocol>.
+
+**What this validates:**
+
+- **Chapter 11 (The Missing Identity Layer):** ACP represents the first major open protocol for agent commerce - exactly what Chapter 11 argued was needed to prevent platform lock-in
+- **Chapter 4 (The Business Reality):** Transaction-based businesses benefit from agent traffic when implementing compatible patterns - ACP provides the infrastructure
+- **Chapter 11 (Identity Abstraction):** The protocol demonstrates the abstraction layer approach recommended in Chapter 11 - businesses maintain their customer relationships as the merchant of record whilst enabling agent-mediated purchases
+
+**What this challenges:**
+
+Chapter 11 suggested open standards would emerge after platforms established proprietary systems and regulators forced interoperability. Instead, OpenAI and Stripe published an open protocol immediately, racing to establish ACP as the standard **before** platform lock-in occurs. This accelerates the timeline for interoperability but creates competitive tension with Microsoft's proprietary Copilot Checkout system.
+
+**The tension:**
+
+We now have two paths emerging simultaneously:
+
+- **Proprietary:** Microsoft Copilot Checkout (closed system, Microsoft identity)
+- **Open:** Agentic Commerce Protocol (open standard, portable across agents)
+
+Businesses face a choice: integrate with closed platforms (immediate market access, platform dependency) or adopt open standards (portability, but fewer agent integrations today). Chapter 11's recommendation to "build identity abstraction that supports both" becomes even more critical - you need to work with Microsoft's system today whilst positioning for ACP adoption as it gains traction.
+
+**For agent creators:**
+
+If you're building agents, ACP provides exactly what Chapter 11 described: an open protocol for commerce that doesn't lock users into your ecosystem. The specification at <https://agenticcommerce.dev> shows how to implement portable delegation tokens, standard payment flows, and merchant-of-record relationships that preserve customer identity.
+
 ## Updated Chapters
 
 I've updated three chapters with references to these developments:
@@ -81,11 +119,13 @@ The window to act is smaller than I projected.
 Test your site with multiple agent platforms immediately:
 
 **Claude for Chrome:**
+
 1. Install the extension (available to all paid Claude subscribers)
 2. Instruct Claude to complete a purchase on your site
 3. Observe where it fails
 
 **Amazon Alexa+ and Microsoft Copilot:**
+
 - Test checkout flow through Alexa.com (if you have Early Access)
 - Verify compatibility with Microsoft Copilot Checkout (if partnered)
 
@@ -342,8 +382,8 @@ Are you ready?
 
 ---
 
-**Updated:** 9 January 2026
+**Updated:** 10 January 2026
 
-**Appendix J updated:** Added Amazon Alexa.com (5 Jan 2026) and expanded Microsoft Copilot Checkout coverage (8 Jan 2026)
+**Appendix J updated:** Added Agentic Commerce Protocol (29 Sep 2024), Amazon Alexa.com (5 Jan 2026), and expanded Microsoft Copilot Checkout coverage (8 Jan 2026)
 
-**Chapters referenced:** Amazon validates Chapter 4 platform power predictions; Microsoft expands Jan 2025 coverage in Chapters 4 & 9
+**Chapters referenced:** ACP validates Chapter 11 identity abstraction approach; Amazon validates Chapter 4 platform power predictions; Microsoft expands Jan 2025 coverage in Chapters 4 & 9

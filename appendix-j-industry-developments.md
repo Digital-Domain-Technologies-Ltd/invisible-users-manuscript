@@ -4,7 +4,7 @@
 
 This appendix tracks significant developments in AI agent-mediated commerce and browser automation. These real-world implementations demonstrate the patterns discussed throughout the book and show how rapidly the landscape is evolving.
 
-**Last updated:** 9 January 2026
+**Last updated:** 10 January 2026
 
 **Purpose:** Document major industry shifts that validate or challenge the book's thesis. This appendix will be updated periodically as new developments emerge.
 
@@ -18,6 +18,243 @@ Entries organised chronologically within thematic categories:
 - Standards and Protocol Announcements
 - Business Model Innovations
 - Security and Identity Solutions
+
+## Agentic Commerce Protocol (29 September 2024)
+
+### Overview
+
+OpenAI and Stripe announced the Agentic Commerce Protocol (ACP), an open standard for programmatic commerce flows between buyers, AI agents, and businesses. Unlike proprietary agent commerce systems, ACP is open source (Apache 2.0), community-designed, and works across AI agents with existing payment providers.
+
+### Key Details
+
+**Announcement Date:** 29 September 2024
+**Organizations:** OpenAI and Stripe (codevelopers)
+**License:** Apache 2.0 (open source)
+**Implementation:** Powers "Instant Checkout" in ChatGPT
+**Availability:** U.S. ChatGPT Plus, Pro, and Free users
+**Specification:** <https://github.com/agentic-commerce-protocol/agentic-commerce-protocol>
+**Website:** <https://agenticcommerce.dev>
+**Category:** Standards and Protocol Announcements
+
+### Key Capabilities
+
+**For Businesses:**
+
+- Maintain customer relationships as merchant of record
+- Control which products can be sold and how they're presented
+- Process transactions with existing payment providers (not Stripe-exclusive)
+- Manage how orders are fulfilled
+- Portable across AI agents (not locked to ChatGPT)
+
+**For Users:**
+
+- Make purchases directly within AI conversations
+- Natural language checkout ("buy the blue one in size medium")
+- Payment details stored securely with payment provider
+- Order tracking and history within agent interface
+
+**For AI Agents:**
+
+- Standard protocol for commerce integration
+- No proprietary API lock-in
+- Portable delegation tokens
+- Support for physical goods, digital goods, subscriptions, and asynchronous purchases
+
+**Current Merchants:**
+
+- **Live now:** Over 1 million Etsy sellers
+- **Coming soon:** Over 1 million Shopify merchants
+- **Onboarding:** URBN (Anthropologie, Free People, Urban Outfitters), Ashley Furniture, Coach, Kate Spade, Nectar, Revolve, Halara, Abt Electronics
+- **Supporting:** Salesforce (announced support in January 2025)
+
+### Significance for This Book
+
+**Particularly relevant:** ACP represents the first major open protocol for agent-mediated commerce, directly addressing the identity delegation and platform lock-in concerns discussed in Chapter 11.
+
+### Technical Implementation Insights
+
+**Open Standard Approach:**
+
+ACP is explicitly designed to be open and interoperable. The protocol specification is published on GitHub under Apache 2.0 license, enabling any business to adopt it without Stripe dependency and any AI platform to integrate it without OpenAI permission.
+
+**Merchant-of-Record Model:**
+
+Unlike marketplace models where the platform becomes merchant-of-record, ACP preserves the direct relationship between business and customer. The merchant processes the payment, fulfils the order, and owns the customer data. The AI agent acts as an interface, not an intermediary.
+
+**Flexible Configuration:**
+
+ACP supports multiple commerce patterns:
+
+- **Synchronous:** Immediate payment and confirmation (e-commerce checkout)
+- **Asynchronous:** Book now, pay later (restaurant reservations, appointments)
+- **Recurring:** Subscription management (monthly boxes, SaaS billing)
+- **Mixed:** Physical and digital goods in same transaction
+
+**Cross-Platform Portability:**
+
+The protocol is designed so delegation tokens work across agents. A user who authorises agent A to make purchases should be able to switch to agent B without re-authorising every merchant. This portability is the key difference from proprietary systems like Microsoft Copilot Checkout.
+
+### Business Model Implications
+
+**For Payment Providers:**
+
+Stripe benefits from increased transaction volume through ACP adoption, but the protocol is deliberately provider-agnostic. Businesses processing with Adyen, PayPal, Square, or other providers can still implement ACP. This prevents payment processor lock-in.
+
+**For AI Platforms:**
+
+OpenAI gains first-mover advantage by launching Instant Checkout before competitors, but the open protocol prevents ecosystem lock-in. ChatGPT users aren't trapped - they could switch to Claude or Copilot and retain their merchant authorisations if those platforms adopt ACP.
+
+**For Merchants:**
+
+ACP creates a strategic choice:
+
+1. **Integrate with closed platforms** (Microsoft Copilot Checkout) for immediate market access to platform-specific users
+2. **Adopt open protocol** (ACP) for portability across multiple AI agents
+3. **Support both** (Chapter 11's identity abstraction approach) for maximum reach
+
+The "support both" approach requires building an abstraction layer that isolates platform-specific implementations behind a standard interface.
+
+### What This Validates
+
+**From Chapter 11 - "The Missing Identity Layer" (lines 898-1000):**
+
+Chapter 11 identified the lack of universal identity delegation as a critical gap: "What's missing: A universal identity delegation layer that works across platforms and agents." ACP provides exactly this - an open protocol for delegation that isn't locked to a single platform.
+
+The chapter argued platforms were "racing to establish first-mover advantages before standards emerge." ACP challenges this prediction by publishing an open standard immediately rather than building a proprietary system first.
+
+**From Chapter 11 - "Identity Abstraction" (lines 974-991):**
+
+The chapter recommended: "Build the identity layer as an abstraction. Support proprietary systems today (you need market access) but design the architecture to support open standards when they emerge."
+
+ACP makes this recommendation immediately actionable. Agent creators can now build abstraction layers that support both Microsoft's proprietary Copilot Checkout and OpenAI's open ACP protocol, positioning for eventual standardisation without sacrificing current market access.
+
+**From Chapter 4 - "E-Commerce - Where Incentives Align" (lines 117-157):**
+
+Chapter 4 argued transaction-based businesses benefit from agent traffic when implementing compatible patterns. ACP provides the infrastructure for these transactions whilst preserving merchant control and customer relationships. The protocol's merchant-of-record model prevents the identity loss problem discussed in Chapter 4.
+
+### What This Challenges
+
+**Assumption challenged - Platform Consolidation Before Standards:**
+
+Chapter 11, line 916: "The technically correct solution - build on open standards like OAuth, implement portable delegation tokens, and support cross-platform identity - doesn't exist yet because platforms have no incentive to create it."
+
+This assumption proved incorrect. OpenAI and Stripe published an open protocol before proprietary consolidation occurred, racing to establish ACP as the standard before platform lock-in happens. The timeline Chapter 11 predicted (proprietary systems first, open standards after regulatory pressure) was compressed - open standards emerged alongside proprietary systems.
+
+**Competitive tension created:**
+
+The book assumed a simpler competitive landscape: proprietary platforms versus eventual open standards. Reality is more complex:
+
+- **Microsoft:** Building closed, proprietary Copilot Checkout system
+- **OpenAI + Stripe:** Building open ACP protocol
+- **Google, Apple, Amazon:** Positions unclear but likely building proprietary systems
+- **Agent creators:** Must support multiple incompatible approaches simultaneously
+
+This creates three strategic options for businesses:
+
+1. **Platform-exclusive:** Integrate only with closed platforms (immediate market, lock-in risk)
+2. **Standards-first:** Adopt only ACP (portability, limited agent reach today)
+3. **Multi-platform:** Support both closed and open (maximum reach, highest implementation cost)
+
+Chapter 11's identity abstraction recommendation becomes even more critical - businesses need architecture that isolates platform differences behind a unified interface.
+
+### Architectural Insights
+
+**OAuth 2.0 Extension Pattern:**
+
+ACP builds on OAuth 2.0 delegation extensions, making it familiar to developers who've implemented social login or API authorisation. The delegation tokens follow established patterns:
+
+- User authorises agent to act on their behalf
+- Token scoped to specific merchant and permissions
+- Token revocable without agent cooperation
+- Token portable across compliant agents
+
+**Separation of Concerns:**
+
+ACP separates three distinct responsibilities:
+
+1. **Identity Provider:** Authenticates user and issues delegation tokens
+2. **Agent:** Executes purchase flow using delegated authority
+3. **Merchant:** Processes payment and fulfils order
+
+This separation prevents any single party from controlling the entire transaction chain. Users can switch agents without losing merchant access. Merchants can switch payment providers without breaking agent integrations. Agents can support multiple merchants without building proprietary relationships with each.
+
+**Future-Proofing:**
+
+The protocol is designed for extensibility. New commerce patterns (escrow, instalment payments, group purchasing) can be added without breaking existing implementations. This flexibility makes ACP suitable for long-term adoption rather than a point solution for current agent capabilities.
+
+### Questions Raised
+
+**Will competing platforms adopt ACP?**
+
+Microsoft has invested in proprietary Copilot Checkout. Google and Apple are likely building their own systems. Will they adopt an OpenAI-initiated protocol, or will the ecosystem fragment into incompatible standards?
+
+**How will conflicts be resolved?**
+
+If a user has authorised purchases through both Microsoft Copilot Checkout (proprietary) and ChatGPT Instant Checkout (ACP), which takes precedence? How do merchants handle conflicting delegation tokens from different platforms?
+
+**What happens when regulations force interoperability?**
+
+Chapter 11 predicted regulators would eventually mandate open standards. If ACP becomes that standard through market adoption, does that give OpenAI and Stripe disproportionate influence over agent commerce infrastructure?
+
+**Can ACP prevent payment processor lock-in?**
+
+The protocol is designed to be processor-agnostic, but Stripe's co-development role creates perception of bias. Will merchants using Adyen, PayPal, or Square adopt ACP, or will they view it as a Stripe advantage?
+
+### Strategic Implications for Readers
+
+**For Web Developers (Chapter 10 audience):**
+
+If you're implementing e-commerce or checkout flows, consider ACP integration alongside traditional payment flows. The protocol provides a standard way for agents to complete purchases without requiring custom agent-specific implementations for each platform.
+
+**Implementation priority:** Medium-term (6-12 months). ACP is production-ready but agent adoption is still growing. Position for future growth without disrupting current operations.
+
+**For Agent Creators (Chapter 11 audience):**
+
+ACP provides the open standard Chapter 11 advocated for. If you're building agents, implement ACP support to enable commerce without platform lock-in. The abstraction layer pattern from Chapter 11 (lines 974-991) applies directly: isolate ACP behind a standard interface so you can support proprietary platforms alongside open standards.
+
+**Implementation priority:** High (immediate). First-mover advantage available for agents that support ACP early whilst competing agents are still building proprietary integrations.
+
+**For Business Leaders (Chapter 4 audience):**
+
+Evaluate whether ACP adoption aligns with your agent commerce strategy. The protocol preserves customer relationships (merchant-of-record model) and enables portability (cross-platform tokens), addressing two major concerns from Chapter 4's identity delegation discussion.
+
+**Decision framework:**
+
+- **High agent traffic potential:** Adopt ACP plus platform-specific integrations (multi-platform approach)
+- **Microsoft-focused customer base:** Prioritise Copilot Checkout, defer ACP
+- **OpenAI/ChatGPT user base:** Immediate ACP integration for market access
+- **Future-proofing focus:** ACP for portability, platform integrations as needed
+
+### Cross-References
+
+**Related chapters:**
+
+- Chapter 4, lines 117-157: "E-Commerce - Where Incentives Align" - ACP provides infrastructure for transaction-based benefits
+- Chapter 4, lines 324-425: Identity delegation challenges - ACP addresses customer relationship preservation
+- Chapter 11, lines 898-1000: "The Missing Identity Layer" - ACP fills the gap Chapter 11 identified
+- Chapter 11, lines 974-991: Identity abstraction recommendation - ACP enables the pattern Chapter 11 advocated
+
+**Related appendix entries:**
+
+- Microsoft Copilot Checkout (January 2026) - Proprietary alternative to ACP
+- Claude for Chrome (August-December 2025) - Browser agent that could integrate ACP
+- Amazon Alexa.com (5 January 2026) - Platform likely building proprietary commerce system
+
+**Related resources:**
+
+- OpenAI announcement: <https://openai.com/index/buy-it-in-chatgpt/>
+- Stripe announcement: <https://stripe.com/newsroom/news/stripe-openai-instant-checkout>
+- ACP specification: <https://github.com/agentic-commerce-protocol/agentic-commerce-protocol>
+- Developer docs: <https://developers.openai.com/commerce/guides/get-started/>
+- Protocol website: <https://agenticcommerce.dev>
+
+### Sources
+
+- OpenAI Official Announcement: "Buy it in ChatGPT: Instant Checkout and the Agentic Commerce Protocol" (29 Sep 2024) - <https://openai.com/index/buy-it-in-chatgpt/>
+- Stripe Official Announcement: "Stripe powers Instant Checkout in ChatGPT and releases Agentic Commerce Protocol codeveloped with OpenAI" (29 Sep 2024) - <https://stripe.com/newsroom/news/stripe-openai-instant-checkout>
+- Stripe Blog: "Developing an open standard for agentic commerce" - <https://stripe.com/blog/developing-an-open-standard-for-agentic-commerce>
+- GitHub Repository: "Agentic Commerce Protocol" - <https://github.com/agentic-commerce-protocol/agentic-commerce-protocol>
+- Salesforce Announcement: "Salesforce Announces Support for Agentic Commerce Protocol in Collaboration with Stripe" (8 Jan 2025) - <https://investor.salesforce.com/news/news-details/2025/Salesforce-Announces-Support-for-Agentic-Commerce-Protocol-in-Collaboration-with-Stripe/>
 
 ## Claude for Chrome (August-December 2025)
 
