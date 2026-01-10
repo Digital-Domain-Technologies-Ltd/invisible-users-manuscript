@@ -901,7 +901,7 @@ Here's what agent creators don't talk about: every major platform is building cl
 
 **What's missing:** A universal identity delegation layer that works across platforms and agents. When you authorise an agent to act on your behalf, that authorisation should be portable. You should be able to switch agents without losing access to services. Businesses should be able to verify your identity regardless of which agent you use.
 
-**What we have instead:** Proprietary solutions. Microsoft's Copilot Checkout preserves customer identity through Microsoft's own delegation system. Claude for Chrome inherits your browser session through Anthropic's extension. ChatGPT will undoubtedly build its own approach. Each platform creates a walled garden.
+**What we have instead:** A mix of proprietary and open solutions. Microsoft's Copilot Checkout preserves customer identity through Microsoft's own delegation system. Claude for Chrome inherits your browser session through Anthropic's extension. But in September 2024, OpenAI and Stripe announced the Agentic Commerce Protocol (ACP) - the first major open standard for agent commerce with portable delegation. This creates competing approaches: closed platforms racing for lock-in versus an open protocol racing for adoption.
 
 **The first-mover advantage they're pursuing:**
 
@@ -913,7 +913,7 @@ This isn't accidental. It's deliberate platform strategy: establish your identit
 
 If you're building an agent now, you face a choice: integrate with existing proprietary systems (creating dependency on platform providers) or wait for open standards (missing the market whilst users adopt closed platforms). Neither option is ideal.
 
-The technically correct solution - build on open standards like OAuth, implement portable delegation tokens, and support cross-platform identity - doesn't exist yet because platforms have no incentive to create it. They're racing to lock in users before standards bodies can negotiate interoperability.
+The technically correct solution - build on open standards like OAuth, implement portable delegation tokens, and support cross-platform identity - now exists in the form of ACP (Agentic Commerce Protocol). OpenAI and Stripe published this open standard in September 2024, proving that platforms can create interoperable solutions before consolidation occurs. But adoption is nascent, and most platforms continue racing to lock in users with proprietary systems.
 
 **What agent creators should build anyway:**
 
@@ -1319,7 +1319,7 @@ That's how we build a web that works for everyone - human and machine alike.
 
 ## What Comes Next: The Universal Identity Layer
 
-The missing piece I've described in this chapter - a universal identity delegation layer - doesn't exist yet. But it should. And I'm considering building it as my next project.
+The missing piece I've described in this chapter - a universal identity delegation layer - now has its first major implementation: the Agentic Commerce Protocol (ACP), announced by OpenAI and Stripe in September 2024. ACP provides open-source identity delegation for commerce that works across platforms. But broader identity delegation beyond commerce remains unsolved. And I'm considering building that infrastructure as my next project.
 
 **The vision:** An open-source identity delegation framework that works across platforms and agents. Portable authorisation tokens. User-controlled permissions. Auditable delegation trails. Support for OAuth 2.0 delegation extensions. Abstraction layers that let agents support proprietary systems today whilst preparing for open standards tomorrow.
 

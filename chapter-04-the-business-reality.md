@@ -149,7 +149,9 @@ This validates the transaction-based benefit thesis discussed above: when agents
 
 **Strategic implication:** The competitive dynamics discussed in "Platform Power Shifts" are no longer speculative. Microsoft now controls distribution for agent-mediated commerce. Retailers who haven't optimised for agent compatibility are excluded from these high-conversion transactions.
 
-See online Appendix J (<https://allabout.network/invisible-users/web/appendix-j.html>) for complete analysis of this development and its implications for the patterns discussed throughout this book.
+**Open alternative emerges:** In September 2024, OpenAI and Stripe announced the Agentic Commerce Protocol (ACP) - an open standard for agent commerce that works across AI agents with existing payment providers. Unlike Microsoft's proprietary system, ACP is open source (Apache 2.0) and designed for portability. This creates a strategic choice for businesses: integrate with closed platforms for immediate market access, or adopt open standards for long-term portability.
+
+See online Appendix J (<https://allabout.network/invisible-users/web/appendix-j.html>) for complete analysis of both Microsoft Copilot Checkout and the Agentic Commerce Protocol, including implementation guidance and strategic implications.
 
 ---
 
@@ -861,7 +863,7 @@ But transitions always are.
 
 The businesses that thrive will be those that understand their specific economics, identify where agent efficiency helps versus hurts, and design experiences that serve both audiences appropriately.
 
-The identity delegation problem - agents severing customer relationships - is solvable. Several approaches are being developed, though no industry standard exists yet. Businesses concerned about losing customer relationships should monitor these emerging patterns.
+The identity delegation problem - agents severing customer relationships - is solvable. The Agentic Commerce Protocol (ACP), announced by OpenAI and Stripe in September 2024, provides the first open standard for agent-mediated commerce whilst preserving customer identity. Adoption is still early, but ACP demonstrates that portable delegation is technically feasible. Businesses concerned about losing customer relationships should evaluate ACP adoption alongside proprietary platform solutions. See Appendix J (<https://allabout.network/invisible-users/web/appendix-j.html>) for complete analysis.
 
 The following chapters examine specific challenges: content creators facing an existential threat, security risks associated with agent access, legal frameworks still being defined, and the human cost of getting this wrong.
 
