@@ -53,3 +53,7 @@ venv/
 notes/
 drafts/
 .private/
+
+# External FAQ wrappers (not part of this project)
+web/allabout-faq.html
+web/allabout-faq-wrapped.html
