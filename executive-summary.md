@@ -77,9 +77,13 @@ This represents a fundamental shift: agents aren't just reading static HTML anym
 
 This book addresses different audiences with different needs:
 
-**Business Decision-Makers**: Chapters 1, 4, 5, 7, 8, 9, and first half of Chapter 10 (Focused reading). Delegate Chapter 12 to teams evaluating agent partnerships.
+**Business Leaders**: Chapters 1, 4, 5, 7, 8, 9, and first half of Chapter 10 (Focused reading). Delegate Chapter 12 to teams evaluating agent partnerships.
 
-**Product & Design**: Chapters 1-5, 9-12 (Comprehensive coverage)
+**Product Owners**: Chapters 1-5, 9, 10 (Strategic implementation focus). Balance business objectives with technical realities.
+
+**Content Managers and Strategists**: Chapters 1, 2, 3, 5, 10, 11 (Content-first perspective). Learn agent-friendly content structure.
+
+**UX Designers and Information Architects**: Chapters 1-5, 10, 11, 12 (Comprehensive coverage). Create patterns that serve both humans and agents.
 
 **Developers**: Start with Chapters 11-12, then work backwards through Chapters 2, 6, 10 for context (Technical focus)
 
@@ -87,7 +91,7 @@ This book addresses different audiences with different needs:
 
 **Small Business Owners**: Chapters 1, 4, small business sections in Chapter 10 (Quick overview)
 
-For detailed reading paths with chapter-by-chapter guidance, see the navigation guide in the Preface (page X).
+For detailed reading paths with chapter-by-chapter guidance, see the Reading Guide.
 
 ## One-Page Decision Tree: Should You Prioritise Agent Compatibility?
 

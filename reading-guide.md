@@ -34,9 +34,72 @@ Look for "Key Points for Business Leaders" boxes at the end of Chapters 2, 3, 4,
 
 ---
 
-## Reading Path for Product Managers and Designers
+## Reading Path for Product Owners
 
-You need to understand the problem deeply, grasp business context, and implement solutions.
+You need to balance business objectives with technical implementation realities.
+
+**Read in full:**
+
+- Chapter 1: What You Will Learn (foundation and context)
+- Chapter 2: The Invisible Failure (understand what's breaking)
+- Chapter 3: The Architectural Conflict (understand why it's hard to fix)
+- Chapter 4: The Business Reality (economics and ROI)
+- Chapter 5: The Content Creator's Dilemma (content strategy implications)
+- Chapter 9: The Platform Race (competitive urgency and timeline)
+- Chapter 10: Designing for Both (solution patterns and prioritisation)
+
+**Skim for context:**
+
+- Chapter 6: The Security Maze (understand technical constraints)
+- Chapter 7: The Legal Landscape (understand policy boundaries)
+- Chapter 8: The Human Cost (broader implications)
+
+**Delegate to teams:**
+
+- Chapter 11: Technical Advice (your development team)
+- Chapter 12: What Agent Creators Must Build (if evaluating agent partnerships)
+
+Focus on the decision frameworks in Chapter 4 and the prioritisation guidance in Chapter 10. Use Chapter 2 to build your business case with concrete examples of failure patterns.
+
+**Reading approach:** Strategic implementation focus
+
+---
+
+## Reading Path for Content Managers and Strategists
+
+You need to understand how agent-friendly content structure differs from human-optimised content.
+
+**Read in full:**
+
+- Chapter 1: What You Will Learn (foundation)
+- Chapter 2: The Invisible Failure (what breaks for agents)
+- Chapter 3: The Architectural Conflict (why content structure matters)
+- Chapter 5: The Content Creator's Dilemma (economic implications for content)
+- Chapter 10: Designing for Both (structured data and semantic markup)
+- Chapter 11: Technical Advice (implementation patterns for content)
+
+**Skim for context:**
+
+- Chapter 4: The Business Reality (commercial context)
+- Chapter 6: The Security Maze (access control for content)
+
+**Focus areas:**
+
+- Schema.org structured data (Chapter 10, Chapter 11)
+- Semantic HTML for content (Chapter 10)
+- llms.txt files (Chapter 11, Appendix H)
+- Content completeness vs pagination (Chapter 2)
+- Agent-friendly authoring patterns (Chapter 11)
+
+Chapter 5 addresses your economic model directly. Chapter 10 provides content structure patterns. Chapter 11 includes code examples for structured content markup.
+
+**Reading approach:** Content-first perspective
+
+---
+
+## Reading Path for UX Designers and Information Architects
+
+You need to understand the problem deeply, grasp business context, and create interface patterns that serve both humans and agents.
 
 **Read in full:**
 
@@ -45,8 +108,8 @@ You need to understand the problem deeply, grasp business context, and implement
 - Chapter 3: The Architectural Conflict (why design decisions matter)
 - Chapter 4: The Business Reality (commercial implications)
 - Chapter 5: The Content Creator's Dilemma (content strategy)
-- Chapter 12: Designing for Both (solution patterns)
-- Chapter 12: Technical Advice (implementation approaches)
+- Chapter 10: Designing for Both (solution patterns)
+- Chapter 11: Technical Advice (implementation approaches)
 - Chapter 12: What Agent Creators Must Build (if designing agent features)
 
 **Skim for context:**

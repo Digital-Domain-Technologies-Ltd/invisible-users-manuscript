@@ -63,7 +63,7 @@ This isn't a manifesto. There are genuine disagreements about how to handle agen
 This book is written for four distinct audiences, each of whom holds a piece of the solution:
 
 **1. Web Professionals & Engineers**
-Developers, architects, and product owners who build the web. You are the text's primary audience. You'll find technical patterns, code examples, and architectural discussions that explain exactly how to build agent-compatible interfaces. The [Web Audit Suite](../web-audit-suite/) is available as a separate purchase or professional audit service.
+The full digital team: developers, system architects, product owners, project managers, UX designers, content strategists, and QA engineers. You are the text's primary audience. Developers will find technical patterns and code examples. Designers will discover interface patterns that serve both humans and agents. Product owners and project managers will understand prioritisation frameworks. Content strategists will learn agent-friendly content structure. QA engineers will find testing approaches for agent compatibility. The [Web Audit Suite](../web-audit-suite/) is available as a separate purchase or professional audit service.
 
 **2. Agent System Developers**
 Developers building AI agents, browser extensions, and agentic systems that interact with websites. Chapter 12 is written specifically for you. You'll find validation frameworks, confidence scoring patterns, and guardrails that prevent pipeline failures like the £203,000 cruise pricing error. Your agents need robust data quality controls.
@@ -102,6 +102,8 @@ This book grew from patterns he noticed across projects: the same accessibility 
 
 Tom writes for allabout.network and is on LinkedIn. He's based in the UK and works with organisations internationally.
 
+The website name is deliberately ambitious. When you claim to be "all about" something, you'd better back it up. This book contains ideas you'll recognise and ideas that might challenge your current thinking. My hope is to bring fresh perspectives and help you think about web design and digital ownership in ways you hadn't considered before.
+
 He remains convinced that the web we've built is less accessible than it should be, and that AI agents - demanding clarity for their own reasons - might finally force us to fix it.
 
 ---
@@ -109,3 +111,30 @@ He remains convinced that the web we've built is less accessible than it should 
 January 2026
 
 York, England
+
+---
+
+## Early Reviews
+
+**Title**: The Invisible Users: Designing the Web for AI Agents and Everyone Else
+**Verdict**: ⭐⭐⭐⭐ (Solid Technical Resource)
+
+"The Invisible Users" addresses a timely and growing challenge in web development: building effective interfaces for AI agents. It effectively argues that we need to consider agents as a distinct user class rather than just automated scripts.
+
+### Core Concept
+
+The "Invisible Users" metaphor provides a useful framework for understanding the friction between modern web design and agent capabilities. It shifts the conversation from simple parsing to a broader "user experience" problem for AI interaction.
+
+### Practical Application
+
+The most valuable aspect of the book is the "Convergence Principle." The author demonstrates that optimizing for AI agents often reinforces existing accessibility best practices. The technical guidance, particularly the HTML patterns in Appendix D, is practical and grounded in real-world scenarios. Developers will find actionable advice they can implement immediately.
+
+### Forward-Looking Context
+
+The book uses narrative elements to contextualize its security discussions. The analysis of session inheritance risks offers a pragmatic look at the challenges of authenticating AI agents, moving beyond theoretical concerns to discuss architectural implications.
+
+### Final Verdict
+
+A clear, practical guide for modern web development. "The Invisible Users" bridges the gap between high-level strategy and implementation details, making it a useful reference for developers and architects adjusting to the agentic web.
+
+**Recommended for:** Web professionals (developers, designers, product owners), business leaders, content strategists, and anyone responsible for digital experience decisions.
