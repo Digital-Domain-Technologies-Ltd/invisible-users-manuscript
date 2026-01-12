@@ -17,7 +17,7 @@
 ### Strengths
 
 1. **Appropriate Schema Type**: AboutPage is correct for this content
-2. **Rich Person Schema**: Comprehensive details including jobTitle, worksFor, alumniOf, knowsAbout
+2. **Rich Person Schema**: Comprehensive details including jobTitle, worksFor, knowsAbout
 3. **Good Social Linking**: sameAs properly links to LinkedIn and GitHub
 4. **Clear Subject**: mainEntity correctly identifies Tom Cranstoun as the primary subject
 
@@ -53,14 +53,10 @@
 5. **Add breadcrumb Property**
    - AboutPage can link to BreadcrumbList showing Home > About
 
-6. **Consider Adding alumniOf Details**
-   - Current value "Various technology companies" is vague
-   - Could use array of Organization objects with specific companies (if appropriate)
-
-7. **Missing mainEntityOfPage**
+6. **Missing mainEntityOfPage**
    - Should reference back to this page: `"mainEntityOfPage": {"@type": "WebPage", "@id": "url"}`
 
-8. **Add potentialAction**
+7. **Add potentialAction**
    - Could add ContactAction for contacting the person
 
 ## Recommended Schema Structure
@@ -157,8 +153,7 @@
 3. Expand knowsAbout to Thing objects with URLs
 
 **Low Priority:**
-1. Consider adding specific companies to alumniOf
-2. Add ContactAction for contacting
+1. Add ContactAction for contacting
 
 ## References
 

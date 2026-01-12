@@ -39,7 +39,6 @@
        "https://github.com/Digital-Domain-Technologies-Ltd"
      ],
      "knowsAbout": ["Web Development", "AI Agents", "Accessibility"],
-     "alumniOf": "TBD",
      "address": {
        "@type": "PostalAddress",
        "addressCountry": "GB"
