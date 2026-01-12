@@ -2441,13 +2441,36 @@ The FAQ page answers common questions in a structured format. For AI agents, it 
     "@type": "FAQPage",
     "name": "The Invisible Users - Frequently Asked Questions",
     "description": "Common questions about The Invisible Users book, AI agent compatibility, implementation guidance, and identity delegation infrastructure",
+    "author": {
+      "@type": "Person",
+      "name": "Tom Cranstoun",
+      "email": "tom.cranstoun@gmail.com",
+      "url": "https://allabout.network"
+    },
+    "inLanguage": "en-GB",
+    "about": {
+      "@type": "Thing",
+      "name": "AI-friendly web design and implementation"
+    },
+    "keywords": ["AI agents", "web design", "accessibility", "Schema.org", "semantic HTML", "llms.txt", "identity delegation", "agent-mediated commerce"],
+    "isPartOf": {
+      "@type": "Book",
+      "name": "The Invisible Users",
+      "url": "https://allabout.network/invisible-users"
+    },
     "mainEntity": [
       {
         "@type": "Question",
         "name": "What is The Invisible Users about?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The Invisible Users examines how modern web design optimised for human users fails for AI agents, and how fixing this benefits everyone. The book provides practical guidance for making websites accessible to both humans and AI agents through semantic HTML, explicit state management, and structured data."
+          "text": "The Invisible Users examines how modern web design optimised for human users fails for AI agents, and how fixing this benefits everyone. The book provides practical guidance for making websites accessible to both humans and AI agents through semantic HTML, explicit state management, and structured data.",
+          "dateCreated": "2026-01-11",
+          "author": {
+            "@type": "Person",
+            "name": "Tom Cranstoun"
+          },
+          "upvoteCount": 0
         }
       },
       {
@@ -2455,7 +2478,13 @@ The FAQ page answers common questions in a structured format. For AI agents, it 
         "name": "Who should read this book?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The book targets web professionals, agent system developers, business leaders, and partners evaluating opportunities in agent-mediated commerce."
+          "text": "The book targets web professionals, agent system developers, business leaders, and partners evaluating opportunities in agent-mediated commerce.",
+          "dateCreated": "2026-01-11",
+          "author": {
+            "@type": "Person",
+            "name": "Tom Cranstoun"
+          },
+          "upvoteCount": 0
         }
       },
       {
@@ -2463,17 +2492,36 @@ The FAQ page answers common questions in a structured format. For AI agents, it 
         "name": "What is the Web Audit Suite?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The Web Audit Suite is a comprehensive Node.js tool that analyses websites for AI agent compatibility, SEO performance, accessibility compliance, and security headers. It implements the patterns described in the book and generates detailed reports."
+          "text": "The Web Audit Suite is a comprehensive Node.js tool that analyses websites for AI agent compatibility, SEO performance, accessibility compliance (WCAG 2.1), performance metrics, and security headers. It implements the patterns described in the book and generates detailed reports.",
+          "dateCreated": "2026-01-11",
+          "author": {
+            "@type": "Person",
+            "name": "Tom Cranstoun"
+          },
+          "upvoteCount": 0
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I get started with implementation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Start with Appendix F (Implementation Roadmap) which provides priority-based guidance. Priority 1 quick wins include adding semantic HTML, implementing proper form field naming, and adding Schema.org structured data. Appendix A (Implementation Cookbook) provides code examples for common patterns.",
+          "dateCreated": "2026-01-11",
+          "author": {
+            "@type": "Person",
+            "name": "Tom Cranstoun"
+          },
+          "upvoteCount": 0
         }
       }
     ],
     "datePublished": "2026-01-11",
-    "dateModified": "2026-01-11",
+    "dateModified": "2026-01-12",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://allabout.network/invisible-users/web/faq.html"
     },
-    "inLanguage": "en-GB",
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -2490,6 +2538,21 @@ The FAQ page answers common questions in a structured format. For AI agents, it 
           "item": "https://allabout.network/invisible-users/web/faq.html"
         }
       ]
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".faq-item"]
+    },
+    "potentialAction": {
+      "@type": "AskAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "mailto:tom.cranstoun@gmail.com?subject=Question about The Invisible Users",
+        "actionPlatform": [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform"
+        ]
+      }
     }
   }
   </script>
