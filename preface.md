@@ -10,6 +10,8 @@ I caught the error, and that led me down a path I hadn't anticipated. I started 
 
 We'd built a web that worked brilliantly for one specific type of user: someone with good vision, working on a desktop, with focused attention and plenty of time. Everyone else had been struggling quietly for years. Now AI agents were struggling loudly, and there was finally commercial pressure to fix the problems.
 
+That pressure intensified dramatically whilst writing this book. In September 2024, OpenAI and Stripe launched the Agentic Commerce Protocol - an open standard enabling ChatGPT and Claude to complete purchases through 1 million merchants. Then in January 2026, Google announced the Universal Commerce Protocol with backing from Target, Walmart, and 20+ major retailers. Within seven days, three major platforms launched competing agent commerce systems. The fragmentation creates new commercial urgency: businesses must support multiple protocols, adoption timelines have compressed from 12 months to 6-9 months, and merchants risk competitive disadvantage by delaying. Yet the underlying patterns remain universal - semantic HTML, explicit state management, and structured data work regardless of which protocol wins.
+
 Since I began this research, the landscape has shifted dramatically, with production AI agent systems now processing real transactions and working alongside users in their browsers.
 
 This book grew from that realisation. It's not a book about AI. It's a book about web design, and the assumptions we've embedded into it. AI agents are the lens, but the subject is broader: how do we build digital spaces that work for users we didn't anticipate?

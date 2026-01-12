@@ -897,27 +897,29 @@ Both sides making their logic explicit. Both sides enabling inspection. That's h
 
 ## The Missing Identity Layer
 
-Here's what agent creators don't talk about: every major platform is building closed identity systems that lock users into their ecosystem. They're racing to establish first-mover advantages before standards emerge.
+Here's what agent creators must navigate: the identity delegation landscape has evolved rapidly, but fragmentation remains the challenge. As of January 2026, we have two open protocols and one closed system competing for adoption.
 
-**What's missing:** A universal identity delegation layer that works across platforms and agents. When you authorise an agent to act on your behalf, that authorisation should be portable. You should be able to switch agents without losing access to services. Businesses should be able to verify your identity regardless of which agent you use.
+**What's needed:** A universal identity delegation layer that works across platforms and agents. When you authorise an agent to act on your behalf, that authorisation should be portable. You should be able to switch agents without losing access to services. Businesses should be able to verify your identity regardless of which agent you use.
 
-**What we have instead:** A mix of proprietary and open solutions. Microsoft's Copilot Checkout preserves customer identity through Microsoft's own delegation system. Claude for Chrome inherits your browser session through Anthropic's extension. But in September 2024, OpenAI and Stripe announced the Agentic Commerce Protocol (ACP) - the first major open standard for agent commerce with portable delegation. This creates competing approaches: closed platforms racing for lock-in versus an open protocol racing for adoption.
+**What we have instead:** Three competing implementations launched within months of each other. OpenAI and Stripe announced the Agentic Commerce Protocol (ACP) in September 2024 - an open standard with over 1 million merchants already integrated. Google followed with the Universal Commerce Protocol (UCP) in January 2026, backed by Target, Walmart, and 20+ major retailers. Microsoft chose differently: Copilot Checkout is proprietary, closed, and incompatible with the open protocols. Two open standards competing against one closed system.
 
-**The first-mover advantage they're pursuing:**
+**The competitive landscape:**
 
-When Microsoft establishes Copilot as the identity layer for e-commerce transactions, retailers who integrate with Microsoft's system create switching costs. Users who've authorised Copilot to make purchases have their payment details, shipping addresses, and order history stored in Microsoft's delegation framework. Moving to a competing agent means re-entering all that information, re-authorising access to retailers, and losing transaction history.
+Each platform pursued different strategies. Microsoft bet on proprietary lock-in: Copilot Checkout creates switching costs by storing payment details, shipping addresses, and order history exclusively within Microsoft's delegation framework. Moving to a competing agent means re-entering all that information. This is deliberate platform strategy - establish your identity system as standard, lock in users before alternatives gain traction.
 
-This isn't accidental. It's deliberate platform strategy: establish your identity system as the standard before open protocols emerge. Once users have authorised dozens of services through your delegation layer, they're locked in. Competing agents face a cold-start problem - they need to rebuild all those authorisations from scratch.
+But Microsoft is now competitively isolated. They're the only major platform that chose closed over open. Two open protocols (ACP and UCP) compete against Microsoft's single proprietary system. Unless Microsoft's agent traffic dramatically exceeds combined ACP/UCP traffic, merchants will prioritise the open protocols. Network effects favour interoperability, not isolation.
 
 **Why this matters for agent creators:**
 
-If you're building an agent now, you face a choice: integrate with existing proprietary systems (creating dependency on platform providers) or wait for open standards (missing the market whilst users adopt closed platforms). Neither option is ideal.
+If you're building an agent now, you face fragmentation, not absence. Open standards exist (ACP and UCP), but there are two of them. Supporting both doubles integration work. Choosing one limits merchant reach. Waiting for convergence risks competitive disadvantage.
 
-The technically correct solution - build on open standards like OAuth, implement portable delegation tokens, and support cross-platform identity - now exists in the form of ACP (Agentic Commerce Protocol). OpenAI and Stripe published this open standard in September 2024, proving that platforms can create interoperable solutions before consolidation occurs. But adoption is nascent, and most platforms continue racing to lock in users with proprietary systems.
+The technically correct solution - build on open standards like OAuth, implement portable delegation tokens, and support cross-platform identity - exists in both ACP and UCP. OpenAI and Stripe proved platforms can publish open protocols immediately (ACP, September 2024). Google followed with UCP four months later. Both protocols provide the interoperability this section advocates. The challenge isn't getting platforms to cooperate - it's navigating dual standards whilst hoping for convergence.
 
-**What agent creators should build anyway:**
+**See Chapter 9** for comprehensive analysis of the platform race, competitive dynamics, Microsoft's isolation problem, and convergence prospects.
 
-Even knowing the platforms won't cooperate initially, build for eventual interoperability:
+**What agent creators should build:**
+
+The open protocols exist, so build for them. But build with abstraction to handle dual standards and eventual convergence:
 
 ```javascript
 // Identity delegation architecture that could work across platforms
@@ -956,47 +958,55 @@ class UniversalIdentityLayer {
 }
 ```
 
-This architecture exists in OAuth specifications. Platforms aren't implementing it because they want proprietary control.
+This architecture exists in OAuth specifications. Two platforms implemented it (ACP and UCP). One refused (Microsoft). Your agent should support the open protocols and abstract away their differences.
 
-**The uncomfortable truth:**
+**The fragmentation challenge:**
 
-Agent creators who build for open standards will be at a competitive disadvantage during the land-grab phase. Users will choose agents that work with Microsoft's Copilot Checkout, Google's Shopping integration, and Amazon's agent API - all proprietary systems that don't interoperate.
+Agent creators face a difficult choice: support ACP, UCP, or both? Each protocol provides access to different merchant networks. ACP works with OpenAI/Stripe ecosystem (1M+ merchants on Shopify/Etsy). UCP works with Google Business Agent (Target, Walmart, 20+ major retailers). Supporting both doubles integration work, testing burden, and security surface.
 
-But the long-term outcome is predictable: regulators will eventually force interoperability (just as they forced mobile number portability and bank account switching). Agent creators who built for open standards from the start will be positioned to benefit when the closed systems are forced open.
+Microsoft's proprietary Copilot Checkout complicates this further. But Chapter 9 predicts Microsoft will abandon proprietary within 6-12 months due to competitive isolation. Merchants won't maintain three separate integrations when two open protocols provide broader reach. Build for ACP and UCP; defer Microsoft unless you have specific enterprise requirements.
+
+The long-term outcome favours convergence: ACP and UCP will likely merge into a unified standard. Agent creators who built abstraction layers (see code example below) will adapt easily when convergence happens.
 
 **Practical recommendation:**
 
-Build the identity layer as an abstraction. Support proprietary systems today (you need market access) but design the architecture to support open standards when they emerge. Make it possible to swap identity providers without rewriting your agent.
+Build the identity layer as an abstraction. Support both open protocols (ACP and UCP) today, but design the architecture to handle convergence when it happens. Make it possible to swap identity providers without rewriting your agent.
 
 ```javascript
-// Abstraction layer that works with proprietary systems today
-// but can support open standards tomorrow
+// Abstraction layer that handles both ACP and UCP
+// and prepares for eventual convergence
 class IdentityAbstraction {
   constructor(provider) {
-    // Support Microsoft, Google, Apple identity systems
-    // but isolate them behind standard interface
+    // Support ACP, UCP, and potentially Microsoft
+    // Isolate protocol differences behind standard interface
     this.provider = provider;
   }
 
   async authorize(service, scope) {
-    // Translate to provider-specific API
+    // Translate to protocol-specific API (ACP or UCP)
     return await this.provider.delegateAccess(service, scope);
   }
 }
 
-// When open standards emerge, add new provider
+// Today: Support both open protocols
+const acpProvider = new ACPDelegationProvider();
+const ucpProvider = new UCPDelegationProvider();
+
+// Tomorrow: When protocols converge, swap to unified standard
 // without changing agent code
-const openStandardProvider = new OAuth2DelegationProvider();
-const identity = new IdentityAbstraction(openStandardProvider);
+const unifiedProvider = new UnifiedCommerceProvider();
+const identity = new IdentityAbstraction(unifiedProvider);
 ```
 
-This costs more to build today but positions you correctly for the inevitable standardisation.
+This abstraction costs more to build upfront but positions you correctly for protocol convergence and competitive flexibility.
 
 **Why I'm highlighting this:**
 
-Agent creators need to understand what game they're playing. The platforms are racing to establish proprietary identity systems because whoever controls identity controls the ecosystem. Your validation layers and confidence scoring are important. But the business model depends on identity delegation, and that's currently a winner-take-all competition.
+Agent creators need to understand the current landscape. Two open protocols (ACP and UCP) provide the interoperability this section advocates, but fragmentation creates integration burden. Microsoft's proprietary approach is competitively isolated and likely unsustainable. The race isn't about closed versus open anymore - it's about which open protocol(s) to support and how to prepare for convergence.
 
-Build validation layers for reliability. Build identity abstraction for survival.
+Your validation layers and confidence scoring (described earlier in this chapter) remain critical for reliability. But your business model depends on identity delegation, and that now means navigating dual open standards whilst preparing for eventual unification.
+
+Build validation layers for reliability. Build identity abstraction for protocol flexibility. Support open standards for ecosystem health.
 
 ## Agent Architecture Considerations
 

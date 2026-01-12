@@ -2,20 +2,22 @@
 
 ## What Is Happening
 
-AI agents are no longer just chat interfaces that fetch web pages. In December 2024, Anthropic launched Claude for Chrome to all paid subscribers. In January 2025, Microsoft launched Copilot Checkout - complete purchase transactions within AI assistants, processing real orders with partner retailers including Urban Outfitters, Anthropologie, and Etsy.
+AI agents are no longer just chat interfaces that fetch web pages. They now complete real transactions, process purchases, and operate with your credentials. In January 2026, three major platforms launched agent commerce systems within seven days: Amazon (Alexa+, January 5), Microsoft (Copilot Checkout expansion, January 8), and Google (Business Agent, January 11). This represents consensus from the world's largest technology companies that agent-mediated commerce is happening now.
 
-These aren't experimental prototypes. They're production systems available today. Browser extensions now work directly alongside users within their actual browsers, seeing what you see, clicking what needs clicking, logged in with your credentials, and acting on your behalf across multiple tabs. These agents operate in your context, with your permissions, on websites you use every day.
+These aren't experimental prototypes. They're production systems available today. Browser extensions work directly alongside users within their actual browsers. Claude for Chrome (launched December 2024 to all paid subscribers) sees what you see, clicks what needs clicking, and operates across multiple tabs. ChatGPT and Claude can complete purchases through over 1 million merchants via the Agentic Commerce Protocol. Google's Business Agent surfaces checkout directly in search results for 20+ major retailers including Target and Walmart.
 
-This represents a fundamental shift: agents aren't just reading static HTML anymore. They navigate interfaces visually, maintain context across sessions, fill forms, click buttons, and execute multi-step workflows whilst you work on something else. They struggle with common web design patterns that work well for human visual browsing but fail for sequential, programmatic interaction. The same patterns that break for agents also create accessibility problems for disabled users, but until now there's been insufficient commercial pressure to fix them.
+This represents a fundamental shift: agents aren't just reading static HTML anymore. They navigate interfaces visually, maintain context across sessions, fill forms, complete purchases, and execute multi-step workflows whilst you work on something else. Commercial infrastructure now exists - open protocols (Agentic Commerce Protocol, Universal Commerce Protocol) enable standardised agent-mediated transactions. The timeline has compressed dramatically: from "12 months until meaningful adoption" to "6-9 months" as of January 2026.
 
 ## Why It Matters to Business
 
 **Your conversion funnel has invisible drop-offs.** When agents fail to read your pricing, miss content hidden behind pagination, or can't tell if a form submission succeeded, the human user goes to a competitor. This doesn't show up in your analytics as a failed conversion - it shows as a short session or a bounce. You never see the lost sale.
 
+**The timeline has accelerated.** With three major platforms launching simultaneously in January 2026 and over 1 million merchants already supporting agent transactions, adoption is happening faster than predicted. Businesses that wait risk competitive disadvantage as agent-mediated commerce reaches 10-20% of transactions within 6-9 months.
+
 **The impact varies by business model:**
 
 - **Ad-funded content:** Agent extraction threatens the core revenue model. When agents read and summarise without driving page views, ad revenue disappears.
-- **E-commerce and bookings:** Agent compatibility is an opportunity. Sites that work well for agents capture sales from competitors whose sites don't.
+- **E-commerce and bookings:** Agent compatibility is an opportunity. Sites that work well for agents capture sales from competitors whose sites don't. Payment protocols (ACP and UCP) now provide standardised infrastructure for agent-mediated purchases.
 - **SaaS and subscriptions:** Pricing transparency and clear information become competitive advantages when agents evaluate options.
 - **Local businesses:** Most relationship-based businesses can deprioritise this, but those competing on search visibility or price should pay attention.
 
@@ -57,16 +59,17 @@ This represents a fundamental shift: agents aren't just reading static HTML anym
 - Ensure URLs reflect current state
 - Use semantic HTML and clear text labels
 
-### Priority 3: Strategic Decisions (ongoing)
+### Priority 3: Strategic Decisions (urgent, given January 2026 acceleration)
 
 - Decide on your agent access policy: permit, restrict, or selectively allow?
-- Consider whether to offer agent-specific APIs or interfaces
-- Evaluate business model resilience to agent-mediated commerce
+- Evaluate which payment protocols to support: Agentic Commerce Protocol (ACP), Universal Commerce Protocol (UCP), or both
+- Assess business model resilience to agent-mediated commerce (Chapter 4 and Chapter 9 provide frameworks)
 - Review liability and terms of service for agent interactions
 
 ### Priority 4: Advanced Implementation
 
-- Implement identity delegation patterns for agent-mediated purchases
+- Implement identity delegation patterns for agent-mediated purchases (Chapter 12 provides technical guidance)
+- Integrate payment protocols: ACP (1M+ merchants) or UCP (20+ major retailers) or both
 - Develop comprehensive agent compatibility testing
 - Create governance frameworks for agent access policies
 
