@@ -10,9 +10,17 @@ I caught the error, and that led me down a path I hadn't anticipated. I started 
 
 We'd built a web that worked brilliantly for one specific type of user: someone with good vision, working on a desktop, with focused attention and plenty of time. Everyone else had been struggling quietly for years. Now AI agents were struggling loudly, and there was finally commercial pressure to fix the problems.
 
-That pressure intensified dramatically whilst writing this book. In September 2024, OpenAI and Stripe launched the Agentic Commerce Protocol - an open standard enabling ChatGPT and Claude to complete purchases through 1 million merchants. Then in January 2026, Google announced the Universal Commerce Protocol with backing from Target, Walmart, and 20+ major retailers. Within seven days, three major platforms launched competing agent commerce systems. The fragmentation creates new commercial urgency: businesses must support multiple protocols, adoption timelines have compressed from 12 months to 6-9 months, and merchants risk competitive disadvantage by delaying. Yet the underlying patterns remain universal - semantic HTML, explicit state management, and structured data work regardless of which protocol wins.
+**The market moved faster than I expected.** When I started writing, AI agents accessing websites felt like an emerging concern. By the time I completed the manuscript in early 2026, the landscape had fundamentally transformed.
 
-Since I began this research, the landscape has shifted dramatically, with production AI agent systems now processing real transactions and working alongside users in their browsers.
+December 2025: Microsoft announced Copilot Checkout, signalling that agent commerce had moved from experiment to platform strategy. This kicked off a wave of competing launches.
+
+January 2026: Three major platforms launched agent commerce systems within seven days. Amazon's Alexa.com (January 5th), Microsoft's Copilot Checkout expansion (January 8th), Google's Universal Commerce Protocol with Target and Walmart (January 11th). The timeline I'd projected as "12-18 months" had compressed to weeks. The urgency shifted from "plan for this" to "this is happening now."
+
+Throughout writing, I updated chapters to reflect events overtaking predictions. What began as theoretical frameworks gained concrete examples as platforms launched, protocols competed, and the agent commerce ecosystem rapidly matured.
+
+**This market is in rocket-fuel mode.** By the time you read this, more platforms will have launched, more protocols will compete for adoption, and the timeline will have compressed further. The book's patterns—semantic HTML, explicit state management, structured data—remain valid regardless of which platforms or protocols dominate. But the commercial urgency continues accelerating.
+
+For the latest developments, see <https://allabout.network/invisible-users/news.html> where I track industry events as they unfold.
 
 This book grew from that realisation. It's not a book about AI. It's a book about web design, and the assumptions we've embedded into it. AI agents are the lens, but the subject is broader: how do we build digital spaces that work for users we didn't anticipate?
 
@@ -108,7 +116,7 @@ He remains convinced that the web we've built is less accessible than it should 
 
 ---
 
-January 2026
+Q1 2026
 
 York, England
 
