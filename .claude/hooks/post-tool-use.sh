@@ -19,8 +19,8 @@ if echo "$TOOL_OUTPUT" | grep -q "git push"; then
     echo "💡 Reminder: Update submodule pointer in parent repository after pushing manuscript:"
     echo "   cd ../../.."
     echo "   git add packages/manuscript/manuscript"
-    echo "   git commit -m 'Update manuscript submodule to latest version'"
-    echo "   git push origin main"
+    echo "   git commit -m 'Update manuscript submodule pointer to latest version'"
+    echo "   git push  # Pushes to current branch"
     echo ""
 fi
 
