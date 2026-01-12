@@ -5,6 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="canonical" href="https://example.com/products/wireless-headphones.html">
   <title>Wireless Headphones - Product Page</title>
+
+  <!-- Schema.org structured data (established standard) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Wireless Headphones",
+    "description": "Premium over-ear headphones with active noise cancellation, 40-hour battery life, and premium sound quality.",
+    "brand": {
+      "@type": "Brand",
+      "name": "AudioTech"
+    },
+    "model": "WH-1000",
+    "sku": "WH-1000",
+    "offers": {
+      "@type": "Offer",
+      "price": "149.99",
+      "priceCurrency": "GBP",
+      "availability": "https://schema.org/InStock",
+      "priceValidUntil": "2027-12-31",
+      "itemCondition": "https://schema.org/NewCondition"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.5",
+      "reviewCount": "127"
+    }
+  }
+  </script>
 </head>
 <body>
   <main>
@@ -68,6 +97,35 @@
         <button type="submit">Add to basket</button>
       </form>
 
+      <!-- Agent-readable purchase instructions -->
+      <div class="agent-metadata" data-agent-visible="true" style="display: none;">
+        <h2>Purchase Information</h2>
+        <dl>
+          <dt>Action</dt>
+          <dd>POST to /cart/add</dd>
+
+          <dt>Required parameters</dt>
+          <dd>product_id=WH-1000, quantity (1-23)</dd>
+
+          <dt>Prerequisites</dt>
+          <dd>
+            <ul>
+              <li>Authentication: Optional for adding to cart, required for checkout</li>
+              <li>Stock availability: 23 units available</li>
+              <li>Price: £149.99 (including VAT)</li>
+            </ul>
+          </dd>
+
+          <dt>Expected response</dt>
+          <dd>Success: 303 redirect to /cart | Error: 400 with JSON details</dd>
+
+          <dt>Product details</dt>
+          <dd>
+            ID: WH-1000, In stock: true, Quantity available: 23, Price: 149.99 GBP
+          </dd>
+        </dl>
+      </div>
+
       <!-- Product specifications -->
       <section class="specifications">
         <h2>Specifications</h2>
@@ -119,6 +177,7 @@
 
   <!--
     Key principles:
+    - Schema.org JSON-LD provides machine-readable product data (established standard)
     - data-product-id for unique identification
     - data-in-stock and data-quantity explicit
     - Complete pricing with currency and VAT status
@@ -126,6 +185,7 @@
     - Max quantity matches available stock
     - Out of stock: show price, offer notification
     - All information visible without JavaScript
+    - data-agent-visible provides hidden purchase instructions and prerequisites
   -->
 </body>
 </html>

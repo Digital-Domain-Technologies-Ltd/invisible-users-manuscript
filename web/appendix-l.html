@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Tom Cranstoun" />
+  <meta name="description" content="Practical guidance from The Invisible Users book on designing AI agent-friendly websites" />
+  <title>Appendix L: Proposed AI Metadata Patterns</title>
+  
+
+  <link rel="canonical" href="https://allabout.network/invisible-users/appendix-l.html">
+  <!-- AI-specific meta tags (proposed pattern from Chapter 10) -->
+  <meta name="ai-preferred-access" content="html">
+  <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
+  <meta name="ai-freshness" content="monthly">
+  <meta name="ai-structured-data" content="json-ld">
+  <meta name="ai-attribution" content="required" text="Source: The Invisible Users by Tom Cranstoun, https://allabout.network/invisible-users/">
+  <meta name="llms-txt" content="/llms.txt">
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "name": "Appendix L: Proposed AI Metadata Patterns",
+    "description": "Practical guidance from The Invisible Users book on designing AI agent-friendly websites",
+    "author": {
+      "@type": "Person",
+      "name": "Tom Cranstoun",
+      "email": "tom.cranstoun@gmail.com",
+      "url": "https://allabout.network"
+    },
+    "inLanguage": "en-GB",
+    "datePublished": "2026-01-10",
+    "dateModified": "2026-01-10",
+    "isPartOf": {
+      "@type": "Book",
+      "name": "The Invisible Users",
+      "author": {
+        "@type": "Person",
+        "name": "Tom Cranstoun"
+      },
+      "url": "https://allabout.network/invisible-users"
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="appendix.css">
+</head>
+<body>
+<nav class="appendix-navigation" role="navigation" aria-label="Appendix Navigation">
+    <p><a href="appendix-index.html">← Back to Appendices Index</a></p>
+    <p>Quick navigation:
+        <a href="appendix-a.html">A</a> |
+        <a href="appendix-b.html">B</a> |
+        <a href="appendix-c.html">C</a> |
+        <a href="appendix-d.html">D</a> |
+        <a href="appendix-e.html">E</a> |
+        <a href="appendix-f.html">F</a> |
+        <a href="appendix-g.html">G</a> |
+        <a href="appendix-h.html">H</a> |
+        <a href="appendix-i.html">I</a> |
+        <a href="appendix-j.html">J</a> |
+        <a href="appendix-k.html">K</a> |
+        <a href="appendix-l.html">L</a>
+    </p>
+</nav>
+<hr>
+<header id="title-block-header">
+<h1 class="title">Appendix L: Proposed AI Metadata Patterns</h1>
+<p class="subtitle">The Invisible Users</p>
+<p class="author">Tom Cranstoun</p>
+<p class="date">January 2026</p>
+</header>
+<nav id="TOC" role="navigation" aria-label="Table of Contents">
+<ul>
+<li><a href="#appendix-l-proposed-ai-metadata-patterns"
+id="toc-appendix-l-proposed-ai-metadata-patterns">Appendix L: Proposed
+AI Metadata Patterns</a>
+<ul>
+<li><a href="#status-and-classification"
+id="toc-status-and-classification">Status and Classification</a></li>
+<li><a href="#relationship-to-established-standards"
+id="toc-relationship-to-established-standards">Relationship to
+Established Standards</a></li>
+<li><a href="#pattern-1-ai-specific-meta-tag-namespace"
+id="toc-pattern-1-ai-specific-meta-tag-namespace">Pattern 1: AI-Specific
+Meta Tag Namespace</a></li>
+<li><a href="#pattern-2-data-agent-visible-attribute"
+id="toc-pattern-2-data-agent-visible-attribute">Pattern 2:
+data-agent-visible Attribute</a></li>
+<li><a href="#adoption-decision-framework"
+id="toc-adoption-decision-framework">Adoption Decision
+Framework</a></li>
+<li><a href="#relationship-to-web-standards-process"
+id="toc-relationship-to-web-standards-process">Relationship to Web
+Standards Process</a></li>
+<li><a href="#monitoring-and-feedback"
+id="toc-monitoring-and-feedback">Monitoring and Feedback</a></li>
+<li><a href="#summary" id="toc-summary">Summary</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="appendix-l-proposed-ai-metadata-patterns">Appendix L: Proposed
+AI Metadata Patterns</h1>
+<p>A formal proposal document for experimental AI metadata patterns that
+extend existing web standards.</p>
+<h2 id="status-and-classification">Status and Classification</h2>
+<p><strong>Document Status:</strong> Experimental Proposal — Not Yet
+Standardised</p>
+<p><strong>Last Updated:</strong> 12 January 2026</p>
+<p><strong>Maturity Level:</strong> Forward-compatible proposals that
+won’t break if agents don’t recognise them</p>
+<p>This appendix consolidates all proposed and experimental patterns
+mentioned throughout “The Invisible Users”. These patterns follow
+established conventions (like robots meta tags or viewport meta tags)
+and represent logical extensions that may standardise as the AI agent
+ecosystem matures.</p>
+<p><strong>Important:</strong> These are NOT established standards. They
+are proposals based on production implementations and logical extensions
+of existing patterns.</p>
+<h2 id="relationship-to-established-standards">Relationship to
+Established Standards</h2>
+<p>These proposals complement, not replace, established standards:</p>
+<ul>
+<li><strong>Semantic HTML</strong> (established) — Use
+<code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>,
+<code>&lt;article&gt;</code> always</li>
+<li><strong>Schema.org JSON-LD</strong> (established) — Primary
+structured data method</li>
+<li><strong>ARIA attributes</strong> (established) — Critical for
+accessibility</li>
+<li><strong>llms.txt</strong> (emerging) — Early adoption phase, gaining
+traction</li>
+<li><strong>AI meta tags</strong> (proposed) — Extend existing meta tag
+patterns</li>
+<li><strong>data-agent-visible</strong> (proposed) — New semantic marker
+for hidden metadata</li>
+</ul>
+<p>See Appendix D for comprehensive guide to all patterns (established +
+proposed).</p>
+<hr />
+<h2 id="pattern-1-ai-specific-meta-tag-namespace">Pattern 1: AI-Specific
+Meta Tag Namespace</h2>
+<h3 id="status">Status</h3>
+<p><strong>Proposed Pattern</strong> — Not yet standardised,
+forward-compatible</p>
+<h3 id="rationale">Rationale</h3>
+<p>Page-specific AI agent guidance needs to override site-wide defaults
+from llms.txt. Just as robots meta tags override robots.txt for specific
+pages, AI meta tags provide page-level control over agent behaviour.</p>
+<p><strong>Why meta tags?</strong></p>
+<ul>
+<li>Established pattern (robots, viewport, Open Graph all use meta
+tags)</li>
+<li>Page-specific overrides for site-wide policies</li>
+<li>Machine-readable without parsing content</li>
+<li>Browser-agnostic (works in served HTML)</li>
+</ul>
+<h3 id="use-cases">Use Cases</h3>
+<ol type="1">
+<li><strong>Product Pages:</strong> Specify API endpoints for current
+product</li>
+<li><strong>News Articles:</strong> Indicate content freshness
+requirements</li>
+<li><strong>Documentation:</strong> Allow full extraction vs
+summary-only</li>
+<li><strong>Internal Pages:</strong> Override public access
+policies</li>
+</ol>
+<h3 id="proposed-meta-tags">Proposed Meta Tags</h3>
+<h4 id="ai-preferred-access">ai-preferred-access</h4>
+<p>Indicates how agents should access content.</p>
+<p><strong>Values:</strong> <code>html</code>, <code>api</code>,
+<code>both</code></p>
+<p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb1" data-role="code-container"><pre
+class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;ai-preferred-access&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;api&quot;</span><span class="dt">&gt;</span></span></code></pre></div>
+<p><strong>Rationale:</strong> Some pages (like product catalogues) are
+better consumed via API. Others (like blog posts) work better as
+HTML.</p>
+<h4 id="ai-content-policy">ai-content-policy</h4>
+<p>What agents are permitted to do with content.</p>
+<p><strong>Values:</strong></p>
+<ul>
+<li><code>summaries-allowed</code> — Can create summaries</li>
+<li><code>full-extraction-allowed</code> — Can extract complete
+content</li>
+<li><code>restricted</code> — Contact required</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb2" data-role="code-container"><pre
+class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;ai-content-policy&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;summaries-allowed, full-extraction-allowed&quot;</span><span class="dt">&gt;</span></span></code></pre></div>
+<p><strong>Rationale:</strong> More granular than robots.txt
+<code>noindex</code>. Allows summaries whilst restricting full
+extraction.</p>
+<h4 id="ai-freshness">ai-freshness</h4>
+<p>How often content changes.</p>
+<p><strong>Values:</strong> <code>hourly</code>, <code>daily</code>,
+<code>weekly</code>, <code>monthly</code>, <code>static</code></p>
+<p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb3" data-role="code-container"><pre
+class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;ai-freshness&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;hourly&quot;</span><span class="dt">&gt;</span></span></code></pre></div>
+<p><strong>Rationale:</strong> Helps agents decide cache duration. Stock
+prices need hourly updates, documentation can be cached monthly.</p>
+<h4 id="ai-structured-data">ai-structured-data</h4>
+<p>Where to find structured data.</p>
+<p><strong>Values:</strong> <code>json-ld</code>,
+<code>microdata</code>, <code>rdfa</code>, <code>api</code></p>
+<p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb4" data-role="code-container"><pre
+class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;ai-structured-data&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;json-ld&quot;</span><span class="dt">&gt;</span></span></code></pre></div>
+<p><strong>Rationale:</strong> Tells agents which structured data format
+to parse, avoiding guessing.</p>
+<h4 id="ai-attribution">ai-attribution</h4>
+<p>Attribution requirements with specific attribution text.</p>
+<p><strong>Values:</strong> <code>required</code>,
+<code>requested</code>, <code>not-required</code></p>
+<p><strong>Attributes:</strong> - <code>content</code>: Whether
+attribution is required - <code>text</code>: The attribution text to use
+(required when content=“required”)</p>
+<p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb5" data-role="code-container"><pre
+class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;ai-attribution&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;required&quot;</span><span class="ot"> text</span><span class="op">=</span><span class="st">&quot;Source: The Invisible Users by Tom Cranstoun, https://allabout.network/invisible-users/&quot;</span><span class="dt">&gt;</span></span></code></pre></div>
+<p><strong>Rationale:</strong> Explicit statement of attribution
+expectations with precise text to use, ensuring consistent attribution
+across all AI-generated content.</p>
+<h4 id="llms-txt-reference">llms-txt Reference</h4>
+<p>Points to site-wide llms.txt file.</p>
+<p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb6" data-role="code-container"><pre
+class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;llms-txt&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;/llms.txt&quot;</span><span class="dt">&gt;</span></span></code></pre></div>
+<p><strong>Rationale:</strong> Helps agents discover llms.txt when not
+at standard location.</p>
+<h3 id="complete-implementation-example">Complete Implementation
+Example</h3>
+<div class="sourceCode" id="cb7" data-role="code-container"><pre
+class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Wireless Headphones — £149.99<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Proposed AI meta tags --&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;ai-preferred-access&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;html&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;ai-content-policy&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;summaries-allowed, full-extraction-allowed&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;ai-freshness&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;hourly&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;ai-structured-data&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;json-ld&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;ai-attribution&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;required&quot;</span><span class="ot"> text</span><span class="op">=</span><span class="st">&quot;Source: Example Store, https://example.com&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;llms-txt&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;/llms.txt&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Established standards --&gt;</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;canonical&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;https://example.com/products/headphones&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Schema.org structured data (established) --&gt;</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">&quot;application/ld+json&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;@context&quot;</span><span class="op">:</span> <span class="st">&quot;https://schema.org&quot;</span><span class="op">,</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Product&quot;</span><span class="op">,</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;Wireless Headphones&quot;</span><span class="op">,</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;offers&quot;</span><span class="op">:</span> {</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;@type&quot;</span><span class="op">:</span> <span class="st">&quot;Offer&quot;</span><span class="op">,</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;price&quot;</span><span class="op">:</span> <span class="st">&quot;149.99&quot;</span><span class="op">,</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;priceCurrency&quot;</span><span class="op">:</span> <span class="st">&quot;GBP&quot;</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span></code></pre></div>
+<h3 id="forward-compatibility">Forward Compatibility</h3>
+<p><strong>If agents don’t recognise these tags:</strong> They ignore
+them harmlessly. No breakage.</p>
+<p><strong>If agents do recognise these tags:</strong> They get helpful
+hints about content access and usage.</p>
+<p><strong>Progressive enhancement:</strong> Sites benefit from agent
+support without requiring it.</p>
+<h3 id="cross-references">Cross-References</h3>
+<ul>
+<li><strong>Mentioned in:</strong> Chapter 11 (Technical Advice)</li>
+<li><strong>Implemented in:</strong> Appendix D examples (lines
+1556-1568)</li>
+<li><strong>Used in:</strong>
+<code>agent-friendly-starter-kit/good/index.html</code></li>
+<li><strong>Enhanced by:</strong>
+<code>scripts/enhance-appendix-html.js</code> (lines 40-47)</li>
+</ul>
+<hr />
+<h2 id="pattern-2-data-agent-visible-attribute">Pattern 2:
+data-agent-visible Attribute</h2>
+<h3 id="status-1">Status</h3>
+<p><strong>Proposed Pattern</strong> — Not yet standardised,
+experimental</p>
+<h3 id="rationale-1">Rationale</h3>
+<p>E-commerce sites need to provide machine-readable instructions to AI
+agents without cluttering the human interface. Purchase flows require
+prerequisites (authentication, payment method, shipping address) that
+agents need to verify before attempting transactions.</p>
+<p><strong>Why data-agent-visible?</strong></p>
+<ul>
+<li>Follows data-* attribute convention (custom data attributes)</li>
+<li>Semantic marker agents can search for</li>
+<li>Hidden from humans with CSS (<code>display: none</code>)</li>
+<li>Visible in DOM for all agent types (CLI, browser, server-based)</li>
+</ul>
+<h3 id="use-cases-1">Use Cases</h3>
+<ol type="1">
+<li><strong>Purchase Prerequisites:</strong> Tell agents what must be
+configured before checkout</li>
+<li><strong>API Documentation:</strong> Provide machine-readable
+endpoint details</li>
+<li><strong>Multi-Step Workflows:</strong> Explain sequence and
+requirements</li>
+<li><strong>Error Recovery:</strong> Hidden instructions for handling
+failures</li>
+</ol>
+<h3 id="implementation-pattern">Implementation Pattern</h3>
+<div class="sourceCode" id="cb8" data-role="code-container"><pre
+class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;agent-metadata&quot;</span><span class="ot"> data-agent-visible</span><span class="op">=</span><span class="st">&quot;true&quot;</span><span class="ot"> style</span><span class="op">=</span><span class="st">&quot;display: none;&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Purchase Information<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">dl</span><span class="dt">&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">dt</span><span class="dt">&gt;</span>Action<span class="dt">&lt;/</span><span class="kw">dt</span><span class="dt">&gt;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">dd</span><span class="dt">&gt;</span>POST to /cart/add<span class="dt">&lt;/</span><span class="kw">dd</span><span class="dt">&gt;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">dt</span><span class="dt">&gt;</span>Required parameters<span class="dt">&lt;/</span><span class="kw">dt</span><span class="dt">&gt;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">dd</span><span class="dt">&gt;</span>product_id=WH-1000, quantity (1-23)<span class="dt">&lt;/</span><span class="kw">dd</span><span class="dt">&gt;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">dt</span><span class="dt">&gt;</span>Prerequisites<span class="dt">&lt;/</span><span class="kw">dt</span><span class="dt">&gt;</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">dd</span><span class="dt">&gt;</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">ul</span><span class="dt">&gt;</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>Authentication: Required (status: <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;auth-status&quot;</span><span class="dt">&gt;</span>authenticated<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>)<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>Payment method: Required (status: <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;payment-status&quot;</span><span class="dt">&gt;</span>configured<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>)<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>Shipping address: Required (status: <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;shipping-status&quot;</span><span class="dt">&gt;</span>set<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>)<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;/</span><span class="kw">ul</span><span class="dt">&gt;</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">dd</span><span class="dt">&gt;</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">dt</span><span class="dt">&gt;</span>Expected response<span class="dt">&lt;/</span><span class="kw">dt</span><span class="dt">&gt;</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">dd</span><span class="dt">&gt;</span>Success: 303 redirect to /cart/added | Error: 400 with JSON details<span class="dt">&lt;/</span><span class="kw">dd</span><span class="dt">&gt;</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">dl</span><span class="dt">&gt;</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div>
+<p><strong>JavaScript updates status spans:</strong></p>
+<div class="sourceCode" id="cb9" data-role="code-container"><pre
+class="sourceCode javascript"><code class="sourceCode javascript" data-role="code-content"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Update prerequisite status based on actual session state</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;auth-status&#39;</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  user<span class="op">.</span><span class="at">authenticated</span> <span class="op">?</span> <span class="st">&#39;authenticated&#39;</span> <span class="op">:</span> <span class="st">&#39;not authenticated&#39;</span><span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;payment-status&#39;</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  user<span class="op">.</span><span class="at">hasPaymentMethod</span> <span class="op">?</span> <span class="st">&#39;configured&#39;</span> <span class="op">:</span> <span class="st">&#39;not configured&#39;</span><span class="op">;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;shipping-status&#39;</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  user<span class="op">.</span><span class="at">hasShippingAddress</span> <span class="op">?</span> <span class="st">&#39;set&#39;</span> <span class="op">:</span> <span class="st">&#39;not set&#39;</span><span class="op">;</span></span></code></pre></div>
+<h3 id="why-this-works">Why This Works</h3>
+<p><strong>For humans:</strong> Hidden with <code>display: none</code>,
+doesn’t clutter interface</p>
+<p><strong>For CLI agents:</strong> Visible in served HTML before
+JavaScript execution</p>
+<p><strong>For browser agents:</strong> Visible after JavaScript updates
+status spans</p>
+<p><strong>For server-based agents:</strong> Visible in HTML fetch, can
+parse prerequisites</p>
+<h3 id="alternative-approaches-considered">Alternative Approaches
+Considered</h3>
+<ol type="1">
+<li><strong>Microformats:</strong> Too rigid, doesn’t support custom
+workflows</li>
+<li><strong>Schema.org actions:</strong> Complex, requires extensive
+markup</li>
+<li><strong>ARIA live regions:</strong> Designed for screen readers, not
+agents</li>
+<li><strong>Comments:</strong> Not guaranteed to be preserved in
+DOM</li>
+</ol>
+<p><strong>Why data-agent-visible wins:</strong> Simple, flexible,
+follows established data-* convention.</p>
+<h3 id="adoption-considerations">Adoption Considerations</h3>
+<p><strong>Adopt now if:</strong></p>
+<ul>
+<li>Running e-commerce site with agent-mediated purchases</li>
+<li>Need to provide hidden API documentation</li>
+<li>Want to reduce agent errors from missing prerequisites</li>
+</ul>
+<p><strong>Wait if:</strong></p>
+<ul>
+<li>Static content site with no transactions</li>
+<li>No agent traffic yet</li>
+<li>Prefer to wait for standardisation</li>
+</ul>
+<h3 id="forward-compatibility-1">Forward Compatibility</h3>
+<p><strong>If agents don’t recognise attribute:</strong> They might
+still find the hidden content by parsing all hidden divs (low
+reliability but possible).</p>
+<p><strong>If agents do recognise attribute:</strong> They search
+specifically for <code>[data-agent-visible="true"]</code> and parse
+structured prerequisites.</p>
+<p><strong>Progressive enhancement:</strong> Works better with agent
+support, but doesn’t break without it.</p>
+<h3 id="cross-references-1">Cross-References</h3>
+<ul>
+<li><strong>Documented in:</strong> Appendix D (lines 1294-1326)</li>
+<li><strong>Mentioned in:</strong> Chapter 10 (agent purchase
+instructions)</li>
+<li><strong>Not yet implemented in:</strong> Most code examples
+(opportunity for addition)</li>
+</ul>
+<hr />
+<h2 id="adoption-decision-framework">Adoption Decision Framework</h2>
+<h3 id="should-you-adopt-these-patterns-now">Should You Adopt These
+Patterns Now?</h3>
+<p>Use this framework to decide:</p>
+<h4 id="evaluate-your-situation">Evaluate Your Situation</h4>
+<p><strong>Yes, adopt now if:</strong></p>
+<ul>
+<li>Running production e-commerce accepting agent purchases</li>
+<li>High agent traffic (measurable in logs)</li>
+<li>Need to reduce agent errors</li>
+<li>Want early adopter advantage</li>
+</ul>
+<p><strong>Maybe, experiment first if:</strong></p>
+<ul>
+<li>Moderate agent traffic</li>
+<li>Curious about benefits</li>
+<li>Can A/B test implementations</li>
+<li>Have development resources</li>
+</ul>
+<p><strong>No, wait if:</strong></p>
+<ul>
+<li>No measurable agent traffic</li>
+<li>Static content site</li>
+<li>Prefer to wait for standardisation</li>
+<li>Limited development resources</li>
+</ul>
+<h4 id="implementation-strategy">Implementation Strategy</h4>
+<p><strong>Priority 1 (adopt first):</strong></p>
+<ol type="1">
+<li>AI meta tags (easy to add, low risk)</li>
+<li>Schema.org JSON-LD (established standard, not just proposed)</li>
+<li>Semantic HTML elements (established, should already be using)</li>
+</ol>
+<p><strong>Priority 2 (adopt if relevant):</strong></p>
+<ol type="1">
+<li>data-agent-visible (if you have transactions)</li>
+<li>llms.txt file (emerging convention, gaining traction)</li>
+</ol>
+<p><strong>Priority 3 (experiment):</strong></p>
+<ol type="1">
+<li>Custom data attributes for specific workflows</li>
+<li>Additional metadata patterns</li>
+</ol>
+<h3 id="risk-assessment">Risk Assessment</h3>
+<p><strong>Low Risk:</strong></p>
+<ul>
+<li>AI meta tags (ignored if not recognised)</li>
+<li>data-agent-visible (hidden from humans)</li>
+<li>Schema.org JSON-LD (established standard)</li>
+</ul>
+<p><strong>Medium Risk:</strong></p>
+<ul>
+<li>Custom attributes without established patterns</li>
+<li>Extensive hidden content (may confuse some agents)</li>
+</ul>
+<p><strong>High Risk:</strong></p>
+<ul>
+<li>None identified (all patterns designed for graceful
+degradation)</li>
+</ul>
+<hr />
+<h2 id="relationship-to-web-standards-process">Relationship to Web
+Standards Process</h2>
+<h3 id="how-standards-evolve">How Standards Evolve</h3>
+<ol type="1">
+<li><strong>Proprietary experiments</strong> (1990s: IE-specific,
+Netscape-specific tags)</li>
+<li><strong>Community proposals</strong> (2000s: Microformats,
+OpenID)</li>
+<li><strong>Vendor consensus</strong> (2010s: Responsive images, Service
+Workers)</li>
+<li><strong>Formal standardisation</strong> (W3C, WHATWG, IETF)</li>
+</ol>
+<p><strong>Where these patterns fit:</strong> Step 2-3 (community
+proposals seeking vendor consensus)</p>
+<h3 id="path-to-standardisation">Path to Standardisation</h3>
+<p>These patterns could standardise if:</p>
+<ol type="1">
+<li><strong>Multiple agents adopt</strong> — Different AI systems
+recognise tags</li>
+<li><strong>Production validation</strong> — Measurable benefits in real
+deployments</li>
+<li><strong>Vendor support</strong> — Browser makers, CMS platforms
+include by default</li>
+<li><strong>Community refinement</strong> — Usage reveals improvements
+needed</li>
+</ol>
+<p><strong>No guarantees:</strong> Patterns might evolve, change, or be
+superseded by better approaches.</p>
+<h3 id="examples-of-similar-evolution">Examples of Similar
+Evolution</h3>
+<ul>
+<li><strong>viewport meta tag</strong> — Started as Apple proprietary,
+now standard</li>
+<li><strong>robots meta tag</strong> — Community convention, now
+universally recognised</li>
+<li><strong>Open Graph meta tags</strong> — Facebook proposal, now
+widely adopted</li>
+<li><strong>Schema.org</strong> — Multi-vendor collaboration, now
+established standard</li>
+</ul>
+<p>These AI patterns follow similar trajectory.</p>
+<hr />
+<h2 id="monitoring-and-feedback">Monitoring and Feedback</h2>
+<h3 id="how-to-track-adoption">How to Track Adoption</h3>
+<ol type="1">
+<li><strong>Server logs:</strong> Look for user agents mentioning AI
+systems</li>
+<li><strong>Agent error rates:</strong> Monitor whether patterns reduce
+errors</li>
+<li><strong>Conversion rates:</strong> Measure if agent purchases
+complete more often</li>
+<li><strong>Agent feedback:</strong> Some agents report what
+worked/failed</li>
+</ol>
+<h3 id="contributing-to-pattern-evolution">Contributing to Pattern
+Evolution</h3>
+<p>If you implement these patterns:</p>
+<ol type="1">
+<li><strong>Document results</strong> — What worked, what didn’t</li>
+<li><strong>Share learnings</strong> — Blog posts, conference talks</li>
+<li><strong>Propose improvements</strong> — Suggest refinements based on
+experience</li>
+<li><strong>Participate in standards</strong> — Join relevant working
+groups</li>
+</ol>
+<p><strong>Contact:</strong> <a href="mailto:tom.cranstoun@gmail.com"
+class="email">tom.cranstoun@gmail.com</a> for discussions about pattern
+evolution</p>
+<hr />
+<h2 id="summary">Summary</h2>
+<h3 id="proposed-patterns-consolidated">Proposed Patterns
+Consolidated</h3>
+<ol type="1">
+<li><strong>AI Meta Tag Namespace</strong> (6 tags) — Page-level agent
+guidance</li>
+<li><strong>data-agent-visible Attribute</strong> — Hidden
+machine-readable instructions</li>
+</ol>
+<h3 id="key-principles">Key Principles</h3>
+<ul>
+<li><strong>Forward-compatible</strong> — Won’t break if ignored</li>
+<li><strong>Progressive enhancement</strong> — Works better with
+support, doesn’t require it</li>
+<li><strong>Established patterns</strong> — Extends existing conventions
+(meta tags, data attributes)</li>
+<li><strong>Production-tested</strong> — Used in real
+implementations</li>
+</ul>
+<h3 id="next-steps">Next Steps</h3>
+<ol type="1">
+<li><strong>Read Appendix D</strong> for comprehensive HTML patterns
+(established + proposed)</li>
+<li><strong>Review Appendix E</strong> for quick reference guide</li>
+<li><strong>Evaluate adoption</strong> using framework above</li>
+<li><strong>Implement strategically</strong> based on your
+situation</li>
+</ol>
+<h3 id="related-appendices">Related Appendices</h3>
+<ul>
+<li><strong>Appendix A:</strong> Implementation Cookbook (quick
+recipes)</li>
+<li><strong>Appendix D:</strong> AI-Friendly HTML Guide (comprehensive
+patterns)</li>
+<li><strong>Appendix E:</strong> AI Patterns Quick Reference (data
+attributes)</li>
+<li><strong>Appendix F:</strong> Implementation Roadmap (priority-based
+adoption)</li>
+</ul>
+<hr />
+<p><strong>Note:</strong> This appendix presents proposed patterns, not
+established standards. Evaluate adoption based on your specific
+situation and risk tolerance. All patterns are designed for graceful
+degradation and forward compatibility.</p>
+<hr>
+<nav class="appendix-navigation" role="navigation" aria-label="Appendix Navigation">
+    <p><a href="appendix-index.html">← Back to Appendices Index</a></p>
+    <p>Quick navigation:
+        <a href="appendix-a.html">A</a> |
+        <a href="appendix-b.html">B</a> |
+        <a href="appendix-c.html">C</a> |
+        <a href="appendix-d.html">D</a> |
+        <a href="appendix-e.html">E</a> |
+        <a href="appendix-f.html">F</a> |
+        <a href="appendix-g.html">G</a> |
+        <a href="appendix-h.html">H</a> |
+        <a href="appendix-i.html">I</a> |
+        <a href="appendix-j.html">J</a> |
+        <a href="appendix-k.html">K</a> |
+        <a href="appendix-l.html">L</a>
+    </p>
+</nav>
+
+  <!-- Floating home button (top-left) -->
+  <a href="index.html" class="floating-home-button" aria-label="Back to Home">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+      <path d="M8 0L0 8h3v8h10V8h3L8 0zm0 2.5L13.5 8H11v6H5V8H2.5L8 2.5z"/>
+    </svg>
+    Home
+  </a>
+  <!-- Floating back to top button (bottom-left) -->
+  <a href="#" class="floating-top-button" aria-label="Back to Top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+      <path d="M8 3.5l-5.5 5.5L4 10.5l3-3v8.5h2V7.5l3 3L13.5 9z"/>
+    </svg>
+    Top
+  </a>
+
+  <script>
+    // Add copy buttons to all code blocks
+    document.addEventListener('DOMContentLoaded', function() {
+      // Find both wrapped code blocks (div.sourceCode) and standalone pre blocks
+      const wrappedBlocks = document.querySelectorAll('div.sourceCode');
+      const standaloneBlocks = document.querySelectorAll('pre[data-role="code-block"]:not(.sourceCode)');
+
+      // Process wrapped code blocks (HTML, JavaScript, etc.)
+      wrappedBlocks.forEach(function(block) {
+        addCopyButton(block, function(block) {
+          const codeElement = block.querySelector('code');
+          let text = '';
+          const spans = codeElement.querySelectorAll('span[id^="cb"]');
+          spans.forEach(function(span) {
+            const nodes = Array.from(span.childNodes);
+            nodes.forEach(function(node) {
+              if (node.nodeType === Node.TEXT_NODE) {
+                text += node.textContent;
+              } else if (node.nodeName !== 'A') {
+                text += node.textContent;
+              }
+            });
+          });
+          return text;
+        });
+      });
+
+      // Process standalone pre blocks (text, robots.txt, etc.)
+      standaloneBlocks.forEach(function(block) {
+        addCopyButton(block, function(block) {
+          const codeElement = block.querySelector('code');
+          return codeElement ? codeElement.textContent : block.textContent;
+        });
+      });
+
+      // Helper function to add copy button to any block
+      function addCopyButton(block, extractTextFn) {
+        const button = document.createElement('button');
+        button.className = 'copy-button';
+        button.textContent = 'Copy';
+        button.setAttribute('aria-label', 'Copy code to clipboard');
+
+        button.addEventListener('click', function() {
+          const text = extractTextFn(block);
+
+          navigator.clipboard.writeText(text).then(function() {
+            button.textContent = 'Copied';
+            button.classList.add('copied');
+            setTimeout(function() {
+              button.textContent = 'Copy';
+              button.classList.remove('copied');
+            }, 2000);
+          }).catch(function(err) {
+            console.error('Failed to copy:', err);
+            button.textContent = 'Failed';
+            setTimeout(function() {
+              button.textContent = 'Copy';
+            }, 2000);
+          });
+        });
+
+        block.insertBefore(button, block.firstChild);
+      }
+    });
+  </script>
+</body>
+</html>

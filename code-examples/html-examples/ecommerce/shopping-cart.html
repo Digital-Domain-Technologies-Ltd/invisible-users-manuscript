@@ -118,6 +118,44 @@
         </a>
         <a href="/products">Continue shopping</a>
       </div>
+
+      <!-- Agent-readable checkout instructions -->
+      <div class="agent-metadata" data-agent-visible="true" style="display: none;">
+        <h2>Checkout Information</h2>
+        <dl>
+          <dt>Action</dt>
+          <dd>GET /checkout (view checkout form) or POST /checkout (submit order)</dd>
+
+          <dt>Cart contents</dt>
+          <dd>
+            <ul>
+              <li>WH-1000: Qty 1, Price £149.99</li>
+              <li>KB-500: Qty 2, Price £130.00 (£65.00 each)</li>
+            </ul>
+          </dd>
+
+          <dt>Cart totals</dt>
+          <dd>Subtotal: £279.98, Shipping: Free, VAT: £46.66 (included), Total: £279.98</dd>
+
+          <dt>Prerequisites for checkout</dt>
+          <dd>
+            <ul>
+              <li>Authentication: Required (must be logged in)</li>
+              <li>Shipping address: Required</li>
+              <li>Payment method: Required</li>
+            </ul>
+          </dd>
+
+          <dt>Cart operations</dt>
+          <dd>
+            Update quantity: POST /cart/update (params: product_id, quantity)<br>
+            Remove item: POST /cart/remove (params: product_id)
+          </dd>
+
+          <dt>Expected response</dt>
+          <dd>Checkout success: 303 redirect to /order/confirmation | Auth required: 401 redirect to /login</dd>
+        </dl>
+      </div>
     </div>
 
     <!-- Empty cart state -->
@@ -141,6 +179,7 @@
     - Remove/update are POST forms (not GET links)
     - Empty state has data-state="empty"
     - Checkout ready status explicit
+    - data-agent-visible provides hidden checkout prerequisites and cart operations
   -->
 </body>
 </html>

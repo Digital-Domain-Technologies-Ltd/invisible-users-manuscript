@@ -15,7 +15,7 @@
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
   <meta name="ai-structured-data" content="json-ld">
-  <meta name="ai-attribution" content="required">
+  <meta name="ai-attribution" content="required" text="Source: The Invisible Users by Tom Cranstoun, https://allabout.network/invisible-users/">
   <meta name="llms-txt" content="/llms.txt">
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
@@ -61,7 +61,8 @@
         <a href="appendix-h.html">H</a> |
         <a href="appendix-i.html">I</a> |
         <a href="appendix-j.html">J</a> |
-        <a href="appendix-k.html">K</a>
+        <a href="appendix-k.html">K</a> |
+        <a href="appendix-l.html">L</a>
     </p>
 </nav>
 <hr>
@@ -154,6 +155,10 @@ forward-compatible):</p>
 <li>ai-* meta tag namespace</li>
 <li>data-agent-visible attribute pattern</li>
 </ul>
+<p><strong>For complete proposal specifications, rationale, and adoption
+guidelines, see <a
+href="https://allabout.network/invisible-users/web/appendix-l.html">Appendix
+L: Proposed AI Metadata Patterns</a>.</strong></p>
 <p>All patterns shown are designed to be forward-compatible — they won’t
 break anything if agents don’t recognise them. Think of them as
 progressive enhancement for AI.</p>
@@ -1578,6 +1583,10 @@ actual session state.</p>
 agents whilst keeping it invisible to human users. The attribute acts as
 a semantic marker that agents can search for. Not widely adopted yet,
 but designed to degrade gracefully.</p>
+<p><strong>For complete proposal specification, adoption decision
+framework, and cross-references, see <a
+href="https://allabout.network/invisible-users/web/appendix-l.html">Appendix
+L: Proposed AI Metadata Patterns</a>.</strong></p>
 <h3 id="llms.txt-file">llms.txt File</h3>
 <p>Create a <code>/llms.txt</code> file at your site root to provide
 site-wide guidance to AI systems. This is similar to how robots.txt
@@ -1872,6 +1881,10 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span></code></pre></div>
 <p><strong>Status:</strong> Proposed pattern, not yet standardised.
 Forward-compatible - won’t break if ignored.</p>
+<p><strong>For complete proposal specification of all six AI meta tags,
+adoption decision framework, and cross-references, see <a
+href="https://allabout.network/invisible-users/web/appendix-l.html">Appendix
+L: Proposed AI Metadata Patterns</a>.</strong></p>
 <p><strong>Layer 3 — JSON-LD (actual content)</strong> — Established
 Standard:</p>
 <div class="sourceCode" id="cb48" data-role="code-container"><pre
@@ -2373,7 +2386,7 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
 <span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">&quot;UTF-8&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;viewport&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;llms-section&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;/llms.txt&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;llms-txt&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;/llms.txt&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>404 Not Found<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
 <span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
 <span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
@@ -2382,8 +2395,11 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb66-12"><a href="#cb66-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;/&quot;</span><span class="dt">&gt;</span>Go back to Home<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
 <span id="cb66-13"><a href="#cb66-13" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
 <span id="cb66-14"><a href="#cb66-14" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
-<p>The <code>llms-section</code> meta tag tells AI agents where to find
-site navigation guidance when a page doesn’t exist.</p>
+<p>The <code>llms-txt</code> meta tag tells AI agents where to find site
+navigation guidance when a page doesn’t exist.</p>
+<p>For a complete production-ready 404 page example with full styling
+and server-side implementation patterns, see Appendix K - Common Page
+Patterns.</p>
 <p><strong>Nginx Configuration for AI Fallback:</strong></p>
 <p>Configure your server to provide llms.txt as a fallback with
 appropriate headers:</p>
@@ -2401,7 +2417,7 @@ error_page 404 = @llms_fallback;</code></pre>
 class="sourceCode javascript"><code class="sourceCode javascript" data-role="code-content"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 404 handler - after all other routes</span></span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>app<span class="op">.</span><span class="fu">use</span>((req<span class="op">,</span> res<span class="op">,</span> next) <span class="kw">=&gt;</span> {</span>
 <span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">status</span>(<span class="dv">404</span>)</span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>     <span class="op">.</span><span class="fu">setHeader</span>(<span class="st">&#39;X-llms-Section&#39;</span><span class="op">,</span> <span class="st">&#39;/llms.txt&#39;</span>)</span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>     <span class="op">.</span><span class="fu">setHeader</span>(<span class="st">&#39;X-llms-txt&#39;</span><span class="op">,</span> <span class="st">&#39;/llms.txt&#39;</span>)</span>
 <span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>     <span class="op">.</span><span class="fu">sendFile</span>(path<span class="op">.</span><span class="fu">join</span>(<span class="bu">__dirname</span><span class="op">,</span> <span class="st">&#39;404.html&#39;</span>))<span class="op">;</span></span>
 <span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
 <span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a></span>
@@ -2409,7 +2425,7 @@ class="sourceCode javascript"><code class="sourceCode javascript" data-role="cod
 <span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a>app<span class="op">.</span><span class="fu">use</span>((err<span class="op">,</span> req<span class="op">,</span> res<span class="op">,</span> next) <span class="kw">=&gt;</span> {</span>
 <span id="cb68-10"><a href="#cb68-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> status <span class="op">=</span> err<span class="op">.</span><span class="at">status</span> <span class="op">||</span> <span class="dv">500</span><span class="op">;</span></span>
 <span id="cb68-11"><a href="#cb68-11" aria-hidden="true" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">status</span>(status)</span>
-<span id="cb68-12"><a href="#cb68-12" aria-hidden="true" tabindex="-1"></a>     <span class="op">.</span><span class="fu">setHeader</span>(<span class="st">&#39;X-llms-Section&#39;</span><span class="op">,</span> <span class="st">&#39;/llms.txt&#39;</span>)</span>
+<span id="cb68-12"><a href="#cb68-12" aria-hidden="true" tabindex="-1"></a>     <span class="op">.</span><span class="fu">setHeader</span>(<span class="st">&#39;X-llms-txt&#39;</span><span class="op">,</span> <span class="st">&#39;/llms.txt&#39;</span>)</span>
 <span id="cb68-13"><a href="#cb68-13" aria-hidden="true" tabindex="-1"></a>     <span class="op">.</span><span class="fu">json</span>({</span>
 <span id="cb68-14"><a href="#cb68-14" aria-hidden="true" tabindex="-1"></a>       <span class="dt">error</span><span class="op">:</span> err<span class="op">.</span><span class="at">message</span><span class="op">,</span></span>
 <span id="cb68-15"><a href="#cb68-15" aria-hidden="true" tabindex="-1"></a>       <span class="dt">llms_guidance</span><span class="op">:</span> <span class="st">&#39;/llms.txt&#39;</span><span class="op">,</span></span>
@@ -2916,12 +2932,12 @@ class="sourceCode javascript"><code class="sourceCode javascript" data-role="cod
 <span id="cb72-138"><a href="#cb72-138" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-139"><a href="#cb72-139" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&#39;404 page references llms.txt&#39;</span><span class="op">,</span> <span class="kw">async</span> ({ page }) <span class="kw">=&gt;</span> {</span>
 <span id="cb72-140"><a href="#cb72-140" aria-hidden="true" tabindex="-1"></a>  <span class="cf">await</span> page<span class="op">.</span><span class="fu">goto</span>(<span class="st">&#39;/nonexistent-page-12345&#39;</span>)<span class="op">;</span></span>
-<span id="cb72-141"><a href="#cb72-141" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb72-142"><a href="#cb72-142" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Check for llms-section meta tag</span></span>
-<span id="cb72-143"><a href="#cb72-143" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> llmsSection <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">$</span>(<span class="st">&#39;meta[name=&quot;llms-section&quot;]&#39;</span>)<span class="op">;</span></span>
-<span id="cb72-144"><a href="#cb72-144" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(llmsSection)<span class="op">.</span><span class="fu">toBeTruthy</span>()<span class="op">;</span></span>
-<span id="cb72-145"><a href="#cb72-145" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb72-146"><a href="#cb72-146" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> content <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">getAttribute</span>(<span class="st">&#39;meta[name=&quot;llms-section&quot;]&#39;</span><span class="op">,</span> <span class="st">&#39;content&#39;</span>)<span class="op">;</span></span>
+<span id="cb72-141"><a href="#cb72-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-142"><a href="#cb72-142" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Check for llms-txt meta tag</span></span>
+<span id="cb72-143"><a href="#cb72-143" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> llmsTxt <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">$</span>(<span class="st">&#39;meta[name=&quot;llms-txt&quot;]&#39;</span>)<span class="op">;</span></span>
+<span id="cb72-144"><a href="#cb72-144" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(llmsTxt)<span class="op">.</span><span class="fu">toBeTruthy</span>()<span class="op">;</span></span>
+<span id="cb72-145"><a href="#cb72-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-146"><a href="#cb72-146" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> content <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">getAttribute</span>(<span class="st">&#39;meta[name=&quot;llms-txt&quot;]&#39;</span><span class="op">,</span> <span class="st">&#39;content&#39;</span>)<span class="op">;</span></span>
 <span id="cb72-147"><a href="#cb72-147" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(content)<span class="op">.</span><span class="fu">toBe</span>(<span class="st">&#39;/llms.txt&#39;</span>)<span class="op">;</span></span>
 <span id="cb72-148"><a href="#cb72-148" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
 <span id="cb72-149"><a href="#cb72-149" aria-hidden="true" tabindex="-1"></a></span>
@@ -2980,8 +2996,7 @@ Interfaces - Priority 2: Essential Improvements</h4>
 <li>Remove unnecessary pagination</li>
 <li>Create a basic <code>llms.txt</code> file</li>
 <li>Use standard form field names</li>
-<li>Add
-<code>&lt;meta name="llms-section" content="/llms.txt"&gt;</code> to
+<li>Add <code>&lt;meta name="llms-txt" content="/llms.txt"&gt;</code> to
 your 404 page</li>
 <li>Make cart state machine-readable</li>
 <li>Add currency/locale data attributes</li>
@@ -2994,7 +3009,7 @@ your 404 page</li>
 <li>Use proper HTTP status codes</li>
 <li>Add meta tags for agent guidance</li>
 <li>Add agent-readable purchase metadata</li>
-<li>Add X-llms-Section headers to server error responses</li>
+<li>Add X-llms-txt headers to server error responses</li>
 <li>Include ai_guidance object in API error JSON</li>
 <li>Make search results and filters machine-readable</li>
 <li>Add success confirmation pages with explicit order data</li>
@@ -3388,7 +3403,8 @@ and Everyone Else</em>.</p>
         <a href="appendix-h.html">H</a> |
         <a href="appendix-i.html">I</a> |
         <a href="appendix-j.html">J</a> |
-        <a href="appendix-k.html">K</a>
+        <a href="appendix-k.html">K</a> |
+        <a href="appendix-l.html">L</a>
     </p>
 </nav>
 

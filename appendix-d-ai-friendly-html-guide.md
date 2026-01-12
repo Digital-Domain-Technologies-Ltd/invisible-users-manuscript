@@ -29,6 +29,8 @@ This guide presents both established standards and proposed patterns:
 - ai-* meta tag namespace
 - data-agent-visible attribute pattern
 
+**For complete proposal specifications, rationale, and adoption guidelines, see [Appendix L: Proposed AI Metadata Patterns](<https://allabout.network/invisible-users/web/appendix-l.html>).**
+
 All patterns shown are designed to be forward-compatible — they won't break anything if agents don't recognise them. Think of them as progressive enhancement for AI.
 
 ---
@@ -1325,6 +1327,8 @@ Hidden from humans with `display: none`, but visible to agents parsing the DOM. 
 
 **Note:** This pattern provides hidden metadata to AI agents whilst keeping it invisible to human users. The attribute acts as a semantic marker that agents can search for. Not widely adopted yet, but designed to degrade gracefully.
 
+**For complete proposal specification, adoption decision framework, and cross-references, see [Appendix L: Proposed AI Metadata Patterns](<https://allabout.network/invisible-users/web/appendix-l.html>).**
+
 ### llms.txt File
 
 Create a `/llms.txt` file at your site root to provide site-wide guidance to AI systems. This is similar to how robots.txt guides search engines.
@@ -1566,6 +1570,8 @@ Page-specific meta tags can override site-wide defaults from llms.txt. Whilst no
 ```
 
 **Status:** Proposed pattern, not yet standardised. Forward-compatible - won't break if ignored.
+
+**For complete proposal specification of all six AI meta tags, adoption decision framework, and cross-references, see [Appendix L: Proposed AI Metadata Patterns](<https://allabout.network/invisible-users/web/appendix-l.html>).**
 
 **Layer 3 — JSON-LD (actual content)** — Established Standard:
 

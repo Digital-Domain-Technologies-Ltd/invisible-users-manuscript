@@ -134,7 +134,7 @@ The home page is your digital storefront. It must immediately communicate what y
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
   <meta name="ai-structured-data" content="json-ld">
-  <meta name="ai-attribution" content="required">
+  <meta name="ai-attribution" content="required" text="Source: The Invisible Users by Tom Cranstoun, https://allabout.network/invisible-users/">
 
   <title>The Invisible Users | Designing the Web for AI Agents and Everyone Else</title>
 
@@ -368,7 +368,7 @@ The about page explains who you are, what you do, and why it matters. For AI age
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
   <meta name="ai-structured-data" content="json-ld">
-  <meta name="ai-attribution" content="required">
+  <meta name="ai-attribution" content="required" text="Source: The Invisible Users by Tom Cranstoun, https://allabout.network/invisible-users/">
 
   <title>About | The Invisible Users</title>
 
@@ -557,7 +557,7 @@ The contact page provides explicit ways to reach you. For AI agents, it needs cl
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
   <meta name="ai-structured-data" content="json-ld">
-  <meta name="ai-attribution" content="required">
+  <meta name="ai-attribution" content="required" text="Source: The Invisible Users by Tom Cranstoun, https://allabout.network/invisible-users/">
 
   <title>Contact | The Invisible Users</title>
 
@@ -716,7 +716,7 @@ The sales page is dedicated to selling a specific product — in this case, the 
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
   <meta name="ai-structured-data" content="json-ld">
-  <meta name="ai-attribution" content="required">
+  <meta name="ai-attribution" content="required" text="Source: The Invisible Users by Tom Cranstoun, https://allabout.network/invisible-users/">
   <title>The Invisible Users Book | Product Details</title>
   <script type="application/ld+json">
   {
@@ -838,7 +838,7 @@ The collection page lists related resources — appendices, chapters, or tools. 
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
   <meta name="ai-structured-data" content="json-ld">
-  <meta name="ai-attribution" content="required">
+  <meta name="ai-attribution" content="required" text="Source: The Invisible Users by Tom Cranstoun, https://allabout.network/invisible-users/">
 
   <title>Appendices Directory | The Invisible Users</title>
 
@@ -1214,7 +1214,7 @@ The blog post page shares insights and expertise. For AI agents, it needs Articl
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
   <meta name="ai-structured-data" content="json-ld">
-  <meta name="ai-attribution" content="required">
+  <meta name="ai-attribution" content="required" text="Source: The Invisible Users by Tom Cranstoun, https://allabout.network/invisible-users/">
 
   <title>Why Modern Forms Break AI Agents (And How to Fix Them) | The Invisible Users</title>
 
@@ -1464,7 +1464,7 @@ The article page presents comprehensive technical documentation or case studies.
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
   <meta name="ai-structured-data" content="json-ld">
-  <meta name="ai-attribution" content="required">
+  <meta name="ai-attribution" content="required" text="Source: The Invisible Users by Tom Cranstoun, https://allabout.network/invisible-users/">
 
   <title>Complete Guide to llms.txt Implementation | The Invisible Users</title>
 
@@ -2430,7 +2430,7 @@ The FAQ page answers common questions in a structured format. For AI agents, it 
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
   <meta name="ai-structured-data" content="json-ld">
-  <meta name="ai-attribution" content="required">
+  <meta name="ai-attribution" content="required" text="Source: The Invisible Users by Tom Cranstoun, https://allabout.network/invisible-users/">
 
   <title>Frequently Asked Questions | The Invisible Users</title>
 
@@ -2582,7 +2582,7 @@ The 404 error page provides helpful guidance when content is unavailable. For AI
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
   <meta name="ai-structured-data" content="json-ld">
-  <meta name="ai-attribution" content="required">
+  <meta name="ai-attribution" content="required" text="Source: The Invisible Users by Tom Cranstoun, https://allabout.network/invisible-users/">
   <meta name="llms-txt" content="/llms.txt">
 
   <title>404 - Page Not Found | The Invisible Users</title>
@@ -2820,7 +2820,7 @@ The pricing page compares multiple service or product tiers side-by-side. For AI
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
   <meta name="ai-structured-data" content="json-ld">
-  <meta name="ai-attribution" content="required">
+  <meta name="ai-attribution" content="required" text="Source: The Invisible Users by Tom Cranstoun, https://allabout.network/invisible-users/">
 
   <title>Pricing | Web Audit Suite</title>
 
@@ -3068,7 +3068,7 @@ The author or profile page establishes personal identity and expertise. For AI a
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
   <meta name="ai-structured-data" content="json-ld">
-  <meta name="ai-attribution" content="required">
+  <meta name="ai-attribution" content="required" text="Source: The Invisible Users by Tom Cranstoun, https://allabout.network/invisible-users/">
 
   <title>About Tom Cranstoun | The Invisible Users</title>
 
