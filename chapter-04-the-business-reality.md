@@ -813,6 +813,132 @@ Use this matrix to decide your strategic response:
 
 ---
 
+## Making Protocol Integration Decisions
+
+The January 2026 platform race introduced multiple commerce protocols for agent-mediated transactions. Businesses with transaction-based revenue now face a critical decision: Which protocol should you integrate with, if any?
+
+### The Protocol Landscape
+
+Three major approaches emerged:
+
+**Agentic Commerce Protocol (ACP)** - Launched September 2024 by OpenAI and Stripe. Open standard with over 1 million merchants on Shopify and Etsy. Proven in production, mature tooling, widely supported by agents.
+
+**Universal Commerce Protocol (UCP)** - Launched January 2026 by Google with 20+ retail partners including Target, Walmart, Macy's, Best Buy, and The Home Depot. Open standard with broad distribution through Google Search integration.
+
+**Microsoft Copilot Checkout** - Launched January 2026. Proprietary system integrated into Windows, Edge, and Office 365. Closed ecosystem requiring Microsoft-specific integration.
+
+The question isn't "will agent commerce happen?" The question is "which protocol will dominate?" - and you must decide before that question is answered.
+
+### Decision Framework
+
+Your integration decision depends on three factors: exposure level, resources, and risk tolerance.
+
+**If you're critically exposed (agent traffic threatens current business model):**
+
+Protocol integration won't solve your core problem. Focus on business model diversification first (API access, subscription revenue, differentiated content). Once your economics stabilise, revisit protocol integration.
+
+**If you're highly exposed (transaction-based with urgent competitive pressure):**
+
+Integrate with **at least one open protocol immediately**. Rationale:
+
+- Open protocols (ACP/UCP) avoid vendor lock-in
+- Supporting one open protocol positions you for agent traffic from multiple platforms
+- Waiting risks losing market share to early adopters
+- Open protocols enable migration if one protocol wins
+
+**Protocol choice guidance:**
+- If you're already on Shopify/Etsy: ACP integration may be automatic (verify with your platform)
+- If you have significant search traffic: UCP provides Google Search distribution advantage
+- If you have engineering resources: Support both ACP and UCP to maximise agent reach
+- **Avoid Microsoft-only integration** - proprietary approach creates competitive isolation (see Chapter 9)
+
+**If you're medium exposure (transaction-based with some agent compatibility):**
+
+Choose one open protocol based on your primary traffic source. Timeline: Q1-Q2 2026.
+
+- Google Search traffic → UCP first
+- Shopify/Etsy ecosystem → ACP first
+- Custom platform → Evaluate agent creator adoption rates in your industry
+
+Build protocol integration on top of universal agent-friendly patterns (semantic HTML, structured data, explicit state management - see Chapter 10). This ensures your site works for all agents regardless of protocol adoption.
+
+**If you're low exposure (relationship-based sales or strong brand loyalty):**
+
+Wait. Monitor protocol convergence and adoption rates in your industry. Focus on fixing agent-hostile patterns (Priority 1 items from Appendix F) without committing to specific protocols. Reassess Q3 2026.
+
+### Risk Analysis: Early Adoption vs. Wait-and-See
+
+**Early adoption risks:**
+
+- **Protocol fragmentation risk:** Two open protocols exist (ACP and UCP). If you choose wrong, may need to re-implement. Mitigation: Choose open protocols over proprietary to enable future migration.
+- **Implementation cost:** Integration requires developer time, testing, security review. Mitigation: Build protocol abstraction layers to swap implementations without rewriting business logic (see Chapter 11).
+- **Unproven ROI:** Agent-mediated commerce volume still uncertain. Mitigation: Start with exposure-appropriate timeline (high exposure = immediate; medium = Q2 2026).
+
+**Wait-and-see risks:**
+
+- **Competitive disadvantage:** Early adopters capture agent-mediated sales whilst you wait. If competitors integrate first, they establish preference with agents for 6-12 months before you catch up.
+- **Compressed timeline:** Major platforms launched simultaneously (January 2026) signalling urgent consensus. Waiting assumptions may prove wrong if adoption accelerates faster than predicted.
+- **Lost learning:** Protocol integration reveals edge cases and opportunities. Late movers forfeit 6-12 months of production experience.
+- **Network effects:** Agents prioritise merchants that work reliably. Early adopters build reputation in agent recommendation systems whilst late movers remain invisible.
+
+**The recommendation for most transaction-based businesses:** Integrate with one open protocol in Q1-Q2 2026. The competitive risk of waiting exceeds the implementation risk of choosing wrong, provided you choose open standards that enable future migration.
+
+### Small Business Simplified Path
+
+If you're a small business (under £1M annual revenue) without dedicated engineering teams:
+
+1. **Check automatic integration:** If you use Shopify, Etsy, or major e-commerce platforms, verify whether ACP integration is automatic. Many platforms enable ACP for all merchants by default.
+
+2. **Fix universal patterns first:** Focus on agent-friendly design patterns before protocol integration. Semantic HTML, transparent pricing, explicit errors, and structured data work regardless of which protocol wins.
+
+3. **Monitor your platform provider:** Your e-commerce platform will likely choose a protocol for you. Follow their guidance rather than building custom integration.
+
+4. **Reassess quarterly:** The protocol landscape is evolving rapidly. Check your platform provider's protocol support every 3 months.
+
+**Timeline:** Q2-Q3 2026 for small businesses. Universal patterns immediately; protocol integration when your platform provider offers simplified tooling.
+
+### Enterprise Integration Considerations
+
+If you're an enterprise (£10M+ annual revenue) with significant agent exposure:
+
+- **Support both open protocols** (ACP and UCP) if resources permit. Maximises agent reach whilst protocols compete.
+- **Build protocol abstraction layers** so you can add/remove protocols without rewriting checkout logic.
+- **Include agent testing in QA processes** - test checkout flows with agent simulation tools, not just human users.
+- **Track agent traffic separately** in analytics to measure protocol-specific conversion rates and ROI.
+- **Implement identity delegation patterns** (see Chapter 6) to preserve customer relationships in agent-mediated transactions.
+- **Consider protocol convergence timelines** when planning architecture - over-engineering for permanent dual-protocol support may prove unnecessary if ACP/UCP merge within 6-12 months.
+
+**Timeline:** Q1 2026 for high-exposure enterprises. Competitive pressure and agent traffic volume justify immediate investment.
+
+### The Invisible Failure Problem Drives Platform Urgency
+
+The January 2026 platform race wasn't coincidence - it was consensus that existing websites are failing agents.
+
+When an agent fails to navigate your site, you won't know. Your analytics show good conversion rates from human users. Your user testing sessions succeed. But to the AI agents browsing on your customers' behalf, your site might be incomprehensible.
+
+Toast notifications that appear and disappear. Pagination that requires clicking "more." Client-side validation that only works with JavaScript. Ambiguous error messages that humans interpret from context. These patterns work for humans. They break for agents.
+
+**The difference:** When a human fails to complete checkout, you see cart abandonment metrics. When an agent fails, it silently excludes your site from recommendations. You lose not just one transaction - you lose thousands of future users who never knew your site existed.
+
+This invisible failure problem created the opportunity for platforms to own the agent layer. If merchants' websites don't work reliably for agents, platforms can build proprietary systems that do work reliably - and capture the transaction value.
+
+Amazon, Microsoft, and Google launched agent commerce systems within seven days because they all recognised that merchant websites aren't ready. Rather than wait for millions of merchants to fix their sites individually, platforms built unified systems that bypass merchant failures entirely.
+
+**What this means for your protocol decision:**
+
+Protocol integration solves the "how do agents transact with me?" question. But it doesn't solve the "can agents understand my site?" question. You need both:
+
+1. **Universal agent-friendly patterns** (Chapter 10) - Ensures agents can navigate your site regardless of protocol
+2. **Protocol integration** (ACP/UCP) - Enables secure, authenticated transactions once agents understand your offering
+
+Integrating a protocol without fixing underlying patterns won't help. Agents still fail to extract product information, compare options, or verify transaction success. Protocol integration is necessary but not sufficient.
+
+**The competitive insight:** Target and Walmart endorsing a common protocol (UCP) despite fierce competition signals that invisible failures are severe enough to overcome competitive instincts. When direct competitors cooperate on standards, the underlying problem is urgent and industry-wide.
+
+Your competitors are facing the same invisible failures. The question is who acts first to fix them.
+
+---
+
 ## What This Means for Your Business
 
 If you've read this far and completed the exposure assessment above, you now understand your specific situation. Here's guidance by revenue model:

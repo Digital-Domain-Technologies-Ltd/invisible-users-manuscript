@@ -112,6 +112,212 @@ This example shows how to represent the complete pricing breakdown mentioned abo
 
 ---
 
+## Priority 1.5: Protocol Integration Strategy
+
+**When to integrate:** Protocol integration timing depends on your exposure level and business priorities. This section helps you decide when to integrate commerce protocols (ACP, UCP) versus focusing on universal agent-friendly patterns first.
+
+**Critical principle:** Universal patterns (semantic HTML, structured data, explicit state management) work for all agents regardless of protocol. Implement these first. Protocol integration comes after your site is fundamentally agent-navigable.
+
+### Integration Timeline by Exposure Level
+
+**Critical exposure (ad-dependent, agent traffic threatens business model):**
+
+- **Protocol integration:** Not applicable - focus on business model diversification first
+- **Universal patterns:** Immediate (helps humans and remaining agent traffic)
+- **Rationale:** Protocol integration enables transactions, but your problem is that agents bypass ads. Fix economics before enabling more agent traffic.
+
+**High exposure (transaction-based, competitive pressure, agent-hostile patterns):**
+
+- **Protocol integration:** Q1 2026 (immediate if reading this after Q1 2026)
+- **Universal patterns:** Immediate (Priority 1 from this appendix)
+- **Protocol choice:** One open protocol (ACP or UCP) based on traffic sources
+- **Rationale:** Agent-mediated commerce is processing real transactions (Amazon Alexa+, Microsoft Copilot Checkout launched January 2026). Waiting risks competitive disadvantage.
+
+**Medium exposure (transaction-based, some agent compatibility):**
+
+- **Protocol integration:** Q2 2026
+- **Universal patterns:** Q1 2026 (Priority 1 and Priority 2)
+- **Protocol choice:** One open protocol initially, evaluate second protocol Q4 2026
+- **Rationale:** Build foundation first (universal patterns), then add transaction capability once patterns are stable.
+
+**Low exposure (relationship-based sales, strong brand loyalty):**
+
+- **Protocol integration:** Q3-Q4 2026 or later
+- **Universal patterns:** Q2 2026 (Priority 1 only)
+- **Rationale:** Monitor industry adoption, wait for protocol convergence or clear winner, focus on fixing obvious usability problems first.
+
+### Single Protocol vs. Dual Protocol Decision
+
+**Choose one open protocol if:**
+
+- Small-to-medium business (under £10M annual revenue)
+- Limited engineering resources (fewer than 5 developers)
+- Traffic comes primarily from one source (Google Search → UCP; ChatGPT users → ACP)
+- First-time protocol integration (learn one system before adding complexity)
+
+**Support both open protocols if:**
+
+- Large enterprise (£50M+ annual revenue)
+- Significant engineering capacity
+- Traffic sources are diversified (both Google and OpenAI users)
+- Agent-mediated commerce expected to exceed 15% of transactions
+
+**Avoid Microsoft proprietary integration unless:**
+
+- 80%+ of your business is enterprise B2B commerce
+- Your customer base is exclusively Windows/Office 365 enterprise users
+- You have strategic partnership with Microsoft justifying lock-in
+
+**Rationale:** Microsoft's proprietary approach creates isolation (see Chapter 9). Even if you eventually support Microsoft, integrate at least one open protocol first to avoid vendor lock-in.
+
+### Small Business Simplified Path
+
+If you're a small business without dedicated engineering teams:
+
+**Step 1: Check automatic integration (Week 1)**
+
+- Shopify merchants: Verify whether ACP is enabled by default (Shopify added ACP support Q4 2024)
+- Etsy sellers: ACP integration automatic for all shops
+- Other platforms: Check your e-commerce provider's documentation for protocol support
+
+**Step 2: Implement universal patterns (Weeks 2-4)**
+
+Focus on Priority 1 items from this appendix:
+
+- Remove toast notifications, add persistent errors
+- Display complete pricing upfront (no "From £99")
+- Add basic Schema.org JSON-LD for products or services
+- Verify forms have clear error messages
+
+**Step 3: Monitor platform provider announcements (Ongoing)**
+
+Your e-commerce platform will likely choose protocols for you. Follow their guidance rather than building custom integration.
+
+**Step 4: Reassess quarterly (Q2, Q3, Q4 2026)**
+
+Check:
+
+- Has your platform added protocol support?
+- Has one protocol clearly won market share?
+- Have ACP and UCP converged into unified standard?
+- What percentage of your traffic comes from agents?
+
+**Timeline:** Q2-Q3 2026 for protocol integration (after universal patterns implemented). If your platform doesn't offer simplified integration by Q4 2026, evaluate custom implementation or professional audit service.
+
+### Enterprise Integration Considerations
+
+Large businesses with significant agent exposure should treat protocol integration as strategic infrastructure, not optional enhancement.
+
+**Build protocol abstraction layers:**
+
+Don't integrate directly with ACP/UCP in your checkout code. Build an abstraction layer:
+
+```text
+Your Checkout Logic
+       ↓
+Protocol Abstraction Layer (swap ACP ↔ UCP without rewriting checkout)
+       ↓
+   ACP Implementation    UCP Implementation
+```
+
+This enables:
+
+- Swapping protocols if one fails or loses market share
+- Adding new protocols without rewriting business logic
+- Testing different protocols for conversion rate optimisation
+- Migrating if protocols converge into unified standard
+
+**Include agent testing in QA processes:**
+
+Traditional QA tests human interactions (click buttons, fill forms, complete checkout). Agent QA tests different patterns:
+
+- Can agents extract product data from structured markup?
+- Do validation errors persist long enough for agents to read them?
+- Can agents determine transaction success from DOM state?
+- Do protocol-specific endpoints return correct data formats?
+
+**Track agent traffic separately in analytics:**
+
+Distinguish between:
+
+- Human-initiated transactions (user directly browses and buys)
+- Agent-mediated transactions (user delegates task to AI assistant)
+
+This enables measuring protocol-specific conversion rates and ROI.
+
+**Implement identity delegation patterns:**
+
+When agents make purchases on users' behalf, preserve customer relationship data. See Chapter 6 for identity delegation patterns and security considerations.
+
+**Consider protocol convergence timelines:**
+
+Over-engineering for permanent dual-protocol support may prove unnecessary if ACP and UCP merge within 6-12 months (Chapter 9 analysis). Balance current needs (support both now) with future flexibility (architect for convergence).
+
+### Testing and Validation Requirements
+
+**Before deploying protocol integration, verify:**
+
+**Authentication flow:**
+
+- Users can authenticate through protocol-specific OAuth flow
+- Tokens expire appropriately and refresh without user re-authentication
+- Failed authentication shows clear error message (not generic "Try again")
+
+**Transaction handling:**
+
+- Cart creation succeeds with protocol-formatted data
+- Inventory checks prevent overselling
+- Tax calculation matches your standard checkout process
+- Payment processing completes through protocol infrastructure
+- Order confirmation provides tracking and order ID
+
+**Error scenarios:**
+
+- Out-of-stock items handled gracefully
+- Payment failures don't create orphaned carts
+- Network timeouts trigger retry logic, not silent failures
+- Protocol version mismatches detected and logged
+
+**Security validation:**
+
+- Authentication tokens stored securely (not in URL parameters or client-side JavaScript)
+- Transaction data encrypted in transit
+- User permissions verified (users can only access their own transactions)
+- Rate limiting prevents abuse
+
+### Platform-Agnostic Patterns Before Protocol-Specific Integration
+
+**Critical guidance:** Don't integrate protocols before fixing underlying patterns.
+
+Protocol integration enables secure transactions. But it doesn't help if agents can't:
+
+- Extract product information (requires structured data)
+- Compare options (requires complete pricing upfront)
+- Verify transaction success (requires explicit state attributes)
+- Handle errors (requires persistent, machine-readable feedback)
+
+**The correct order:**
+
+1. **Universal patterns** (Priority 1 from this appendix) - Ensures agents can navigate and understand your site
+2. **Protocol integration** (this section) - Enables secure, authenticated transactions
+3. **Advanced optimisation** (Priority 2-4) - Improves agent efficiency and conversion rates
+
+Integrating protocols without fixing patterns is like building a secure payment gateway for a site agents can't read. Technically correct but practically useless.
+
+### When to Evaluate Professional Audit Services
+
+Consider professional audit or implementation services if:
+
+- You lack internal expertise in protocol integration
+- Your e-commerce platform doesn't offer simplified integration
+- You need dual-protocol support but lack engineering capacity
+- You're unsure which protocol best serves your business model
+- You need protocol abstraction architecture guidance
+
+**Timeline:** Q2-Q3 2026 for most businesses. Earlier if you're high-exposure enterprise; later if you're low-exposure small business.
+
+---
+
 ## Priority 2: Essential Improvements
 
 **Effort Level:** Requires coordinated work across multiple developers or sustained focus from a small team. Involves systematic changes to existing code, testing across multiple pages, and potentially updating design patterns. May require stakeholder buy-in for visible changes to user experience. Plan for iterative deployment with rollback capability.
