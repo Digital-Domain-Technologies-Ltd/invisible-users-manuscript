@@ -2966,11 +2966,39 @@ This chapter gave you concrete implementations. The code works - these patterns 
 
 You also need to understand the business tensions from Chapter 4, the security challenges from Chapter 6, and the accessibility imperative from Chapter 1. Technical solutions work when they account for human reality.
 
+### Platform Competition and Protocol Fragmentation
+
+**Timeline update (January 2026):** As Chapter 9 documents, three major platforms launched agent commerce systems within seven days. The competitive landscape is now defined:
+
+- **OpenAI/Stripe:** Agentic Commerce Protocol (ACP) - open standard, 1M+ merchants
+- **Google:** Universal Commerce Protocol (UCP) - open standard, 20+ major retailers
+- **Microsoft:** Copilot Checkout - proprietary closed system
+
+**Integration decision framework:**
+
+If your business requires agent-mediated transactions (e-commerce, booking systems, subscription services):
+
+1. **Start with universal patterns from this chapter** - Semantic HTML, Schema.org JSON-LD, explicit state attributes. These work regardless of which commerce protocol wins.
+
+2. **Monitor protocol adoption signals** - Which protocol gains the most agent integrations in your market? Which protocol do your competitors adopt?
+
+3. **Build identity abstraction layers** - Isolate protocol-specific implementations behind a standard interface, so you can swap protocols without rewriting your entire system.
+
+4. **Integrate ACP first if forced to choose** - It launched in September 2024, has 1M+ merchants on Shopify/Etsy, and has proven tooling. Add UCP support when the technical specification is publicly available and interoperability is verified.
+
+**Most importantly:** Prioritize the universal patterns described in this chapter - semantic HTML, Schema.org JSON-LD, explicit state attributes, persistent feedback. These work regardless of which commerce protocol wins. Protocol-specific integration comes later, after you've built the foundation that works for all agents.
+
+**Timeline urgency (January 2026):** As Chapter 9 documents, three major platforms launched agent commerce systems within seven days. The timeline for meaningful agent-mediated commerce adoption has compressed from "12 months" to "6-9 months or less." The patterns in this chapter aren't speculative - they're urgent competitive requirements.
+
+**See Chapter 9** for detailed analysis of the platform race between OpenAI/Stripe (ACP), Google (UCP), and Microsoft (Copilot Checkout), plus strategic guidance on protocol convergence prospects.
+
+### Making the Choice
+
 The web is changing. Sites that adapt now will serve agents successfully while improving the experience for everyone. Sites that ignore this will watch conversion rates drop as agent traffic increases, never understanding why.
 
 The choice is yours.
 
-**What about agent creators?** This chapter addressed what website builders should implement. **Chapter 11: What Agent Creators Must Build** completes the picture by showing what validation layers, confidence scoring, and guardrails agent creators should implement to prevent pipeline failures like the £203,000 pricing error. Both sides - website builders and agent creators - must improve to create a reliable agent-mediated web.
+**What about agent creators?** This chapter addressed what website builders should implement. **Chapter 12: What Agent Creators Must Build** completes the picture by showing what validation layers, confidence scoring, and guardrails agent creators should implement to prevent pipeline failures like the £203,000 pricing error. Both sides - website builders and agent creators - must improve to create a reliable agent-mediated web.
 
 ---
 
