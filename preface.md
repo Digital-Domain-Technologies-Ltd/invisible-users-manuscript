@@ -117,7 +117,7 @@ York, England
 ## Early Reviews
 
 **Title**: The Invisible Users: Designing the Web for AI Agents and Everyone Else
-**Verdict**: ⭐⭐⭐⭐ (Solid Technical Resource)
+**Verdict**: 4/5 Stars (Solid Technical Resource)
 
 "The Invisible Users" addresses a timely and growing challenge in web development: building effective interfaces for AI agents. It effectively argues that we need to consider agents as a distinct user class rather than just automated scripts.
 
