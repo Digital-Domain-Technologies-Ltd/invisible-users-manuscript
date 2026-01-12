@@ -20,7 +20,7 @@ This is the manuscript repository for "The Invisible Users: Designing the Web fo
 
 ## Submodule Context
 
-This is a git submodule integrated at `invisible-users/manuscript/` in the parent repository. Key implications:
+This is a git submodule integrated at `packages/manuscript/manuscript/` in the parent repository. Key implications:
 
 - **Build tools** are in parent repository (npm scripts for PDF generation, word counts, etc.)
 - **Markdown linting** runs from parent repository
@@ -160,8 +160,8 @@ Follow strict formatting rules (enforced by parent repo linting):
 2. Return to parent repository
 3. Update submodule pointer:
    ```bash
-   cd ../..
-   git add invisible-users/manuscript
+   cd ../../..
+   git add packages/manuscript/manuscript
    git commit -m "Update manuscript submodule to latest version"
    git push origin main
    ```
@@ -252,12 +252,12 @@ All implementation guidance uses priority levels, not time estimates:
 
 ### Git Directory Navigation in Submodules
 
-**CRITICAL: Always run `pwd` first** before attempting directory navigation. This is a git submodule repository that can be accessed from the parent repository root at `invisible-users/manuscript/`, but if you're already inside this submodule directory, further `cd` attempts will fail with "No such file or directory" errors.
+**CRITICAL: Always run `pwd` first** before attempting directory navigation. This is a git submodule repository that can be accessed from the parent repository root at `packages/manuscript/manuscript/`, but if you're already inside this submodule directory, further `cd` attempts will fail with "No such file or directory" errors.
 
 Common mistake pattern:
 ```bash
 # ❌ Wrong: Attempting cd without checking location
-cd invisible-users/manuscript  # Fails if already inside this submodule
+cd packages/manuscript/manuscript  # Fails if already inside this submodule
 
 # ✅ Correct: Check location first
 pwd  # Verify current directory
