@@ -49,7 +49,7 @@ Detailed analysis of a £203,000 AI agent error. How poor form design caused pip
 Latest news and updates about AI agents, commerce platforms, and industry shifts. Regularly updated with verified sources.
 
 **Appendix K: Common Page Patterns**
-Production-ready HTML templates demonstrating AI-friendly patterns for common page types. This appendix provides complete, copy-paste HTML for eight essential page types: home pages, about pages, contact pages, sales pages, collection pages, article pages, FAQ pages, and form pages. Each template includes semantic HTML structure, Schema.org JSON-LD, explicit state attributes, AI meta tags, accessible markup, and real content examples. All templates follow Chapter 10 patterns and are ready for immediate deployment.
+Production-ready HTML templates demonstrating AI-friendly patterns for common page types. This appendix provides complete, copy-paste HTML for eight essential page types: home pages, about pages, contact pages, sales pages, collection pages, article pages, FAQ pages, and form pages. Each template includes semantic HTML structure, Schema.org JSON-LD, explicit state attributes, AI meta tags, accessible markup, and real content examples. All templates follow Chapter 11 patterns and are ready for immediate deployment.
 
 ## Online Features
 

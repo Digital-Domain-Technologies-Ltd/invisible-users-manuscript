@@ -60,7 +60,7 @@ All pages include:
 
 - ✅ Semantic HTML5 structure (`<main>`, `<article>`, `<section>`, `<nav>`)
 - ✅ Schema.org JSON-LD appropriate to page type
-- ✅ AI-specific meta tags (proposed patterns from Chapter 10)
+- ✅ AI-specific meta tags (proposed patterns from Chapter 11)
 - ✅ WCAG 2.1 AA compliant styling (4.5:1 contrast minimum)
 - ✅ Explicit state attributes (`data-*`, `aria-*`)
 - ✅ Responsive design with mobile breakpoints
