@@ -38,7 +38,7 @@ Anthropic launched Claude for Chrome, a browser extension available to all paid 
 
 The book discusses agent detection as a potential mitigation strategy. Claude for Chrome makes detection extremely difficult - it operates in a real browser, inherits human authentication, and uses the same UI interaction patterns as humans.
 
-### Microsoft Copilot Checkout (January 2025)
+### Microsoft Copilot Checkout (January 2026)
 
 Microsoft announced Copilot Checkout - complete purchase transactions within the AI assistant. Not product research. Not price comparison. Full checkout - payment processed, order confirmed.
 
@@ -93,6 +93,57 @@ Businesses face a choice: integrate with closed platforms (immediate market acce
 **For agent creators:**
 
 If you're building agents, ACP provides exactly what Chapter 11 described: an open protocol for commerce that doesn't lock users into your ecosystem. The specification at <https://agenticcommerce.dev> shows how to implement portable delegation tokens, standard payment flows, and merchant-of-record relationships that preserve customer identity.
+
+### Google Universal Commerce Protocol (January 2026)
+
+Three days after Microsoft expanded Copilot Checkout, Google announced the Universal Commerce Protocol (UCP) at the National Retail Federation conference - bringing the total to three major platforms launching agent commerce systems within seven days.
+
+**Key announcement components:**
+
+- **Universal Commerce Protocol (UCP):** Open standard for agent-mediated commerce
+- **Business Agent:** Branded AI shopping assistant surfacing in Google Search results
+- **Major retail partners:** Target, Walmart, Macy's, Best Buy, The Home Depot, Adyen, American Express, Flipkart, Mastercard, Visa, Zalando, and 10+ additional retailers
+
+**What makes this extraordinary:**
+
+This isn't just another platform launch. It's direct competitors - Target and Walmart - jointly endorsing a common protocol. These retailers compete viciously for the same customers, the same suppliers, the same market share. When they cooperate on technical standards, it signals that agent commerce has moved from experimental to infrastructure.
+
+**Two open protocols, one closed system:**
+
+The competitive landscape is now clear:
+
+- **OpenAI/Stripe (ACP):** Open protocol, 1M+ merchants on Shopify/Etsy, first mover advantage
+- **Google (UCP):** Open protocol, major retail giants, search distribution leverage
+- **Microsoft (Copilot Checkout):** Proprietary closed system, enterprise integration, competitively isolated
+
+Microsoft is the only major platform that chose proprietary over open. They're competing against two open protocols simultaneously, both backed by major technology companies and retail partnerships. This is a weak competitive position.
+
+**What this validates:**
+
+- **NEW Chapter 9 (The Platform Race):** The seven-day acceleration proves this is happening now, not in some distant future. Platform competition validates market size and urgency.
+- **Chapter 4 (The Business Reality):** Ecosystem maturity when competitors cooperate on standards. Not speculation anymore - production reality.
+- **Chapter 10 (Designing for Both):** Open protocols enable the "design once, work everywhere" approach recommended throughout the book.
+
+**What this challenges:**
+
+Timeline assumptions. The book originally projected 12 months before agent-mediated commerce reached 10-20% of transactions. Three platforms launching simultaneously compresses this to approximately 6-9 months or less.
+
+**The fragmentation danger:**
+
+Two open protocols (ACP vs UCP) is better than five proprietary systems, but it's worse than one universal standard. Merchants now face integration decisions:
+
+- Integrate ACP only (works with OpenAI/Stripe ecosystem, 1M+ merchants already live)
+- Integrate UCP only (works with Google Business Agent, major retail partnerships)
+- Integrate both (double the work, double the security surface, double the maintenance)
+- Wait for convergence (risk competitive disadvantage if agent commerce accelerates)
+
+**Best outcome:** ACP and UCP merge into a unified standard before ecosystem fragmentation becomes permanent. Both Google and OpenAI/Stripe have incentives to cooperate - OpenAI brings mature tooling and 1M merchants, Google brings search distribution and retail partnerships. The question is whether platforms prioritize ecosystem health over competitive positioning.
+
+**Author position:** I hope open wins over Microsoft's proprietary approach, and I hope ACP/UCP converge before fragmentation harms the ecosystem. But platform cooperation is rare. We'll know within 6 months whether convergence happens or whether we face years of protocol competition.
+
+**For businesses:**
+
+NEW Chapter 9 provides detailed implications by audience. The urgency is real. The timeline has compressed. The next chapters (10, 11, 12) provide the specific patterns and implementations you need now.
 
 ## Updated Chapters
 
