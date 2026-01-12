@@ -227,7 +227,7 @@ System prompts might instruct agents to "always verify financial transactions be
 
 **Why guardrails are insufficient:**
 
-The £203,000 cruise pricing error (detailed in Chapter 11) occurred despite whatever system prompts the agent operated under. If the agent had a guardrail saying "validate prices against market ranges," it failed to trigger. If it had instructions to "cross-reference HTML against structured data," they were either absent or ineffective. System prompts cannot catch what validation layers never check.
+The £203,000 cruise pricing error (detailed in Chapter 12) occurred despite whatever system prompts the agent operated under. If the agent had a guardrail saying "validate prices against market ranges," it failed to trigger. If it had instructions to "cross-reference HTML against structured data," they were either absent or ineffective. System prompts cannot catch what validation layers never check.
 
 Guardrails work at the reasoning level. They guide decision-making. But pipeline failures occur before reasoning begins - during data extraction and parsing. By the time the language model sees "£203,000," the error has already been accepted as truth. The system prompt never has the opportunity to question it.
 
@@ -235,7 +235,7 @@ Guardrails work at the reasoning level. They guide decision-making. But pipeline
 
 Agent creators often point to system prompts as evidence of safety measures. "We told the agent to be careful with financial data." This is necessary but insufficient. Guardrails must be implemented as validation code, not just natural language instructions embedded in prompts.
 
-Chapter 11 documents what actual validation layers look like: range checking, comparative analysis, structured data cross-referencing, confidence scoring, and audit trails. These are programmatic safeguards that execute before the language model processes data. System prompts alone cannot provide this level of protection.
+Chapter 12 documents what actual validation layers look like: range checking, comparative analysis, structured data cross-referencing, confidence scoring, and audit trails. These are programmatic safeguards that execute before the language model processes data. System prompts alone cannot provide this level of protection.
 
 **What this means for security:**
 

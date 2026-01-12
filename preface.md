@@ -64,7 +64,7 @@ This book is written for four distinct audiences, each of whom holds a piece of 
 Developers, architects, and product owners who build the web. You are the text's primary audience. You'll find technical patterns, code examples, and architectural discussions that explain exactly how to build agent-compatible interfaces. The [Web Audit Suite](../web-audit-suite/) is available as a separate purchase or professional audit service.
 
 **2. Agent System Developers**
-Developers building AI agents, browser extensions, and agentic systems that interact with websites. Chapter 11 is written specifically for you. You'll find validation frameworks, confidence scoring patterns, and guardrails that prevent pipeline failures like the £203,000 cruise pricing error. Your agents need robust data quality controls.
+Developers building AI agents, browser extensions, and agentic systems that interact with websites. Chapter 12 is written specifically for you. You'll find validation frameworks, confidence scoring patterns, and guardrails that prevent pipeline failures like the £203,000 cruise pricing error. Your agents need robust data quality controls.
 
 **3. Business Leaders & Decision Makers**
 CTOs, CMOs, and executives who need to understand the strategic shift. You don't need to write the code, but you do need to understand why "silent conversion failures" are happening and how to resource the fix. Chapters 4, 5, and 9 are written specifically for you.

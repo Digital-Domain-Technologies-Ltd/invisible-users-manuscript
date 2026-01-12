@@ -74,15 +74,15 @@ This represents a fundamental shift: agents aren't just reading static HTML anym
 
 This book addresses different audiences with different needs:
 
-**Business Decision-Makers**: Chapters 1, 4, 5, 7, 8, and first half of Chapter 9 (Focused reading). Delegate Chapter 11 to teams evaluating agent partnerships.
+**Business Decision-Makers**: Chapters 1, 4, 5, 7, 8, 9, and first half of Chapter 10 (Focused reading). Delegate Chapter 12 to teams evaluating agent partnerships.
 
-**Product & Design**: Chapters 1-5, 9-11 (Comprehensive coverage)
+**Product & Design**: Chapters 1-5, 9-12 (Comprehensive coverage)
 
-**Developers**: Start with Chapters 10-11, then work backwards through Chapters 2, 6, 9 for context (Technical focus)
+**Developers**: Start with Chapters 11-12, then work backwards through Chapters 2, 6, 10 for context (Technical focus)
 
-**Agent System Developers**: Chapter 11 (core focus on validation layers and guardrails), Chapters 2-3 (failure modes), Chapter 10 (website patterns your agents will encounter) (Targeted reading)
+**Agent System Developers**: Chapter 12 (core focus on validation layers and guardrails), Chapters 2-3 (failure modes), Chapter 11 (website patterns your agents will encounter) (Targeted reading)
 
-**Small Business Owners**: Chapters 1, 4, small business sections in Chapter 9 (Quick overview)
+**Small Business Owners**: Chapters 1, 4, small business sections in Chapter 10 (Quick overview)
 
 For detailed reading paths with chapter-by-chapter guidance, see the navigation guide in the Preface (page X).
 
