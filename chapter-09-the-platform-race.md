@@ -173,6 +173,7 @@ But two open protocols is worse than one universal standard.
 Every merchant must now answer: Do we integrate ACP? UCP? Both? Neither until one wins?
 
 Integration isn't free. Each protocol requires:
+
 - Technical implementation (API integration, authentication, transaction handling)
 - Security review (audit the protocol, verify implementations, monitor for vulnerabilities)
 - Testing and monitoring (ensure transactions complete correctly, debug failures, track success rates)

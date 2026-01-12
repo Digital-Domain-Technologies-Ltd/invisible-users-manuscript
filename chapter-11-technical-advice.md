@@ -1516,6 +1516,7 @@ Each platform has different capabilities, different identity systems, and differ
 **Testing checklist by platform:**
 
 **Claude for Chrome (browser-based):**
+
 - Install extension (<https://chromewebstore.google.com/detail/claude-for-chrome/>)
 - Instruct Claude to complete your checkout flow
 - Observe where it fails or succeeds
@@ -1523,12 +1524,14 @@ Each platform has different capabilities, different identity systems, and differ
 - Verify session inheritance doesn't create security issues
 
 **Microsoft Copilot Checkout (if partnered):**
+
 - Test through Copilot interface (conversational checkout)
 - Verify structured data is correct (Schema.org Product markup)
 - Test transaction state indicators at each step
 - Confirm identity delegation preserves customer relationship
 
 **Amazon Alexa+ (browser-based):**
+
 - Access through Alexa.com (requires Early Access)
 - Test product discovery and purchase flows
 - Verify pricing and availability are clear
