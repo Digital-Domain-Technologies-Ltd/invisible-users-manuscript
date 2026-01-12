@@ -31,17 +31,35 @@ All examples share the same foundational structure:
 
 **CSS approach:**
 
-Each example includes complete inline styles for simplicity. In production, you would extract these to external stylesheets. The styles demonstrate:
+All examples use external stylesheets for professional code organization. The common styles (`css/styles.css`) provide:
 
 - Consistent colour palette (blue gradients for headers, neutral greys for text)
 - WCAG AA contrast compliance (4.5:1 minimum for normal text)
 - Responsive design with mobile breakpoints
 - Professional typography using system font stack
+- Shared components (cards, buttons, grids, sections)
+
+This demonstrates production-ready architecture with:
+
+- Single source of truth for styles across all pages
+- Browser caching of CSS files for performance
+- Maintainable codebase with centralized styling
+- Proper separation of content, presentation, and behavior
+
+**JavaScript organization:**
+
+Common functionality is extracted to `js/common.js`, demonstrating:
+
+- Shared event handlers (smooth scroll to top)
+- Page load state management for AI agents
+- Floating navigation button initialization
+- Clean HTML without inline onclick handlers
 
 **Navigation pattern:**
 
 - Floating "Home" button (top-left) for easy navigation
 - Floating "Back to Top" button (bottom-left) for long pages
+- Event-driven interaction handled by common.js
 - Both buttons meet WCAG AA contrast requirements
 - Smooth scroll behaviour on modern browsers
 
@@ -56,20 +74,37 @@ Each example includes complete inline styles for simplicity. In production, you 
 
 **Copy and adapt:**
 
-These are starting points, not rigid specifications. Copy the HTML, replace the content with your own, adjust the styles to match your brand, and deploy.
+These are starting points, not rigid specifications. The HTML demonstrates production-ready code organization with external CSS and JavaScript. To use them:
+
+1. Copy the HTML file for your page type
+2. Ensure `css/styles.css` and `js/common.js` are in place
+3. Replace the content with your own
+4. Adjust styles in `styles.css` to match your brand
+5. Deploy all three files together
 
 **Maintain the patterns:**
 
 The examples demonstrate specific AI-friendly patterns. When adapting them:
 
 - Keep Schema.org JSON-LD (update the content, not the structure)
+- Add critical Schema.org properties: datePublished, dateModified, image, breadcrumb
 - Preserve data attributes (data-state, data-product-id, etc.)
 - Maintain semantic HTML elements
 - Update AI meta tags to reflect your content policy
+- Keep external CSS/JS references for maintainability
 
 **Extend thoughtfully:**
 
 Need a feature not shown here? Refer to Appendix D (AI-Friendly HTML Guide) for additional patterns. Want to see these patterns in action? View the source of any page at <https://allabout.network/invisible-users/web/>.
+
+**Professional architecture:**
+
+The refactored structure demonstrates:
+
+- **Separation of concerns:** HTML (content), CSS (presentation), JavaScript (behavior)
+- **Maintainability:** Change styles once in `styles.css`, affect all pages
+- **Performance:** Browser caches CSS/JS files, reducing bandwidth
+- **Scalability:** Add new pages easily by referencing shared resources
 
 ---
 
@@ -109,13 +144,20 @@ The home page is your digital storefront. It must immediately communicate what y
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "The Invisible Users",
+    "alternateName": "Designing the Web for AI Agents and Everyone Else",
     "description": "A practical guide to designing websites that work for AI agents and everyone else",
     "url": "https://allabout.network/invisible-users",
+    "image": "https://allabout.network/images/invisible-users-site.jpg",
+    "datePublished": "2026-01-11",
+    "dateModified": "2026-01-11",
+    "inLanguage": "en-GB",
+    "keywords": "AI agents, web design, accessibility, semantic HTML, Schema.org, structured data, agent-friendly patterns",
     "author": {
       "@type": "Person",
       "name": "Tom Cranstoun",
       "email": "tom.cranstoun@gmail.com",
       "url": "https://allabout.network",
+      "image": "https://allabout.network/images/tom-cranstoun.jpg",
       "sameAs": [
         "https://www.linkedin.com/in/tom-cranstoun/",
         "https://github.com/Digital-Domain-Technologies-Ltd"
@@ -126,275 +168,29 @@ The home page is your digital storefront. It must immediately communicate what y
       "name": "Digital Domain Technologies Ltd",
       "url": "https://allabout.network"
     },
-    "inLanguage": "en-GB",
+    "mainEntity": {
+      "@type": "Book",
+      "name": "The Invisible Users",
+      "bookFormat": "https://schema.org/EBook",
+      "inLanguage": "en-GB",
+      "numberOfPages": "TBD",
+      "author": {
+        "@type": "Person",
+        "name": "Tom Cranstoun"
+      },
+      "datePublished": "2026-Q1"
+    },
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://allabout.network/invisible-users/web/search?q={search_term_string}"
+        "urlTemplate": "https://allabout.network/invisible-users/web/search.html?q={search_term_string}"
       },
       "query-input": "required name=search_term_string"
     }
   }
   </script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #1f2937;
-      background: #ffffff;
-    }
-
-    header {
-      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-      color: white;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    header p {
-      font-size: 1.5rem;
-      max-width: 800px;
-      margin: 0 auto 2rem;
-      color: #e0e7ff;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-    }
-
-    .hero-buttons {
-      margin-top: 2rem;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #2563eb;
-      color: white;
-      padding: 1rem 2.5rem;
-      border-radius: 6px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background 0.2s;
-      margin: 0.5rem;
-      font-size: 1.1rem;
-    }
-
-    .btn:hover {
-      background: #1d4ed8;
-    }
-
-    .btn-secondary {
-      background: white;
-      color: #2563eb;
-    }
-
-    .btn-secondary:hover {
-      background: #f3f4f6;
-      color: #1d4ed8;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin: 4rem 0;
-    }
-
-    .feature-card {
-      background: #f9fafb;
-      border: 2px solid #e5e7eb;
-      border-radius: 8px;
-      padding: 2rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    }
-
-    .feature-card h3 {
-      font-size: 1.5rem;
-      color: #1e40af;
-      margin-bottom: 1rem;
-    }
-
-    .feature-card p {
-      color: #4b5563;
-      margin-bottom: 1rem;
-    }
-
-    .feature-card ul {
-      margin-left: 1.5rem;
-      color: #6b7280;
-    }
-
-    .audience-section {
-      background: #eff6ff;
-      border-radius: 8px;
-      padding: 3rem 2rem;
-      margin: 4rem 0;
-    }
-
-    .audience-section h2 {
-      text-align: center;
-      font-size: 2rem;
-      color: #1e40af;
-      margin-bottom: 2rem;
-    }
-
-    .audience-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .audience-card {
-      background: white;
-      border-left: 4px solid #3b82f6;
-      border-radius: 8px;
-      padding: 1.5rem;
-    }
-
-    .audience-card h3 {
-      color: #1f2937;
-      margin-bottom: 0.5rem;
-    }
-
-    .audience-card p {
-      color: #6b7280;
-      font-size: 0.95rem;
-    }
-
-    .cta-section {
-      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-      color: white;
-      border-radius: 8px;
-      padding: 4rem 2rem;
-      text-align: center;
-      margin: 4rem 0;
-    }
-
-    .cta-section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .cta-section p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      color: #e0e7ff;
-    }
-
-    footer {
-      background: #f9fafb;
-      border-top: 1px solid #e5e7eb;
-      padding: 2rem;
-      text-align: center;
-      margin-top: 4rem;
-    }
-
-    footer p {
-      color: #6b7280;
-      margin: 0.25rem 0;
-    }
-
-    .contact-links {
-      margin: 1.5rem 0;
-    }
-
-    .contact-links a {
-      color: #2563eb;
-      margin: 0 1rem;
-      text-decoration: none;
-    }
-
-    .contact-links a:hover {
-      text-decoration: underline;
-    }
-
-    /* Floating navigation buttons */
-    .floating-home-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .floating-home-button:hover {
-      background-color: #003d7a;
-      box-shadow: 0 6px 16px rgba(0, 102, 204, 0.4);
-      transform: translateY(-2px);
-    }
-
-    .floating-top-button {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-    }
-
-    .floating-top-button:hover {
-      background-color: #003d7a;
-      box-shadow: 0 6px 16px rgba(0, 102, 204, 0.4);
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      header p {
-        font-size: 1.1rem;
-      }
-      .features {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
@@ -534,12 +330,13 @@ The home page is your digital storefront. It must immediately communicate what y
   </a>
 
   <!-- Floating back to top button (bottom-left) -->
-  <a href="#" class="floating-top-button" aria-label="Back to Top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+  <a href="#" class="floating-top-button" aria-label="Back to Top">
     <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
       <path d="M8 3.5l-5.5 5.5L4 10.5l3-3v8.5h2V7.5l3 3L13.5 9z"/>
     </svg>
     Top
   </a>
+  <script src="js/common.js"></script>
 </body>
 </html>
 ```
@@ -583,11 +380,19 @@ The about page explains who you are, what you do, and why it matters. For AI age
     "name": "About The Invisible Users",
     "description": "The story behind The Invisible Users book and project",
     "url": "https://allabout.network/invisible-users/web/about.html",
+    "datePublished": "2026-01-11",
+    "dateModified": "2026-01-11",
+    "inLanguage": "en-GB",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://allabout.network/invisible-users/web/about.html"
+    },
     "mainEntity": {
       "@type": "Person",
       "name": "Tom Cranstoun",
       "email": "tom.cranstoun@gmail.com",
       "url": "https://allabout.network",
+      "image": "https://allabout.network/images/tom-cranstoun.jpg",
       "sameAs": [
         "https://www.linkedin.com/in/tom-cranstoun/",
         "https://github.com/Digital-Domain-Technologies-Ltd"
@@ -611,195 +416,26 @@ The about page explains who you are, what you do, and why it matters. For AI age
       "@type": "Person",
       "name": "Tom Cranstoun"
     },
-    "inLanguage": "en-GB"
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://allabout.network/invisible-users/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://allabout.network/invisible-users/web/about.html"
+        }
+      ]
+    }
   }
   </script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #1f2937;
-      background: #ffffff;
-    }
-
-    header {
-      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-      color: white;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-    }
-
-    header p {
-      font-size: 1.25rem;
-      color: #e0e7ff;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-    }
-
-    .about-content h2 {
-      font-size: 1.75rem;
-      color: #1e40af;
-      margin: 3rem 0 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #3b82f6;
-    }
-
-    .about-content p {
-      color: #4b5563;
-      margin-bottom: 1.5rem;
-      font-size: 1.05rem;
-    }
-
-    .about-content ul {
-      margin: 1rem 0 1.5rem 2rem;
-      color: #4b5563;
-    }
-
-    .about-content li {
-      margin-bottom: 0.5rem;
-    }
-
-    .highlight-box {
-      background: #eff6ff;
-      border-left: 4px solid #3b82f6;
-      border-radius: 8px;
-      padding: 2rem;
-      margin: 2rem 0;
-    }
-
-    .highlight-box h3 {
-      color: #1e40af;
-      margin-bottom: 1rem;
-    }
-
-    .highlight-box p {
-      color: #374151;
-      margin-bottom: 0.5rem;
-    }
-
-    .cta-box {
-      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-      color: white;
-      border-radius: 8px;
-      padding: 2rem;
-      margin: 3rem 0;
-      text-align: center;
-    }
-
-    .cta-box h3 {
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-    }
-
-    .cta-box p {
-      color: #e0e7ff;
-      margin-bottom: 1.5rem;
-    }
-
-    .btn {
-      display: inline-block;
-      background: white;
-      color: #2563eb;
-      padding: 0.75rem 2rem;
-      border-radius: 6px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background 0.2s;
-      margin: 0.5rem;
-    }
-
-    .btn:hover {
-      background: #f3f4f6;
-    }
-
-    footer {
-      background: #f9fafb;
-      border-top: 1px solid #e5e7eb;
-      padding: 2rem;
-      text-align: center;
-      margin-top: 4rem;
-    }
-
-    footer p {
-      color: #6b7280;
-      margin: 0.25rem 0;
-    }
-
-    .contact-links {
-      margin: 1.5rem 0;
-    }
-
-    .contact-links a {
-      color: #2563eb;
-      margin: 0 1rem;
-      text-decoration: none;
-    }
-
-    .contact-links a:hover {
-      text-decoration: underline;
-    }
-
-    .floating-home-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
-
-    .floating-home-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-
-    .floating-top-button {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-      cursor: pointer;
-    }
-
-    .floating-top-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
@@ -888,7 +524,8 @@ The about page explains who you are, what you do, and why it matters. For AI age
   </footer>
 
   <a href="index.html" class="floating-home-button" aria-label="Back to Home">Home</a>
-  <a href="#" class="floating-top-button" aria-label="Back to Top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Top</a>
+  <a href="#" class="floating-top-button" aria-label="Back to Top">Top</a>
+  <script src="js/common.js"></script>
 </body>
 </html>
 ```
@@ -941,216 +578,43 @@ The contact page provides explicit ways to reach you. For AI agents, it needs cl
         "@type": "ContactPoint",
         "contactType": "Professional Enquiries",
         "email": "tom.cranstoun@gmail.com",
-        "availableLanguage": ["English"]
+        "availableLanguage": [
+          "English"
+        ]
       },
       "sameAs": [
         "https://www.linkedin.com/in/tom-cranstoun/",
         "https://github.com/Digital-Domain-Technologies-Ltd"
-      ]
+      ],
+      "image": "https://allabout.network/images/tom-cranstoun.jpg"
     },
-    "inLanguage": "en-GB"
+    "inLanguage": "en-GB",
+    "datePublished": "2026-01-11",
+    "dateModified": "2026-01-11",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://allabout.network/invisible-users/web/contact.html"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://allabout.network/invisible-users/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Contact",
+          "item": "https://allabout.network/invisible-users/web/contact.html"
+        }
+      ]
+    }
   }
   </script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #1f2937;
-      background: #ffffff;
-    }
-
-    header {
-      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-      color: white;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-    }
-
-    header p {
-      font-size: 1.25rem;
-      color: #e0e7ff;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-    }
-
-    .contact-methods {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin: 3rem 0;
-    }
-
-    .contact-card {
-      background: #f9fafb;
-      border: 2px solid #e5e7eb;
-      border-radius: 8px;
-      padding: 2rem;
-      text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .contact-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    }
-
-    .contact-card h3 {
-      font-size: 1.5rem;
-      color: #1e40af;
-      margin-bottom: 1rem;
-    }
-
-    .contact-card p {
-      color: #4b5563;
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-card a {
-      display: inline-block;
-      background: #2563eb;
-      color: white;
-      padding: 0.75rem 2rem;
-      border-radius: 6px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-
-    .contact-card a:hover {
-      background: #1d4ed8;
-    }
-
-    .topics-section {
-      background: #eff6ff;
-      border-radius: 8px;
-      padding: 2rem;
-      margin: 3rem 0;
-    }
-
-    .topics-section h2 {
-      color: #1e40af;
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
-
-    .topics-section ul {
-      margin-left: 2rem;
-      color: #4b5563;
-    }
-
-    .topics-section li {
-      margin-bottom: 0.75rem;
-    }
-
-    .response-info {
-      background: white;
-      border-left: 4px solid #3b82f6;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .response-info h3 {
-      color: #1e40af;
-      margin-bottom: 0.5rem;
-    }
-
-    .response-info p {
-      color: #4b5563;
-    }
-
-    footer {
-      background: #f9fafb;
-      border-top: 1px solid #e5e7eb;
-      padding: 2rem;
-      text-align: center;
-      margin-top: 4rem;
-    }
-
-    footer p {
-      color: #6b7280;
-      margin: 0.25rem 0;
-    }
-
-    .contact-links {
-      margin: 1.5rem 0;
-    }
-
-    .contact-links a {
-      color: #2563eb;
-      margin: 0 1rem;
-      text-decoration: none;
-    }
-
-    .contact-links a:hover {
-      text-decoration: underline;
-    }
-
-    .floating-home-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
-
-    .floating-home-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-
-    .floating-top-button {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-      cursor: pointer;
-    }
-
-    .floating-top-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 768px) {
-      .contact-methods {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
@@ -1220,7 +684,8 @@ The contact page provides explicit ways to reach you. For AI agents, it needs cl
   </footer>
 
   <a href="index.html" class="floating-home-button" aria-label="Back to Home">Home</a>
-  <a href="#" class="floating-top-button" aria-label="Back to Top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Top</a>
+  <a href="#" class="floating-top-button" aria-label="Back to Top">Top</a>
+  <script src="js/common.js"></script>
 </body>
 </html>
 ```
@@ -1246,370 +711,102 @@ The sales page is dedicated to selling a specific product — in this case, the 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Tom Cranstoun">
-  <meta name="description" content="Purchase The Invisible Users - A practical guide to designing websites that work for AI agents and everyone else. Available in Kindle format with 10 free appendices.">
-
-  <!-- AI-specific meta tags -->
+  <meta name="description" content="The Invisible Users book - comprehensive guide to AI-friendly web design with 11 chapters and 10 appendices">
   <meta name="ai-preferred-access" content="html">
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
   <meta name="ai-structured-data" content="json-ld">
   <meta name="ai-attribution" content="required">
-
-  <title>Purchase the Book | The Invisible Users</title>
-
-  <!-- Schema.org structured data for product page -->
+  <title>The Invisible Users Book | Product Details</title>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": "The Invisible Users: Designing the Web for AI Agents and Everyone Else",
-    "description": "A practical guide examining how modern web design optimised for human users fails for AI agents, and how fixing this benefits everyone. Includes 11 chapters (~57,000 words), 10 free appendices, and production-ready code examples.",
+    "description": "Comprehensive guide examining how modern web design fails for AI agents and how to fix it",
+    "image": "https://allabout.network/invisible-users/cover.jpg",
+    "sku": "INVISIBLE-USERS-2026",
+    "brand": {
+      "@type": "Brand",
+      "name": "Digital Domain Technologies Ltd"
+    },
     "author": {
       "@type": "Person",
       "name": "Tom Cranstoun",
-      "email": "tom.cranstoun@gmail.com",
-      "url": "https://allabout.network"
+      "image": "https://allabout.network/images/tom-cranstoun.jpg"
     },
     "inLanguage": "en-GB",
     "numberOfPages": "TBD",
     "bookFormat": "https://schema.org/EBook",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Digital Domain Technologies Ltd"
-    },
-    "datePublished": "2026-Q1",
     "offers": {
       "@type": "Offer",
-      "availability": "https://schema.org/PreOrder",
       "price": "TBD",
       "priceCurrency": "GBP",
-      "url": "https://allabout.network/invisible-users"
+      "availability": "https://schema.org/PreOrder",
+      "url": "sales.html",
+      "seller": {
+        "@type": "Organization",
+        "name": "Digital Domain Technologies Ltd"
+      },
+      "itemCondition": "https://schema.org/NewCondition",
+      "validFrom": "2026-01-11"
     },
-    "audience": {
-      "@type": "Audience",
-      "audienceType": "Web Professionals, Agent System Developers, Business Leaders, Partners & Investors"
+    "datePublished": "2026-01-11",
+    "dateModified": "2026-01-11",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://allabout.network/invisible-users/web/product.html"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://allabout.network/invisible-users/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Product",
+          "item": "https://allabout.network/invisible-users/web/product.html"
+        }
+      ]
     }
   }
   </script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #1f2937;
-      background: #ffffff;
-    }
-
-    header {
-      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-      color: white;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    header p {
-      font-size: 1.5rem;
-      max-width: 800px;
-      margin: 0 auto 2rem;
-      color: #e0e7ff;
-    }
-
-    .price-tag {
-      background: white;
-      color: #1e40af;
-      display: inline-block;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      font-size: 2rem;
-      font-weight: 700;
-      margin: 1rem 0;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-    }
-
-    .purchase-box {
-      background: #eff6ff;
-      border: 3px solid #3b82f6;
-      border-radius: 12px;
-      padding: 3rem;
-      margin: 3rem auto;
-      max-width: 600px;
-      text-align: center;
-    }
-
-    .purchase-box h2 {
-      color: #1e40af;
-      margin-bottom: 1.5rem;
-      font-size: 2rem;
-    }
-
-    .purchase-box p {
-      color: #4b5563;
-      margin-bottom: 2rem;
-      font-size: 1.1rem;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #2563eb;
-      color: white;
-      padding: 1.25rem 3rem;
-      border-radius: 6px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: background 0.2s;
-      margin: 0.5rem;
-      font-size: 1.2rem;
-    }
-
-    .btn:hover {
-      background: #1d4ed8;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin: 4rem 0;
-    }
-
-    .feature-card {
-      background: #f9fafb;
-      border-left: 4px solid #3b82f6;
-      border-radius: 8px;
-      padding: 2rem;
-    }
-
-    .feature-card h3 {
-      color: #1e40af;
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-    }
-
-    .feature-card p {
-      color: #4b5563;
-    }
-
-    .what-you-get {
-      background: white;
-      border: 2px solid #e5e7eb;
-      border-radius: 8px;
-      padding: 3rem;
-      margin: 4rem 0;
-    }
-
-    .what-you-get h2 {
-      text-align: center;
-      color: #1e40af;
-      margin-bottom: 2rem;
-      font-size: 2rem;
-    }
-
-    .what-you-get ul {
-      list-style: none;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .what-you-get li {
-      padding: 1rem 0 1rem 3rem;
-      position: relative;
-      color: #4b5563;
-      font-size: 1.1rem;
-    }
-
-    .what-you-get li:before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: #10b981;
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-
-    .guarantee-box {
-      background: #f0fdf4;
-      border: 2px solid #10b981;
-      border-radius: 8px;
-      padding: 2rem;
-      margin: 3rem 0;
-      text-align: center;
-    }
-
-    .guarantee-box h3 {
-      color: #166534;
-      margin-bottom: 1rem;
-    }
-
-    .guarantee-box p {
-      color: #166534;
-    }
-
-    footer {
-      background: #f9fafb;
-      border-top: 1px solid #e5e7eb;
-      padding: 2rem;
-      text-align: center;
-      margin-top: 4rem;
-    }
-
-    footer p {
-      color: #6b7280;
-      margin: 0.25rem 0;
-    }
-
-    .contact-links {
-      margin: 1.5rem 0;
-    }
-
-    .contact-links a {
-      color: #2563eb;
-      margin: 0 1rem;
-      text-decoration: none;
-    }
-
-    .contact-links a:hover {
-      text-decoration: underline;
-    }
-
-    .floating-home-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
-
-    .floating-home-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-
-    .floating-top-button {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-      cursor: pointer;
-    }
-
-    .floating-top-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header>
-    <h1>The Invisible Users</h1>
-    <p>Designing the Web for AI Agents and Everyone Else</p>
-    <div class="price-tag" data-price="TBD" data-currency="GBP" data-availability="preorder">
-      Publication: Q1 2026
+  <header><h1>The Invisible Users</h1><p>Complete Product Details</p></header>
+  <main class="container" role="main" data-product-id="invisible-users-book" data-availability="preorder">
+    <div class="product-grid">
+      <div class="product-details">
+        <h2>About This Book</h2>
+        <p>A practical guide examining how modern web design optimised for human users fails for AI agents, and how fixing this benefits everyone.</p>
+        <p><strong>Format:</strong> Kindle (6"×9")</p>
+        <p><strong>Publication:</strong> Q1 2026</p>
+        <p><strong>Content:</strong> 11 chapters (~57,000 words) + 10 appendices</p>
+        <a href="sales.html" class="btn">Purchase</a>
+        <a href="collection.html" class="btn">View Appendices</a>
+      </div>
+      <div class="product-features">
+        <h2>What You'll Learn</h2>
+        <ul>
+          <li>Universal compatibility patterns for all agent types</li>
+          <li>Production-ready code examples</li>
+          <li>Schema.org structured data templates</li>
+          <li>Form validation patterns</li>
+          <li>Priority-based implementation roadmap</li>
+        </ul>
+      </div>
     </div>
-  </header>
-
-  <main class="container" role="main" data-load-state="complete">
-
-    <div class="purchase-box" data-purchase-type="book" data-format="kindle">
-      <h2>Get Your Copy</h2>
-      <p>11 chapters of practical guidance, 10 free appendices, and production-ready code examples. Publication coming Q1 2026.</p>
-      <a href="mailto:tom.cranstoun@gmail.com?subject=Book Purchase Enquiry" class="btn" data-action="purchase-enquiry">Pre-Order Enquiry</a>
-    </div>
-
-    <section class="what-you-get">
-      <h2>What's Included</h2>
-      <ul>
-        <li>11 comprehensive chapters (~57,000 words) examining the collision between modern web design and AI agents</li>
-        <li>10 freely accessible appendices with implementation cookbooks, battle-tested lessons, and real-world case studies</li>
-        <li>Production-ready code examples demonstrating AI-friendly patterns</li>
-        <li>Schema.org structured data templates for common page types</li>
-        <li>Form validation patterns that work for both humans and agents</li>
-        <li>Priority-based implementation roadmap (no time estimates, just clear priorities)</li>
-        <li>150+ curated resources and references</li>
-        <li>Real-world case study of a £20M+ pipeline failure</li>
-        <li>Chapter 11 validation frameworks for agent system developers</li>
-        <li>llms.txt example file with 20 curated links</li>
-      </ul>
-    </section>
-
-    <div class="features-grid">
-      <article class="feature-card" data-benefit="practical-implementation">
-        <h3>Practical, Not Theoretical</h3>
-        <p>Every pattern in this book has been tested in production. No theoretical frameworks — just code you can deploy today, with clear explanations of why each pattern matters.</p>
-      </article>
-
-      <article class="feature-card" data-benefit="universal-compatibility">
-        <h3>Works for All Agents</h3>
-        <p>From CLI tools to full browser automation, the patterns work across diverse agent architectures. Semantic HTML, explicit state, and structured data that any parser can understand.</p>
-      </article>
-
-      <article class="feature-card" data-benefit="human-benefits">
-        <h3>Better for Humans Too</h3>
-        <p>The patterns that help agents also improve accessibility for humans. Persistent errors, clear structure, semantic markup — these benefit everyone, not just machines.</p>
-      </article>
-    </div>
-
-    <div class="guarantee-box">
-      <h3>Free Appendices</h3>
-      <p>All 10 appendices are freely accessible online at https://allabout.network/invisible-users/web/appendix-index.html — no purchase required. Explore the patterns before you buy.</p>
-    </div>
-
   </main>
-
-  <footer role="contentinfo">
-    <div class="contact-links">
-      <a href="mailto:tom.cranstoun@gmail.com">Email</a>
-      <a href="https://allabout.network">Website</a>
-      <a href="https://www.linkedin.com/in/tom-cranstoun/">LinkedIn</a>
-      <a href="https://github.com/Digital-Domain-Technologies-Ltd/invisible-users-manuscript">GitHub</a>
-    </div>
-    <p>&copy; 2026 Tom Cranstoun. All rights reserved.</p>
-    <p>Last updated: January 2026</p>
-  </footer>
-
-  <a href="index.html" class="floating-home-button" aria-label="Back to Home">Home</a>
-  <a href="#" class="floating-top-button" aria-label="Back to Top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Top</a>
+  <footer><p>&copy; 2026 Tom Cranstoun. All rights reserved.</p></footer>
+  <a href="index.html" class="floating-home-button">Home</a>
+  <a href="#" class="floating-top-button">Top</a>
+  <script src="js/common.js"></script>
 </body>
 </html>
 ```
@@ -1655,7 +852,8 @@ The collection page lists related resources — appendices, chapters, or tools. 
     "url": "https://allabout.network/invisible-users/web/appendix-index.html",
     "author": {
       "@type": "Person",
-      "name": "Tom Cranstoun"
+      "name": "Tom Cranstoun",
+      "image": "https://allabout.network/images/tom-cranstoun.jpg"
     },
     "isPartOf": {
       "@type": "Book",
@@ -1767,192 +965,34 @@ The collection page lists related resources — appendices, chapters, or tools. 
         }
       ]
     },
-    "inLanguage": "en-GB"
+    "inLanguage": "en-GB",
+    "datePublished": "2026-01-11",
+    "dateModified": "2026-01-11",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://allabout.network/invisible-users/web/collection.html"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://allabout.network/invisible-users/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Collection",
+          "item": "https://allabout.network/invisible-users/web/collection.html"
+        }
+      ]
+    },
+    "image": "https://allabout.network/images/collection.jpg"
   }
   </script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #1f2937;
-      background: #ffffff;
-    }
-
-    header {
-      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-      color: white;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-    }
-
-    header p {
-      font-size: 1.25rem;
-      color: #e0e7ff;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-    }
-
-    .category-section {
-      margin-bottom: 4rem;
-    }
-
-    .category-section h2 {
-      font-size: 1.75rem;
-      color: #1e40af;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #3b82f6;
-    }
-
-    .appendix-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 2rem;
-    }
-
-    .appendix-card {
-      background: #f9fafb;
-      border: 2px solid #e5e7eb;
-      border-radius: 8px;
-      padding: 2rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .appendix-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-      border-color: #3b82f6;
-    }
-
-    .appendix-card h3 {
-      font-size: 1.25rem;
-      color: #1e40af;
-      margin-bottom: 0.5rem;
-    }
-
-    .appendix-card .letter {
-      display: inline-block;
-      background: #3b82f6;
-      color: white;
-      width: 32px;
-      height: 32px;
-      line-height: 32px;
-      text-align: center;
-      border-radius: 6px;
-      font-weight: 700;
-      margin-right: 0.5rem;
-    }
-
-    .appendix-card p {
-      color: #4b5563;
-      margin: 1rem 0;
-      font-size: 0.95rem;
-    }
-
-    .appendix-card a {
-      display: inline-block;
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 600;
-      margin-top: 1rem;
-    }
-
-    .appendix-card a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      background: #f9fafb;
-      border-top: 1px solid #e5e7eb;
-      padding: 2rem;
-      text-align: center;
-      margin-top: 4rem;
-    }
-
-    footer p {
-      color: #6b7280;
-      margin: 0.25rem 0;
-    }
-
-    .contact-links {
-      margin: 1.5rem 0;
-    }
-
-    .contact-links a {
-      color: #2563eb;
-      margin: 0 1rem;
-      text-decoration: none;
-    }
-
-    .contact-links a:hover {
-      text-decoration: underline;
-    }
-
-    .floating-home-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
-
-    .floating-home-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-
-    .floating-top-button {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-      cursor: pointer;
-    }
-
-    .floating-top-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 768px) {
-      .appendix-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
@@ -2057,7 +1097,8 @@ The collection page lists related resources — appendices, chapters, or tools. 
   </footer>
 
   <a href="index.html" class="floating-home-button" aria-label="Back to Home">Home</a>
-  <a href="#" class="floating-top-button" aria-label="Back to Top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Top</a>
+  <a href="#" class="floating-top-button" aria-label="Back to Top">Top</a>
+  <script src="js/common.js"></script>
 </body>
 </html>
 ```
@@ -2082,535 +1123,65 @@ The consulting service page sells professional services — in this case, web au
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Tom Cranstoun">
-  <meta name="description" content="Professional web audits for AI agent compatibility. Comprehensive analysis of your website's AI-friendliness with detailed reports and implementation guidance.">
-
-  <!-- AI-specific meta tags -->
+  <title>Login | The Invisible Users</title>
   <meta name="ai-preferred-access" content="html">
-  <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
-  <meta name="ai-freshness" content="monthly">
-  <meta name="ai-structured-data" content="json-ld">
-  <meta name="ai-attribution" content="required">
-
-  <title>Professional Web Audits | The Invisible Users</title>
-
-  <!-- Schema.org structured data for service page -->
+  
+  <!-- Schema.org structured data for login page -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Professional Web Audit for AI Agent Compatibility",
-    "name": "AI Agent Compatibility Web Audit",
-    "description": "Comprehensive analysis of website compatibility with AI agents, including detailed reports, implementation guidance, and priority-based recommendations",
-    "provider": {
-      "@type": "Person",
-      "name": "Tom Cranstoun",
-      "email": "tom.cranstoun@gmail.com",
-      "url": "https://allabout.network",
-      "sameAs": [
-        "https://www.linkedin.com/in/tom-cranstoun/",
-        "https://github.com/Digital-Domain-Technologies-Ltd"
-      ]
+    "@type": "WebPage",
+    "name": "Sign In",
+    "description": "User authentication page",
+    "url": "https://allabout.network/invisible-users/web/login.html",
+    "datePublished": "2026-01-11",
+    "dateModified": "2026-01-11",
+    "inLanguage": "en-GB",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://allabout.network/invisible-users/web/login.html"
     },
-    "areaServed": "Worldwide",
-    "availableChannel": {
-      "@type": "ServiceChannel",
-      "serviceUrl": "https://allabout.network/invisible-users/web/consulting.html"
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "GBP",
-      "priceSpecification": {
-        "@type": "UnitPriceSpecification",
-        "priceCurrency": "GBP",
-        "referenceQuantity": {
-          "@type": "QuantitativeValue",
-          "value": "1",
-          "unitText": "audit"
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://allabout.network/invisible-users/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Login",
+          "item": "https://allabout.network/invisible-users/web/login.html"
         }
-      },
-      "description": "Contact for pricing based on site complexity"
-    },
-    "termsOfService": "Contact for service agreement details"
+      ]
+    }
   }
   </script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #1f2937;
-      background: #ffffff;
-    }
-
-    header {
-      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-      color: white;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    header p {
-      font-size: 1.5rem;
-      max-width: 800px;
-      margin: 0 auto;
-      color: #e0e7ff;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-    }
-
-    .intro-section {
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto 4rem;
-    }
-
-    .intro-section p {
-      font-size: 1.15rem;
-      color: #4b5563;
-      margin-bottom: 1rem;
-    }
-
-    .service-tiers {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      margin: 4rem 0;
-    }
-
-    .tier-card {
-      background: #f9fafb;
-      border: 2px solid #e5e7eb;
-      border-radius: 12px;
-      padding: 2.5rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .tier-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-      border-color: #3b82f6;
-    }
-
-    .tier-card.featured {
-      border-color: #3b82f6;
-      border-width: 3px;
-      background: #eff6ff;
-    }
-
-    .tier-card h3 {
-      font-size: 1.75rem;
-      color: #1e40af;
-      margin-bottom: 0.5rem;
-    }
-
-    .tier-card .price {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #1e40af;
-      margin: 1rem 0;
-    }
-
-    .tier-card .price-note {
-      font-size: 0.9rem;
-      color: #6b7280;
-      margin-bottom: 1.5rem;
-    }
-
-    .tier-card ul {
-      list-style: none;
-      margin: 1.5rem 0;
-    }
-
-    .tier-card li {
-      padding: 0.5rem 0 0.5rem 2rem;
-      position: relative;
-      color: #4b5563;
-    }
-
-    .tier-card li:before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: #10b981;
-      font-weight: 700;
-    }
-
-    .tier-card .btn {
-      display: block;
-      width: 100%;
-      background: #2563eb;
-      color: white;
-      padding: 1rem;
-      border-radius: 6px;
-      font-weight: 600;
-      text-decoration: none;
-      text-align: center;
-      transition: background 0.2s;
-      margin-top: 1.5rem;
-    }
-
-    .tier-card .btn:hover {
-      background: #1d4ed8;
-    }
-
-    .process-section {
-      background: white;
-      border: 2px solid #e5e7eb;
-      border-radius: 8px;
-      padding: 3rem;
-      margin: 4rem 0;
-    }
-
-    .process-section h2 {
-      text-align: center;
-      color: #1e40af;
-      margin-bottom: 3rem;
-      font-size: 2rem;
-    }
-
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .process-step {
-      text-align: center;
-    }
-
-    .process-step .step-number {
-      display: inline-block;
-      width: 60px;
-      height: 60px;
-      line-height: 60px;
-      background: #3b82f6;
-      color: white;
-      border-radius: 50%;
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .process-step h3 {
-      color: #1e40af;
-      margin-bottom: 0.5rem;
-    }
-
-    .process-step p {
-      color: #6b7280;
-      font-size: 0.95rem;
-    }
-
-    .what-you-get {
-      background: #eff6ff;
-      border-radius: 8px;
-      padding: 3rem;
-      margin: 4rem 0;
-    }
-
-    .what-you-get h2 {
-      text-align: center;
-      color: #1e40af;
-      margin-bottom: 2rem;
-      font-size: 2rem;
-    }
-
-    .what-you-get ul {
-      max-width: 700px;
-      margin: 0 auto;
-      list-style: none;
-    }
-
-    .what-you-get li {
-      padding: 0.75rem 0 0.75rem 2.5rem;
-      position: relative;
-      color: #4b5563;
-      font-size: 1.05rem;
-    }
-
-    .what-you-get li:before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: #10b981;
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-
-    .cta-box {
-      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-      color: white;
-      border-radius: 12px;
-      padding: 4rem 2rem;
-      text-align: center;
-      margin: 4rem 0;
-    }
-
-    .cta-box h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .cta-box p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      color: #e0e7ff;
-    }
-
-    .cta-box .btn {
-      display: inline-block;
-      background: white;
-      color: #2563eb;
-      padding: 1.25rem 3rem;
-      border-radius: 6px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: background 0.2s;
-      font-size: 1.2rem;
-    }
-
-    .cta-box .btn:hover {
-      background: #f3f4f6;
-    }
-
-    footer {
-      background: #f9fafb;
-      border-top: 1px solid #e5e7eb;
-      padding: 2rem;
-      text-align: center;
-      margin-top: 4rem;
-    }
-
-    footer p {
-      color: #6b7280;
-      margin: 0.25rem 0;
-    }
-
-    .contact-links {
-      margin: 1.5rem 0;
-    }
-
-    .contact-links a {
-      color: #2563eb;
-      margin: 0 1rem;
-      text-decoration: none;
-    }
-
-    .contact-links a:hover {
-      text-decoration: underline;
-    }
-
-    .floating-home-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
-
-    .floating-home-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-
-    .floating-top-button {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-      cursor: pointer;
-    }
-
-    .floating-top-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      .service-tiers {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header>
-    <h1>Professional Web Audits</h1>
-    <p>Comprehensive AI agent compatibility analysis for your website</p>
-  </header>
-
-  <main class="container" role="main" data-load-state="complete">
-
-    <section class="intro-section">
-      <p>
-        Is your website ready for AI agents? Get a comprehensive analysis of your site's AI agent compatibility with detailed reports, implementation guidance, and priority-based recommendations.
-      </p>
-      <p>
-        Using the Web Audit Suite tool described in the book, I'll analyse your website for semantic HTML, explicit state management, structured data, and dozens of other AI-friendly patterns.
-      </p>
-    </section>
-
-    <div class="service-tiers">
-
-      <article class="tier-card" data-tier="self-service" data-price-type="one-time">
-        <h3>Web Audit Suite Tool</h3>
-        <div class="price">Contact for pricing</div>
-        <p class="price-note">One-time purchase, self-service</p>
-        <ul>
-          <li>Complete Web Audit Suite tool</li>
-          <li>Run unlimited audits</li>
-          <li>Analyse any website</li>
-          <li>Generate detailed reports</li>
-          <li>SEO, accessibility, performance metrics</li>
-          <li>AI agent compatibility scoring</li>
-          <li>Command-line and API access</li>
-          <li>Documentation and examples</li>
-        </ul>
-        <a href="mailto:tom.cranstoun@gmail.com?subject=Web Audit Suite Purchase Enquiry" class="btn" data-action="purchase-tool">Enquire About Tool</a>
-      </article>
-
-      <article class="tier-card featured" data-tier="professional-audit" data-price-type="per-project">
-        <h3>Professional Audit</h3>
-        <div class="price">Contact for pricing</div>
-        <p class="price-note">Per-project pricing based on site complexity</p>
-        <ul>
-          <li>Complete site analysis by expert</li>
-          <li>Detailed report with findings</li>
-          <li>Priority-based recommendations</li>
-          <li>Implementation guidance</li>
-          <li>Code examples for your stack</li>
-          <li>Video walkthrough of results</li>
-          <li>30 days email support</li>
-          <li>Follow-up audit (optional)</li>
-        </ul>
-        <a href="mailto:tom.cranstoun@gmail.com?subject=Professional Web Audit Enquiry" class="btn" data-action="request-audit">Request Audit</a>
-      </article>
-
-      <article class="tier-card" data-tier="agency-partnership" data-price-type="partnership">
-        <h3>Agency Partnership</h3>
-        <div class="price">Partnership</div>
-        <p class="price-note">For agencies offering audits to clients</p>
-        <ul>
-          <li>White-label audit reports</li>
-          <li>Referral arrangement</li>
-          <li>Joint client presentations</li>
-          <li>Technical support</li>
-          <li>Training for your team</li>
-          <li>Co-marketing opportunities</li>
-          <li>Priority support</li>
-          <li>Flexible engagement model</li>
-        </ul>
-        <a href="mailto:tom.cranstoun@gmail.com?subject=Agency Partnership Enquiry" class="btn" data-action="discuss-partnership">Discuss Partnership</a>
-      </article>
-
-    </div>
-
-    <div class="process-section">
-      <h2>How It Works</h2>
-      <div class="process-steps">
-
-        <article class="process-step" data-step="1">
-          <div class="step-number">1</div>
-          <h3>Initial Contact</h3>
-          <p>Email me with your website URL and any specific concerns. I'll provide a quote based on site complexity.</p>
-        </article>
-
-        <article class="process-step" data-step="2">
-          <div class="step-number">2</div>
-          <h3>Site Analysis</h3>
-          <p>I'll run a comprehensive audit using the Web Audit Suite, examining semantic HTML, structured data, form patterns, and more.</p>
-        </article>
-
-        <article class="process-step" data-step="3">
-          <div class="step-number">3</div>
-          <h3>Report Delivery</h3>
-          <p>You'll receive a detailed report with findings, priority-based recommendations, and implementation examples specific to your stack.</p>
-        </article>
-
-        <article class="process-step" data-step="4">
-          <div class="step-number">4</div>
-          <h3>Implementation Support</h3>
-          <p>30 days of email support for questions about implementing the recommendations. Optional follow-up audit after changes.</p>
-        </article>
-
+  <main class="login-container" role="main" data-form-type="login">
+    <h1>Sign In</h1>
+    <form action="/login" method="POST" data-state="ready">
+      <div class="form-field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required aria-required="true" autocomplete="email">
       </div>
-    </div>
-
-    <div class="what-you-get">
-      <h2>What's Included in Professional Audits</h2>
-      <ul>
-        <li>Comprehensive analysis of your entire website (or specified pages)</li>
-        <li>SEO performance metrics and recommendations</li>
-        <li>Accessibility compliance testing (WCAG 2.1 Level AA)</li>
-        <li>Performance analysis with Core Web Vitals</li>
-        <li>Security header configuration review</li>
-        <li>AI agent compatibility scoring (LLM suitability)</li>
-        <li>Semantic HTML structure assessment</li>
-        <li>Form validation pattern review</li>
-        <li>Structured data (Schema.org) implementation check</li>
-        <li>Priority-based implementation roadmap</li>
-        <li>Code examples adapted to your technology stack</li>
-        <li>Video walkthrough explaining key findings</li>
-      </ul>
-    </div>
-
-    <div class="cta-box">
-      <h2>Ready to Get Started?</h2>
-      <p>Contact me to discuss your website's needs and receive a tailored quote.</p>
-      <a href="mailto:tom.cranstoun@gmail.com?subject=Web Audit Enquiry" class="btn">Get in Touch</a>
-    </div>
-
+      <div class="form-field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required aria-required="true" autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn">Sign In</button>
+    </form>
+    <p style="text-align: center; margin-top: 1.5rem; color: #6b7280;">
+      Don't have an account? <a href="contact.html" style="color: #2563eb;">Contact us</a>
+    </p>
   </main>
-
-  <footer role="contentinfo">
-    <div class="contact-links">
-      <a href="mailto:tom.cranstoun@gmail.com">Email</a>
-      <a href="https://allabout.network">Website</a>
-      <a href="https://www.linkedin.com/in/tom-cranstoun/">LinkedIn</a>
-      <a href="https://github.com/Digital-Domain-Technologies-Ltd/invisible-users-manuscript">GitHub</a>
-    </div>
-    <p>&copy; 2026 Tom Cranstoun. All rights reserved.</p>
-    <p>Last updated: January 2026</p>
-  </footer>
-
-  <a href="index.html" class="floating-home-button" aria-label="Back to Home">Home</a>
-  <a href="#" class="floating-top-button" aria-label="Back to Top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Top</a>
+  <a href="index.html" class="floating-home-button">Home</a>
+  <script src="js/common.js"></script>
 </body>
 </html>
 ```
@@ -2660,7 +1231,8 @@ The blog post page shares insights and expertise. For AI agents, it needs Articl
       "@type": "Person",
       "name": "Tom Cranstoun",
       "email": "tom.cranstoun@gmail.com",
-      "url": "https://allabout.network"
+      "url": "https://allabout.network",
+      "image": "https://allabout.network/images/tom-cranstoun.jpg"
     },
     "publisher": {
       "@type": "Organization",
@@ -2678,253 +1250,28 @@ The blog post page shares insights and expertise. For AI agents, it needs Articl
     "isPartOf": {
       "@type": "Blog",
       "name": "The Invisible Users Blog"
-    }
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://allabout.network/invisible-users/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog Post",
+          "item": "https://allabout.network/invisible-users/web/blog-post.html"
+        }
+      ]
+    },
+    "image": "https://allabout.network/images/blog-post.jpg"
   }
   </script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #1f2937;
-      background: #ffffff;
-    }
-
-    header {
-      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-      color: white;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .article-meta {
-      color: #e0e7ff;
-      font-size: 0.95rem;
-    }
-
-    .article-meta span {
-      margin: 0 1rem;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-    }
-
-    article {
-      font-size: 1.05rem;
-      line-height: 1.8;
-    }
-
-    article h2 {
-      font-size: 1.75rem;
-      color: #1e40af;
-      margin: 2.5rem 0 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #3b82f6;
-    }
-
-    article h3 {
-      font-size: 1.35rem;
-      color: #1f2937;
-      margin: 2rem 0 1rem;
-    }
-
-    article p {
-      margin-bottom: 1.5rem;
-      color: #4b5563;
-    }
-
-    article ul, article ol {
-      margin: 1.5rem 0 1.5rem 2rem;
-      color: #4b5563;
-    }
-
-    article li {
-      margin-bottom: 0.75rem;
-    }
-
-    article code {
-      background: #f3f4f6;
-      padding: 0.2rem 0.4rem;
-      border-radius: 3px;
-      font-family: 'Monaco', 'Courier New', monospace;
-      font-size: 0.9em;
-      color: #dc2626;
-    }
-
-    article pre {
-      background: #f9fafb;
-      border: 1px solid #e5e7eb;
-      border-radius: 6px;
-      padding: 1.5rem;
-      overflow-x: auto;
-      margin: 1.5rem 0;
-    }
-
-    article pre code {
-      background: none;
-      padding: 0;
-      color: #1f2937;
-      font-size: 0.9rem;
-    }
-
-    .highlight-box {
-      background: #eff6ff;
-      border-left: 4px solid #3b82f6;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .highlight-box p {
-      margin-bottom: 0.5rem;
-    }
-
-    .highlight-box strong {
-      color: #1e40af;
-    }
-
-    .author-bio {
-      background: #f9fafb;
-      border: 2px solid #e5e7eb;
-      border-radius: 8px;
-      padding: 2rem;
-      margin: 4rem 0;
-    }
-
-    .author-bio h3 {
-      color: #1e40af;
-      margin-bottom: 1rem;
-    }
-
-    .author-bio p {
-      color: #4b5563;
-      margin-bottom: 1rem;
-    }
-
-    .author-bio a {
-      color: #2563eb;
-      text-decoration: none;
-    }
-
-    .author-bio a:hover {
-      text-decoration: underline;
-    }
-
-    .related-posts {
-      margin: 3rem 0;
-    }
-
-    .related-posts h3 {
-      color: #1e40af;
-      margin-bottom: 1.5rem;
-    }
-
-    .related-posts ul {
-      list-style: none;
-      margin: 0;
-    }
-
-    .related-posts li {
-      margin-bottom: 1rem;
-    }
-
-    .related-posts a {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .related-posts a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      background: #f9fafb;
-      border-top: 1px solid #e5e7eb;
-      padding: 2rem;
-      text-align: center;
-      margin-top: 4rem;
-    }
-
-    footer p {
-      color: #6b7280;
-      margin: 0.25rem 0;
-    }
-
-    .contact-links {
-      margin: 1.5rem 0;
-    }
-
-    .contact-links a {
-      color: #2563eb;
-      margin: 0 1rem;
-      text-decoration: none;
-    }
-
-    .contact-links a:hover {
-      text-decoration: underline;
-    }
-
-    .floating-home-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
-
-    .floating-home-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-
-    .floating-top-button {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-      cursor: pointer;
-    }
-
-    .floating-top-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
@@ -3083,7 +1430,8 @@ The blog post page shares insights and expertise. For AI agents, it needs Articl
   </footer>
 
   <a href="index.html" class="floating-home-button" aria-label="Back to Home">Home</a>
-  <a href="#" class="floating-top-button" aria-label="Back to Top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Top</a>
+  <a href="#" class="floating-top-button" aria-label="Back to Top">Top</a>
+  <script src="js/common.js"></script>
 </body>
 </html>
 ```
@@ -3133,7 +1481,8 @@ The article page presents comprehensive technical documentation or case studies.
       "@type": "Person",
       "name": "Tom Cranstoun",
       "email": "tom.cranstoun@gmail.com",
-      "url": "https://allabout.network"
+      "url": "https://allabout.network",
+      "image": "https://allabout.network/images/tom-cranstoun.jpg"
     },
     "publisher": {
       "@type": "Organization",
@@ -3149,295 +1498,28 @@ The article page presents comprehensive technical documentation or case studies.
     "wordCount": "2500",
     "proficiencyLevel": "Intermediate",
     "dependencies": "Text editor, web server",
-    "inLanguage": "en-GB"
+    "inLanguage": "en-GB",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://allabout.network/invisible-users/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Article",
+          "item": "https://allabout.network/invisible-users/web/article.html"
+        }
+      ]
+    },
+    "image": "https://allabout.network/images/article.jpg"
   }
   </script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #1f2937;
-      background: #ffffff;
-    }
-
-    header {
-      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-      color: white;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .article-meta {
-      color: #e0e7ff;
-      font-size: 0.95rem;
-    }
-
-    .article-meta span {
-      margin: 0 1rem;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-      display: grid;
-      grid-template-columns: 250px 1fr;
-      gap: 3rem;
-    }
-
-    .toc {
-      position: sticky;
-      top: 2rem;
-      align-self: start;
-      background: #f9fafb;
-      border: 2px solid #e5e7eb;
-      border-radius: 8px;
-      padding: 1.5rem;
-      max-height: calc(100vh - 4rem);
-      overflow-y: auto;
-    }
-
-    .toc h2 {
-      font-size: 1rem;
-      color: #1e40af;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .toc ul {
-      list-style: none;
-      margin: 0;
-    }
-
-    .toc li {
-      margin-bottom: 0.5rem;
-    }
-
-    .toc a {
-      color: #4b5563;
-      text-decoration: none;
-      font-size: 0.9rem;
-      display: block;
-      padding: 0.25rem 0;
-      transition: color 0.2s;
-    }
-
-    .toc a:hover {
-      color: #2563eb;
-    }
-
-    article {
-      font-size: 1.05rem;
-      line-height: 1.8;
-    }
-
-    article h2 {
-      font-size: 1.75rem;
-      color: #1e40af;
-      margin: 2.5rem 0 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #3b82f6;
-    }
-
-    article h3 {
-      font-size: 1.35rem;
-      color: #1f2937;
-      margin: 2rem 0 1rem;
-    }
-
-    article h4 {
-      font-size: 1.15rem;
-      color: #1f2937;
-      margin: 1.5rem 0 1rem;
-    }
-
-    article p {
-      margin-bottom: 1.5rem;
-      color: #4b5563;
-    }
-
-    article ul, article ol {
-      margin: 1.5rem 0 1.5rem 2rem;
-      color: #4b5563;
-    }
-
-    article li {
-      margin-bottom: 0.75rem;
-    }
-
-    article code {
-      background: #f3f4f6;
-      padding: 0.2rem 0.4rem;
-      border-radius: 3px;
-      font-family: 'Monaco', 'Courier New', monospace;
-      font-size: 0.9em;
-      color: #dc2626;
-    }
-
-    article pre {
-      background: #f9fafb;
-      border: 1px solid #e5e7eb;
-      border-radius: 6px;
-      padding: 1.5rem;
-      overflow-x: auto;
-      margin: 1.5rem 0;
-    }
-
-    article pre code {
-      background: none;
-      padding: 0;
-      color: #1f2937;
-      font-size: 0.9rem;
-    }
-
-    .info-box {
-      background: #eff6ff;
-      border-left: 4px solid #3b82f6;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .info-box strong {
-      color: #1e40af;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .info-box p {
-      margin-bottom: 0.5rem;
-    }
-
-    .warning-box {
-      background: #fef3c7;
-      border-left: 4px solid #f59e0b;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .warning-box strong {
-      color: #92400e;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 2rem 0;
-      font-size: 0.95rem;
-    }
-
-    th, td {
-      padding: 0.75rem;
-      text-align: left;
-      border: 1px solid #e5e7eb;
-    }
-
-    th {
-      background: #f9fafb;
-      color: #1f2937;
-      font-weight: 600;
-    }
-
-    footer {
-      background: #f9fafb;
-      border-top: 1px solid #e5e7eb;
-      padding: 2rem;
-      text-align: center;
-      margin-top: 4rem;
-      grid-column: 1 / -1;
-    }
-
-    footer p {
-      color: #6b7280;
-      margin: 0.25rem 0;
-    }
-
-    .contact-links {
-      margin: 1.5rem 0;
-    }
-
-    .contact-links a {
-      color: #2563eb;
-      margin: 0 1rem;
-      text-decoration: none;
-    }
-
-    .contact-links a:hover {
-      text-decoration: underline;
-    }
-
-    .floating-home-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
-
-    .floating-home-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-
-    .floating-top-button {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-      cursor: pointer;
-    }
-
-    .floating-top-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 968px) {
-      .container {
-        grid-template-columns: 1fr;
-      }
-      .toc {
-        position: relative;
-        top: 0;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
@@ -3676,7 +1758,8 @@ The article page presents comprehensive technical documentation or case studies.
   </div>
 
   <a href="index.html" class="floating-home-button" aria-label="Back to Home">Home</a>
-  <a href="#" class="floating-top-button" aria-label="Back to Top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Top</a>
+  <a href="#" class="floating-top-button" aria-label="Back to Top">Top</a>
+  <script src="js/common.js"></script>
 </body>
 </html>
 ```
@@ -3772,153 +1855,34 @@ The FAQ page answers common questions in a structured format. For AI agents, it 
           "text": "The Web Audit Suite is a comprehensive Node.js tool that analyses websites for AI agent compatibility, SEO performance, accessibility compliance, and security headers. It implements the patterns described in the book and generates detailed reports."
         }
       }
-    ]
+    ],
+    "datePublished": "2026-01-11",
+    "dateModified": "2026-01-11",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://allabout.network/invisible-users/web/faq.html"
+    },
+    "inLanguage": "en-GB",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://allabout.network/invisible-users/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "FAQ",
+          "item": "https://allabout.network/invisible-users/web/faq.html"
+        }
+      ]
+    }
   }
   </script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #1f2937;
-      background: #ffffff;
-    }
-
-    header {
-      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-      color: white;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-    }
-
-    header p {
-      font-size: 1.25rem;
-      color: #e0e7ff;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-    }
-
-    .faq-section {
-      margin-bottom: 3rem;
-    }
-
-    .faq-section h2 {
-      font-size: 1.75rem;
-      color: #1e40af;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #3b82f6;
-    }
-
-    .faq-item {
-      background: #f9fafb;
-      border-left: 4px solid #3b82f6;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .faq-item h3 {
-      font-size: 1.25rem;
-      color: #1f2937;
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-    }
-
-    .faq-item p {
-      color: #4b5563;
-      margin-bottom: 0.75rem;
-    }
-
-    .faq-item p:last-child {
-      margin-bottom: 0;
-    }
-
-    footer {
-      background: #f9fafb;
-      border-top: 1px solid #e5e7eb;
-      padding: 2rem;
-      text-align: center;
-      margin-top: 4rem;
-    }
-
-    footer p {
-      color: #6b7280;
-      margin: 0.25rem 0;
-    }
-
-    .contact-links {
-      margin: 1.5rem 0;
-    }
-
-    .contact-links a {
-      color: #2563eb;
-      margin: 0 1rem;
-      text-decoration: none;
-    }
-
-    .contact-links a:hover {
-      text-decoration: underline;
-    }
-
-    .floating-home-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
-
-    .floating-home-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-
-    .floating-top-button {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-      cursor: pointer;
-    }
-
-    .floating-top-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
@@ -3972,7 +1936,8 @@ The FAQ page answers common questions in a structured format. For AI agents, it 
   </footer>
 
   <a href="index.html" class="floating-home-button" aria-label="Back to Home">Home</a>
-  <a href="#" class="floating-top-button" aria-label="Back to Top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Top</a>
+  <a href="#" class="floating-top-button" aria-label="Back to Top">Top</a>
+  <script src="js/common.js"></script>
 </body>
 </html>
 ```
@@ -4021,129 +1986,34 @@ The 404 error page provides helpful guidance when content is unavailable. For AI
       "@type": "WebSite",
       "name": "The Invisible Users",
       "url": "https://allabout.network/invisible-users"
+    },
+    "datePublished": "2026-01-11",
+    "dateModified": "2026-01-11",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://allabout.network/invisible-users/web/404.html"
+    },
+    "inLanguage": "en-GB",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://allabout.network/invisible-users/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "404",
+          "item": "https://allabout.network/invisible-users/web/404.html"
+        }
+      ]
     }
   }
   </script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #1f2937;
-      background: #ffffff;
-    }
-
-    .error-container {
-      max-width: 800px;
-      margin: 6rem auto;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-
-    .error-code {
-      font-size: 8rem;
-      font-weight: 700;
-      color: #3b82f6;
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      color: #1e40af;
-      margin-bottom: 1rem;
-    }
-
-    .error-message {
-      font-size: 1.25rem;
-      color: #4b5563;
-      margin-bottom: 3rem;
-    }
-
-    .suggestions {
-      background: #f9fafb;
-      border: 2px solid #e5e7eb;
-      border-radius: 8px;
-      padding: 2rem;
-      margin: 3rem 0;
-      text-align: left;
-    }
-
-    .suggestions h2 {
-      color: #1e40af;
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
-
-    .suggestions ul {
-      list-style: none;
-      margin: 0;
-    }
-
-    .suggestions li {
-      margin-bottom: 1rem;
-    }
-
-    .suggestions a {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-    }
-
-    .suggestions a:hover {
-      text-decoration: underline;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #2563eb;
-      color: white;
-      padding: 1rem 2.5rem;
-      border-radius: 6px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background 0.2s;
-      margin: 0.5rem;
-      font-size: 1.1rem;
-    }
-
-    .btn:hover {
-      background: #1d4ed8;
-    }
-
-    footer {
-      background: #f9fafb;
-      border-top: 1px solid #e5e7eb;
-      padding: 2rem;
-      text-align: center;
-      margin-top: 4rem;
-    }
-
-    footer p {
-      color: #6b7280;
-      margin: 0.25rem 0;
-    }
-
-    .contact-links {
-      margin: 1.5rem 0;
-    }
-
-    .contact-links a {
-      color: #2563eb;
-      margin: 0 1rem;
-      text-decoration: none;
-    }
-
-    .contact-links a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <main class="error-container" role="main" data-error-type="404" data-error-code="404">
@@ -4181,6 +2051,7 @@ The 404 error page provides helpful guidance when content is unavailable. For AI
     </div>
     <p>&copy; 2026 Tom Cranstoun. All rights reserved.</p>
   </footer>
+  <script src="js/common.js"></script>
 </body>
 </html>
 ```
@@ -4205,289 +2076,64 @@ The privacy policy page explains data collection and usage. For AI agents, it ne
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Tom Cranstoun">
-  <meta name="description" content="Privacy policy for The Invisible Users website - how we collect, use, and protect your information">
-
-  <!-- AI-specific meta tags -->
+  <title>Search Results | The Invisible Users</title>
   <meta name="ai-preferred-access" content="html">
-  <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
-  <meta name="ai-freshness" content="monthly">
-  <meta name="ai-structured-data" content="json-ld">
-  <meta name="ai-attribution" content="required">
-
-  <title>Privacy Policy | The Invisible Users</title>
-
-  <!-- Schema.org structured data for privacy policy -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Privacy Policy",
-    "description": "Privacy policy explaining data collection and usage practices",
+    "@type": "SearchResultsPage",
+    "name": "Search Results",
     "datePublished": "2026-01-11",
     "dateModified": "2026-01-11",
-    "author": {
-      "@type": "Person",
-      "name": "Tom Cranstoun"
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://allabout.network/invisible-users/web/search.html"
+    },
+    "inLanguage": "en-GB",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://allabout.network/invisible-users/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Search",
+          "item": "https://allabout.network/invisible-users/web/search.html"
+        }
+      ]
     }
   }
   </script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #1f2937;
-      background: #ffffff;
-    }
-
-    header {
-      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-      color: white;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-    }
-
-    .last-updated {
-      color: #e0e7ff;
-      font-size: 0.95rem;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-    }
-
-    article h2 {
-      font-size: 1.75rem;
-      color: #1e40af;
-      margin: 2.5rem 0 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #3b82f6;
-    }
-
-    article h3 {
-      font-size: 1.35rem;
-      color: #1f2937;
-      margin: 2rem 0 1rem;
-    }
-
-    article p {
-      margin-bottom: 1.5rem;
-      color: #4b5563;
-      font-size: 1.05rem;
-    }
-
-    article ul {
-      margin: 1.5rem 0 1.5rem 2rem;
-      color: #4b5563;
-    }
-
-    article li {
-      margin-bottom: 0.75rem;
-    }
-
-    .info-box {
-      background: #eff6ff;
-      border-left: 4px solid #3b82f6;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    footer {
-      background: #f9fafb;
-      border-top: 1px solid #e5e7eb;
-      padding: 2rem;
-      text-align: center;
-      margin-top: 4rem;
-    }
-
-    footer p {
-      color: #6b7280;
-      margin: 0.25rem 0;
-    }
-
-    .contact-links {
-      margin: 1.5rem 0;
-    }
-
-    .contact-links a {
-      color: #2563eb;
-      margin: 0 1rem;
-      text-decoration: none;
-    }
-
-    .contact-links a:hover {
-      text-decoration: underline;
-    }
-
-    .floating-home-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
-
-    .floating-home-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-
-    .floating-top-button {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-      cursor: pointer;
-    }
-
-    .floating-top-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header>
-    <h1>Privacy Policy</h1>
-    <p class="last-updated">
-      <time datetime="2026-01-11">Last updated: 11 January 2026</time>
-    </p>
-  </header>
-
-  <main class="container" role="main">
-    <article data-document-type="privacy-policy">
-
-      <section id="introduction" data-section-id="introduction">
-        <h2>Introduction</h2>
-        <p>This privacy policy explains how The Invisible Users project ("we", "us", "our") collects, uses, and protects your personal information when you visit our website.</p>
-        <p>We are committed to protecting your privacy and ensuring transparency about our data practices.</p>
-      </section>
-
-      <section id="information-collected" data-section-id="data-collection">
-        <h2>Information We Collect</h2>
-        
-        <h3>Information You Provide</h3>
-        <p>We may collect information you voluntarily provide when you:</p>
-        <ul>
-          <li>Contact us via email</li>
-          <li>Subscribe to updates or newsletters</li>
-          <li>Purchase the Web Audit Suite or request professional services</li>
-          <li>Provide feedback or ask questions</li>
-        </ul>
-
-        <h3>Automatically Collected Information</h3>
-        <p>When you visit our website, we may automatically collect:</p>
-        <ul>
-          <li>IP address and browser information</li>
-          <li>Pages visited and time spent on pages</li>
-          <li>Referring website or search terms</li>
-          <li>Device type and operating system</li>
-        </ul>
-      </section>
-
-      <section id="how-we-use" data-section-id="data-usage">
-        <h2>How We Use Your Information</h2>
-        <p>We use collected information to:</p>
-        <ul>
-          <li>Respond to your enquiries and provide requested services</li>
-          <li>Send updates about the book or project (if you've subscribed)</li>
-          <li>Improve our website content and user experience</li>
-          <li>Analyse website traffic and usage patterns</li>
-          <li>Comply with legal obligations</li>
-        </ul>
-      </section>
-
-      <section id="data-sharing" data-section-id="data-sharing">
-        <h2>Information Sharing</h2>
-        <p>We do not sell, trade, or rent your personal information to third parties.</p>
-        <p>We may share information only in these circumstances:</p>
-        <ul>
-          <li>With your explicit consent</li>
-          <li>To comply with legal requirements or court orders</li>
-          <li>To protect our rights or the safety of others</li>
-          <li>With service providers who assist in operating our website (under strict confidentiality agreements)</li>
-        </ul>
-      </section>
-
-      <section id="cookies" data-section-id="cookies">
-        <h2>Cookies and Tracking</h2>
-        <p>Our website may use cookies to enhance user experience. You can control cookie settings through your browser preferences.</p>
-      </section>
-
-      <section id="your-rights" data-section-id="user-rights">
-        <h2>Your Rights</h2>
-        <p>Under data protection law (including GDPR), you have the right to:</p>
-        <ul>
-          <li>Access your personal data</li>
-          <li>Correct inaccurate data</li>
-          <li>Request deletion of your data</li>
-          <li>Object to data processing</li>
-          <li>Request data portability</li>
-          <li>Withdraw consent at any time</li>
-        </ul>
-        <p>To exercise these rights, contact us at <a href="mailto:tom.cranstoun@gmail.com">tom.cranstoun@gmail.com</a>.</p>
-      </section>
-
-      <section id="security" data-section-id="security">
-        <h2>Data Security</h2>
-        <p>We implement appropriate technical and organisational measures to protect your personal information. However, no internet transmission is completely secure, and we cannot guarantee absolute security.</p>
-      </section>
-
-      <section id="contact" data-section-id="contact">
-        <h2>Contact Information</h2>
-        <p>For privacy-related questions or concerns, contact:</p>
-        <p><strong>Tom Cranstoun</strong><br>
-        Email: <a href="mailto:tom.cranstoun@gmail.com">tom.cranstoun@gmail.com</a></p>
-      </section>
-
+  <header><h1>Search Results</h1></header>
+  <main class="container" role="main" data-search-results="3" data-search-query="AI agents">
+    <div class="search-box" role="search">
+      <input type="search" name="q" placeholder="Search..." value="AI agents" aria-label="Search">
+    </div>
+    <p style="margin: 2rem 0; color: #6b7280;">Found 3 results for "AI agents"</p>
+    <article class="search-result" data-result-position="1">
+      <h3><a href="index.html">The Invisible Users - Home</a></h3>
+      <p>A practical guide to designing websites that work for AI agents and everyone else...</p>
+    </article>
+    <article class="search-result" data-result-position="2">
+      <h3><a href="blog-post.html">Why Modern Forms Break AI Agents</a></h3>
+      <p>Examining how modern web forms fail for AI agents and providing practical patterns...</p>
+    </article>
+    <article class="search-result" data-result-position="3">
+      <h3><a href="collection.html">Appendices Collection</a></h3>
+      <p>Complete collection of appendices providing implementation guidance for AI-friendly web design...</p>
     </article>
   </main>
-
-  <footer role="contentinfo">
-    <div class="contact-links">
-      <a href="mailto:tom.cranstoun@gmail.com">Email</a>
-      <a href="https://allabout.network">Website</a>
-      <a href="https://www.linkedin.com/in/tom-cranstoun/">LinkedIn</a>
-      <a href="https://github.com/Digital-Domain-Technologies-Ltd/invisible-users-manuscript">GitHub</a>
-    </div>
-    <p>&copy; 2026 Tom Cranstoun. All rights reserved.</p>
-    <p>Last updated: January 2026</p>
-  </footer>
-
-  <a href="index.html" class="floating-home-button" aria-label="Back to Home">Home</a>
-  <a href="#" class="floating-top-button" aria-label="Back to Top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Top</a>
+  <footer><p>&copy; 2026 Tom Cranstoun. All rights reserved.</p></footer>
+  <a href="index.html" class="floating-home-button">Home</a>
+  <script src="js/common.js"></script>
 </body>
 </html>
 ```
@@ -4526,232 +2172,137 @@ The pricing page compares multiple service or product tiers side-by-side. For AI
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "Web Audit Suite",
-    "description": "Comprehensive website analysis tool for AI agent compatibility",
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "Self-Service Tool",
-        "description": "One-time purchase of the Web Audit Suite tool",
-        "priceCurrency": "GBP",
-        "availability": "https://schema.org/InStock"
+    "@type": "WebPage",
+    "name": "Web Audit Suite Pricing",
+    "description": "Compare pricing options for the Web Audit Suite - self-service tool, professional audit, and agency partnership",
+    "inLanguage": "en-GB",
+    "datePublished": "2026-01-11",
+    "dateModified": "2026-01-11",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://allabout.network/invisible-users/web/pricing.html"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://allabout.network/invisible-users/web/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Pricing",
+          "item": "https://allabout.network/invisible-users/web/pricing.html"
+        }
+      ]
+    },
+    "about": {
+      "@type": "Product",
+      "name": "Web Audit Suite",
+      "description": "Comprehensive website analysis tool for AI agent compatibility, SEO, accessibility, and performance",
+      "image": "https://allabout.network/images/web-audit-suite.jpg",
+      "category": "Web Development Tools",
+      "brand": {
+        "@type": "Brand",
+        "name": "Digital Domain Technologies Ltd"
       },
-      {
-        "@type": "Offer",
-        "name": "Professional Audit",
-        "description": "Expert analysis with detailed report and implementation guidance",
-        "priceCurrency": "GBP",
-        "availability": "https://schema.org/InStock"
-      },
-      {
-        "@type": "Offer",
-        "name": "Agency Partnership",
-        "description": "White-label reports and referral arrangement for agencies",
-        "priceCurrency": "GBP",
-        "availability": "https://schema.org/InStock"
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Self-Service Tool",
+          "description": "One-time purchase of the Web Audit Suite tool with unlimited audits",
+          "priceCurrency": "GBP",
+          "availability": "https://schema.org/InStock",
+          "url": "https://allabout.network/invisible-users/web/pricing.html",
+          "seller": {
+            "@type": "Person",
+            "name": "Tom Cranstoun",
+            "email": "tom.cranstoun@gmail.com",
+            "url": "https://allabout.network"
+          },
+          "itemCondition": "https://schema.org/NewCondition",
+          "category": "Software Tool",
+          "eligibleCustomerType": "Business",
+          "itemOffered": {
+            "@type": "SoftwareApplication",
+            "name": "Web Audit Suite",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Cross-platform (Node.js)"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Professional Audit",
+          "description": "Expert analysis with detailed report and implementation guidance",
+          "priceCurrency": "GBP",
+          "availability": "https://schema.org/InStock",
+          "url": "https://allabout.network/invisible-users/web/pricing.html",
+          "seller": {
+            "@type": "Person",
+            "name": "Tom Cranstoun",
+            "email": "tom.cranstoun@gmail.com",
+            "url": "https://allabout.network"
+          },
+          "itemCondition": "https://schema.org/NewCondition",
+          "category": "Professional Services",
+          "eligibleCustomerType": "Business",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Professional Web Audit",
+            "serviceType": "Website Analysis and Consulting"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Agency Partnership",
+          "description": "White-label reports and referral arrangement for agencies",
+          "priceCurrency": "GBP",
+          "availability": "https://schema.org/InStock",
+          "url": "https://allabout.network/invisible-users/web/pricing.html",
+          "seller": {
+            "@type": "Person",
+            "name": "Tom Cranstoun",
+            "email": "tom.cranstoun@gmail.com",
+            "url": "https://allabout.network"
+          },
+          "itemCondition": "https://schema.org/NewCondition",
+          "category": "Partnership",
+          "eligibleCustomerType": "Business",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Agency Partnership Programme",
+            "serviceType": "White-label Audit Services"
+          }
+        }
+      ]
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Tom Cranstoun",
+      "email": "tom.cranstoun@gmail.com",
+      "url": "https://allabout.network",
+      "sameAs": [
+        "https://www.linkedin.com/in/tom-cranstoun/",
+        "https://github.com/Digital-Domain-Technologies-Ltd"
+      ]
+    },
+    "potentialAction": {
+      "@type": "OrderAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://allabout.network/invisible-users/web/contact.html",
+        "actionPlatform": [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform"
+        ]
       }
-    ]
+    }
   }
   </script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #1f2937;
-      background: #ffffff;
-    }
-
-    header {
-      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-      color: white;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    header p {
-      font-size: 1.5rem;
-      color: #e0e7ff;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-    }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      margin: 4rem 0;
-    }
-
-    .pricing-card {
-      background: #f9fafb;
-      border: 2px solid #e5e7eb;
-      border-radius: 12px;
-      padding: 2.5rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .pricing-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-    }
-
-    .pricing-card.featured {
-      border-color: #3b82f6;
-      border-width: 3px;
-      background: #eff6ff;
-    }
-
-    .pricing-card h3 {
-      font-size: 1.75rem;
-      color: #1e40af;
-      margin-bottom: 0.5rem;
-    }
-
-    .pricing-card .price {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #1e40af;
-      margin: 1rem 0;
-    }
-
-    .pricing-card .price-note {
-      font-size: 0.9rem;
-      color: #6b7280;
-      margin-bottom: 1.5rem;
-    }
-
-    .pricing-card ul {
-      list-style: none;
-      margin: 1.5rem 0;
-    }
-
-    .pricing-card li {
-      padding: 0.5rem 0 0.5rem 2rem;
-      position: relative;
-      color: #4b5563;
-    }
-
-    .pricing-card li:before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: #10b981;
-      font-weight: 700;
-    }
-
-    .btn {
-      display: block;
-      width: 100%;
-      background: #2563eb;
-      color: white;
-      padding: 1rem;
-      border-radius: 6px;
-      font-weight: 600;
-      text-decoration: none;
-      text-align: center;
-      transition: background 0.2s;
-      margin-top: 1.5rem;
-    }
-
-    .btn:hover {
-      background: #1d4ed8;
-    }
-
-    footer {
-      background: #f9fafb;
-      border-top: 1px solid #e5e7eb;
-      padding: 2rem;
-      text-align: center;
-      margin-top: 4rem;
-    }
-
-    footer p {
-      color: #6b7280;
-      margin: 0.25rem 0;
-    }
-
-    .contact-links {
-      margin: 1.5rem 0;
-    }
-
-    .contact-links a {
-      color: #2563eb;
-      margin: 0 1rem;
-      text-decoration: none;
-    }
-
-    .contact-links a:hover {
-      text-decoration: underline;
-    }
-
-    .floating-home-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
-
-    .floating-home-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-
-    .floating-top-button {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-      cursor: pointer;
-    }
-
-    .floating-top-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 968px) {
-      .pricing-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
@@ -4826,9 +2377,11 @@ The pricing page compares multiple service or product tiers side-by-side. For AI
   </footer>
 
   <a href="index.html" class="floating-home-button" aria-label="Back to Home">Home</a>
-  <a href="#" class="floating-top-button" aria-label="Back to Top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Top</a>
+  <a href="#" class="floating-top-button" aria-label="Back to Top">Top</a>
+  <script src="js/common.js"></script>
 </body>
 </html>
+
 ```
 
 ---

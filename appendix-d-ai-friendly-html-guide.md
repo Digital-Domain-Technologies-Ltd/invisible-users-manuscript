@@ -1206,6 +1206,88 @@ Use JSON-LD only, not combined formats. Modern best practices (2024-2025) recomm
 
 **Research insight:** Pages with FAQPage schema achieve 41% citation rate in LLM answers versus 15% without structured data (2.7x improvement, July 2025 study).
 
+**BreadcrumbList (Site Navigation):**
+
+Shows hierarchical navigation structure. Used on nearly every page to help agents understand site organization:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://example.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Products",
+      "item": "https://example.com/products"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Wireless Headphones",
+      "item": "https://example.com/products/wireless-headphones"
+    }
+  ]
+}
+```
+
+**Required Properties:**
+
+- `itemListElement`: Array of ListItem objects in hierarchical order
+- Each ListItem needs `position` (number, starting at 1), `name` (display text), and `item` (URL)
+
+**Implementation:** Include BreadcrumbList on all pages except the homepage. Position 1 always points to the homepage, subsequent items show the path to the current page.
+
+**Book (Publications):**
+
+For books, e-books, or published works. Can be combined with Product type for commercial offerings:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": ["Product", "Book"],
+  "name": "The Invisible Users",
+  "author": {
+    "@type": "Person",
+    "name": "Tom Cranstoun"
+  },
+  "isbn": "978-1-234567-89-0",
+  "bookFormat": "https://schema.org/EBook",
+  "numberOfPages": 320,
+  "inLanguage": "en-GB",
+  "datePublished": "2026-01-01",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tech Publishers"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "29.99",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "Publisher Store"
+    }
+  }
+}
+```
+
+**Required Properties:**
+
+- `name`: Book title
+- `author`: Person or Organization who wrote the book
+- `bookFormat`: Type (EBook, Paperback, Hardcover, AudioBook)
+- `inLanguage`: Language code (e.g., "en-GB", "en-US", "fr-FR")
+
+**Multi-type pattern:** Use `"@type": ["Product", "Book"]` when selling books commercially. This combines commercial properties (price, availability) with bibliographic metadata (author, ISBN, publisher).
+
 Add to your page's `<head>` section wrapped in `<script type="application/ld+json">`.
 
 ### Agent-Readable Purchase Instructions

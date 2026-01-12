@@ -547,12 +547,24 @@ Add this to your product pages:
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "Wireless Headphones",
+  "image": "https://example.com/images/wireless-headphones.jpg",
+  "description": "Premium noise-cancelling wireless headphones with 30-hour battery life",
+  "sku": "WH-1000XM4",
+  "brand": {
+    "@type": "Brand",
+    "name": "AudioTech"
+  },
   "offers": {
     "@type": "Offer",
     "price": "149.99",
     "priceCurrency": "GBP",
     "availability": "https://schema.org/InStock",
-    "inventoryLevel": 23,
+    "url": "https://example.com/products/wireless-headphones",
+    "seller": {
+      "@type": "Organization",
+      "name": "AudioTech Store"
+    },
+    "itemCondition": "https://schema.org/NewCondition",
     "priceValidUntil": "2025-12-31"
   },
   "aggregateRating": {
@@ -2490,6 +2502,81 @@ The most useful schema types for different businesses:
 }
 </script>
 ```
+
+**BreadcrumbList (Navigation):**
+
+Used on nearly every page to show navigation hierarchy. Helps agents understand site structure:
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://example.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Products",
+      "item": "https://example.com/products"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Wireless Headphones",
+      "item": "https://example.com/products/wireless-headphones"
+    }
+  ]
+}
+</script>
+```
+
+**Book (Publications):**
+
+For books, e-books, or published works. Combine with Product type for commercial offerings:
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Product", "Book"],
+  "name": "The Invisible Users",
+  "author": {
+    "@type": "Person",
+    "name": "Tom Cranstoun"
+  },
+  "isbn": "978-1-234567-89-0",
+  "bookFormat": "https://schema.org/EBook",
+  "numberOfPages": 320,
+  "inLanguage": "en-GB",
+  "datePublished": "2026-01-01",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tech Publishers"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "29.99",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+```
+
+**Key Schema.org Properties:**
+
+Critical properties to include on every schema:
+
+- `datePublished` and `dateModified` - when content was created/updated
+- `image` - visual representation (helps agents and search results)
+- `inLanguage` - content language (e.g., "en-GB", "en-US")
+- `mainEntityOfPage` - canonical URL reference for the primary content
 
 Pick the type that matches your content. Add it to your `<head>` section. That's it.
 
