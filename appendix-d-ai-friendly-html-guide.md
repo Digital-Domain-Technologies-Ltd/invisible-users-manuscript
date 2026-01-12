@@ -2079,7 +2079,7 @@ Add a meta tag to your 404 page directing AI to your llms.txt:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="llms-section" content="/llms.txt">
+  <meta name="llms-txt" content="/llms.txt">
   <title>404 Not Found</title>
 </head>
 <body>
@@ -2090,7 +2090,9 @@ Add a meta tag to your 404 page directing AI to your llms.txt:
 </html>
 ```
 
-The `llms-section` meta tag tells AI agents where to find site navigation guidance when a page doesn't exist.
+The `llms-txt` meta tag tells AI agents where to find site navigation guidance when a page doesn't exist.
+
+For a complete production-ready 404 page example with full styling and server-side implementation patterns, see Appendix K - Common Page Patterns.
 
 **Nginx Configuration for AI Fallback:**
 
@@ -2115,7 +2117,7 @@ For Node.js applications, add the header to your 404 handler:
 // 404 handler - after all other routes
 app.use((req, res, next) => {
   res.status(404)
-     .setHeader('X-llms-Section', '/llms.txt')
+     .setHeader('X-llms-txt', '/llms.txt')
      .sendFile(path.join(__dirname, '404.html'));
 });
 
@@ -2123,7 +2125,7 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
   const status = err.status || 500;
   res.status(status)
-     .setHeader('X-llms-Section', '/llms.txt')
+     .setHeader('X-llms-txt', '/llms.txt')
      .json({
        error: err.message,
        llms_guidance: '/llms.txt',
@@ -2609,12 +2611,12 @@ test('llms.txt exists and is valid', async ({ page }) => {
 
 test('404 page references llms.txt', async ({ page }) => {
   await page.goto('/nonexistent-page-12345');
-  
-  // Check for llms-section meta tag
-  const llmsSection = await page.$('meta[name="llms-section"]');
-  expect(llmsSection).toBeTruthy();
-  
-  const content = await page.getAttribute('meta[name="llms-section"]', 'content');
+
+  // Check for llms-txt meta tag
+  const llmsTxt = await page.$('meta[name="llms-txt"]');
+  expect(llmsTxt).toBeTruthy();
+
+  const content = await page.getAttribute('meta[name="llms-txt"]', 'content');
   expect(content).toBe('/llms.txt');
 });
 
@@ -2674,7 +2676,7 @@ Verify your implementations with these tools:
 3. Remove unnecessary pagination
 4. Create a basic `llms.txt` file
 5. Use standard form field names
-6. Add `<meta name="llms-section" content="/llms.txt">` to your 404 page
+6. Add `<meta name="llms-txt" content="/llms.txt">` to your 404 page
 7. Make cart state machine-readable
 8. Add currency/locale data attributes
 
@@ -2685,7 +2687,7 @@ Verify your implementations with these tools:
 3. Use proper HTTP status codes
 4. Add meta tags for agent guidance
 5. Add agent-readable purchase metadata
-6. Add X-llms-Section headers to server error responses
+6. Add X-llms-txt headers to server error responses
 7. Include ai_guidance object in API error JSON
 8. Make search results and filters machine-readable
 9. Add success confirmation pages with explicit order data

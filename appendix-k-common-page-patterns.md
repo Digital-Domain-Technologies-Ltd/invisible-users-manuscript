@@ -2562,6 +2562,7 @@ The 404 error page provides helpful guidance when content is unavailable. For AI
 **AI-friendly patterns demonstrated:**
 
 - HTTP 404 status code (set by server)
+- llms-txt meta tag directing agents to site guidance
 - Clear error explanation with data-error-type attribute
 - Suggested alternative pages
 - Search functionality or sitemap link
@@ -2582,6 +2583,7 @@ The 404 error page provides helpful guidance when content is unavailable. For AI
   <meta name="ai-freshness" content="monthly">
   <meta name="ai-structured-data" content="json-ld">
   <meta name="ai-attribution" content="required">
+  <meta name="llms-txt" content="/llms.txt">
 
   <title>404 - Page Not Found | The Invisible Users</title>
 
@@ -2666,6 +2668,48 @@ The 404 error page provides helpful guidance when content is unavailable. For AI
 </body>
 </html>
 ```
+
+**Serving 404 Pages with AI Guidance:**
+
+If your platform includes an API to serve content (API bus, headless CMS, etc.), add AI error handling to API endpoints as well. The patterns below show both static file serving (Nginx) and dynamic API responses (Express.js).
+
+**Nginx Configuration:**
+
+```nginx
+# Enhanced Nginx configuration for contextual error handling
+location @llms_fallback {
+    try_files /llms.txt =404;
+    add_header Content-Type text/markdown;
+    add_header X-Content-Section "optional-details";
+}
+
+error_page 404 = @llms_fallback;
+```
+
+**Express.js API Handler:**
+
+```javascript
+// 404 handler - should be after all other routes
+app.use((req, res, next) => {
+    res.status(404)
+       .setHeader('X-llms-txt', '/llms.txt')
+       .sendFile('/404.html');
+});
+
+// General error handler - must be last
+app.use((err, req, res, next) => {
+    const status = err.status || 500;
+    res.status(status)
+       .setHeader('X-llms-txt', '/llms.txt')
+       .json({
+           error: err.message,
+           llms_guidance: '/llms.txt',
+           status: status
+       });
+});
+```
+
+The 404 page serves humans with clear navigation options whilst directing AI agents to llms.txt for comprehensive site guidance through the llms-txt meta tag. Server-side handlers add the X-llms-txt header for programmatic access.
 
 ---
 
