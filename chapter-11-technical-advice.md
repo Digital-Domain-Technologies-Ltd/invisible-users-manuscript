@@ -1,6 +1,6 @@
 \newpage
 
-# Chapter 10 - Technical Advice
+# Chapter 11 - Technical Advice
 
 Implementation code, testing strategies, and practical tools.
 

@@ -1,6 +1,6 @@
 \newpage
 
-# Chapter 11 - What Agent Creators Must Build
+# Chapter 12 - What Agent Creators Must Build
 
 Implementation patterns, validation layers, and guardrails for reliable agent systems.
 

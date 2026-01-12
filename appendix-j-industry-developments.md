@@ -70,7 +70,7 @@ OpenAI and Stripe announced the Agentic Commerce Protocol (ACP), an open standar
 
 ### Significance for This Book
 
-**Particularly relevant:** ACP represents the first major open protocol for agent-mediated commerce, directly addressing the identity delegation and platform lock-in concerns discussed in Chapter 11.
+**Particularly relevant:** ACP represents the first major open protocol for agent-mediated commerce, directly addressing the identity delegation and platform lock-in concerns discussed in Chapter 12.
 
 ### Technical Implementation Insights
 
@@ -111,19 +111,19 @@ ACP creates a strategic choice:
 
 1. **Integrate with closed platforms** (Microsoft Copilot Checkout) for immediate market access to platform-specific users
 2. **Adopt open protocol** (ACP) for portability across multiple AI agents
-3. **Support both** (Chapter 11's identity abstraction approach) for maximum reach
+3. **Support both** (Chapter 12's identity abstraction approach) for maximum reach
 
 The "support both" approach requires building an abstraction layer that isolates platform-specific implementations behind a standard interface.
 
 ### What This Validates
 
-**From Chapter 11 - "The Missing Identity Layer" (lines 898-1000):**
+**From Chapter 12 - "The Missing Identity Layer" (lines 898-1000):**
 
-Chapter 11 identified the lack of universal identity delegation as a critical gap: "What's missing: A universal identity delegation layer that works across platforms and agents." ACP provides exactly this - an open protocol for delegation that isn't locked to a single platform.
+Chapter 12 identified the lack of universal identity delegation as a critical gap: "What's missing: A universal identity delegation layer that works across platforms and agents." ACP provides exactly this - an open protocol for delegation that isn't locked to a single platform.
 
 The chapter argued platforms were "racing to establish first-mover advantages before standards emerge." ACP challenges this prediction by publishing an open standard immediately rather than building a proprietary system first.
 
-**From Chapter 11 - "Identity Abstraction" (lines 974-991):**
+**From Chapter 12 - "Identity Abstraction" (lines 974-991):**
 
 The chapter recommended: "Build the identity layer as an abstraction. Support proprietary systems today (you need market access) but design the architecture to support open standards when they emerge."
 
@@ -137,9 +137,9 @@ Chapter 4 argued transaction-based businesses benefit from agent traffic when im
 
 **Assumption challenged - Platform Consolidation Before Standards:**
 
-Chapter 11, line 916: "The technically correct solution - build on open standards like OAuth, implement portable delegation tokens, and support cross-platform identity - doesn't exist yet because platforms have no incentive to create it."
+Chapter 12, line 916: "The technically correct solution - build on open standards like OAuth, implement portable delegation tokens, and support cross-platform identity - doesn't exist yet because platforms have no incentive to create it."
 
-This assumption proved incorrect. OpenAI and Stripe published an open protocol before proprietary consolidation occurred, racing to establish ACP as the standard before platform lock-in happens. The timeline Chapter 11 predicted (proprietary systems first, open standards after regulatory pressure) was compressed - open standards emerged alongside proprietary systems.
+This assumption proved incorrect. OpenAI and Stripe published an open protocol before proprietary consolidation occurred, racing to establish ACP as the standard before platform lock-in happens. The timeline Chapter 12 predicted (proprietary systems first, open standards after regulatory pressure) was compressed - open standards emerged alongside proprietary systems.
 
 **Competitive tension created:**
 
@@ -156,7 +156,7 @@ This creates three strategic options for businesses:
 2. **Standards-first:** Adopt only ACP (portability, limited agent reach today)
 3. **Multi-platform:** Support both closed and open (maximum reach, highest implementation cost)
 
-Chapter 11's identity abstraction recommendation becomes even more critical - businesses need architecture that isolates platform differences behind a unified interface.
+Chapter 12's identity abstraction recommendation becomes even more critical - businesses need architecture that isolates platform differences behind a unified interface.
 
 ### Architectural Insights
 
@@ -195,7 +195,7 @@ If a user has authorised purchases through both Microsoft Copilot Checkout (prop
 
 **What happens when regulations force interoperability?**
 
-Chapter 11 predicted regulators would eventually mandate open standards. If ACP becomes that standard through market adoption, does that give OpenAI and Stripe disproportionate influence over agent commerce infrastructure?
+Chapter 12 predicted regulators would eventually mandate open standards. If ACP becomes that standard through market adoption, does that give OpenAI and Stripe disproportionate influence over agent commerce infrastructure?
 
 **Can ACP prevent payment processor lock-in?**
 
@@ -203,15 +203,15 @@ The protocol is designed to be processor-agnostic, but Stripe's co-development r
 
 ### Strategic Implications for Readers
 
-**For Web Developers (Chapter 10 audience):**
+**For Web Developers (Chapter 11 audience):**
 
 If you're implementing e-commerce or checkout flows, consider ACP integration alongside traditional payment flows. The protocol provides a standard way for agents to complete purchases without requiring custom agent-specific implementations for each platform.
 
 **Implementation priority:** Medium-term (6-12 months). ACP is production-ready but agent adoption is still growing. Position for future growth without disrupting current operations.
 
-**For Agent Creators (Chapter 11 audience):**
+**For Agent Creators (Chapter 12 audience):**
 
-ACP provides the open standard Chapter 11 advocated for. If you're building agents, implement ACP support to enable commerce without platform lock-in. The abstraction layer pattern from Chapter 11 (lines 974-991) applies directly: isolate ACP behind a standard interface so you can support proprietary platforms alongside open standards.
+ACP provides the open standard Chapter 12 advocated for. If you're building agents, implement ACP support to enable commerce without platform lock-in. The abstraction layer pattern from Chapter 12 (lines 974-991) applies directly: isolate ACP behind a standard interface so you can support proprietary platforms alongside open standards.
 
 **Implementation priority:** High (immediate). First-mover advantage available for agents that support ACP early whilst competing agents are still building proprietary integrations.
 
@@ -232,8 +232,8 @@ Evaluate whether ACP adoption aligns with your agent commerce strategy. The prot
 
 - Chapter 4, lines 117-157: "E-Commerce - Where Incentives Align" - ACP provides infrastructure for transaction-based benefits
 - Chapter 4, lines 324-425: Identity delegation challenges - ACP addresses customer relationship preservation
-- Chapter 11, lines 898-1000: "The Missing Identity Layer" - ACP fills the gap Chapter 11 identified
-- Chapter 11, lines 974-991: Identity abstraction recommendation - ACP enables the pattern Chapter 11 advocated
+- Chapter 12, lines 898-1000: "The Missing Identity Layer" - ACP fills the gap Chapter 12 identified
+- Chapter 12, lines 974-991: Identity abstraction recommendation - ACP enables the pattern Chapter 12 advocated
 
 **Related appendix entries:**
 
@@ -310,13 +310,13 @@ Claude for Chrome encounters the same five failure patterns documented in Chapte
 
 As a browser extension, Claude for Chrome operates within the user's authenticated browser session - inheriting cookies, authentication tokens, and logged-in state. This demonstrates the "session inheritance problem" discussed in Chapter 6: banks cannot distinguish between human and AI activity because the AI inherits proof-of-humanity tokens from the authenticated session.
 
-**Chapter 10 correlation - Browser Agent Architecture:**
+**Chapter 11 correlation - Browser Agent Architecture:**
 
-Claude for Chrome represents the "rendered HTML" agent type discussed in Chapter 10's "Critical Distinction: Served vs Rendered HTML" section. Unlike server-based agents that fetch static HTML, Claude for Chrome executes JavaScript, sees dynamic updates, and can interact with fully rendered pages. This makes it more capable than CLI agents but also more complex to secure and control.
+Claude for Chrome represents the "rendered HTML" agent type discussed in Chapter 11's "Critical Distinction: Served vs Rendered HTML" section. Unlike server-based agents that fetch static HTML, Claude for Chrome executes JavaScript, sees dynamic updates, and can interact with fully rendered pages. This makes it more capable than CLI agents but also more complex to secure and control.
 
-**Chapter 11 validation - Agent Creator Responsibilities:**
+**Chapter 12 validation - Agent Creator Responsibilities:**
 
-The safety controls in Claude for Chrome - pre-approval, confirmation for irreversible actions, planning mode review - demonstrate the validation layers and guardrails discussed in Chapter 11. Anthropic implemented confidence scoring (implicit in planning mode), user confirmation for high-stakes actions, and explicit permission models.
+The safety controls in Claude for Chrome - pre-approval, confirmation for irreversible actions, planning mode review - demonstrate the validation layers and guardrails discussed in Chapter 12. Anthropic implemented confidence scoring (implicit in planning mode), user confirmation for high-stakes actions, and explicit permission models.
 
 ### Technical Implementation Insights
 
@@ -359,7 +359,7 @@ Websites now face automated interactions from agents that:
 - Coordinate multi-step processes across tabs
 - Extract data and fill forms autonomously
 
-The patterns discussed in Chapters 9 and 10 become critical: explicit state, persistent errors, semantic structure, clear validation feedback. Without these, Claude for Chrome fails silently just like the tour booking agent in Chapter 2.
+The patterns discussed in Chapters 10 and 11 become critical: explicit state, persistent errors, semantic structure, clear validation feedback. Without these, Claude for Chrome fails silently just like the tour booking agent in Chapter 2.
 
 ### What This Validates
 
@@ -371,11 +371,11 @@ The patterns discussed in Chapters 9 and 10 become critical: explicit state, per
 
 "Session Inheritance Problem" - Claude for Chrome inherits the user's authenticated session, making it impossible for websites to distinguish AI activity from human activity based on authentication alone. Banks cannot detect that Claude is making transfers because Claude presents valid session cookies from the authenticated user.
 
-**From Chapter 10:**
+**From Chapter 11:**
 
 "Two HTML States" - Claude for Chrome operates on rendered HTML (after JavaScript execution), validating the distinction between served and rendered states. The patterns that work for server-based agents (semantic HTML in served state) also benefit browser agents, but browser agents can additionally handle JavaScript-dependent interfaces that would break CLI agents.
 
-**From Chapter 11:**
+**From Chapter 12:**
 
 "Validation Layers" - The safety controls in Claude for Chrome demonstrate production-grade guardrails: planning mode review, pre-approval for actions, confirmation for irreversible operations, and admin controls for enterprise deployment.
 

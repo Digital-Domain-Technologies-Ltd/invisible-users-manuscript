@@ -324,7 +324,7 @@ Curated resources referenced in *The Invisible Users: Designing the Web for AI A
 
 ---
 
-## Example Sites (Referenced in Chapter 9)
+## Example Sites (Referenced in Chapter 10)
 
 ### Well-Designed for Agents
 
@@ -556,7 +556,7 @@ Particularly welcome:
 - W3C WAI resources
 - Inclusive design materials
 
-### Chapter 9-10 (Implementation)
+### Chapter 10-11 (Implementation)
 
 - Schema.org documentation
 - JSON-LD tools

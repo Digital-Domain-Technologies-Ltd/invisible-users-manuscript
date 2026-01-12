@@ -15,7 +15,7 @@ You need strategic understanding without technical implementation details.
 - Chapter 5: The Content Creator's Dilemma (advertising model implications)
 - Chapter 7: The Legal Landscape (liability and policy questions)
 - Chapter 8: The Human Cost (access and equity implications)
-- Chapter 9: Designing for Both (first half - strategic frameworks)
+- Chapter 12: Designing for Both (first half - strategic frameworks)
 
 **Skim for understanding:**
 
@@ -25,8 +25,8 @@ You need strategic understanding without technical implementation details.
 **Delegate to teams:**
 
 - Chapter 6: The Security Maze (your security team)
-- Chapter 10: Technical Advice (your development team)
-- Chapter 11: What Agent Creators Must Build (if evaluating agent partnerships)
+- Chapter 12: Technical Advice (your development team)
+- Chapter 12: What Agent Creators Must Build (if evaluating agent partnerships)
 
 Look for "Key Points for Business Leaders" boxes at the end of Chapters 2, 3, 4, 5, 7, and 8.
 
@@ -45,9 +45,9 @@ You need to understand the problem deeply, grasp business context, and implement
 - Chapter 3: The Architectural Conflict (why design decisions matter)
 - Chapter 4: The Business Reality (commercial implications)
 - Chapter 5: The Content Creator's Dilemma (content strategy)
-- Chapter 9: Designing for Both (solution patterns)
-- Chapter 10: Technical Advice (implementation approaches)
-- Chapter 11: What Agent Creators Must Build (if designing agent features)
+- Chapter 12: Designing for Both (solution patterns)
+- Chapter 12: Technical Advice (implementation approaches)
+- Chapter 12: What Agent Creators Must Build (if designing agent features)
 
 **Skim for context:**
 
@@ -67,12 +67,12 @@ You need implementation patterns and technical depth.
 
 **Start with:**
 
-- Chapter 10: Technical Advice (immediate patterns and code examples for websites)
-- Chapter 11: What Agent Creators Must Build (validation layers and guardrails for agents)
+- Chapter 12: Technical Advice (immediate patterns and code examples for websites)
+- Chapter 12: What Agent Creators Must Build (validation layers and guardrails for agents)
 
 **Then work backwards:**
 
-- Chapter 9: Designing for Both (strategic patterns)
+- Chapter 12: Designing for Both (strategic patterns)
 - Chapter 6: The Security Maze (authentication and access control)
 - Chapter 2: The Invisible Failure (what's breaking and why)
 - Chapter 3: The Architectural Conflict (design perspective)
@@ -95,7 +95,7 @@ You're building AI agents, browser extensions, or agentic systems that interact 
 
 **Start with:**
 
-- Chapter 11: What Agent Creators Must Build (validation layers, confidence scoring, pipeline failure prevention)
+- Chapter 12: What Agent Creators Must Build (validation layers, confidence scoring, pipeline failure prevention)
 
 **Essential context:**
 
@@ -104,7 +104,7 @@ You're building AI agents, browser extensions, or agentic systems that interact 
 
 **Implementation patterns:**
 
-- Chapter 10: Technical Advice (website-side patterns your agents should expect)
+- Chapter 12: Technical Advice (website-side patterns your agents should expect)
 
 **Business context:**
 

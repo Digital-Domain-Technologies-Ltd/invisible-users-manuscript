@@ -367,35 +367,6 @@ Are you ready?
 
 ---
 
-## What Comes Next: Building the Universal Identity Layer
-
-The missing piece from this ecosystem - one that Chapter 11 explores in detail - is a universal identity delegation layer that works across platforms and agents. Right now, Microsoft has built proprietary identity for Copilot Checkout. Anthropic's Claude for Chrome inherits browser sessions. Google and Apple will build their own systems. Each platform creating walled gardens.
-
-**I'm considering building the open alternative as my next project.**
-
-An open-source identity delegation framework that provides:
-
-- Reference implementation of universal identity delegation
-- Portable authorisation tokens that work across agents
-- User-controlled permissions and auditable delegation trails
-- OAuth 2.0 delegation extension support
-- Abstraction layers for agent creators
-- Documentation for businesses implementing identity delegation
-
-Unlike the book and Web Audit Suite (which are professional offerings), this would be open-source community infrastructure - not a commercial product to lock in users. It's infrastructure the ecosystem needs. If platforms won't build interoperability, perhaps an open community effort can.
-
-**The challenge:** This requires collaboration across competing interests. Agent platforms benefit from proprietary systems, but users benefit from portability. Businesses benefit from standardisation. The question is whether there's enough collective will to build the open alternative before the closed systems become entrenched.
-
-**If you're interested in contributing:**
-
-I'm looking for collaborators with expertise in identity systems, OAuth implementations, agent architectures, and open standards development. This isn't a project one person can build alone. It needs a coalition of agent creators, businesses, and users who recognise that interoperability serves everyone better than fragmentation.
-
-The platforms are racing to lock in users. We have a narrow window to build the open alternative before that window closes.
-
-Get in touch: tom.cranstoun@gmail.com | <https://allabout.network>
-
----
-
 ## About the Book
 
 ### The Invisible Users: Designing the Web for AI Agents and Everyone Else

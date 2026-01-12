@@ -681,7 +681,7 @@ The strategic challenge is to identify which parts of your business benefit from
 
 Before deciding on a response strategy, assess your specific exposure to agent-mediated commerce. This framework helps you understand your vulnerability and prioritise actions.
 
-**Timeline acceleration note (January 2026):** This framework was originally developed with a "two years" assumption before significant agent traffic. Major platform launches in January 2026 (Amazon Alexa.com on 5 Jan, Microsoft Copilot Checkout expansion on 8 Jan) compress this timeline to approximately 12 months for reaching 10-20% agent-mediated shopping. The assessment framework remains valid, but urgency increases significantly for high-exposure businesses. See online Appendix J (<https://allabout.network/invisible-users/web/appendix-j.html>) for details on these developments.
+**Timeline acceleration note (January 2026):** This framework was originally developed with a "two years" assumption before significant agent traffic. Three major platform launches in seven days (Amazon Alexa+ on 5 Jan, Microsoft Copilot Checkout expansion on 8 Jan, Google Universal Commerce Protocol on 11 Jan) compress this timeline to approximately 6-9 months or less for reaching 10-20% agent-mediated shopping. The assessment framework remains valid, but urgency increases dramatically for high-exposure businesses. Chapter 9 examines this platform race in detail. See also online Appendix J (<https://allabout.network/invisible-users/web/appendix-j.html>) for the complete development timeline.
 
 ### Assessment Framework
 

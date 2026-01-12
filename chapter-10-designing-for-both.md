@@ -1,6 +1,6 @@
 \newpage
 
-# Chapter 9 - Designing for Both
+# Chapter 10 - Designing for Both
 
 Solutions that work for agents without degrading human experience.
 
@@ -716,7 +716,7 @@ The web needs standardisation around agent interaction. Here's what's developing
 
 ### Standards Maturity Framework
 
-Throughout this chapter and Chapter 10, you'll encounter various approaches to AI agent guidance. They exist at different levels of maturity:
+Throughout this chapter and Chapter 11, you'll encounter various approaches to AI agent guidance. They exist at different levels of maturity:
 
 **Established Standards** (use with confidence):
 
@@ -775,7 +775,7 @@ An emerging convention for providing site-wide guidance to AI agents. Similar to
 
 **Real-world example:** Digital Domain Technologies maintains a comprehensive llms.txt file (<https://allabout.network/llms.txt>) that demonstrates practical implementation. Their file organises 91 posts across 6 major categories (Developer Documentation, EDS & Integrations, Core AI/LLM Topics, AEM/CMS Focus, General Blog & Tools, Content Author Resources) with structured access guidelines, rate limits (100 requests per hour per IP), attribution requirements, and precise categorisation. This demonstrates how to structure technical documentation for AI agent consumption whilst maintaining human-readable form.
 
-Chapter 10 covers implementation details and provides templates you can adapt.
+Chapter 11 covers implementation details and provides templates you can adapt.
 
 ### The Three-Layer Approach
 
@@ -884,7 +884,7 @@ Important foundational work that builds on quick wins.
 - **Implement semantic HTML throughout** - Use proper heading hierarchy, landmark regions, and appropriate elements
 - **Add agent detection and logging** - Track agent visits separately to measure impact and identify problems
 - **Review checkout flow for agent compatibility** - Test critical paths with clear state indicators at each step
-- **Test against multiple agent platforms** - Claude for Chrome, Microsoft Copilot, Amazon Alexa+ (see multi-platform testing section in Chapter 10)
+- **Test against multiple agent platforms** - Claude for Chrome, Microsoft Copilot, Amazon Alexa+ (see multi-platform testing section in Chapter 11)
 - **Create agent-friendly API documentation** - If offering API access, document it clearly in llms.txt
 
 ### Priority 3: Core Infrastructure
@@ -921,6 +921,6 @@ The web works best when information is transparent, honest, complete, and access
 
 Building for agents means building better. Not because agents matter more than humans, but because the problems agents expose were always there. We're finally fixing them.
 
-**The complete solutions picture:** This chapter and Chapter 10 address what website builders should implement. **Chapter 11: What Agent Creators Must Build** addresses the other side - what validation layers and guardrails agent creators should implement. Neither side can fix the ecosystem alone. Perfect websites still fail if agents lack validation. Sophisticated agents still fail if websites hide information. Both sides must improve.
+**The complete solutions picture:** This chapter and Chapter 11 address what website builders should implement. **Chapter 12: What Agent Creators Must Build** addresses the other side - what validation layers and guardrails agent creators should implement. Neither side can fix the ecosystem alone. Perfect websites still fail if agents lack validation. Sophisticated agents still fail if websites hide information. Both sides must improve.
 
 The next chapter provides the implementation code. But the philosophy matters more than the technology: design for clarity, and you design for everyone.
