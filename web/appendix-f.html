@@ -7,233 +7,7 @@
   <meta name="author" content="Tom Cranstoun" />
   <meta name="description" content="Practical guidance from The Invisible Users book on designing AI agent-friendly websites" />
   <title>Appendix F: Implementation Roadmap</title>
-  <style>
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    svg {
-      height: auto;
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #1a1a1a;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {   }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #7d9029; } /* Attribute */
-    code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { color: #008000; } /* BuiltIn */
-    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4070a0; } /* Char */
-    code span.cn { color: #880000; } /* Constant */
-    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-    code span.dt { color: #902000; } /* DataType */
-    code span.dv { color: #40a070; } /* DecVal */
-    code span.er { color: #ff0000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #40a070; } /* Float */
-    code span.fu { color: #06287e; } /* Function */
-    code span.im { color: #008000; font-weight: bold; } /* Import */
-    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-    code span.op { color: #666666; } /* Operator */
-    code span.ot { color: #007020; } /* Other */
-    code span.pp { color: #bc7a00; } /* Preprocessor */
-    code span.sc { color: #4070a0; } /* SpecialChar */
-    code span.ss { color: #bb6688; } /* SpecialString */
-    code span.st { color: #4070a0; } /* String */
-    code span.va { color: #19177c; } /* Variable */
-    code span.vs { color: #4070a0; } /* VerbatimString */
-    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-  </style>
+  
 
   <!-- AI-specific meta tags (proposed pattern from Chapter 10) -->
   <meta name="ai-preferred-access" content="html">
@@ -241,6 +15,7 @@
   <meta name="ai-freshness" content="monthly">
   <meta name="ai-structured-data" content="json-ld">
   <meta name="ai-attribution" content="required">
+  <meta name="llms-txt" content="/llms.txt">
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
   {
@@ -269,214 +44,7 @@
     "position": "6"
   }
   </script>
-  <style>
-    body {
-      max-width: 900px !important;
-      margin: 2rem auto !important;
-      padding: 0 2rem !important;
-      padding-left: 2rem !important;
-      padding-right: 2rem !important;
-      padding-top: 2rem !important;
-      padding-bottom: 2rem !important;
-      line-height: 1.6;
-    }
-    @media (max-width: 768px) {
-      body {
-        padding: 0 1rem !important;
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-        margin: 1rem auto !important;
-      }
-    }
-    /* Pre-publication header banner */
-    body::before {
-      content: "PRE-PUBLICATION SAMPLE - FOR REVIEWERS";
-      display: block;
-      position: sticky;
-      top: 0;
-      left: 0;
-      right: 0;
-      background-color: #fff3cd;
-      border-bottom: 2px solid #ff9800;
-      color: #856404;
-      text-align: center;
-      font-weight: bold;
-      font-size: 0.9rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      padding: 0.75rem 1rem;
-      margin: -2rem -2rem 2rem -2rem;
-      z-index: 1000;
-    }
-    @media (max-width: 768px) {
-      body::before {
-        font-size: 0.8rem;
-        padding: 0.5rem 0.75rem;
-        margin: -1rem -1rem 1rem -1rem;
-      }
-    }
-    /* Link styling - override Pandoc's default black links */
-    a:not(.floating-home-button):not(.floating-top-button):not(.copy-button) {
-      color: #0066cc !important;
-      text-decoration: underline !important;
-    }
-    a:not(.floating-home-button):not(.floating-top-button):not(.copy-button):visited {
-      color: #551a8b !important;
-      text-decoration: underline !important;
-    }
-    a:not(.floating-home-button):not(.floating-top-button):not(.copy-button):hover {
-      color: #003d7a !important;
-      text-decoration: underline !important;
-    }
-    a:not(.floating-home-button):not(.floating-top-button):not(.copy-button):active {
-      color: #ff4500 !important;
-      text-decoration: underline !important;
-    }
-    /* Floating navigation buttons */
-    .floating-home-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white !important;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none !important;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .floating-home-button:hover {
-      background-color: #003d7a !important;
-      color: white !important;
-      box-shadow: 0 6px 16px rgba(0, 102, 204, 0.4);
-      transform: translateY(-2px);
-    }
-    .floating-home-button:active {
-      transform: translateY(0);
-      box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
-    }
-    .floating-home-button svg {
-      fill: white;
-    }
-    .floating-top-button {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white !important;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none !important;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-    }
-    .floating-top-button:hover {
-      background-color: #003d7a !important;
-      color: white !important;
-      box-shadow: 0 6px 16px rgba(0, 102, 204, 0.4);
-      transform: translateY(-2px);
-    }
-    .floating-top-button:active {
-      transform: translateY(0);
-      box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
-    }
-    .floating-top-button svg {
-      fill: white;
-    }
-    @media (max-width: 768px) {
-      .floating-home-button {
-        top: 15px;
-        left: 15px;
-        padding: 10px 16px;
-        font-size: 0.85rem;
-      }
-      .floating-top-button {
-        bottom: 15px;
-        left: 15px;
-        padding: 10px 16px;
-        font-size: 0.85rem;
-      }
-    }
-    /* Code block styling */
-    div.sourceCode {
-      position: relative !important;
-      border: 2px solid #000000 !important;
-      background-color: #f5f5f5 !important;
-      border-radius: 4px !important;
-      padding: 1rem !important;
-      margin: 1.5rem 0 !important;
-      overflow: visible !important;
-    }
-    pre.sourceCode {
-      background-color: transparent !important;
-      margin: 0 !important;
-      padding: 0 !important;
-    }
-    code.sourceCode {
-      white-space: pre-wrap !important;
-    }
-    pre > code.sourceCode > span {
-      display: inline-block !important;
-      line-height: 1.25 !important;
-    }
-    /* Standalone code blocks (text, plain code without wrapper) */
-    pre.text,
-    pre[data-role="code-block"]:not(.sourceCode) {
-      position: relative !important;
-      border: 2px solid #000000 !important;
-      background-color: #f5f5f5 !important;
-      border-radius: 4px !important;
-      padding: 1rem !important;
-      margin: 1.5rem 0 !important;
-      overflow: auto !important;
-      white-space: pre-wrap !important;
-    }
-    /* Copy to clipboard button */
-    .copy-button {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      background-color: #0066cc;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      padding: 6px 12px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      z-index: 10;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    .copy-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    }
-    .copy-button:active {
-      transform: translateY(0);
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    }
-    .copy-button.copied {
-      background-color: #28a745;
-    }
-    .copy-button.copied::after {
-      content: " ✓";
-    }
-  </style>
+  <link rel="stylesheet" href="appendix.css">
 </head>
 <body>
 <nav class="appendix-navigation" role="navigation" aria-label="Appendix Navigation">
@@ -511,6 +79,9 @@ Roadmap</a>
 <li><a href="#priority-1-critical-quick-wins"
 id="toc-priority-1-critical-quick-wins">Priority 1: Critical Quick
 Wins</a></li>
+<li><a href="#priority-1.5-protocol-integration-strategy"
+id="toc-priority-1.5-protocol-integration-strategy">Priority 1.5:
+Protocol Integration Strategy</a></li>
 <li><a href="#priority-2-essential-improvements"
 id="toc-priority-2-essential-improvements">Priority 2: Essential
 Improvements</a></li>
@@ -672,6 +243,249 @@ destination information</li>
 before initiating purchases</li>
 </ul>
 <hr />
+<h2 id="priority-1.5-protocol-integration-strategy">Priority 1.5:
+Protocol Integration Strategy</h2>
+<p><strong>When to integrate:</strong> Protocol integration timing
+depends on your exposure level and business priorities. This section
+helps you decide when to integrate commerce protocols (ACP, UCP) versus
+focusing on universal agent-friendly patterns first.</p>
+<p><strong>Critical principle:</strong> Universal patterns (semantic
+HTML, structured data, explicit state management) work for all agents
+regardless of protocol. Implement these first. Protocol integration
+comes after your site is fundamentally agent-navigable.</p>
+<h3 id="integration-timeline-by-exposure-level">Integration Timeline by
+Exposure Level</h3>
+<p><strong>Critical exposure (ad-dependent, agent traffic threatens
+business model):</strong></p>
+<ul>
+<li><strong>Protocol integration:</strong> Not applicable - focus on
+business model diversification first</li>
+<li><strong>Universal patterns:</strong> Immediate (helps humans and
+remaining agent traffic)</li>
+<li><strong>Rationale:</strong> Protocol integration enables
+transactions, but your problem is that agents bypass ads. Fix economics
+before enabling more agent traffic.</li>
+</ul>
+<p><strong>High exposure (transaction-based, competitive pressure,
+agent-hostile patterns):</strong></p>
+<ul>
+<li><strong>Protocol integration:</strong> Q1 2026 (immediate if reading
+this after Q1 2026)</li>
+<li><strong>Universal patterns:</strong> Immediate (Priority 1 from this
+appendix)</li>
+<li><strong>Protocol choice:</strong> One open protocol (ACP or UCP)
+based on traffic sources</li>
+<li><strong>Rationale:</strong> Agent-mediated commerce is processing
+real transactions (Amazon Alexa+, Microsoft Copilot Checkout launched
+January 2026). Waiting risks competitive disadvantage.</li>
+</ul>
+<p><strong>Medium exposure (transaction-based, some agent
+compatibility):</strong></p>
+<ul>
+<li><strong>Protocol integration:</strong> Q2 2026</li>
+<li><strong>Universal patterns:</strong> Q1 2026 (Priority 1 and
+Priority 2)</li>
+<li><strong>Protocol choice:</strong> One open protocol initially,
+evaluate second protocol Q4 2026</li>
+<li><strong>Rationale:</strong> Build foundation first (universal
+patterns), then add transaction capability once patterns are
+stable.</li>
+</ul>
+<p><strong>Low exposure (relationship-based sales, strong brand
+loyalty):</strong></p>
+<ul>
+<li><strong>Protocol integration:</strong> Q3-Q4 2026 or later</li>
+<li><strong>Universal patterns:</strong> Q2 2026 (Priority 1 only)</li>
+<li><strong>Rationale:</strong> Monitor industry adoption, wait for
+protocol convergence or clear winner, focus on fixing obvious usability
+problems first.</li>
+</ul>
+<h3 id="single-protocol-vs.-dual-protocol-decision">Single Protocol
+vs. Dual Protocol Decision</h3>
+<p><strong>Choose one open protocol if:</strong></p>
+<ul>
+<li>Small-to-medium business (under £10M annual revenue)</li>
+<li>Limited engineering resources (fewer than 5 developers)</li>
+<li>Traffic comes primarily from one source (Google Search → UCP;
+ChatGPT users → ACP)</li>
+<li>First-time protocol integration (learn one system before adding
+complexity)</li>
+</ul>
+<p><strong>Support both open protocols if:</strong></p>
+<ul>
+<li>Large enterprise (£50M+ annual revenue)</li>
+<li>Significant engineering capacity</li>
+<li>Traffic sources are diversified (both Google and OpenAI users)</li>
+<li>Agent-mediated commerce expected to exceed 15% of transactions</li>
+</ul>
+<p><strong>Avoid Microsoft proprietary integration unless:</strong></p>
+<ul>
+<li>80%+ of your business is enterprise B2B commerce</li>
+<li>Your customer base is exclusively Windows/Office 365 enterprise
+users</li>
+<li>You have strategic partnership with Microsoft justifying
+lock-in</li>
+</ul>
+<p><strong>Rationale:</strong> Microsoft’s proprietary approach creates
+isolation (see Chapter 9). Even if you eventually support Microsoft,
+integrate at least one open protocol first to avoid vendor lock-in.</p>
+<h3 id="small-business-simplified-path">Small Business Simplified
+Path</h3>
+<p>If you’re a small business without dedicated engineering teams:</p>
+<p><strong>Step 1: Check automatic integration (Week 1)</strong></p>
+<ul>
+<li>Shopify merchants: Verify whether ACP is enabled by default (Shopify
+added ACP support Q4 2024)</li>
+<li>Etsy sellers: ACP integration automatic for all shops</li>
+<li>Other platforms: Check your e-commerce provider’s documentation for
+protocol support</li>
+</ul>
+<p><strong>Step 2: Implement universal patterns (Weeks 2-4)</strong></p>
+<p>Focus on Priority 1 items from this appendix:</p>
+<ul>
+<li>Remove toast notifications, add persistent errors</li>
+<li>Display complete pricing upfront (no “From £99”)</li>
+<li>Add basic Schema.org JSON-LD for products or services</li>
+<li>Verify forms have clear error messages</li>
+</ul>
+<p><strong>Step 3: Monitor platform provider announcements
+(Ongoing)</strong></p>
+<p>Your e-commerce platform will likely choose protocols for you. Follow
+their guidance rather than building custom integration.</p>
+<p><strong>Step 4: Reassess quarterly (Q2, Q3, Q4 2026)</strong></p>
+<p>Check:</p>
+<ul>
+<li>Has your platform added protocol support?</li>
+<li>Has one protocol clearly won market share?</li>
+<li>Have ACP and UCP converged into unified standard?</li>
+<li>What percentage of your traffic comes from agents?</li>
+</ul>
+<p><strong>Timeline:</strong> Q2-Q3 2026 for protocol integration (after
+universal patterns implemented). If your platform doesn’t offer
+simplified integration by Q4 2026, evaluate custom implementation or
+professional audit service.</p>
+<h3 id="enterprise-integration-considerations">Enterprise Integration
+Considerations</h3>
+<p>Large businesses with significant agent exposure should treat
+protocol integration as strategic infrastructure, not optional
+enhancement.</p>
+<p><strong>Build protocol abstraction layers:</strong></p>
+<p>Don’t integrate directly with ACP/UCP in your checkout code. Build an
+abstraction layer:</p>
+<pre class="text" data-role="code-block" data-language="text"><code>Your Checkout Logic
+       ↓
+Protocol Abstraction Layer (swap ACP ↔ UCP without rewriting checkout)
+       ↓
+   ACP Implementation    UCP Implementation</code></pre>
+<p>This enables:</p>
+<ul>
+<li>Swapping protocols if one fails or loses market share</li>
+<li>Adding new protocols without rewriting business logic</li>
+<li>Testing different protocols for conversion rate optimisation</li>
+<li>Migrating if protocols converge into unified standard</li>
+</ul>
+<p><strong>Include agent testing in QA processes:</strong></p>
+<p>Traditional QA tests human interactions (click buttons, fill forms,
+complete checkout). Agent QA tests different patterns:</p>
+<ul>
+<li>Can agents extract product data from structured markup?</li>
+<li>Do validation errors persist long enough for agents to read
+them?</li>
+<li>Can agents determine transaction success from DOM state?</li>
+<li>Do protocol-specific endpoints return correct data formats?</li>
+</ul>
+<p><strong>Track agent traffic separately in analytics:</strong></p>
+<p>Distinguish between:</p>
+<ul>
+<li>Human-initiated transactions (user directly browses and buys)</li>
+<li>Agent-mediated transactions (user delegates task to AI
+assistant)</li>
+</ul>
+<p>This enables measuring protocol-specific conversion rates and
+ROI.</p>
+<p><strong>Implement identity delegation patterns:</strong></p>
+<p>When agents make purchases on users’ behalf, preserve customer
+relationship data. See Chapter 6 for identity delegation patterns and
+security considerations.</p>
+<p><strong>Consider protocol convergence timelines:</strong></p>
+<p>Over-engineering for permanent dual-protocol support may prove
+unnecessary if ACP and UCP merge within 6-12 months (Chapter 9
+analysis). Balance current needs (support both now) with future
+flexibility (architect for convergence).</p>
+<h3 id="testing-and-validation-requirements">Testing and Validation
+Requirements</h3>
+<p><strong>Before deploying protocol integration, verify:</strong></p>
+<p><strong>Authentication flow:</strong></p>
+<ul>
+<li>Users can authenticate through protocol-specific OAuth flow</li>
+<li>Tokens expire appropriately and refresh without user
+re-authentication</li>
+<li>Failed authentication shows clear error message (not generic “Try
+again”)</li>
+</ul>
+<p><strong>Transaction handling:</strong></p>
+<ul>
+<li>Cart creation succeeds with protocol-formatted data</li>
+<li>Inventory checks prevent overselling</li>
+<li>Tax calculation matches your standard checkout process</li>
+<li>Payment processing completes through protocol infrastructure</li>
+<li>Order confirmation provides tracking and order ID</li>
+</ul>
+<p><strong>Error scenarios:</strong></p>
+<ul>
+<li>Out-of-stock items handled gracefully</li>
+<li>Payment failures don’t create orphaned carts</li>
+<li>Network timeouts trigger retry logic, not silent failures</li>
+<li>Protocol version mismatches detected and logged</li>
+</ul>
+<p><strong>Security validation:</strong></p>
+<ul>
+<li>Authentication tokens stored securely (not in URL parameters or
+client-side JavaScript)</li>
+<li>Transaction data encrypted in transit</li>
+<li>User permissions verified (users can only access their own
+transactions)</li>
+<li>Rate limiting prevents abuse</li>
+</ul>
+<h3
+id="platform-agnostic-patterns-before-protocol-specific-integration">Platform-Agnostic
+Patterns Before Protocol-Specific Integration</h3>
+<p><strong>Critical guidance:</strong> Don’t integrate protocols before
+fixing underlying patterns.</p>
+<p>Protocol integration enables secure transactions. But it doesn’t help
+if agents can’t:</p>
+<ul>
+<li>Extract product information (requires structured data)</li>
+<li>Compare options (requires complete pricing upfront)</li>
+<li>Verify transaction success (requires explicit state attributes)</li>
+<li>Handle errors (requires persistent, machine-readable feedback)</li>
+</ul>
+<p><strong>The correct order:</strong></p>
+<ol type="1">
+<li><strong>Universal patterns</strong> (Priority 1 from this appendix)
+- Ensures agents can navigate and understand your site</li>
+<li><strong>Protocol integration</strong> (this section) - Enables
+secure, authenticated transactions</li>
+<li><strong>Advanced optimisation</strong> (Priority 2-4) - Improves
+agent efficiency and conversion rates</li>
+</ol>
+<p>Integrating protocols without fixing patterns is like building a
+secure payment gateway for a site agents can’t read. Technically correct
+but practically useless.</p>
+<h3 id="when-to-evaluate-professional-audit-services">When to Evaluate
+Professional Audit Services</h3>
+<p>Consider professional audit or implementation services if:</p>
+<ul>
+<li>You lack internal expertise in protocol integration</li>
+<li>Your e-commerce platform doesn’t offer simplified integration</li>
+<li>You need dual-protocol support but lack engineering capacity</li>
+<li>You’re unsure which protocol best serves your business model</li>
+<li>You need protocol abstraction architecture guidance</li>
+</ul>
+<p><strong>Timeline:</strong> Q2-Q3 2026 for most businesses. Earlier if
+you’re high-exposure enterprise; later if you’re low-exposure small
+business.</p>
+<hr />
 <h2 id="priority-2-essential-improvements">Priority 2: Essential
 Improvements</h2>
 <p><strong>Effort Level:</strong> Requires coordinated work across
@@ -700,26 +514,26 @@ visible</strong> - Show what’s required before users start
 typing</label></li>
 </ul>
 <p><strong>Example:</strong></p>
-<div class="sourceCode" id="cb3" data-role="code-container"><pre
-class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">form</span><span class="ot"> data-state</span><span class="op">=</span><span class="st">&quot;incomplete&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;form-status&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    Completion: <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;completion&quot;</span><span class="dt">&gt;</span>40%<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    Errors: <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;errors&quot;</span><span class="dt">&gt;</span>2<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">input</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ot">    type</span><span class="op">=</span><span class="st">&quot;email&quot;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ot">    data-validation-state</span><span class="op">=</span><span class="st">&quot;invalid&quot;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="ot">    aria-invalid</span><span class="op">=</span><span class="st">&quot;true&quot;</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="ot">    aria-describedby</span><span class="op">=</span><span class="st">&quot;email-error&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;email-error&quot;</span><span class="ot"> role</span><span class="op">=</span><span class="st">&quot;alert&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    Email format invalid (expected: name@domain.com)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> disabled data-disabled-reason</span><span class="op">=</span><span class="st">&quot;2 validation errors&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    Submit (2 errors remaining)</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">form</span><span class="dt">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb4" data-role="code-container"><pre
+class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">form</span><span class="ot"> data-state</span><span class="op">=</span><span class="st">&quot;incomplete&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;form-status&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    Completion: <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;completion&quot;</span><span class="dt">&gt;</span>40%<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    Errors: <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;errors&quot;</span><span class="dt">&gt;</span>2<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">input</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ot">    type</span><span class="op">=</span><span class="st">&quot;email&quot;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ot">    data-validation-state</span><span class="op">=</span><span class="st">&quot;invalid&quot;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ot">    aria-invalid</span><span class="op">=</span><span class="st">&quot;true&quot;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="ot">    aria-describedby</span><span class="op">=</span><span class="st">&quot;email-error&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;email-error&quot;</span><span class="ot"> role</span><span class="op">=</span><span class="st">&quot;alert&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    Email format invalid (expected: name@domain.com)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> disabled data-disabled-reason</span><span class="op">=</span><span class="st">&quot;2 validation errors&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    Submit (2 errors remaining)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">form</span><span class="dt">&gt;</span></span></code></pre></div>
 <h3 id="content-organization">Content Organization</h3>
 <ul class="task-list">
 <li><label><input type="checkbox" /><strong>Reduce forced
@@ -750,14 +564,14 @@ when to timeout</label></li>
 - “Loading product information…” not just a spinner</label></li>
 </ul>
 <p><strong>Example:</strong></p>
-<div class="sourceCode" id="cb4" data-role="code-container"><pre
-class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> data-load-state</span><span class="op">=</span><span class="st">&quot;loading&quot;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-started</span><span class="op">=</span><span class="st">&quot;2025-01-15T10:30:00Z&quot;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-expected-duration</span><span class="op">=</span><span class="st">&quot;3000&quot;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ot">     role</span><span class="op">=</span><span class="st">&quot;status&quot;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ot">     aria-live</span><span class="op">=</span><span class="st">&quot;polite&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  Loading product information (estimated 3 seconds)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb5" data-role="code-container"><pre
+class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> data-load-state</span><span class="op">=</span><span class="st">&quot;loading&quot;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-started</span><span class="op">=</span><span class="st">&quot;2025-01-15T10:30:00Z&quot;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-expected-duration</span><span class="op">=</span><span class="st">&quot;3000&quot;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ot">     role</span><span class="op">=</span><span class="st">&quot;status&quot;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ot">     aria-live</span><span class="op">=</span><span class="st">&quot;polite&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  Loading product information (estimated 3 seconds)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div>
 <hr />
 <h2 id="priority-3-core-infrastructure">Priority 3: Core
 Infrastructure</h2>
@@ -826,27 +640,27 @@ messages</label></li>
 responses</strong> - JSON with field-level error details</label></li>
 </ul>
 <p><strong>Example:</strong></p>
-<div class="sourceCode" id="cb5" data-role="code-container"><pre
-class="sourceCode javascript"><code class="sourceCode javascript" data-role="code-content"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Successful form submission</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>app<span class="op">.</span><span class="fu">post</span>(<span class="st">&#39;/cart/add&#39;</span><span class="op">,</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> {</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addToCart</span>(req<span class="op">.</span><span class="at">body</span>)<span class="op">;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">redirect</span>(<span class="dv">303</span><span class="op">,</span> <span class="st">&#39;/cart/added?product=123&#39;</span>)<span class="op">;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Validation error</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>app<span class="op">.</span><span class="fu">post</span>(<span class="st">&#39;/checkout&#39;</span><span class="op">,</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> {</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> errors <span class="op">=</span> <span class="fu">validate</span>(req<span class="op">.</span><span class="at">body</span>)<span class="op">;</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (errors<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    res<span class="op">.</span><span class="fu">status</span>(<span class="dv">400</span>)<span class="op">.</span><span class="fu">json</span>({</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>      <span class="dt">error</span><span class="op">:</span> <span class="st">&#39;Validation failed&#39;</span><span class="op">,</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>      <span class="dt">details</span><span class="op">:</span> errors<span class="op">.</span><span class="fu">map</span>(e <span class="kw">=&gt;</span> ({</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="dt">field</span><span class="op">:</span> e<span class="op">.</span><span class="at">field</span><span class="op">,</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        <span class="dt">message</span><span class="op">:</span> e<span class="op">.</span><span class="at">message</span><span class="op">,</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        <span class="dt">code</span><span class="op">:</span> e<span class="op">.</span><span class="at">code</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>      }))</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb6" data-role="code-container"><pre
+class="sourceCode javascript"><code class="sourceCode javascript" data-role="code-content"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Successful form submission</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>app<span class="op">.</span><span class="fu">post</span>(<span class="st">&#39;/cart/add&#39;</span><span class="op">,</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addToCart</span>(req<span class="op">.</span><span class="at">body</span>)<span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">redirect</span>(<span class="dv">303</span><span class="op">,</span> <span class="st">&#39;/cart/added?product=123&#39;</span>)<span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Validation error</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>app<span class="op">.</span><span class="fu">post</span>(<span class="st">&#39;/checkout&#39;</span><span class="op">,</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> {</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> errors <span class="op">=</span> <span class="fu">validate</span>(req<span class="op">.</span><span class="at">body</span>)<span class="op">;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (errors<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    res<span class="op">.</span><span class="fu">status</span>(<span class="dv">400</span>)<span class="op">.</span><span class="fu">json</span>({</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>      <span class="dt">error</span><span class="op">:</span> <span class="st">&#39;Validation failed&#39;</span><span class="op">,</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>      <span class="dt">details</span><span class="op">:</span> errors<span class="op">.</span><span class="fu">map</span>(e <span class="kw">=&gt;</span> ({</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        <span class="dt">field</span><span class="op">:</span> e<span class="op">.</span><span class="at">field</span><span class="op">,</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        <span class="dt">message</span><span class="op">:</span> e<span class="op">.</span><span class="at">message</span><span class="op">,</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        <span class="dt">code</span><span class="op">:</span> e<span class="op">.</span><span class="at">code</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>      }))</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
 <hr />
 <h2 id="priority-4-advanced-features">Priority 4: Advanced Features</h2>
 <p><strong>Effort Level:</strong> Ongoing programme, not a one-time
@@ -1038,22 +852,22 @@ sections</strong> - Open accordions and tabs by default for
 agents</label></li>
 </ul>
 <p><strong>Example:</strong></p>
-<div class="sourceCode" id="cb7" data-role="code-container"><pre
-class="sourceCode css"><code class="sourceCode css" data-role="code-content"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">@media</span> <span class="fu">(</span><span class="kw">prefers-reduced-motion</span><span class="ch">:</span> <span class="dv">reduce</span><span class="fu">)</span> {</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">*,</span> <span class="op">*</span><span class="in">::before</span><span class="op">,</span> <span class="op">*</span><span class="in">::after</span> {</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">animation-duration</span><span class="ch">:</span> <span class="dv">0.01</span><span class="dt">ms</span> <span class="at">!important</span><span class="op">;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">transition-duration</span><span class="ch">:</span> <span class="dv">0.01</span><span class="dt">ms</span> <span class="at">!important</span><span class="op">;</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>body<span class="fu">.agent-mode</span> <span class="op">*</span> {</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">animation-duration</span><span class="ch">:</span> <span class="dv">0</span><span class="dt">ms</span> <span class="at">!important</span><span class="op">;</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">transition-duration</span><span class="ch">:</span> <span class="dv">0</span><span class="dt">ms</span> <span class="at">!important</span><span class="op">;</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>body<span class="fu">.agent-mode</span> <span class="ex">[</span><span class="ss">data-agent-visible</span><span class="ex">]</span> {</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">block</span> <span class="at">!important</span><span class="op">;</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb8" data-role="code-container"><pre
+class="sourceCode css"><code class="sourceCode css" data-role="code-content"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">@media</span> <span class="fu">(</span><span class="kw">prefers-reduced-motion</span><span class="ch">:</span> <span class="dv">reduce</span><span class="fu">)</span> {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">*,</span> <span class="op">*</span><span class="in">::before</span><span class="op">,</span> <span class="op">*</span><span class="in">::after</span> {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">animation-duration</span><span class="ch">:</span> <span class="dv">0.01</span><span class="dt">ms</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">transition-duration</span><span class="ch">:</span> <span class="dv">0.01</span><span class="dt">ms</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>body<span class="fu">.agent-mode</span> <span class="op">*</span> {</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">animation-duration</span><span class="ch">:</span> <span class="dv">0</span><span class="dt">ms</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">transition-duration</span><span class="ch">:</span> <span class="dv">0</span><span class="dt">ms</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>body<span class="fu">.agent-mode</span> <span class="ex">[</span><span class="ss">data-agent-visible</span><span class="ex">]</span> {</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">block</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h3 id="version-management">Version Management</h3>
 <ul class="task-list">
 <li><label><input type="checkbox" /><strong>Version your HTML</strong> -
