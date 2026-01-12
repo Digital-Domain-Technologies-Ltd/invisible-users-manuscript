@@ -860,7 +860,7 @@ Not standardised yet, but the pattern is emerging across platforms.
 
 ### Commerce Protocol Fragmentation
 
-**Timeline Note (January 2026):** As Chapter 9 documents, three major platforms launched agent commerce systems within seven days - and they chose different approaches. Two platforms (OpenAI/Stripe and Google) launched open protocols (ACP and UCP respectively). Microsoft launched a proprietary closed system (Copilot Checkout).
+**As of January 2026:** As Chapter 9 documents, three major platforms launched agent commerce systems within seven days - and they chose different approaches. Two platforms (OpenAI/Stripe and Google) launched open protocols (ACP and UCP respectively). Microsoft launched a proprietary closed system (Copilot Checkout).
 
 **The challenge:** Two open protocols is better than five proprietary systems, but worse than one universal standard.
 

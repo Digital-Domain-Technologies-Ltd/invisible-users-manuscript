@@ -2968,7 +2968,7 @@ You also need to understand the business tensions from Chapter 4, the security c
 
 ### Platform Competition and Protocol Fragmentation
 
-**Timeline update (January 2026):** As Chapter 9 documents, three major platforms launched agent commerce systems within seven days. The competitive landscape is now defined:
+**As of January 2026:** As Chapter 9 documents, three major platforms launched agent commerce systems within seven days. The competitive landscape is now defined:
 
 - **OpenAI/Stripe:** Agentic Commerce Protocol (ACP) - open standard, 1M+ merchants
 - **Google:** Universal Commerce Protocol (UCP) - open standard, 20+ major retailers

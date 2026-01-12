@@ -1319,7 +1319,7 @@ That's how we build a web that works for everyone - human and machine alike.
 
 ## Open Protocol Reality: The Platform Race
 
-**Timeline update (January 2026):** This chapter was written before the platform race accelerated. In January 2026, three major platforms launched agent commerce systems within seven days, fundamentally changing the competitive landscape. Chapter 9 documents this seven-day acceleration in detail - this section updates the identity delegation discussion with post-launch reality.
+**As of January 2026:** Three major platforms launched agent commerce systems within seven days, fundamentally changing the competitive landscape for identity delegation. Chapter 9 documents this seven-day acceleration in detail - this section examines the implications for agent creators.
 
 ### What Actually Happened
 
