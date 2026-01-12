@@ -24,6 +24,7 @@ body {
   padding-right: 50px;
   padding-top: 50px;
   padding-bottom: 50px;
+  -webkit-hyphens: auto;
   hyphens: auto;
   overflow-wrap: break-word;
   text-rendering: optimizeLegibility;
@@ -112,6 +113,7 @@ code {
   font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
   font-size: 85%;
   margin: 0;
+  -webkit-hyphens: manual;
   hyphens: manual;
 }
 
@@ -209,7 +211,11 @@ ul.task-list li input[type="checkbox"] {
    SYNTAX HIGHLIGHTING
    ============================================ */
 
-html { -webkit-text-size-adjust: 100%; }
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
