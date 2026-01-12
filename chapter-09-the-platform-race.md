@@ -30,7 +30,7 @@ This chapter examines what happened in that remarkable week, what it means for t
 
 Three platforms. Seven days. Each betting billions that this is how commerce will work.
 
-But they chose radically different approaches.
+But they chose different approaches.
 
 ---
 
