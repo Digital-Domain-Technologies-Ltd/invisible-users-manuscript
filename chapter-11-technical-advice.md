@@ -207,7 +207,7 @@ Web Audit Suite generates comprehensive reports covering:
 ```bash
 # Install
 git clone https://github.com/ddttom/invisible-users.git
-cd invisible-users/web-audit-suite
+cd invisible-users/packages/web-audit-suite
 npm install
 
 # Audit your homepage

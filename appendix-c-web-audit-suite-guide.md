@@ -6,7 +6,7 @@ Complete guide to auditing your website for AI agent compatibility using Web Aud
 
 ```bash
 git clone https://github.com/ddttom/invisible-users.git
-cd invisible-users/web-audit-suite
+cd invisible-users/packages/web-audit-suite
 npm install
 ```
 
@@ -498,12 +498,12 @@ jobs:
       - name: Install Web Audit Suite
         run: |
           git clone https://github.com/ddttom/invisible-users.git
-          cd invisible-users/web-audit-suite
+          cd invisible-users/packages/web-audit-suite
           npm install
 
       - name: Run Audit
         run: |
-          cd invisible-users/web-audit-suite
+          cd invisible-users/packages/web-audit-suite
           npm start -- -s https://example.com/sitemap.xml -c -1 \
             --enable-history \
             --generate-dashboard
@@ -521,7 +521,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: audit-results
-          path: invisible-users/web-audit-suite/results/
+          path: invisible-users/packages/web-audit-suite/results/
 ```
 
 ## Interpreting Specific Issues
