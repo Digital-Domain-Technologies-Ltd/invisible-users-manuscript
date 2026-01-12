@@ -8,7 +8,7 @@ Modern websites follow recognisable patterns. Home pages welcome visitors. About
 
 These familiar structures create an opportunity: when you implement them correctly once, with AI-friendly patterns built in from the start, every page benefits both humans and agents.
 
-This appendix provides complete, production-ready HTML for eight common page types. Each example demonstrates:
+This appendix provides complete, production-ready HTML for twenty common page types. Each example demonstrates:
 
 - **Semantic HTML structure** — Using `<main>`, `<nav>`, `<article>`, `<section>` to convey meaning
 - **Schema.org JSON-LD** — Machine-readable structured data specific to the page type
@@ -1766,9 +1766,620 @@ The article page presents comprehensive technical documentation or case studies.
 
 ---
 
+## 14. Event/Webinar Page: Live Presentation Registration
+
+The event page promotes webinars, workshops, or live presentations. For AI agents, it needs Event schema with dates, times, location details, and registration information.
+
+**AI-friendly patterns demonstrated:**
+
+- Event schema with startDate, endDate, and eventStatus
+- VirtualLocation with registration URL
+- Clear event details with timezone information
+- Organizer and offers information
+- Recording availability noted explicitly
+
+```html
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webinar: The Platform Race | The Invisible Users</title>
+  <meta name="ai-preferred-access" content="html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "The Platform Race: How Three Tech Giants Launched Agent Commerce in Seven Days",
+    "description": "Free webinar examining how Amazon, Google, and Microsoft launched AI agent commerce systems in January 2026, with practical guidance for making websites compatible with AI agents",
+    "startDate": "2026-01-21T14:00:00Z",
+    "endDate": "2026-01-21T15:30:00Z",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+    "location": {
+      "@type": "VirtualLocation",
+      "url": "https://www.boye-co.com/blog/2026/1/websites-work-until-dont"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "Tom Cranstoun",
+      "url": "https://allabout.network/tom-cranstoun.html",
+      "email": "tom.cranstoun@gmail.com"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "GBP",
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.boye-co.com/blog/2026/1/websites-work-until-dont"
+    },
+    "datePublished": "2026-01-11",
+    "dateModified": "2026-01-11",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://allabout.network/invisible-users/web/event.html"
+    },
+    "inLanguage": "en-GB",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://allabout.network/invisible-users/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Event",
+          "item": "https://allabout.network/invisible-users/web/event.html"
+        }
+      ]
+    },
+    "image": "https://allabout.network/images/event.jpg"
+  }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header><h1>The Platform Race: How Three Tech Giants Launched Agent Commerce in Seven Days</h1><p>Free webinar with Tom Cranstoun</p></header>
+  <main class="container" role="main" data-event-id="webinar-jan-2026">
+    <div class="event-details">
+      <p><strong>Date:</strong> Wednesday, 21 January 2026</p>
+      <p><strong>Time:</strong> 14:00 GMT (15:00 CET, 09:00 EST)</p>
+      <p><strong>Format:</strong> Online webinar (20-minute presentation + Q&A)</p>
+      <p><strong>Cost:</strong> Free</p>
+      <p><strong>Recording:</strong> Available to registered attendees</p>
+      <p style="margin-top: 1.5rem;"><a href="https://www.boye-co.com/blog/2026/1/websites-work-until-dont" class="btn">Register Now</a></p>
+    </div>
+    <h2>The Platform Race Context</h2>
+    <p>In seven days this January, Amazon, Microsoft, and Google launched AI agent commerce systems. Each bet billions on agents mediating online shopping - but they chose opposite strategies.</p>
+    <p>Google and OpenAI went open (any merchant, any agent). Microsoft went closed (Microsoft only). When Target and Walmart - fierce competitors - endorse the same open protocol, it signals where the industry is heading.</p>
+    <p>The timeline just compressed. When an agent fails to navigate your site, it silently excludes you from recommendations. You lose thousands of potential customers who never knew you existed.</p>
+    <h2>What You'll Learn</h2>
+    <ul>
+      <li>How design decisions based on visual intuition create barriers for browser assistants</li>
+      <li>Why machine-driven failures mirror accessibility gaps</li>
+      <li>Practical technical changes for AI agent compatibility</li>
+      <li>Real examples from the platform race and business implications</li>
+    </ul>
+  </main>
+  <footer><p>&copy; 2026 Tom Cranstoun. All rights reserved.</p></footer>
+  <a href="index.html" class="floating-home-button">Home</a>
+  <a href="#" class="floating-top-button">Top</a>
+  <script src="js/common.js"></script>
+</body>
+</html>
+```
+
+---
+
+## 15. Login Page: User Authentication
+
+The login page provides user authentication. For AI agents, it needs proper form field naming, clear state attributes, and semantic form structure.
+
+**AI-friendly patterns demonstrated:**
+
+- Standard field names (email, password) with autocomplete attributes
+- Form with data-state attribute for explicit state management
+- Proper data-form-type attribute
+- ARIA required attributes
+- Clear link to registration or password recovery
+
+```html
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | The Invisible Users</title>
+  <meta name="ai-preferred-access" content="html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Sign In",
+    "description": "User authentication page",
+    "url": "https://allabout.network/invisible-users/web/login.html",
+    "datePublished": "2026-01-11",
+    "dateModified": "2026-01-11",
+    "inLanguage": "en-GB",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://allabout.network/invisible-users/web/login.html"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://allabout.network/invisible-users/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Login",
+          "item": "https://allabout.network/invisible-users/web/login.html"
+        }
+      ]
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="login-container" role="main" data-form-type="login">
+    <h1>Sign In</h1>
+    <form action="/login" method="POST" data-state="ready">
+      <div class="form-field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required aria-required="true" autocomplete="email">
+      </div>
+      <div class="form-field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required aria-required="true" autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn">Sign In</button>
+    </form>
+    <p style="text-align: center; margin-top: 1.5rem; color: #6b7280;">
+      Don't have an account? <a href="contact.html" style="color: #2563eb;">Contact us</a>
+    </p>
+  </main>
+  <a href="index.html" class="floating-home-button">Home</a>
+  <script src="js/common.js"></script>
+</body>
+</html>
+```
+
+---
+
+## 16. Checkout Page: E-Commerce Transaction
+
+The checkout page handles purchase completion. For AI agents, it needs CheckoutPage schema, clear form fields with standard naming, explicit checkout step indicators, and order summary data.
+
+**AI-friendly patterns demonstrated:**
+
+- CheckoutPage schema type
+- Multi-step checkout with data-checkout-step and data-total-steps attributes
+- Standard form field names (fullName, email, address1)
+- Order summary with data-order-total attribute
+- Clear data-form-type attribute
+
+```html
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | The Invisible Users</title>
+  <meta name="ai-preferred-access" content="html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CheckoutPage",
+    "name": "Checkout",
+    "datePublished": "2026-01-11",
+    "dateModified": "2026-01-11",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://allabout.network/invisible-users/web/checkout.html"
+    },
+    "inLanguage": "en-GB",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://allabout.network/invisible-users/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Checkout",
+          "item": "https://allabout.network/invisible-users/web/checkout.html"
+        }
+      ]
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header><h1>Checkout</h1></header>
+  <main class="container" role="main" data-checkout-step="1" data-total-steps="3">
+    <div class="checkout-grid">
+      <form data-form-type="checkout">
+        <h2>Billing Information</h2>
+        <div class="form-field">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" required>
+        </div>
+        <div class="form-field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-field">
+          <label for="address1">Address Line 1</label>
+          <input type="text" id="address1" name="address1" required>
+        </div>
+        <button type="submit" class="btn">Continue to Payment</button>
+      </form>
+      <aside class="order-summary" data-order-total="TBD">
+        <h3>Order Summary</h3>
+        <p style="margin: 1rem 0;"><strong>The Invisible Users</strong></p>
+        <p>Subtotal: Contact for pricing</p>
+        <p style="margin-top: 1.5rem; font-size: 1.25rem; font-weight: 700;">Total: TBD</p>
+      </aside>
+    </div>
+  </main>
+  <footer><p>&copy; 2026 Tom Cranstoun. All rights reserved.</p></footer>
+  <a href="index.html" class="floating-home-button">Home</a>
+  <script src="js/common.js"></script>
+</body>
+</html>
+```
+
+---
+
+## 17. Search Results Page: Query Results Display
+
+The search results page displays query results. For AI agents, it needs SearchResultsPage schema, explicit result count and query data, and clear result positioning.
+
+**AI-friendly patterns demonstrated:**
+
+- SearchResultsPage schema type
+- data-search-results and data-search-query attributes
+- Each result with data-result-position attribute
+- Search box with role="search" and proper aria-label
+- Result count explicitly stated in text
+
+```html
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results | The Invisible Users</title>
+  <meta name="ai-preferred-access" content="html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SearchResultsPage",
+    "name": "Search Results",
+    "datePublished": "2026-01-11",
+    "dateModified": "2026-01-11",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://allabout.network/invisible-users/web/search.html"
+    },
+    "inLanguage": "en-GB",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://allabout.network/invisible-users/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Search",
+          "item": "https://allabout.network/invisible-users/web/search.html"
+        }
+      ]
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header><h1>Search Results</h1></header>
+  <main class="container" role="main" data-search-results="3" data-search-query="AI agents">
+    <div class="search-box" role="search">
+      <input type="search" name="q" placeholder="Search..." value="AI agents" aria-label="Search">
+    </div>
+    <p style="margin: 2rem 0; color: #6b7280;">Found 3 results for "AI agents"</p>
+    <article class="search-result" data-result-position="1">
+      <h3><a href="index.html">The Invisible Users - Home</a></h3>
+      <p>A practical guide to designing websites that work for AI agents and everyone else...</p>
+    </article>
+    <article class="search-result" data-result-position="2">
+      <h3><a href="blog-post.html">Why Modern Forms Break AI Agents</a></h3>
+      <p>Examining how modern web forms fail for AI agents and providing practical patterns...</p>
+    </article>
+    <article class="search-result" data-result-position="3">
+      <h3><a href="collection.html">Appendices Collection</a></h3>
+      <p>Complete collection of appendices providing implementation guidance for AI-friendly web design...</p>
+    </article>
+  </main>
+  <footer><p>&copy; 2026 Tom Cranstoun. All rights reserved.</p></footer>
+  <a href="index.html" class="floating-home-button">Home</a>
+  <script src="js/common.js"></script>
+</body>
+</html>
+```
+
+---
+
+## 18. Portfolio/Case Studies Page: Project Showcase
+
+The portfolio page showcases case studies and project examples. For AI agents, it needs CollectionPage schema with clear project data attributes.
+
+**AI-friendly patterns demonstrated:**
+
+- CollectionPage schema type
+- Each case study with data-case-study-id attribute
+- Clear structure: Challenge, Solution, Result
+- Links to detailed case studies
+- Descriptive image attributes
+
+```html
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Studies | The Invisible Users</title>
+  <meta name="ai-preferred-access" content="html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Case Studies",
+    "description": "Real-world examples of AI-friendly web implementation",
+    "datePublished": "2026-01-11",
+    "dateModified": "2026-01-11",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://allabout.network/invisible-users/web/portfolio.html"
+    },
+    "inLanguage": "en-GB",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://allabout.network/invisible-users/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Portfolio",
+          "item": "https://allabout.network/invisible-users/web/portfolio.html"
+        }
+      ]
+    },
+    "image": "https://allabout.network/images/portfolio.jpg"
+  }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header><h1>Case Studies</h1><p>Real-world AI-friendly implementations</p></header>
+  <main class="container" role="main">
+    <article class="case-study" data-case-study-id="pipeline-failure">
+      <h2>£20M+ Pipeline Failure Analysis</h2>
+      <p><strong>Challenge:</strong> AI agents unable to complete purchase flow</p>
+      <p><strong>Solution:</strong> Implemented semantic HTML, explicit state attributes, and persistent error messages</p>
+      <p><strong>Result:</strong> 100% agent success rate after implementation</p>
+      <p><a href="article.html">Read full case study →</a></p>
+    </article>
+  </main>
+  <footer><p>&copy; 2026 Tom Cranstoun. All rights reserved.</p></footer>
+  <a href="index.html" class="floating-home-button">Home</a>
+  <a href="#" class="floating-top-button">Top</a>
+  <script src="js/common.js"></script>
+</body>
+</html>
+```
+
+---
+
+## 19. Team Page: Staff Profiles
+
+The team page introduces staff members. For AI agents, it needs ProfilePage schema with Person entities and clear member data attributes.
+
+**AI-friendly patterns demonstrated:**
+
+- ProfilePage schema with Person mainEntity
+- Each team member with data-person-id attribute
+- Person schema with jobTitle, email, and social links
+- Structured contact information
+- Professional credentials when relevant
+
+```html
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team | The Invisible Users</title>
+  <meta name="ai-preferred-access" content="html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Tom Cranstoun",
+      "jobTitle": "Author and Software Consultant",
+      "email": "tom.cranstoun@gmail.com",
+      "url": "https://allabout.network/tom-cranstoun.html",
+      "image": "https://allabout.network/images/tom-cranstoun.jpg"
+    },
+    "datePublished": "2026-01-11",
+    "dateModified": "2026-01-11",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://allabout.network/invisible-users/web/team.html"
+    },
+    "inLanguage": "en-GB",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://allabout.network/invisible-users/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Team",
+          "item": "https://allabout.network/invisible-users/web/team.html"
+        }
+      ]
+    },
+    "image": "https://allabout.network/images/team.jpg"
+  }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header><h1>Our Team</h1></header>
+  <main class="container" role="main">
+    <article class="team-member" data-person-id="tom-cranstoun">
+      <h2>Tom Cranstoun</h2>
+      <p><strong>Author and Software Consultant</strong></p>
+      <p>Tom is a software consultant specialising in web systems that work reliably for both humans and AI agents. Author of "The Invisible Users: Designing the Web for AI Agents and Everyone Else".</p>
+      <p><a href="mailto:tom.cranstoun@gmail.com">tom.cranstoun@gmail.com</a> | <a href="https://www.linkedin.com/in/tom-cranstoun/">LinkedIn</a></p>
+    </article>
+  </main>
+  <footer><p>&copy; 2026 Tom Cranstoun. All rights reserved.</p></footer>
+  <a href="index.html" class="floating-home-button">Home</a>
+  <a href="#" class="floating-top-button">Top</a>
+  <script src="js/common.js"></script>
+</body>
+</html>
+```
+
+---
+
+## 20. Testimonials Page: Customer Reviews
+
+The testimonials page displays customer reviews and ratings. For AI agents, it needs Review schema with proper rating data and reviewer information.
+
+**AI-friendly patterns demonstrated:**
+
+- CreativeWork schema with review array
+- Review entities with reviewRating
+- Each testimonial with data-rating and data-reviewer attributes
+- Rating display (both visual stars and numeric value)
+- Reviewer attribution with role/title
+
+```html
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonials | The Invisible Users</title>
+  <meta name="ai-preferred-access" content="html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "The Invisible Users",
+    "review": [
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "Sample Reader"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "reviewBody": "Essential reading for anyone building modern web applications. The patterns are practical and immediately applicable."
+      }
+    ],
+    "datePublished": "2026-01-11",
+    "dateModified": "2026-01-11",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://allabout.network/invisible-users/web/testimonials.html"
+    },
+    "inLanguage": "en-GB",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://allabout.network/invisible-users/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Testimonials",
+          "item": "https://allabout.network/invisible-users/web/testimonials.html"
+        }
+      ]
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header><h1>What Readers Say</h1><p>Testimonials from web professionals and developers</p></header>
+  <main class="container" role="main">
+    <article class="testimonial" data-rating="5" data-reviewer="sample-reader">
+      <div class="rating">★★★★★</div>
+      <p class="testimonial-text">"Essential reading for anyone building modern web applications. The patterns are practical and immediately applicable to real-world projects."</p>
+      <p class="testimonial-author">— Sample Reader, Web Developer</p>
+    </article>
+    <article class="testimonial" data-rating="5" data-reviewer="sample-professional">
+      <div class="rating">★★★★★</div>
+      <p class="testimonial-text">"Finally, a comprehensive guide that explains both the why and the how. The code examples are production-ready and the implementation roadmap is invaluable."</p>
+      <p class="testimonial-author">— Sample Professional, Software Architect</p>
+    </article>
+  </main>
+  <footer><p>&copy; 2026 Tom Cranstoun. All rights reserved.</p></footer>
+  <a href="index.html" class="floating-home-button">Home</a>
+  <a href="#" class="floating-top-button">Top</a>
+  <script src="js/common.js"></script>
+</body>
+</html>
+```
+
+---
+
 ## Conclusion
 
-These eight page patterns demonstrate how to build AI-friendly websites that work universally. Each pattern combines:
+These twenty page patterns demonstrate how to build AI-friendly websites that work universally. Each pattern combines:
 
 - **Semantic HTML** — Conveying meaning through structure, not just styling
 - **Schema.org JSON-LD** — Providing machine-readable structured data
