@@ -21,8 +21,8 @@ if ! git diff-index --quiet HEAD --; then
 fi
 
 echo "ℹ️  Reminder: After pushing manuscript changes, update submodule pointer in parent repository:"
-echo "  cd ../.."
-echo "  git add invisible-users/manuscript"
+echo "  cd ../../.."
+echo "  git add packages/manuscript/manuscript"
 echo "  git commit -m 'Update manuscript submodule to latest version'"
 echo "  git push origin main"
 echo ""
