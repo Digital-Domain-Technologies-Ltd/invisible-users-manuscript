@@ -26,7 +26,7 @@ All examples share the same foundational structure:
 - HTML5 DOCTYPE with British English (`lang="en-GB"`)
 - Character encoding and viewport meta tags
 - Author and description metadata
-- AI-specific meta tags (proposed pattern from Chapter 10)
+- AI-specific meta tags (proposed pattern from Chapter 11)
 - Appropriate Schema.org JSON-LD for the page type
 
 **CSS approach:**
@@ -129,7 +129,7 @@ The home page is your digital storefront. It must immediately communicate what y
   <meta name="author" content="Tom Cranstoun">
   <meta name="description" content="The Invisible Users - A practical guide to designing websites that work for AI agents and everyone else. Learn AI-friendly patterns, accessibility best practices, and future-proof implementation strategies.">
 
-  <!-- AI-specific meta tags (proposed pattern from Chapter 10) -->
+  <!-- AI-specific meta tags (proposed pattern from Chapter 11) -->
   <meta name="ai-preferred-access" content="html">
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
@@ -259,7 +259,7 @@ The home page is your digital storefront. It must immediately communicate what y
 
         <article class="audience-card" data-audience="agent-builders">
           <h3>Agent System Developers</h3>
-          <p>Engineers building AI agents that need to browse websites reliably. Chapter 11 provides validation frameworks and confidence scoring patterns.</p>
+          <p>Engineers building AI agents that need to browse websites reliably. Chapter 12 provides validation frameworks and confidence scoring patterns.</p>
         </article>
 
         <article class="audience-card" data-audience="business-leaders">
