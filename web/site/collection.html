@@ -25,7 +25,8 @@
     "url": "https://allabout.network/invisible-users/web/appendix-index.html",
     "author": {
       "@type": "Person",
-      "name": "Tom Cranstoun"
+      "name": "Tom Cranstoun",
+      "image": "https://allabout.network/images/tom-cranstoun.jpg"
     },
     "isPartOf": {
       "@type": "Book",
@@ -137,192 +138,34 @@
         }
       ]
     },
-    "inLanguage": "en-GB"
+    "inLanguage": "en-GB",
+    "datePublished": "2026-01-11",
+    "dateModified": "2026-01-11",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://allabout.network/invisible-users/web/collection.html"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://allabout.network/invisible-users/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Collection",
+          "item": "https://allabout.network/invisible-users/web/collection.html"
+        }
+      ]
+    },
+    "image": "https://allabout.network/images/collection.jpg"
   }
   </script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #1f2937;
-      background: #ffffff;
-    }
-
-    header {
-      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-      color: white;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-    }
-
-    header p {
-      font-size: 1.25rem;
-      color: #e0e7ff;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-    }
-
-    .category-section {
-      margin-bottom: 4rem;
-    }
-
-    .category-section h2 {
-      font-size: 1.75rem;
-      color: #1e40af;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #3b82f6;
-    }
-
-    .appendix-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 2rem;
-    }
-
-    .appendix-card {
-      background: #f9fafb;
-      border: 2px solid #e5e7eb;
-      border-radius: 8px;
-      padding: 2rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .appendix-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-      border-color: #3b82f6;
-    }
-
-    .appendix-card h3 {
-      font-size: 1.25rem;
-      color: #1e40af;
-      margin-bottom: 0.5rem;
-    }
-
-    .appendix-card .letter {
-      display: inline-block;
-      background: #3b82f6;
-      color: white;
-      width: 32px;
-      height: 32px;
-      line-height: 32px;
-      text-align: center;
-      border-radius: 6px;
-      font-weight: 700;
-      margin-right: 0.5rem;
-    }
-
-    .appendix-card p {
-      color: #4b5563;
-      margin: 1rem 0;
-      font-size: 0.95rem;
-    }
-
-    .appendix-card a {
-      display: inline-block;
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 600;
-      margin-top: 1rem;
-    }
-
-    .appendix-card a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      background: #f9fafb;
-      border-top: 1px solid #e5e7eb;
-      padding: 2rem;
-      text-align: center;
-      margin-top: 4rem;
-    }
-
-    footer p {
-      color: #6b7280;
-      margin: 0.25rem 0;
-    }
-
-    .contact-links {
-      margin: 1.5rem 0;
-    }
-
-    .contact-links a {
-      color: #2563eb;
-      margin: 0 1rem;
-      text-decoration: none;
-    }
-
-    .contact-links a:hover {
-      text-decoration: underline;
-    }
-
-    .floating-home-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
-
-    .floating-home-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-
-    .floating-top-button {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #0066cc;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-      cursor: pointer;
-    }
-
-    .floating-top-button:hover {
-      background-color: #003d7a;
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 768px) {
-      .appendix-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
@@ -427,6 +270,7 @@
   </footer>
 
   <a href="index.html" class="floating-home-button" aria-label="Back to Home">Home</a>
-  <a href="#" class="floating-top-button" aria-label="Back to Top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Top</a>
+  <a href="#" class="floating-top-button" aria-label="Back to Top">Top</a>
+  <script src="js/common.js"></script>
 </body>
 </html>
