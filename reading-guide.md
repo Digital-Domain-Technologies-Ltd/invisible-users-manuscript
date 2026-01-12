@@ -111,7 +111,7 @@ You're building AI agents, browser extensions, or agentic systems that interact 
 - Chapter 4: The Business Reality (commercial pressures affecting website design)
 - Chapter 6: The Security Maze (authentication challenges for agents)
 
-Focus on the £203,000 cruise pricing case study (Appendix I) - it demonstrates exactly why validation layers, comparative analysis, and confidence scoring are essential. Your agents will encounter malformed data, ambiguous HTML, and incomplete information. Chapter 11 provides the frameworks to handle these gracefully.
+Focus on the £203,000 cruise pricing case study (Appendix I) - it demonstrates exactly why validation layers, comparative analysis, and confidence scoring are essential. Your agents will encounter malformed data, ambiguous HTML, and incomplete information. Chapter 12 provides the frameworks to handle these gracefully.
 
 **Reading approach:** Targeted reading
 
@@ -128,7 +128,7 @@ You need to determine if this matters for your business and what to do about it.
 
 **Focus on:**
 
-- Small business sections in Chapter 9 (practical actions)
+- Small business sections in Chapter 10 (practical actions)
 
 **Optional:**
 
