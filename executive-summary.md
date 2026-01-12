@@ -43,6 +43,42 @@ This represents a fundamental shift: agents aren't just reading static HTML anym
 - Services requiring in-person consultation
 - Businesses with established customer bases not dependent on discovery
 
+## "But We're Not End Users—Why Does This Matter to Us?"
+
+**For CMS providers, e-commerce platforms, and infrastructure vendors:**
+
+If you provide content management systems, e-commerce platforms, payment gateways, or web development frameworks, you might initially think: "Our clients face this problem, but we don't. We're infrastructure, not end users."
+
+This is the most dangerous misunderstanding in the entire book.
+
+**The customer churn vector you're not seeing:**
+
+Your clients' websites are already being accessed by AI agents. When agents can't extract structured data (because your platform doesn't make it trivial to output semantic HTML, Schema.org JSON-LD, or llms.txt files), those clients get filtered out of agent recommendations. They lose business silently. No analytics spike. No error logs. No user complaints. Just invisible exclusion.
+
+Your client eventually wonders why traffic is down and revenue is stagnant. They don't blame the agents. They blame their website. And they blame their platform.
+
+**The competitive moat opportunity:**
+
+CMSs and platforms that make agent compatibility automatic—with Schema.org templates built into content models, automatic llms.txt generation from content taxonomies, and protocol abstraction layers (ACP, UCP, future standards)—become indispensable. Platforms that don't make this trivial create a customer retention risk.
+
+Your clients already output Schema.org structured data for SEO. They're already committed to structured data. The same patterns that help with Google Search rankings are exactly what AI agents need. A platform that makes this trivial becomes a competitive advantage. A platform that makes it difficult becomes a migration trigger.
+
+**The sales narrative writes itself:**
+
+"Your customers' customers use AI agents to research and transact. Agents can't navigate websites built without semantic structure. Our platform makes agent compatibility automatic—your customers find you through agents, agents can complete transactions reliably, and you get the revenue. Competitors using other platforms lose this business silently."
+
+**This applies to:**
+
+- **Content Management Systems (WordPress, Contentful, Kontent.ai, Sanity):** Your clients need llms.txt generation, Schema.org templates, and semantic HTML output
+- **E-commerce platforms (Shopify, WooCommerce, Magento):** Your merchants need ACP/UCP protocol support and structured product data
+- **Payment gateways (Stripe, Square, PayPal):** Agent-mediated transactions need identity delegation patterns (Chapter 12)
+- **Web frameworks (Next.js, Nuxt, Gatsby):** Developers need agent-compatibility templates and testing tools
+- **Hosting platforms (Vercel, Netlify, Cloudflare):** Edge functions could validate llms.txt and inject missing structured data
+
+**Chapter 9 documents the urgency:** Amazon, Microsoft, and Google launched agent commerce simultaneously in January 2026. This wasn't coordination—it was competitive necessity. Platforms now control distribution like Google Search did in the 2000s. Infrastructure vendors that abstract protocol complexity and make agent compatibility automatic become indispensable. Those that don't become legacy systems.
+
+If you're a platform vendor reading this, Chapters 9, 10, and 12 are essential reading. This isn't about your clients' commerce use cases. It's about your competitive positioning and customer retention.
+
 ## What to Do About It
 
 ### Priority 1: Quick Assessment
