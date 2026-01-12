@@ -348,9 +348,53 @@
         font-size: 0.85rem;
       }
     }
+
+    /* Floating reviewer badge */
+    .floating-reviewer-badge {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      animation: gentle-pulse 2s ease-in-out infinite;
+    }
+    @keyframes gentle-pulse {
+      0%, 100% {
+        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+      }
+      50% {
+        box-shadow: 0 6px 16px rgba(220, 38, 38, 0.5);
+      }
+    }
+    .floating-reviewer-badge::before {
+      content: "📋";
+      font-size: 1.2rem;
+    }
+    @media (max-width: 768px) {
+      .floating-reviewer-badge {
+        top: 15px;
+        right: 15px;
+        padding: 8px 16px;
+        font-size: 0.8rem;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- For Reviewers badge -->
+  <div class="floating-reviewer-badge" role="status" aria-label="Review Copy">
+    For Reviewers - Q1 2026
+  </div>
+
   <header role="banner">
     <h1>The Invisible Users</h1>
     <p class="subtitle">Designing the Web for AI Agents and Everyone Else</p>
@@ -393,6 +437,14 @@
         <div class="resource-card" data-audience="developers">
           <h3>Web Professionals & Engineers</h3>
           <p>The full digital team: developers, system architects, product owners, project managers, UX designers, content strategists, and QA engineers. Find technical patterns, code examples, prioritisation frameworks, and testing approaches for agent compatibility.</p>
+        </div>
+        <div class="resource-card" data-audience="product-owners">
+          <h3>Product Owners</h3>
+          <p>Balance business objectives with technical implementation realities. Chapters 1-5, 9, and 10 provide decision frameworks, ROI analysis, and prioritisation guidance with concrete failure pattern examples for building your business case.</p>
+        </div>
+        <div class="resource-card" data-audience="content-managers">
+          <h3>Content Managers & Strategists</h3>
+          <p>Learn how agent-friendly content structure differs from human-optimised content. Focus on Schema.org structured data, semantic HTML, llms.txt files, and agent-friendly authoring patterns in Chapters 1, 2, 3, 5, 10, and 11.</p>
         </div>
         <div class="resource-card" data-audience="agent-developers">
           <h3>Agent System Developers</h3>
