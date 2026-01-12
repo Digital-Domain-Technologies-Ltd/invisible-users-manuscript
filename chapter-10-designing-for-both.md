@@ -453,6 +453,8 @@ An agent visiting `https://example.com/products/wireless-headphones` sees immedi
 
 Most businesses should start with optimised HTML (it's cheaper and helps SEO) and add APIs later if demand justifies it.
 
+**Critical note about existing APIs:** If you already expose an API—even a simple one—ensure it provides equivalent or superior access to your HTML interface. The most costly mistakes occur when teams optimize HTML for agents whilst leaving APIs degraded. Agents using your API will receive inferior data (incomplete pricing, paginated results, missing structured format) compared to agents scraping your improved HTML. This inconsistency creates unpredictable agent behaviour and undermines your optimization work. See Appendix B (Lesson 13: "API and Web UI Out of Sync") for production failures where exactly this happened.
+
 ## Identity Delegation Patterns
 
 Chapter 4 described how agents sever customer relationships. When designing agent-friendly interfaces, you'll need to consider identity delegation.

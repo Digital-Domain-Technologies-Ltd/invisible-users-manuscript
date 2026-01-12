@@ -98,6 +98,8 @@ This isn't a security vulnerability being exploited. It's a productivity feature
 
 They're right about the productivity. They're describing exactly the authentication inheritance that makes detection impossible.
 
+This setup is no longer theoretical. Claude for Chrome (launched December 2025) provides exactly this capability to all paid subscribers - browser automation with full session inheritance. See Appendix J (Claude for Chrome) for production details.
+
 ### Why Detection Fails
 
 Banks invest heavily in detecting unauthorised access. They track IP addresses, device fingerprints, behavioural patterns, login locations, and transaction velocity. Sophisticated machine learning models detect anomalies that may indicate account takeover.
@@ -113,6 +115,8 @@ None of this works for in-browser AI because:
 **Nothing to detect.** From the bank's perspective, you're simply browsing your account. Page requests come from your authenticated session. The AI leaves no signature because it's not accessing anything new - it's processing what you're already authorised to see.
 
 This isn't a bug in banking security. It's a fundamental architectural gap. Security systems verify who's accessing data. They have no mechanism to verify who's reading the verified user's screen.
+
+**Production validation:** Claude for Chrome (December 2025), Amazon Alexa.com (January 2026), and other browser-based agents now demonstrate this session inheritance in production. See Appendix J for timeline.
 
 ### The Indistinguishability Problem
 

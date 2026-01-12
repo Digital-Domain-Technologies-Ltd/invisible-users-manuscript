@@ -363,7 +363,7 @@ The about page explains who you are, what you do, and why it matters. For AI age
   <meta name="author" content="Tom Cranstoun">
   <meta name="description" content="About The Invisible Users project - the author's journey from discovering AI agent compatibility challenges to creating practical implementation guidance for web professionals worldwide.">
 
-  <!-- AI-specific meta tags -->
+  <!-- AI-specific meta tags (PROPOSED - see Appendix L) -->
   <meta name="ai-preferred-access" content="html">
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
@@ -552,7 +552,7 @@ The contact page provides explicit ways to reach you. For AI agents, it needs cl
   <meta name="author" content="Tom Cranstoun">
   <meta name="description" content="Contact Tom Cranstoun about The Invisible Users book, professional web audits, collaboration opportunities, or the identity delegation project.">
 
-  <!-- AI-specific meta tags -->
+  <!-- AI-specific meta tags (PROPOSED - see Appendix L) -->
   <meta name="ai-preferred-access" content="html">
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
@@ -833,7 +833,7 @@ The collection page lists related resources — appendices, chapters, or tools. 
   <meta name="author" content="Tom Cranstoun">
   <meta name="description" content="Complete directory of The Invisible Users appendices - implementation cookbooks, battle-tested lessons, quick references, and case studies for AI-friendly web design.">
 
-  <!-- AI-specific meta tags -->
+  <!-- AI-specific meta tags (PROPOSED - see Appendix L) -->
   <meta name="ai-preferred-access" content="html">
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
@@ -1209,7 +1209,7 @@ The blog post page shares insights and expertise. For AI agents, it needs Articl
   <meta name="author" content="Tom Cranstoun">
   <meta name="description" content="Why AI agents struggle with modern web forms - and how semantic HTML, explicit state attributes, and persistent error messages create better experiences for both humans and agents.">
 
-  <!-- AI-specific meta tags -->
+  <!-- AI-specific meta tags (PROPOSED - see Appendix L) -->
   <meta name="ai-preferred-access" content="html">
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
@@ -1459,7 +1459,7 @@ The article page presents comprehensive technical documentation or case studies.
   <meta name="author" content="Tom Cranstoun">
   <meta name="description" content="Complete technical guide to implementing llms.txt files for AI agent discovery - syntax, structure, best practices, and real-world examples from production deployments.">
 
-  <!-- AI-specific meta tags -->
+  <!-- AI-specific meta tags (PROPOSED - see Appendix L) -->
   <meta name="ai-preferred-access" content="html">
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
@@ -2425,7 +2425,7 @@ The FAQ page answers common questions in a structured format. For AI agents, it 
   <meta name="author" content="Tom Cranstoun">
   <meta name="description" content="Frequently asked questions about The Invisible Users book - AI agents, web design, implementation guidance, and identity delegation">
 
-  <!-- AI-specific meta tags -->
+  <!-- AI-specific meta tags (PROPOSED - see Appendix L) -->
   <meta name="ai-preferred-access" content="html">
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
@@ -2640,7 +2640,7 @@ The 404 error page provides helpful guidance when content is unavailable. For AI
   <meta name="author" content="Tom Cranstoun">
   <meta name="description" content="Page not found - The requested page could not be found on The Invisible Users website">
 
-  <!-- AI-specific meta tags -->
+  <!-- AI-specific meta tags (PROPOSED - see Appendix L) -->
   <meta name="ai-preferred-access" content="html">
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
@@ -2878,7 +2878,7 @@ The pricing page compares multiple service or product tiers side-by-side. For AI
   <meta name="author" content="Tom Cranstoun">
   <meta name="description" content="Web Audit Suite pricing - compare self-service tool, professional audit, and agency partnership options">
 
-  <!-- AI-specific meta tags -->
+  <!-- AI-specific meta tags (PROPOSED - see Appendix L) -->
   <meta name="ai-preferred-access" content="html">
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">
@@ -3126,7 +3126,7 @@ The author or profile page establishes personal identity and expertise. For AI a
   <meta name="author" content="Tom Cranstoun">
   <meta name="description" content="About Tom Cranstoun - Software consultant, author of The Invisible Users, and advocate for building websites that work for AI agents and everyone else.">
 
-  <!-- AI-specific meta tags -->
+  <!-- AI-specific meta tags (PROPOSED - see Appendix L) -->
   <meta name="ai-preferred-access" content="html">
   <meta name="ai-content-policy" content="summaries-allowed, full-extraction-allowed">
   <meta name="ai-freshness" content="monthly">

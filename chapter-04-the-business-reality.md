@@ -587,6 +587,8 @@ Niche B2B sites, specialised services. Too small to matter yet. Can wait and obs
 *Medium traffic, Hybrid strategy:*
 Most businesses. Detect and serve different experiences. Complex but optimal. Requires infrastructure investment but preserves optionality.
 
+**Real-world example:** Amazon's strategy (documented in Appendix J: "Amazon Blocks External Agents") demonstrates the "High Traffic + Resist" quadrant perfectly. In November 2024, Amazon blocked 47 external AI agents via robots.txt whilst simultaneously building proprietary alternatives (Rufus shopping assistant, Buy For Me purchasing agent). This dual approach—defensive blocking paired with offensive proprietary development—shows how platforms with existing distribution control can resist external agents without ceding the agent interface to competitors. The strategy's success or failure will become clear when we see whether Amazon's proprietary agents achieve comparable distribution to blocked external agents.
+
 ---
 
 ## Industry-Specific Impacts
@@ -975,7 +977,7 @@ Mixed outlook. Agent access may add value (by enabling customers to accomplish m
 
 You probably don't need to act immediately. But pay attention. In three years, 20-30% of your traffic may come from agents. The sites that work reliably will win the bookings, purchases, and appointments that agents facilitate.
 
-**Update (January 2026):** Major platform launches in January 2026 (Amazon Alexa.com, Microsoft Copilot Checkout expansion) suggest this timeline may be compressed to 12-18 months rather than three years. The advice remains the same, but urgency increases.
+**Update (January 2026):** Three major platform launches within seven days (Amazon Alexa+ on 5 Jan, Microsoft Copilot Checkout expansion on 8 Jan, Google Universal Commerce Protocol on 11 Jan) compress this timeline to approximately 6-9 months or less for reaching 10-20% agent-mediated shopping. See Appendix J for complete development timeline. The advice remains the same, but urgency increases.
 
 Fix the obvious problems now: transparent pricing, visible errors, and complete information. That's enough to start.
 
