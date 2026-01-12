@@ -858,6 +858,28 @@ X-Agent-Authorisation: Bearer [delegation token]
 
 Not standardised yet, but the pattern is emerging across platforms.
 
+### Commerce Protocol Fragmentation
+
+**Timeline Note (January 2026):** As Chapter 9 documents, three major platforms launched agent commerce systems within seven days - and they chose different approaches. Two platforms (OpenAI/Stripe and Google) launched open protocols (ACP and UCP respectively). Microsoft launched a proprietary closed system (Copilot Checkout).
+
+**The challenge:** Two open protocols is better than five proprietary systems, but worse than one universal standard.
+
+Businesses implementing agent commerce must now navigate:
+
+- **Agentic Commerce Protocol (ACP):** Open standard from OpenAI/Stripe, 1M+ merchants on Shopify/Etsy
+- **Universal Commerce Protocol (UCP):** Open standard from Google with 20+ major retailers
+- **Microsoft Copilot Checkout:** Proprietary closed system
+
+**Integration burden:** Each protocol requires separate implementation, security review, testing, and ongoing maintenance. Supporting all three triples the work.
+
+**Convergence hope:** Both ACP and UCP claim compatibility with existing infrastructure protocols (Agent-to-Agent, Agent Protocol 2, Model Context Protocol). This suggests technical convergence is possible. Best outcome: ACP and UCP merge into a unified standard before fragmentation becomes permanent.
+
+**Your strategy:** Focus first on the patterns that work universally - semantic HTML, structured data (Schema.org JSON-LD), explicit state attributes, persistent feedback. These patterns work regardless of which commerce protocol wins. When you're ready for transaction integration, evaluate which protocol has the broadest agent support in your market.
+
+**Watch for:** Technical interoperability demonstrations between ACP and UCP. If an agent supporting only ACP can transact with a merchant supporting only UCP, the fragmentation problem is solved at the implementation layer even if platform branding remains separate.
+
+See Chapter 9 for detailed analysis of the platform race, competitive positioning, and protocol convergence prospects.
+
 ## Implementation Roadmap
 
 Getting started with agent-friendly design doesn't require a complete rebuild. Focus on priority-based improvements:
