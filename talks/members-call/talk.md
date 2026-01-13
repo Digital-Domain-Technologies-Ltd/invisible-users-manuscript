@@ -45,6 +45,19 @@ This creates a first-mover advantage that's hard to claw back.
 
 **Two real production mistakes...**
 
+### Understanding Invisible Failures
+
+**What Makes Users "Invisible"?**
+
+AI agents are called "invisible users" for two reasons:
+
+1. **They're invisible to site owners** — Unless you're specifically tracking agent traffic (and most aren't), you have no idea how many agents visit your site or whether they succeed. They blend into analytics as slightly unusual sessions.
+2. **Your interface is partly invisible to them** — They can't see your beautiful animations, don't notice subtle color changes, miss three-second toast notifications, and don't understand that a loading spinner means "wait."
+
+**The Five Types of Invisible Failure**
+
+Let's explore the specific patterns that break AI agents:
+
 ### Mistake #1: Toast Notifications
 
 **The Pattern That Keeps Returning:**
@@ -271,7 +284,82 @@ Sites that adapt early gain advantage. Sites that don't get quietly bypassed.
 
 ---
 
-## What Comes Next: The Universal Identity Layer [TIME: 2 minutes]
+## Major Developments [TIME: 3 minutes]
+
+### The Seven-Day Platform Race (January 2026)
+
+**Three major platforms in one week:**
+
+- **Jan 5: Amazon Alexa+** (browser agent launch)
+  - Reported 2x conversations, 3x purchases vs legacy Alexa
+  - Partnerships: Expedia, Yelp, Uber, OpenTable, Square
+- **Jan 8: Microsoft expands Copilot Checkout**
+  - Shopify auto-enrollment (opt-out window provided)
+  - Retail AI agents for operations, product management
+- **Jan 11: Google Universal Commerce Protocol (UCP)**
+  - 20+ retailers: Target, Walmart, Macy's, Best Buy, Home Depot
+  - Open protocol competing with OpenAI/Stripe ACP
+  - Timeline compressed: 12 months → 6-9 months
+
+### VPNs and Hidden Guardrails
+
+**Two realities affecting every agent:**
+
+1. **Browser extensions inherit network configuration:**
+    - User in Manchester appears in Amsterdam (VPN exit)
+    - IP-based location detection becomes unreliable
+    - Fraud systems may flag legitimate transactions
+    - Affects all privacy-conscious users
+
+2. **System prompts exist but are insufficient:**
+    - All agents have hidden guardrails
+    - They work at reasoning level, not data extraction
+    - The £203k cruise error happened *despite* guardrails
+    - Need programmatic validation: range checks, cross-referencing
+    - Hallucinations will continue - validation catches them
+
+### Why This Matters Now
+
+**Timeline acceleration is dramatic:**
+
+- **Dec 2024:** Claude for Chrome (browser automation)
+- **Jan 2025:** ACP launches (1M+ merchants)
+- **Jan 5-11, 2026:** Three platforms in seven days
+
+**Key implications:**
+
+- Amazon, Microsoft, Google all live simultaneously
+- Timeline compressed from 12 months → 6-9 months
+- Two open protocols (ACP + UCP) create urgency
+- Non-optimised sites excluded from agent traffic
+
+**Agent commerce isn't experimental. It's infrastructure.**
+
+Test your site with Claude for Chrome immediately. Implement Priority 1-2 patterns urgently.
+
+### Our Responsibility
+
+**Clear professional obligation:**
+
+As designers, developers, product owners, and executives:
+
+- We have the responsibility to ensure agents navigate successfully
+- This isn't optional - it's a professional obligation
+- Parallels accessibility, security, user experience
+- When agents fail, that's a design gap affecting everyone
+
+**Agent failures expose problems that affect humans too.** We're finally fixing issues we should have fixed years ago.
+
+---
+
+## What Comes Next: Protocol Convergence [TIME: 2 minutes]
+
+**Two open protocols launched simultaneously:**
+
+1. **Agentic Commerce Protocol (ACP):** OpenAI/Stripe (Sept 2024), 1M+ merchants.
+2. **Universal Commerce Protocol (UCP):** Google (Jan 2026), 20+ major retailers.
+
+**Critical question:** Will they converge or fragment?
 
 Beyond fixing websites and building validation layers, there's a critical infrastructure gap in the AI agent ecosystem.
 

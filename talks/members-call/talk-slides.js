@@ -1,79 +1,562 @@
 function createInvisibleUsersDeck() {
-  var deck = SlidesApp.create('The Invisible Users Presentation - 20 Minutes');
+  var deck = SlidesApp.create('The Invisible Users Presentation - 20 Minutes (Themed)');
+  
+  // -------------------------------------------------------------------------
+  // THEME CONFIGURATION
+  // -------------------------------------------------------------------------
+  var THEME = {
+    colors: {
+      background: '#1C1C1C', // Dark Grey/Black
+      header: '#0046B5',     // Cobalt Blue
+      textMain: '#FFFFFF',   // White
+      highlightBorder: '#FF3300' // Neon Red/Orange
+    },
+    fonts: {
+      title: 'Georgia',
+      body: 'Roboto'
+    }
+  };
 
+  // -------------------------------------------------------------------------
+  // SLIDE DATA (Structured for specific layouts)
+  // -------------------------------------------------------------------------
+  // Structure: 
+  // {
+  //   type: 'standard' | 'highlight' | 'title',
+  //   title: "String",
+  //   subtitle: "String" (optional),
+  //   body: ["String", "String"] (array of bullets),
+  //   highlightBox: { title: "String", text: "String" } (only for 'highlight' type)
+  // }
+  
   var slideData = [
-    // Title Slide
-    ["The Invisible Users", "Designing the Web for AI Agents and Everyone Else\n\nTom Cranstoun | Due Q1 2026"],
+    // 1. Title Slide
+    {
+      type: 'title',
+      title: "The Invisible Users",
+      subtitle: "Designing the Web for AI Agents and Everyone Else",
+      body: [
+        "Tom Cranstoun: Many years in Adobe CMS & AI innovation.",
+        "Consultant at Digital Domain Technologies Ltd.",
+        "Philosophy: \"AI should amplify, not replace, human expertise.\"",
+        "Focus: Building zero-dependency, agent-friendly web architectures."
+      ],
+      footer: "Tom Cranstoun | Due Q1 2026"
+    },
+    
+    // 2. Adobe Insights: Holiday 2025
+    {
+      type: 'standard',
+      title: "Adobe Insights: Holiday 2025",
+      subtitle: "AI Referrals Surge Triple-Digits Across Sectors",
+      body: [
+        "Triple-Digit Growth: AI referrals surged (Retail +693%, Travel +539%)",
+        "Conversion Flip: AI referrals moved from lagging to leading (+31% vs non-AI)",
+        "Engagement: AI users spend 45% longer on site, view 13% more pages",
+        "Trust: 81% reported improved shopping experience with AI Assistants",
+        "Seismic Shift: From experimental to primary revenue driver in 12 months."
+      ]
+    },
 
-    // Opening Hook Section (3 minutes) - 3 slides
-    ["Real Example from Claude For Chrome", "January 2025: Testing Claude for Chrome whilst writing the book.\n\nMultiple Danube cruises ending in Budapest (May 2026):\n\n• 'Scenic Gems of the Danube 2026' - Vienna to Budapest (7 nights)\n• 'Delightful Danube' - Various starting points to Budapest\n• 'Romantic Danube' - Multiple options ending in Budapest\n\nOne cruise showed: 'From £203,000-£402,000'\nActual price: £2,030-£4,020\n\n100x multiplication error from European formatting (€2.030,00)."],
+    // 2. Opening Hook
+    {
+      type: 'standard',
+      title: "Real Example from Claude For Chrome",
+      subtitle: "January 2025: Testing Claude for Chrome whilst writing the book.",
+      body: [
+        "Multiple Danube cruises ending in Budapest (May 2026):",
+        "'Scenic Gems of the Danube 2026' - Vienna to Budapest (7 nights)",
+        "'Delightful Danube' - Various starting points to Budapest",
+        "'Romantic Danube' - Multiple options ending in Budapest",
+        "One cruise showed: 'From £203,000-£402,000'",
+        "Actual price: £2,030-£4,020",
+        "100x multiplication error from European formatting (€2.030,00)."
+      ]
+    },
 
-    ["The £203,000 Cruise", "Real example: January 2025\n\n• AI assistant researching Danube cruises\n• Returned: £203,000-£402,000 per person\n• Actual price: £2,030-£4,020 per person\n• 100x multiplication error (using a European site with €2.030,00)\n\n£201,000 potential mistake if booking.\n\nFor Agent Creators, validation layers are essential, not optional."],
+    // 3. The Highlight Slide (Matches the user image)
+    {
+      type: 'highlight',
+      title: "The £203,000 Cruise",
+      subtitle: "Real example: January 2025",
+      body: [
+        "AI assistant researching Danube cruises",
+        "Returned: £203,000-£402,000 per person",
+        "Actual price: £2,030-£4,020 per person",
+        "100x multiplication error (using a European site with €2.030,00)"
+      ],
+      highlightBox: {
+        title: "£201,000",
+        text: "potential mistake\nif booking."
+      },
+      footer: "For Agent Creators, validation layers are essential, not optional."
+    },
 
-    ["What Caused This?", "The Error Chain:\n\n• Decimal separator confusion (€2.030,00 vs £2,030)\n• No range validation (£203k > £15k maximum)\n• No comparative checks (58x higher than peers)\n• No cross-referencing against structured data\n• No confidence scoring\n\nProfessional formatting masked the problem.\nError presented with same confidence as verified data."],
+    // 4. What Caused This
+    {
+      type: 'standard',
+      title: "What Caused This?",
+      subtitle: "The Error Chain:",
+      body: [
+        "Decimal separator confusion (€2.030,00 vs £2,030)",
+        "No range validation (£203k > £15k maximum)",
+        "No comparative checks (58x higher than peers)",
+        "No cross-referencing against structured data",
+        "No confidence scoring",
+        "Professional formatting masked the problem.",
+        "Error presented with same confidence as verified data."
+      ]
+    },
 
-    // The Problem Section (5 minutes) - 3 slides
-    ["The Problem: Invisible Failures", "Websites fail quietly for AI agents:\n\n• Not theoretical futures - happening today\n• Agents browsing, comparing, transacting now\n• Sites that work get preferred\n• Sites that don't get quietly avoided\n\nFirst-mover advantage that's hard to claw back.\n\nTwo real production mistakes..."],
 
-    ["Mistake #1: Toast Notifications", "The Pattern That Keeps Returning:\n\n• Removed from forms (good!)\n• Reintroduced in shopping cart (bad!)\n• showToast('Item added!')\n\nToast notifications vanish before agents read them.\nForm submission appears to fail silently.\nAgents abandon the flow.\n\nSolution: Persistent alerts that stay visible."],
 
-    ["Mistake #2: Hidden Checkout State", "State Invisible to Agents:\n\n// JavaScript-only state\nlet currentStep = 1;\n\nfunction nextStep() {\n  currentStep++;\n  updateUI();\n}\n\nNo URL reflection. No DOM attributes.\nAgents can't track progress. Refreshing loses state.\n\nSolution: data-state attributes in DOM."],
+    // 5. The Problem (Swapped order as requested)
+    {
+      type: 'standard',
+      title: "The Problem: Invisible Failures",
+      subtitle: "Websites fail quietly for AI agents:",
+      body: [
+        "Not theoretical futures - happening today",
+        "Agents browsing, comparing, transacting now",
+        "Sites that work get preferred",
+        "Sites that don't get quietly avoided",
+        "First-mover advantage that's hard to claw back.",
+        "Two real production mistakes..."
+      ]
+    },
 
-    // Why This Happens Section (3 minutes) - 2 slides
-    ["Why This Happens", "Modern web design optimised for visual feedback:\n\n• Single-page applications\n• Client-side state management\n• Toast notifications and modals\n• Loading spinners without context\n• JavaScript-dependent navigation\n\nThese patterns break agents and screen readers.\nAI agents face the same barriers humans\nwith disabilities have encountered for years."],
+    // 6. Understanding Invisible Failures
+    {
+      type: 'standard',
+      title: "Understanding Invisible Failures",
+      subtitle: "What Makes Users \"Invisible\"?",
+      body: [
+        "AI agents are called \"invisible users\" for two reasons:",
+        "1. Invisible to site owners — Unless tracking agent traffic, you have no idea they are there. They blend into analytics.",
+        "2. Interface is invisible to them — They can't see animations, color changes, toast notifications, or loading spinners.",
+        "The Five Types of Invisible Failure: Let's explore the patterns."
+      ]
+    },
 
-    ["Two HTML States: The Gap", "Critical Distinction:\n\n1. Served HTML (static)\n   • What server sends before JavaScript\n   • Most agents see only this\n\n2. Rendered HTML (dynamic)\n   • After JavaScript execution\n   • Only browser-based agents see this\n\nExample: <div id='products'></div>\nfetch('/api/products').then(renderProducts);\n\nYour product catalogue is invisible to most agents."],
+    // 7. Mistake #1
+    {
+      type: 'standard',
+      title: "Mistake #1: Toast Notifications",
+      subtitle: "The Pattern That Keeps Returning:",
+      body: [
+        "Removed from forms (good!) -> Reintroduced in shopping cart (bad!)",
+        "showToast('Item added!')",
+        "Toast notifications vanish before agents read them.",
+        "Form submission appears to fail silently.",
+        "Agents abandon the flow.",
+        "Solution: Persistent alerts that stay visible."
+      ]
+    },
 
-    // The Solution Section (6 minutes) - 6 slides
-    ["The Solution", "Make Implicit State Explicit\n\n• No rebuilding interfaces\n• No special agent-only experiences\n• Small, well-understood changes\n• Improve accessibility for everyone\n\nThree concrete patterns with code and business value."],
+    // 8. Mistake #2
+    {
+      type: 'standard',
+      title: "Mistake #2: Hidden Checkout State",
+      subtitle: "State Invisible to Agents:",
+      body: [
+        "JavaScript-only state (let currentStep = 1)",
+        "No URL reflection. No DOM attributes.",
+        "Agents can't track progress. Refreshing loses state.",
+        "Solution: data-state attributes in DOM."
+      ]
+    },
 
-    ["Pattern #1: Persistent Errors", "Instead of vanishing toast notifications:\n\n<form data-state='incomplete'>\n  <div id='error-summary' role='alert'>\n    <h3>Please fix the following:</h3>\n    <ul id='error-list'></ul>\n  </div>\n  \n  <input aria-invalid='false'\n         aria-describedby='email-error'>\n  <div id='email-error'></div>\n</form>\n\nBusiness value: Conversion rates improve for everyone."],
+    // 9. Why This Happens
+    {
+      type: 'standard',
+      title: "Why This Happens",
+      subtitle: "Modern web design optimised for visual feedback:",
+      body: [
+        "Single-page applications",
+        "Client-side state management",
+        "Toast notifications and modals",
+        "Loading spinners without context",
+        "JavaScript-dependent navigation",
+        "These patterns break agents and screen readers."
+      ]
+    },
 
-    ["Pattern #2: Complete Pricing", "Instead of 'From £99':\n\n<div itemscope itemtype='schema.org/Offer'>\n  <meta itemprop='price' content='119.00'>\n  <meta itemprop='priceCurrency' content='GBP'>\n  \n  Total: £119.00 (inc. VAT)\n  \n  <details>\n    <summary>See breakdown</summary>\n    Product: £99 | Delivery: £15 | Fee: £5\n  </details>\n</div>\n\nBusiness value: No hidden fees. Agent-readable. Builds trust."],
+    // 10. The Gap
+    {
+      type: 'standard',
+      title: "Two HTML States: The Gap",
+      subtitle: "Critical Distinction:",
+      body: [
+        "1. Served HTML (static) - What server sends before JS. Most agents see only this.",
+        "2. Rendered HTML (dynamic) - After JS execution. Only browser-based agents see this.",
+        "Example: <div id='products'></div> then fetch().",
+        "Your product catalogue is invisible to most agents."
+      ]
+    },
 
-    ["Pattern #3: Explicit State", "Make cart state visible:\n\n<div id='shopping-cart'\n     data-state='active'\n     data-item-count='3'\n     data-subtotal='247.97'\n     data-currency='GBP'>\n  \n  <div role='status'>\n    Items: <span>3</span>\n    Subtotal: £<span>247.97</span>\n  </div>\n</div>\n\nBusiness value: State persists. Debugging easier.\nIntegration testing more reliable."],
+    // 11. The Solution
+    {
+      type: 'standard',
+      title: "The Solution",
+      subtitle: "Make Implicit State Explicit",
+      body: [
+        "No rebuilding interfaces",
+        "No special agent-only experiences",
+        "Small, well-understood changes",
+        "Improve accessibility for everyone",
+        "Three concrete patterns with code and business value."
+      ]
+    },
 
-    ["Small Business Case", "You don't need complex infrastructure.\n\nSimple restaurant site:\n• Semantic HTML (<nav>, <main>, <article>)\n• Schema.org markup (Restaurant, Menu, MenuItem)\n• Minimal effort\n• Completely agent-friendly\n\nQuick wins, not expensive rebuilds."],
+    // 12. Pattern 1
+    {
+      type: 'standard',
+      title: "Pattern #1: Persistent Errors",
+      subtitle: "Instead of vanishing toast notifications:",
+      body: [
+        "<form data-state='incomplete'> with <div role='alert'>",
+        "Use aria-invalid and aria-describedby",
+        "Business value: Conversion rates improve for everyone."
+      ]
+    },
 
-    // Taking Action Section (3 minutes) - 3 slides
-    ["Quick Wins: Start Here", "Critical Priority 1 Changes:\n\n• Add persistent error messages\n• Display complete pricing (no hidden fees)\n• Ensure served HTML contains core content\n• Add basic Schema.org structured data\n\nThese changes benefit everyone immediately.\n\nStart with highest impact, lowest effort."],
+    // 13. Pattern 2
+    {
+      type: 'standard',
+      title: "Pattern #2: Complete Pricing",
+      subtitle: "Instead of 'From £99':",
+      body: [
+        "Use Schema.org/Offer markup",
+        "Explicit price and currency meta tags",
+        "<details> for fee breakdown",
+        "Business value: No hidden fees. Agent-readable. Builds trust."
+      ]
+    },
 
-    ["Web Audit Suite", "Available as separate purchase or professional audit service.\n\n• Implements patterns from the book\n• Generates detailed reports\n• Shows exactly where sites break for agents\n• Provides specific fix recommendations\n\nNot included with book - separate offering.\n\nMeasure what you can't see."],
+    // 14. Pattern 3
+    {
+      type: 'standard',
+      title: "Pattern #3: Explicit State",
+      subtitle: "Make cart state visible:",
+      body: [
+        "DOM attributes: data-state='active', data-item-count='3'",
+        "Role='status' for live updates",
+        "Business value: State persists. Debugging easier. Integration testing reliable."
+      ]
+    },
 
-    ["Call to Action", "Start with one pattern:\n\n1. Pick highest-impact, lowest-effort change\n2. Implement it\n3. Measure the improvement\n4. Tackle the next one\n\nSites that adapt early gain advantage.\nSites that don't get quietly bypassed."],
+    // 15. Small Business Case
+    {
+      type: 'standard',
+      title: "Small Business Case",
+      subtitle: "You don't need complex infrastructure.",
+      body: [
+        "Simple restaurant site example",
+        "Semantic HTML (<nav>, <main>, <article>)",
+        "Schema.org markup (Restaurant, Menu, MenuItem)",
+        "Minimal effort",
+        "Completely agent-friendly"
+      ]
+    },
 
-    // Major Developments Section - 3 slides
-    ["The Seven-Day Platform Race (January 2026)", "Three major platforms in one week:\n\nJanuary 5: Amazon Alexa+ (browser agent launch)\n• Reported 2x conversations, 3x purchases vs legacy Alexa\n• Partnerships: Expedia, Yelp, Uber, OpenTable, Square\n\nJanuary 8: Microsoft expands Copilot Checkout\n• Shopify auto-enrollment (opt-out window provided)\n• Retail AI agents for operations, product management\n\nJanuary 11: Google Universal Commerce Protocol (UCP)\n• 20+ retailers: Target, Walmart, Macy's, Best Buy, Home Depot\n• Open protocol competing with OpenAI/Stripe ACP\n• Timeline compressed: 12 months → 6-9 months"],
+    // 16. Quick Wins
+    {
+      type: 'standard',
+      title: "Quick Wins: Start Here",
+      subtitle: "Critical Priority 1 Changes:",
+      body: [
+        "Add persistent error messages",
+        "Display complete pricing (no hidden fees)",
+        "Ensure served HTML contains core content",
+        "Add basic Schema.org structured data",
+        "Start with highest impact, lowest effort."
+      ]
+    },
 
-    ["VPNs and Hidden Guardrails", "Two realities affecting every agent:\n\nBrowser extensions inherit network configuration:\n• User in Manchester appears in Amsterdam (VPN exit)\n• IP-based location detection becomes unreliable\n• Fraud systems may flag legitimate transactions\n• Affects all privacy-conscious users\n\nSystem prompts exist but are insufficient:\n• All agents have hidden guardrails\n• They work at reasoning level, not data extraction\n• £203k cruise error happened despite guardrails\n• Need programmatic validation: range checks, cross-referencing\n• Hallucinations will continue - validation catches them"],
+    // 17. Web Audit Suite
+    {
+      type: 'standard',
+      title: "Web Audit Suite",
+      subtitle: "Professional audit service",
+      body: [
+        "Implements patterns from the book",
+        "Generates detailed reports",
+        "Shows exactly where sites break for agents",
+        "Provides specific fix recommendations",
+        "Measure what you can't see."
+      ]
+    },
 
-    ["Why This Matters Now", "Timeline acceleration is dramatic:\n\nDecember 2024: Claude for Chrome (browser automation)\nJanuary 2025: ACP launches (1M+ merchants)\nJanuary 5-11, 2026: Three platforms in seven days\n\n• Amazon, Microsoft, Google all live simultaneously\n• Timeline compressed from 12 months → 6-9 months\n• Two open protocols (ACP + UCP) create urgency\n• Non-optimised sites excluded from agent traffic\n\nAgent commerce isn't experimental. It's infrastructure.\n\nTest your site with Claude for Chrome immediately.\nImplement Priority 1-2 patterns urgently."],
+    // 18. Call to Action
+    {
+      type: 'standard',
+      title: "Call to Action",
+      subtitle: "Start with one pattern:",
+      body: [
+        "1. Pick highest-impact, lowest-effort change",
+        "2. Implement it",
+        "3. Measure the improvement",
+        "4. Tackle the next one",
+        "Sites that adapt early gain advantage."
+      ]
+    },
+    
+    // 19. Major Developments
+    {
+      type: 'standard',
+      title: "The Seven-Day Platform Race (Jan 2026)",
+      subtitle: "Three major platforms in one week:",
+      body: [
+        "Jan 5: Amazon Alexa+ (browser agent launch)",
+        "Jan 8: Microsoft expands Copilot Checkout",
+        "Jan 11: Google Universal Commerce Protocol (UCP)",
+        "Timeline compressed: 12 months -> 6-9 months"
+      ]
+    },
 
-    // Closing - 4 slides
-    ["Our Responsibility", "Clear professional obligation:\n\nAs designers, developers, product owners, and executives:\n• We have the responsibility to ensure agents navigate successfully\n• This isn't optional - it's a professional obligation\n• Parallels accessibility, security, user experience\n• When agents fail, that's a design gap affecting everyone\n\nAgent failures expose problems that affect humans too.\nWe're finally fixing issues we should have fixed years ago."],
+    // 20. VPNs
+    {
+      type: 'standard',
+      title: "VPNs and Hidden Guardrails",
+      subtitle: "Two realities affecting every agent:",
+      body: [
+        "Browser extensions inherit network config (VPN exit nodes affect location)",
+        "System prompts exist but are insufficient",
+        "Guardrails work at reasoning level, not data extraction",
+        "Hallucinations will continue - validation catches them"
+      ]
+    },
 
-    ["What Comes Next: Protocol Convergence", "Two open protocols launched simultaneously:\n\nAgentic Commerce Protocol (ACP):\n• OpenAI/Stripe (September 2024)\n• 1M+ merchants on Shopify/Etsy\n• Mature tooling and documentation\n\nUniversal Commerce Protocol (UCP):\n• Google (January 2026)\n• 20+ major retailers (Target, Walmart)\n• Search distribution advantage\n\nCritical question: Will they converge or fragment?\n\nNext Project: Universal Identity Delegation Infrastructure\n• Open-source project for portable authorisation\n• Works regardless of which protocol wins\n• OAuth 2.0 delegation extension support\n• Community infrastructure before proprietary lock-in\n\nProject: https://allabout.network/packages/manuscript/identity-layer.html"],
+    // 21. Why This Matters Now
+    {
+      type: 'standard',
+      title: "Why This Matters Now",
+      subtitle: "Timeline acceleration is dramatic:",
+      body: [
+        "Dec 2024: Claude for Chrome",
+        "Jan 2025: ACP launches",
+        "Jan 2026: Three platforms in seven days",
+        "Agent commerce is infrastructure.",
+        "Implement Priority 1-2 patterns urgently."
+      ]
+    },
 
-    ["Key Takeaways", "Five Essential Messages:\n\n1. This is happening now (not speculative)\n2. Commercial pressure exists (preference = advantage)\n3. Solutions are accessible (small changes, big impact)\n4. Universal benefit (humans and machines)\n5. Start with quick wins (measure and iterate)"],
+    // 22. Responsibility
+    {
+      type: 'standard',
+      title: "Our Responsibility",
+      subtitle: "Clear professional obligation:",
+      body: [
+        "Designers/Devs must ensure agents navigate successfully",
+        "When agents fail, that's a design gap affecting everyone",
+        "Agent failures expose problems that affect humans too."
+      ]
+    },
 
-    ["Book & Contact", "The Invisible Users:\nDesigning the Web for AI Agents and Everyone Else\n\nDue Q1 2026\n\nTom Cranstoun\ntom.cranstoun@gmail.com\nhttps://allabout.network\n\nBook: https://allabout.network/invisible-users\nIdentity project: .../identity-layer.html\nNews: .../news.html\n\nQuestions? Discussion? Your challenges?"]
+    // 23. Next
+    {
+      type: 'standard',
+      title: "What Comes Next",
+      subtitle: "Protocol Convergence vs Fragmentation",
+      body: [
+        "Agentic Commerce Protocol (ACP) - OpenAI/Stripe",
+        "Universal Commerce Protocol (UCP) - Google",
+        "Next Project: Universal Identity Delegation Infrastructure",
+        "Open-source portable authorisation"
+      ]
+    },
+
+    // 24. Takeaways
+    {
+      type: 'standard',
+      title: "Key Takeaways",
+      subtitle: "Five Essential Messages:",
+      body: [
+        "1. This is happening now",
+        "2. Commercial pressure exists",
+        "3. Solutions are accessible",
+        "4. Universal benefit",
+        "5. Start with quick wins"
+      ]
+    },
+
+    // 25. Book
+    {
+      type: 'title',
+      title: "Book & Contact",
+      subtitle: "The Invisible Users",
+      body: [
+        "Tom Cranstoun",
+        "tom.cranstoun@gmail.com | https://allabout.network",
+        "LinkedIn: https://www.linkedin.com/in/tom-cranstoun/",
+        "",
+        "Project Pages:",
+        "Book: https://allabout.network/invisible-users",
+        "Identity Project: https://allabout.network/invisible-users/identity-layer.html",
+        "News: https://allabout.network/invisible-users/news.html"
+      ],
+      footer: "Questions? Discussion? Your challenges?"
+    }
+
   ];
 
+  // -------------------------------------------------------------------------
+  // DECK CREATION
+  // -------------------------------------------------------------------------
+
   // Remove the default initial slide
-  deck.getSlides()[0].remove();
+  var slides = deck.getSlides();
+  if (slides.length > 0) {
+    slides[0].remove();
+  }
+  
+  // Set Master Master Background
+  deck.getMasters()[0].getBackground().setSolidFill(THEME.colors.background);
+  
+  var pageWidth = deck.getPageWidth();
+  var pageHeight = deck.getPageHeight();
 
-  slideData.forEach(function(data) {
+  slideData.forEach(function(item) {
     var slide = deck.appendSlide(SlidesApp.PredefinedLayout.BLANK);
-    
-    // Add Title Box
-    var title = slide.insertShape(SlidesApp.ShapeType.TEXT_BOX, 50, 40, 620, 100);
-    title.getText().setText(data[0]);
-    title.getText().getTextStyle().setFontSize(36).setBold(true);
+    slide.getBackground().setSolidFill(THEME.colors.background);
 
-    // Add Body Box
-    var body = slide.insertShape(SlidesApp.ShapeType.TEXT_BOX, 50, 150, 620, 250);
-    body.getText().setText(data[1]);
-    body.getText().getTextStyle().setFontSize(20);
+    // 1. HEADER (Blue Background)
+    // -------------------------------------------------
+    // Header takes up top 140 pixels approx
+    var headerHeight = 140;
+    var headerShape = slide.insertShape(SlidesApp.ShapeType.RECTANGLE, 0, 0, pageWidth, headerHeight);
+    headerShape.getFill().setSolidFill(THEME.colors.header);
+    headerShape.getBorder().setTransparent();
+
+    // 2. TITLE
+    // -------------------------------------------------
+    var titleBox = slide.insertShape(SlidesApp.ShapeType.TEXT_BOX, 20, 10, pageWidth - 40, 60);
+    var titleText = titleBox.getText();
+    
+    // Automatic Font Scaling for Long Titles
+    // If title is > 32 chars, shrink font to avoid wrapping
+    var fontSize = 36;
+    if (item.title.length > 32) {
+      fontSize = 28; 
+    }
+    // If title is > 45 chars, shrink even more
+    if (item.title.length > 45) {
+      fontSize = 24;
+    }
+
+    titleText.setText(item.title);
+    titleText.getTextStyle()
+             .setFontFamily(THEME.fonts.title)
+             .setFontSize(fontSize)
+             .setForegroundColor(THEME.colors.textMain)
+             .setBold(true);
+    titleText.getParagraphStyle().setParagraphAlignment(SlidesApp.ParagraphAlignment.CENTER);
+
+    // 3. SUBTITLE (in Header)
+    // -------------------------------------------------
+    if (item.subtitle) {
+      var subtitleBox = slide.insertShape(SlidesApp.ShapeType.TEXT_BOX, 20, 70, pageWidth - 40, 40);
+      var subText = subtitleBox.getText();
+      subText.setText(item.subtitle);
+      subText.getTextStyle()
+             .setFontFamily(THEME.fonts.body)
+             .setFontSize(18)
+             .setForegroundColor('#E0E0E0'); // Slightly dimmer white
+      subText.getParagraphStyle().setParagraphAlignment(SlidesApp.ParagraphAlignment.CENTER);
+    }
+
+    // 4. BODY LAYOUT
+    // -------------------------------------------------
+    var contentTop = headerHeight + 30; // 170
+    var contentLeft = 50;
+    var contentWidth = 620;
+
+    // Adjust width if there is a highlight box (Split view)
+    if (item.type === 'highlight' && item.highlightBox) {
+      contentWidth = 350; // Left column width
+    } else {
+      contentWidth = 620; // Full width
+    }
+
+    // Render Body Bullets
+    if (item.body && item.body.length > 0) {
+      // Create a single text box for bullets
+      var bodyBox = slide.insertShape(SlidesApp.ShapeType.TEXT_BOX, contentLeft, contentTop, contentWidth, 300);
+      var bodyText = bodyBox.getText();
+      
+      // Add bullets with custom "compass" look (simulated with unicode)
+      var bulletString = "";
+      var isHighlight = (item.type === 'highlight' && item.highlightBox);
+      
+      item.body.forEach(function(line) {
+        // Use single spacing for highlight slides to save space, double for others
+        var separator = isHighlight ? "\n" : "\n\n"; 
+        bulletString += line + separator; 
+      });
+      
+      bodyText.setText(bulletString);
+
+      // Adjust Font Size for Highlight slides (dense content)
+      var bodyFontSize = isHighlight ? 14 : 18;
+
+      bodyText.getTextStyle()
+              .setFontFamily(THEME.fonts.body)
+              .setFontSize(bodyFontSize)
+              .setForegroundColor(THEME.colors.textMain);
+      bodyText.getParagraphStyle().setLineSpacing(115); // Add breathing room
+    }
+
+    // 5. HIGHLIGHT BOX (Right Column)
+    // -------------------------------------------------
+    if (item.type === 'highlight' && item.highlightBox) {
+      var highlightLeft = 430;
+      var highlightTop = contentTop + 20;
+      var highlightWidth = 260;
+      var highlightHeight = 150;
+
+      var box = slide.insertShape(SlidesApp.ShapeType.RECTANGLE, highlightLeft, highlightTop, highlightWidth, highlightHeight);
+      box.getFill().setSolidFill('#000000'); // Blacker background for contrast
+      box.getBorder().setWeight(3);
+      box.getBorder().getLineFill().setSolidFill(THEME.colors.highlightBorder);
+      
+      // Highlight Title (The Big Number)
+      var boxTitle = slide.insertShape(SlidesApp.ShapeType.TEXT_BOX, highlightLeft, highlightTop + 10, highlightWidth, 60);
+      var btRange = boxTitle.getText();
+      btRange.setText(item.highlightBox.title);
+      btRange.getTextStyle()
+             .setFontFamily(THEME.fonts.title)
+             .setFontSize(48)
+             .setBold(true)
+             .setForegroundColor(THEME.colors.highlightBorder); // Color match border
+      btRange.getParagraphStyle().setParagraphAlignment(SlidesApp.ParagraphAlignment.CENTER);
+
+      // Highlight Text (The description)
+      var boxText = slide.insertShape(SlidesApp.ShapeType.TEXT_BOX, highlightLeft, highlightTop + 70, highlightWidth, 70);
+      var btxtRange = boxText.getText();
+      btxtRange.setText(item.highlightBox.text);
+      btxtRange.getTextStyle()
+             .setFontFamily(THEME.fonts.title)
+             .setFontSize(24)
+             .setBold(true)
+             .setForegroundColor(THEME.colors.textMain);
+      btxtRange.getParagraphStyle().setParagraphAlignment(SlidesApp.ParagraphAlignment.CENTER);
+    }
+    
+    // 6. FOOTER (No Bar)
+    // -------------------------------------------------
+    if (item.footer) {
+      var footerMargin = 50; 
+      // If highlight slide, push it even lower (25px from bottom)
+      if (item.type === 'highlight') { footerMargin = 25; }
+      
+      var lineY = pageHeight - footerMargin - 20;
+      
+      var footerBox = slide.insertShape(SlidesApp.ShapeType.TEXT_BOX, 50, lineY + 10, 620, 50);
+      var fText = footerBox.getText();
+      fText.setText(item.footer);
+      fText.getTextStyle().setFontSize(14).setForegroundColor('#CCCCCC');
+    }
+
   });
 
   Logger.log('Deck created: ' + deck.getUrl());
