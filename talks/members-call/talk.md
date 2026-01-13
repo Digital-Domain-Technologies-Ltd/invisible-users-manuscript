@@ -186,10 +186,10 @@ Instead of 'From £99':
 
   Total: £119.00 (inc. VAT)
 
-  <details>
-    <summary>See breakdown</summary>
+  &lt;details&gt;
+    &lt;summary&gt;See breakdown&lt;/summary&gt;
     Product: £99 | Delivery: £15 | Fee: £5
-  </details>
+  &lt;/details&gt;
 </div>
 ```
 

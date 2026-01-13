@@ -995,8 +995,8 @@ Show complete costs upfront—no surprises at checkout.
   <span class="vat-status">inc. VAT</span>
 </div>
 
-<details class="price-breakdown">
-  <summary>Price breakdown</summary>
+&lt;details class="price-breakdown"&gt;
+  &lt;summary&gt;Price breakdown&lt;/summary&gt;
   <dl>
     <dt>Product price</dt>
     <dd>£139.99</dd>
@@ -1007,7 +1007,7 @@ Show complete costs upfront—no surprises at checkout.
     <dt>Total</dt>
     <dd>£149.99</dd>
   </dl>
-</details>
+&lt;/details&gt;
 ```
 
 No deceptive "from" pricing. Complete costs are visible. Breakdown available but not intrusive.
@@ -1030,8 +1030,8 @@ When something fails mid-transaction, show clear recovery paths:
     </ul>
   </div>
   
-  <details>
-    <summary>Technical details</summary>
+  &lt;details&gt;
+    &lt;summary&gt;Technical details&lt;/summary&gt;
     <dl>
       <dt>Error code</dt>
       <dd>PAYMENT_DECLINED</dd>

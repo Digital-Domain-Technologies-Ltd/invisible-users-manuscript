@@ -105,8 +105,8 @@ function clearError(fieldId) {
     <span class="tax-status">(inc. VAT)</span>
   </div>
 
-  <details class="price-breakdown">
-    <summary>See breakdown</summary>
+  &lt;details class="price-breakdown"&gt;
+    &lt;summary&gt;See breakdown&lt;/summary&gt;
     <table>
       <tr>
         <td>Product price:</td>
@@ -125,7 +125,7 @@ function clearError(fieldId) {
         <td>£119.00</td>
       </tr>
     </table>
-  </details>
+  &lt;/details&gt;
 </div>
 
 <script type="application/ld+json">

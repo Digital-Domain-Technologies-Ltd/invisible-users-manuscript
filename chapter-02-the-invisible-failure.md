@@ -362,10 +362,10 @@ The agent parses the page. It sees the Overview content. It might not understand
 Accordions create the same problem:
 
 ```html
-<details>
-  <summary>Frequently Asked Questions</summary>
+&lt;details&gt;
+  &lt;summary&gt;Frequently Asked Questions&lt;/summary&gt;
   <!-- 20 Q&A pairs hidden here -->
-</details>
+&lt;/details&gt;
 ```
 
 The `<details>` element is collapsed by default. The content is in the DOM but not visible on the screen. Agents might not expand it. The answers to frequently asked questions - the information most likely to be useful - remain invisible.

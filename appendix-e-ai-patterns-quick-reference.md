@@ -177,8 +177,8 @@ Use standard names:
   <span class="vat-status">inc. VAT</span>
 </div>
 
-<details class="price-breakdown">
-  <summary>Price breakdown</summary>
+&lt;details class="price-breakdown"&gt;
+  &lt;summary&gt;Price breakdown&lt;/summary&gt;
   <dl>
     <dt>Product</dt>
     <dd>£124.99</dd>
@@ -187,7 +187,7 @@ Use standard names:
     <dt>Total</dt>
     <dd>£149.99</dd>
   </dl>
-</details>
+&lt;/details&gt;
 ```
 
 ### Product with Stock

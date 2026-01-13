@@ -2323,8 +2323,8 @@ Show complete costs upfront—no surprises at checkout.
   <span class="vat-status">inc. VAT</span>
 </div>
 
-<details class="price-breakdown">
-  <summary>Price breakdown</summary>
+&lt;details class="price-breakdown"&gt;
+  &lt;summary&gt;Price breakdown&lt;/summary&gt;
   <dl>
     <dt>Product price</dt>
     <dd>£139.99</dd>
@@ -2335,7 +2335,7 @@ Show complete costs upfront—no surprises at checkout.
     <dt>Total</dt>
     <dd>£149.99</dd>
   </dl>
-</details>
+&lt;/details&gt;
 ```
 
 **Why this works:** No deceptive "from" pricing. Complete costs are visible. Breakdown available but not intrusive.
@@ -2887,10 +2887,10 @@ app.post('/cart/add', (req, res) => {
 
 ```html
 <!-- Important info in closed accordion -->
-<details>
-  <summary>Shipping details</summary>
+&lt;details&gt;
+  &lt;summary&gt;Shipping details&lt;/summary&gt;
   <p>Free shipping on orders over £50</p>
-</details>
+&lt;/details&gt;
 ```
 
 **Do this instead:**
@@ -2899,10 +2899,10 @@ app.post('/cart/add', (req, res) => {
 <!-- Critical info always visible -->
 <div class="shipping-info">
   <p>Free shipping on orders over £50</p>
-  <details>
-    <summary>Delivery times and restrictions</summary>
+  &lt;details&gt;
+    &lt;summary&gt;Delivery times and restrictions&lt;/summary&gt;
     <p>Additional details...</p>
-  </details>
+  &lt;/details&gt;
 </div>
 ```
 
