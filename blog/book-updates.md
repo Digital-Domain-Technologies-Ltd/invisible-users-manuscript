@@ -25,14 +25,29 @@ Only news meeting ALL five relevance criteria (chapter validation, production re
 
 ## Changelog: Post-Publication Additions
 
-**Nothing added yet.** Appendix J currently contains all significant developments through 12 January 2026 (publication date).
+### 13 January 2026 - Adobe AI Traffic Report
 
-New entries will appear here chronologically as they're added to Appendix J, showing:
-- Date added
-- Entry headline
-- Which chapters it validates/challenges
-- Link to full entry in Appendix J
+**Added to Appendix J:** "Adobe AI Traffic Report - Massive Growth Across Industries (January 2026)"
+
+Adobe Analytics reported extraordinary growth in AI-driven traffic based on analysis of over 1 trillion visits to U.S. websites during the 2025 holiday season:
+
+**Key findings:**
+
+- Retail AI traffic grew 693% year-over-year
+- AI conversions now 31% HIGHER than non-AI (was 51% LOWER 12 months ago)
+- AI revenue per visit 32% higher - complete reversal from 2024
+- Cross-industry growth: Travel +539%, Financial Services +266%, Tech/Software +120%
+- 81% of consumers report improved shopping experience with AI assistance
+- 38% have used AI for shopping, 52% plan to use it this year
+
+**Validates chapters:** Preface (market acceleration), Chapter 1 (agent traffic growth), Chapter 8 (improved user experience), Chapter 9 (platform race urgency)
+
+**Challenges assumptions:** Chapter 4's revenue decline concerns - AI traffic now generates MORE revenue for e-commerce sites, not less. Complete performance reversal in just 12 months.
+
+**Geographic scope:** Data is U.S.-only. Many AI platforms and campaigns are trialling in the United States first, with global expansion expected as platforms mature. Pattern demonstrates trajectory for global markets.
+
+**See:** Full 12-section entry in Appendix J with comprehensive analysis, business model implications, and strategic recommendations.
 
 ---
 
-*Last updated: 12 January 2026*
+Last updated: 13 January 2026
