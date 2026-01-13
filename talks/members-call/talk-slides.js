@@ -361,8 +361,8 @@ function createInvisibleUsersDeck() {
       body: [
         "Agentic Commerce Protocol (ACP) - OpenAI/Stripe",
         "Universal Commerce Protocol (UCP) - Google",
-        "Next Project: Universal Identity Delegation Infrastructure",
-        "Open-source portable authorisation"
+        "Identity delegation patterns emerging",
+        "Multiple approaches under development"
       ]
     },
 
@@ -392,7 +392,6 @@ function createInvisibleUsersDeck() {
         "",
         "Project Pages:",
         "Book: https://allabout.network/invisible-users",
-        "Identity Project: https://allabout.network/invisible-users/identity-layer.html",
         "News: https://allabout.network/invisible-users/news.html"
       ],
       footer: "Questions? Discussion? Your challenges?"

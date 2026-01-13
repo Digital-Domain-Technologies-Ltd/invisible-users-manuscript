@@ -4,18 +4,19 @@ Reference implementation for Chapter 12's "The Missing Identity Layer" section.
 
 ## ⚠️ Important Note
 
-This is a **simplified proof-of-concept** demonstrating the core principles described in "The Invisible Users." A comprehensive, production-ready identity delegation system will be developed as a future open-source project.
+This is a **simplified proof-of-concept** demonstrating the core principles described in "The Invisible Users." This code is educational only, showing how identity delegation patterns could work in practice.
 
-**For updates on the full identity delegation infrastructure:**
-<https://allabout.network/invisible-users/identity-layer.html>
+**Purpose:** Demonstrate the concepts discussed in the book for learning and experimentation.
 
-This proof-of-concept is educational - showing how the patterns work and why they matter. The future project will provide:
+A production-ready identity delegation system would require:
 
 - Battle-tested security implementations
 - Multi-platform token provider support
 - Comprehensive delegation management UI
 - Standard protocol specifications
 - Community-driven governance
+
+This proof-of-concept is intentionally simplified to illustrate the core concepts clearly.
 
 ## Philosophy: Cooperation Over Detection
 
@@ -397,17 +398,14 @@ This proof-of-concept will evolve into a comprehensive open-source project provi
 - Certification programs
 - Community governance model
 
-**Stay updated:**
-<https://allabout.network/invisible-users/identity-layer.html>
-
 ## License
 
-This code is provided as a reference implementation for "The Invisible Users" book principles. Use freely for production systems that preserve user agency and customer relationships.
+This code is provided as a reference implementation for "The Invisible Users" book principles. Use freely for learning, experimentation, or as inspiration for production systems that preserve user agency and customer relationships.
 
 ## Contact
 
-Questions about identity delegation patterns or the future project:
+Questions about identity delegation patterns:
 
 - Email: <tom.cranstoun@gmail.com>
 - Website: <https://allabout.network>
-- Project updates: <https://allabout.network/invisible-users/identity-layer.html>
+- Book website: <https://allabout.network/invisible-users>

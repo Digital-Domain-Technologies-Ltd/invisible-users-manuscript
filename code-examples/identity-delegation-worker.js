@@ -5,11 +5,8 @@
  * Aligns with "The Invisible Users" Chapter 11: The Missing Identity Layer
  *
  * IMPORTANT: This is a simplified proof-of-concept implementation demonstrating
- * the core principles described in the book. A comprehensive, production-ready
- * identity delegation system will be developed as a future open-source project.
- *
- * For updates on the full identity delegation infrastructure project:
- * https://allabout.network/invisible-users/identity-layer.html
+ * the core principles described in the book. This code is educational only,
+ * showing how identity delegation patterns could work in practice.
  *
  * This implementation shows how businesses can:
  * - Accept explicit agent identification

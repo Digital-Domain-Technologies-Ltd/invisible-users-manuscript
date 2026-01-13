@@ -387,13 +387,7 @@ I'm considering building an open-source universal identity delegation framework 
 
 **The challenge:** This requires collaboration across competing interests - building a coalition of agent creators, businesses, and users who recognise that interoperability serves everyone better than fragmentation.
 
-**Timeline:** We have a narrow window (12-18 months) before proprietary systems become entrenched. Regulatory pressure will eventually force interoperability (similar to mobile number portability), but early involvement positions organisations as authority figures when standards emerge.
-
-**Looking for collaborators** with expertise in identity systems, OAuth implementations, agent architectures, and open standards development.
-
-If this matters to you - if you believe users should control their identity delegation rather than platforms controlling it for them - get in touch.
-
-**Project details:** <https://allabout.network/invisible-users/identity-layer.html>
+**Future direction:** Identity delegation is an evolving area where multiple approaches are emerging. The book discusses these patterns conceptually without prescribing specific implementations, acknowledging that the market is still finding optimal solutions.
 
 ---
 
@@ -424,7 +418,6 @@ Tom Cranstoun
 **Project Pages:**
 
 - Book website: <https://allabout.network/invisible-users>
-- Identity delegation project: <https://allabout.network/invisible-users/identity-layer.html>
 - Project news: <https://allabout.network/invisible-users/news.html>
 
 **Questions? Discussion? Your challenges?**
