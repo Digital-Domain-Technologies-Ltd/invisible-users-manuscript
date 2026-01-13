@@ -94,6 +94,19 @@ Three reasons:
 - **Claude for Chrome** (August-December 2025): Browser automation available to millions of paid subscribers
 - **Google and Apple** expected to build their own walled gardens
 
+**The data validates the acceleration:** Adobe Analytics reported extraordinary growth in AI-driven traffic through analysis of over 1 trillion visits to U.S. websites during the 2025 holiday season:
+
+- **Retail AI traffic:** +693% year-over-year
+- **Conversion reversal:** AI traffic now converts 31% BETTER than non-AI sources (was 51% worse 12 months ago)
+- **Revenue impact:** AI-driven revenue per visit now 32% higher (complete reversal from -51% to +32% in one year)
+- **Cross-industry growth:** Travel +539%, Financial Services +266%, Tech/Software +120%, Media/Entertainment +92%
+- **Consumer adoption:** 38% have used AI for shopping, 52% plan to use it this year
+- **User experience:** 81% report improved shopping experience with AI assistance
+
+**Critical insight:** This data shows the complete performance reversal happened in just 12 months. E-commerce sites now have clear financial incentive to optimise for AI agents - AI traffic generates MORE revenue, not less. However, content sites with advertising models still face existential threats.
+
+**Geographic scope:** U.S. data only. Many AI platforms and campaigns are trialling in the United States first, with global expansion expected as platforms mature.
+
 **Critical reality:** You cannot assume your site works for "AI agents" in general. Each platform has different capabilities, different identity systems, and different failure modes. Testing against one doesn't guarantee compatibility with others.
 
 **The proprietary lock-in problem:** Major platforms are building closed identity systems to establish first-mover advantages before open standards emerge. Every integration creates lock-in for your customers and dependency for your business. The industry must work to build open standards whilst platforms pursue proprietary systems.
