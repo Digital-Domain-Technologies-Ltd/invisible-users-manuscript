@@ -4,7 +4,7 @@
 
 This appendix tracks significant developments in AI agent-mediated commerce and browser automation. These real-world implementations demonstrate the patterns discussed throughout the book and show how rapidly the landscape is evolving.
 
-**Last updated:** 13 January 2026 (added Adobe AI Traffic Report)
+**Last updated:** 13 January 2026 (added Perplexity Comet Browser)
 
 **Purpose:** Document major industry shifts that validate or challenge the book's thesis. This appendix will be updated periodically as new developments emerge.
 
@@ -313,6 +313,301 @@ Permanent fragmentation creates:
 - Potential for third competitor to launch "universal adapter" protocol bridging both
 
 **Connection to Chapter 9:** The platform race analysis in Chapter 9 discusses fragmentation danger and convergence prospects from strategic perspective. This technical appendix provides implementation and timeline specifics for merchant decision-making.
+
+---
+
+## Perplexity Comet Browser (July-October 2025)
+
+### Overview
+
+Perplexity AI launched Comet, an AI-powered browser with integrated agent capabilities in every new tab. Initial release in July 2025 targeted paid subscribers ($200/month Max plan), followed by free global release in October 2025, democratizing browser-based agent automation to millions of users worldwide.
+
+### Key Details
+
+**Initial Launch:** 9 July 2025 (Max plan subscribers, $200/month)
+**Free Global Release:** 2 October 2025
+**Mobile Launch:** November 2025 (Android), iOS coming soon
+**Platform:** Standalone browser (Chromium-based)
+**Availability:** Free for all users globally
+**Scale:** Millions joined waitlist before free release; millions of daily users as of January 2026
+**Category:** Browser-Based Agent Tools
+
+### Key Capabilities
+
+**Core Features:**
+
+- **Comet Assistant:** AI agent integrated in every new tab for instant interaction
+- **Page summarization:** Condenses articles, videos, and documents without leaving the page
+- **Tab management:** Organizes and tracks open tabs intelligently
+- **Email assistance:** Drafts emails and briefs with full context from browsing
+- **Shopping comparison:** Compares products and prices across sites
+- **Background task management:** Offloads repetitive workflows to focus on higher-value work
+
+**Agent-Mode Automation:**
+
+- **Multi-step workflows:** "Find flight deals under £200 and add them to a comparison spreadsheet"
+- **Voice-activated control:** Hands-free browser navigation and task execution
+- **Natural language interface:** Conversational instructions rather than precise syntax
+- **Context awareness:** Understands what you're viewing and pulls relevant details automatically
+
+**Technical Architecture:**
+
+- Built on Chromium (same foundation as Chrome, Edge, Brave)
+- Perplexity AI search as default search engine
+- AI-first interface design (assistant-centric rather than traditional browser UI)
+- Operates within user's browser session (session inheritance architecture)
+
+### Significance for This Book
+
+**Particularly relevant:** Comet represents the earliest major production deployment of the session inheritance architecture discussed in Chapter 6. While Chapter 6:101 references "Claude for Chrome (launched December 2025)" as an example, Comet launched earlier (July 2025, free October 2025) and demonstrates the same fundamental pattern: browser agents inheriting authenticated sessions, making detection impossible.
+
+### Technical Implementation Insights
+
+**Session Inheritance Architecture:**
+
+As a standalone browser (not just an extension), Comet operates within the user's browser session, inheriting:
+
+- Valid cookies and authentication tokens
+- Device trust tokens built over months
+- Cloudflare clearance and CAPTCHA completion
+- Active session IDs from logged-in services
+- Two-factor authentication completion flags
+
+This makes it impossible for websites to distinguish AI activity from human activity based on authentication state alone - the exact problem discussed in Chapter 6's "Session Inheritance Problem" section.
+
+**Browser-Based vs Extension-Based:**
+
+Unlike Claude for Chrome (browser extension), Comet is a standalone browser. This architecture gives Perplexity complete control over:
+
+- Default search engine (Perplexity AI search)
+- Navigation patterns and UI design
+- Data collection and privacy policies
+- Integration with external services
+
+The trade-off: users must switch browsers rather than adding to existing workflow. The benefit: deeper integration and cohesive AI-first experience.
+
+**Chromium Foundation:**
+
+Building on Chromium provides:
+
+- Compatibility with web standards
+- Security updates from Google's Chromium team
+- Extension ecosystem (can run Chrome extensions)
+- Familiar developer tools and debugging
+
+This reduces Perplexity's maintenance burden whilst enabling fast feature development.
+
+**Agent-Mode Marketing:**
+
+Perplexity explicitly markets "Agent-Mode automation" in consumer-facing materials (email campaigns, website copy). This signals agents becoming normalized in everyday workflows - moving from technical jargon to mainstream consumer feature.
+
+### Business Model Implications
+
+**For Perplexity:**
+
+- **Search distribution:** Owns the browser, controls default search (Perplexity AI)
+- **Data advantage:** Observes browsing behaviour across all sites (within privacy policy)
+- **Platform power:** Can prioritize own services in agent recommendations
+- **Competitive positioning:** Competes with Chrome, Edge, and Brave whilst offering differentiated AI capabilities
+
+**Free Model Implications:**
+
+The shift from $200/month (July) to free (October) in just three months demonstrates:
+
+- Rapid market validation (millions joined waitlist)
+- Strategic decision to maximize adoption over immediate revenue
+- Likely monetization through search advertising and premium features
+- Platform race dynamics: get users first, monetize later
+
+**For Competing Platforms:**
+
+Comet's free release pressures competitors:
+
+- ChatGPT and Claude charge for browser automation features
+- Google and Microsoft must respond with free or low-cost alternatives
+- Creates expectation that browser agents should be free, not premium features
+
+**For Website Owners:**
+
+Browser agents are no longer limited to paid subscribers. Millions of users with free access means:
+
+- Agent traffic becomes meaningful percentage of total traffic
+- Must optimize for agents or risk losing conversions
+- Cannot assume "agents are rare/expensive users we can ignore"
+
+### What This Validates
+
+**From Chapter 2 - "Browser Agent Architecture":**
+
+Comet encounters the same five failure patterns documented in Chapter 2 when sites don't follow agent-friendly design:
+
+- Toast notifications that appear and vanish before agent sees them
+- Pagination and hidden content the agent doesn't discover
+- SPA state changes without URL or semantic indicators
+- Delayed validation feedback with no upfront requirements
+- Hidden pricing revealed only at checkout
+
+These failures affect millions of Comet users, validating the practical impact of invisible failures.
+
+**From Chapter 6 - "Session Inheritance Problem":**
+
+Chapter 6:46 discusses "Browser extension assistants (ChatGPT sidebar, Claude browser extension) running inside your authenticated browser." Comet is a standalone browser but demonstrates identical session inheritance: banks cannot distinguish Comet's AI activity from human activity because Comet inherits proof-of-humanity tokens from the authenticated session.
+
+Chapter 6:101 explicitly states: "This setup is no longer theoretical. Claude for Chrome (launched December 2025) provides exactly this capability to all paid subscribers - browser automation with full session inheritance."
+
+Comet launched five months earlier (July 2025) and went free three months before Claude for Chrome's broad release, making session inheritance a production reality even sooner than the book's timeline suggested.
+
+**From Chapter 9 - "Platform Race":**
+
+The Preface and Chapter 9 discuss the "platform race" where AI companies compete for distribution and control. Comet validates this prediction from an unexpected angle: a search engine company (Perplexity) now owns a browser, directly competing with Chrome whilst building AI-first interfaces.
+
+Platform dynamics: Perplexity vs. Chrome vs. Microsoft Edge vs. ChatGPT browser features vs. Claude for Chrome. Multiple players racing to control the agent-mediated browsing experience.
+
+### What This Challenges
+
+**Assumption challenged - Premium Feature Positioning:**
+
+The book discusses browser automation as potentially premium-tier feature (similar to Claude's pricing model). Comet's free global release challenges this: browser agents can be free-to-use with alternative monetization (search advertising, platform data).
+
+**Timeline acceleration:**
+
+Chapter 9 discusses rapid adoption but didn't anticipate a major platform going from "$200/month" to "free globally" in three months. This acceleration demonstrates "rocket-fuel mode" market dynamics even faster than projected.
+
+**Competitive fragmentation:**
+
+The ecosystem is more fragmented than "proprietary platforms vs. open standards" dichotomy suggested in Chapter 12:
+
+- Standalone browsers with built-in agents (Comet)
+- Browser extensions (Claude for Chrome, ChatGPT sidebar)
+- Operating system integration (Windows Copilot)
+- Mobile app-based agents (Amazon Rufus)
+- Search engine integrations (Google SGE)
+
+Each approach has different session inheritance characteristics, detection challenges, and competitive advantages.
+
+### Architectural Insights
+
+**Multi-Step Workflow Execution:**
+
+Agent-Mode automation enables complex sequences: "Find flight deals under £200, compare them, and add to spreadsheet." This requires:
+
+1. Understanding natural language intent
+2. Searching across multiple travel sites
+3. Extracting and normalizing pricing data
+4. Creating or accessing spreadsheet
+5. Formatting and inserting data
+6. Confirming completion with user
+
+Each step encounters the failure patterns from Chapter 2 if sites don't implement agent-friendly patterns.
+
+**Voice-Activated Browser Control:**
+
+Voice interface creates additional challenges:
+
+- Must parse spoken instructions accurately
+- Cannot show visual confirmation dialogs easily
+- Errors more costly (user not watching screen)
+- Privacy implications (always-listening mic)
+
+Validates Chapter 11's emphasis on explicit state and persistent error messages - voice users need clear feedback even more than visual users.
+
+**Background Task Management:**
+
+Offloading workflows to background execution requires:
+
+- Robust error handling (user not monitoring)
+- Persistent state tracking (task may take minutes/hours)
+- Clear completion notifications
+- Rollback capabilities if errors occur
+
+This is the validation layer architecture discussed in Chapter 11: agents need confidence scoring, error detection, and graceful failure modes.
+
+### Questions Raised
+
+**Detection and Bot Blocking:**
+
+If Comet disguises itself as Chrome (using Chromium User-Agent), how can websites distinguish legitimate human browsing from agent automation? Amazon's lawsuit against Perplexity (documented in Appendix J) centers on this question.
+
+**Privacy and Data Collection:**
+
+As a standalone browser, Comet observes all browsing activity. Privacy policy governs what Perplexity collects and how they use it, but users must trust a single vendor with complete browsing history. This differs from browser extensions (limited scope) or separate agents (no persistent access).
+
+**Search Neutrality:**
+
+With Perplexity AI as default search engine, does Comet prioritize Perplexity's results over competitors? Can users effectively switch default search? Browser ownership creates conflicts of interest in search ranking and result presentation.
+
+**Multi-Step Task Reliability:**
+
+TechCrunch testing (July 2025) found Comet's agent "struggled with complex multi-step tasks" and "hallucinated incorrect dates during airport parking reservation attempt." How reliable are multi-step workflows in production? What percentage of Agent-Mode tasks complete successfully vs. fail partially or silently?
+
+**Session Security:**
+
+If Comet inherits authenticated sessions, what happens if:
+
+- User shares device with family member
+- Malicious website attempts prompt injection
+- Agent makes unauthorized purchase
+- Session tokens leak to Perplexity's servers
+
+Chapter 6 discusses these security challenges but doesn't provide definitive solutions.
+
+### Strategic Implications for Readers
+
+**For Website Owners (Chapter 10 guidance):**
+
+Millions of Comet users are attempting workflows on your site right now. Test with Comet immediately:
+
+1. Install Comet browser
+2. Instruct agent to complete critical workflow (book appointment, complete purchase, fill contact form)
+3. Observe where it fails
+4. Implement patterns from Chapter 10 to fix failures
+
+Those failures cost you both human and AI-mediated conversions.
+
+**For Security Professionals (Chapter 6 guidance):**
+
+Session inheritance is production reality at millions-of-users scale. Your authentication systems cannot distinguish human from AI based on session tokens alone. Implement detection strategies from Chapter 6 that don't rely solely on authentication state:
+
+- Transaction velocity monitoring
+- Behavioral anomaly detection
+- Explicit agent identification requirements (though enforcement is challenging)
+- Rate limiting per session rather than per IP
+
+**For Agent Creators (Chapter 11 guidance):**
+
+Comet demonstrates gaps between marketing claims and production reliability:
+
+- TechCrunch found "struggles with complex multi-step tasks"
+- Date hallucination in booking workflows
+- No public metrics on success rates
+
+Build validation layers and guardrails that prevent false positives (agent reports success when task failed). Implement patterns from Chapter 11: planning mode review, pre-approval, confidence scoring, confirmation for irreversible actions.
+
+**For Competing Platforms:**
+
+Comet's free model pressures premium pricing strategies. Consider:
+
+- Free tier with browser automation (match Comet)
+- Premium tier with additional safety controls, enterprise admin, priority support
+- Differentiation through reliability rather than access
+
+### Cross-References
+
+- **Chapter 2:** "The Invisible Failure" - Comet encounters all five failure patterns when sites lack agent-friendly design
+- **Chapter 6:** "Session Inheritance Problem" - inherits authenticated sessions, impossible to detect (6:46, 6:101)
+- **Chapter 9:** "Platform Race" - search engine company now owns browser, validates competitive dynamics
+- **Chapter 10:** "Browser Agent Architecture" - represents this agent type with session inheritance capabilities
+- **Chapter 11:** "Validation Layers" - multi-step workflows need robust error handling and confirmation patterns
+- **Appendix D:** "AI-Friendly HTML Guide" - patterns that help Comet succeed on your website
+- **Appendix F:** "Implementation Roadmap" - priorities become urgent with millions of browser agent users
+
+### Sources
+
+- TechCrunch: "Perplexity launches Comet, an AI-powered web browser" (9 July 2025) - <https://techcrunch.com/2025/07/09/perplexity-launches-comet-an-ai-powered-web-browser/>
+- CNBC: "Perplexity AI rolls out Comet browser for free worldwide" (2 October 2025) - <https://www.cnbc.com/2025/10/02/perplexity-ai-comet-browser-free-.html>
+- Perplexity Blog: "The Internet is Better on Comet" (free global launch announcement) - <https://www.perplexity.ai/hub/blog/comet-is-now-available-to-everyone-worldwide>
+- TechCrunch: "Perplexity brings its AI browser Comet to Android" (November 2025) - <https://techcrunch.com/2025/11/20/perplexity-brings-its-ai-browser-comet-to-android/>
+- User verification: Perplexity marketing email received 13 January 2026 confirming millions of daily users and Agent-Mode automation features
 
 ---
 

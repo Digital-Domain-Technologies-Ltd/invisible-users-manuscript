@@ -25,6 +25,20 @@ Only news meeting ALL five relevance criteria (chapter validation, production re
 
 ## Changelog: Post-Publication Additions
 
+### 13 January 2026 - Perplexity Comet Browser
+
+**Added to Appendix J:** Perplexity Comet Browser - Free AI-Powered Browser with Agent-Mode Automation (October 2025)
+
+**Validates chapters:** 2, 6 (browser agent interaction patterns, session inheritance architecture)
+
+Perplexity AI released Comet browser to the public for free in October 2025, bringing browser-based AI agent automation to millions of daily users. Initial launch in July 2025 was limited to $200/month Max subscribers; free global release in October democratized access to Agent-Mode automation, multi-step workflows, and voice-activated browser control.
+
+**Key significance:** Comet demonstrates the session inheritance architecture discussed in Chapter 6:101 (which mentions "Claude for Chrome (launched December 2025)" as an example). Comet launched earlier (July 2025, free October 2025) and represents the same pattern - browser agents inheriting authenticated sessions, making detection impossible. Search engine company now owns browser, validating Chapter 9's platform race predictions.
+
+**See:** Full 12-section entry in Appendix J: "Perplexity Comet Browser - Free AI-Powered Browser with Agent-Mode Automation"
+
+---
+
 ### 13 January 2026 - Adobe AI Traffic Report
 
 **Added to Appendix J:** "Adobe AI Traffic Report - Massive Growth Across Industries (January 2026)"
