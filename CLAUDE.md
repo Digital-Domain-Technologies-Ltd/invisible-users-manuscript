@@ -343,6 +343,15 @@ Maintain consistent contact information across all files:
 - **Website**: <https://allabout.network>
 - **LinkedIn**: <https://www.linkedin.com/in/tom-cranstoun/>
 
+## Author Profile Resources
+
+When creating web pages, marketing materials, or book covers that feature the author:
+
+- **Profile picture URL:** `https://allabout.network/media_126e99d56f06caf788bee715aff92281d2e31a206`
+- Used in: [back-cover.html](web/back-cover.html), marketing materials
+- Format: Square profile image suitable for circular cropping
+- Usage: Reference this URL directly in HTML `<img>` tags or download for local use
+
 ## Copyright
 
 Copyright © Tom Cranstoun. All rights reserved.
