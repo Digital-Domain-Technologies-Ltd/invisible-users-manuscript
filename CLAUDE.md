@@ -9,7 +9,8 @@ This is the manuscript repository for "The Invisible Users: Designing the Web fo
 **Main Repository:** <https://github.com/ddttom/invisible-users>
 **This Repository:** <https://github.com/Digital-Domain-Technologies-Ltd/invisible-users-manuscript>
 
-**PUBLICATION STATUS: IN REVIEW (Pre-Publication)**
+## Publication Status: In Review (Pre-Publication)
+
 - Manuscript is complete and in review
 - Publication date: Due Q1 2026
 - Do NOT assume published status based on current date
@@ -32,10 +33,12 @@ This is a git submodule integrated at `packages/manuscript/manuscript/` in the p
 ### Core Manuscript Files
 
 **Front Matter:**
+
 - `preface.md` - Author's journey and book introduction
 - `executive-summary.md` - Condensed overview with decision tree
 
 **Chapters (Sequential, ~57,000 words):**
+
 - `chapter-01-what-you-will-learn.md` - Introduction and accessibility connection (~3,200 words)
 - `chapter-02-the-invisible-failure.md` - Problem identification (~4,500 words)
 - `chapter-03-the-architectural-conflict.md` - Technical analysis (~4,150 words)
@@ -49,6 +52,7 @@ This is a git submodule integrated at `packages/manuscript/manuscript/` in the p
 - `chapter-11-what-agent-creators-must-build.md` - Agent creator requirements (~5,000 words)
 
 **Appendices (Implementation Guides, ~22,000 words):**
+
 - `appendix-a-implementation-cookbook.md` - Quick-reference recipes (~1,900 words)
 - `appendix-b-battle-tested-lessons.md` - Production learnings (~1,850 words)
 - `appendix-c-web-audit-suite-guide.md` - Audit tooling guide (~2,000 words)
@@ -61,11 +65,13 @@ This is a git submodule integrated at `packages/manuscript/manuscript/` in the p
 - `appendix-i-pipeline-failure-case-study.md` - £203k error analysis (~2,500 words)
 
 **Reference:**
+
 - `Glossary.md` - 60+ technical terms with cross-references
 
 ### Supporting Materials
 
 **Code Examples:**
+
 - `agent-friendly-starter-kit/` - Good vs bad pattern demonstrations
 - `code-examples/` - Production implementations
   - `apache/` - Apache HTTP server configuration
@@ -78,6 +84,7 @@ This is a git submodule integrated at `packages/manuscript/manuscript/` in the p
   - `validation/` - Verification scripts for AI compatibility
 
 **Blog & Presentations:**
+
 - `blog/` - Promotional materials
   - `blog.md` - Promotional blog post (~19k)
   - `blog.svg` - Blog illustration
@@ -86,15 +93,67 @@ This is a git submodule integrated at `packages/manuscript/manuscript/` in the p
   - `members-call/` - Members call presentations
 
 **Visual Assets:**
+
 - `illustrations/` - Chapter illustrations
   - Source: SVG files (tracked in git)
   - Export: PNG files (gitignored, generated from parent repo)
 - `cover-design.svg` - Book cover design (600×900)
 
 **Build Configuration:**
+
 - `metadata.yaml` - Pandoc metadata for PDF (A4 format)
 - `metadata-kindle.yaml` - Metadata for Kindle/EPUB (6"×9" format)
 - `cover-page.tex` - LaTeX cover page template
+
+**Project Planning:**
+
+- `todo.md` - User's project task list (see below for usage guidelines)
+
+### Project Task List (todo.md)
+
+**CRITICAL: This file is the USER'S personal project task list and reference.**
+
+**Purpose:**
+
+- Contains URLs, notes, and reminders for various project tasks
+- Used by the user for planning and tracking different aspects of the solution
+- Content is ephemeral and changes frequently as the user works through different tasks
+- May contain URLs for images, assets, documentation links, or other resources
+
+**How Claude Code should interact with todo.md:**
+
+1. **NEVER execute tasks from todo.md autonomously**
+   - Claude must NOT treat items in todo.md as automatic instructions
+   - Claude must NOT implement tasks found in todo.md without explicit user direction
+
+2. **User must explicitly request action**
+   - The user will provide clear, direct instructions for any task they want Claude to perform
+   - If a task happens to be related to something in todo.md, the user will specify it explicitly
+   - Example: "Download the images referenced in todo.md and add them to illustrations/"
+
+3. **Reading todo.md is informational only**
+   - Claude may read todo.md to understand context if explicitly asked
+   - Claude should not proactively offer to complete tasks listed in todo.md
+   - Claude should not suggest implementing items from todo.md unless directly asked
+
+4. **todo.md is user-owned**
+   - This file belongs to the user's workflow
+   - Claude should not modify todo.md unless explicitly asked
+   - Claude should not assume the file structure or content format is stable
+
+**Example - Correct interaction:**
+
+```text
+User: "Download the cover images from the URLs in todo.md"
+Claude: [Reads todo.md, extracts URLs, downloads images as instructed]
+```
+
+**Example - Incorrect interaction:**
+
+```text
+Claude: [Reads todo.md] "I see you have some tasks listed. Would you like me to implement them?"
+→ This is WRONG - Claude should not proactively suggest implementing todo.md items
+```
 
 ## Content Themes
 
@@ -117,6 +176,7 @@ Modern web patterns optimized for humans (toast notifications, SPAs, progressive
 ### Standards Classification
 
 The book clearly distinguishes:
+
 - **Established Standards**: Schema.org, semantic HTML, ARIA - use with confidence
 - **Emerging Conventions**: llms.txt - early adoption phase
 - **Proposed Patterns**: ai-* meta tags, data-agent-visible - experimental but forward-compatible
@@ -136,6 +196,7 @@ The book clearly distinguishes:
 ### Reading Files
 
 When reading chapter files:
+
 - Read complete chapters to understand full context
 - Note word counts and structural organization
 - Check for British English consistency
@@ -144,6 +205,7 @@ When reading chapter files:
 ### Markdown Formatting
 
 Follow strict formatting rules (enforced by parent repo linting):
+
 - Blank lines before/after headings
 - ATX-style headings only (not setext-style underlined)
 - Blank lines before/after lists and code blocks
@@ -159,6 +221,7 @@ Follow strict formatting rules (enforced by parent repo linting):
 1. Commit and push changes here
 2. Return to parent repository
 3. Update submodule pointer:
+
    ```bash
    cd ../../..
    git add packages/manuscript/manuscript
@@ -187,19 +250,23 @@ npm run lint:markdown          # Check markdown formatting
 This repository includes Claude Code configuration:
 
 **Hooks** (in `.claude/hooks/`):
+
 - `pre-commit.sh` - Lists staged markdown files
 - `pre-push.sh` - Warns about uncommitted changes, reminds about parent submodule update
 - `post-tool-use.sh` - Reminds to update parent after git push
 
 **Commands** (in `.claude/commands/`):
+
 - `step-commit.md` - Systematic commit workflow documentation
 - `md-fix.md` - Markdown linting workflow (runs from parent)
 
 **Skills** (in `.claude/skills/`):
+
 - `step-commit.json` - Automated commit workflow
 - `md-fix.json` - Markdown linting automation
 
 **Settings** (`.claude/settings.local.json`):
+
 - Pre-approved git operations and file viewing commands
 
 ## Publication Format
@@ -219,6 +286,7 @@ The manuscript supports dual-format publication:
    - Optimized for digital reading
 
 Two metadata files control rendering:
+
 - `metadata.yaml` - LaTeX configuration for PDF with watermark ("Review Copy")
 - `metadata-kindle.yaml` - Clean metadata for Kindle/EPUB
 
@@ -255,6 +323,7 @@ All implementation guidance uses priority levels, not time estimates:
 **CRITICAL: Always run `pwd` first** before attempting directory navigation. This is a git submodule repository that can be accessed from the parent repository root at `packages/manuscript/manuscript/`, but if you're already inside this submodule directory, further `cd` attempts will fail with "No such file or directory" errors.
 
 Common mistake pattern:
+
 ```bash
 # ❌ Wrong: Attempting cd without checking location
 cd packages/manuscript/manuscript  # Fails if already inside this submodule
