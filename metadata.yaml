@@ -24,7 +24,7 @@ header-includes: |
     \begin{titlepage}
     \AddToShipoutPictureBG*{%
       \AtPageLowerLeft{%
-        \includegraphics[width=\paperwidth,height=\paperheight]{packages/manuscript/manuscript/illustrations/cover-design.png}%
+        \includegraphics[width=\paperwidth,height=\paperheight]{packages/manuscript/manuscript/illustrations/A4-Cover.png}%
       }%
     }%
     \null
