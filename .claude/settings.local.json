@@ -7,12 +7,25 @@
       "Bash(git status:*)",
       "Bash(git diff:*)",
       "Bash(git log:*)",
+      "Bash(git branch:*)",
+      "Bash(git ls-files:*)",
+      "Bash(npm run:*)",
+      "Bash(npx markdownlint:*)",
+      "Bash(pandoc:*)",
       "Bash(ls:*)",
       "Bash(pwd:*)",
       "Bash(cat:*)",
       "Bash(head:*)",
       "Bash(tail:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(wc:*)"
+    ],
+    "deny": [],
+    "ask": [
+      "Bash(git reset:*)",
+      "Bash(git checkout:*)",
+      "Bash(git restore:*)"
     ]
   }
 }
