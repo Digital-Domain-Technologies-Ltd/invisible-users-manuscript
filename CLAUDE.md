@@ -96,7 +96,8 @@ This is a git submodule integrated at `packages/manuscript/manuscript/` in the p
 
 - `illustrations/` - Chapter illustrations
   - Source: SVG files (tracked in git)
-  - Export: PNG files (gitignored, generated from parent repo)
+  - Export: PNG files (gitignored, generated from parent repo via `npm run illustrations:generate`)
+  - Special: `back-cover.png` must be generated manually (see Build Operations below)
 - `cover-design.svg` - Book cover design (600×900)
 
 **Build Configuration:**
@@ -240,10 +241,21 @@ All build operations run from parent repository:
 npm run pdf:generate           # Generate A4 PDF with cover
 npm run pdf:kindle             # Generate 6"×9" Kindle PDF
 npm run pdf:simple             # Generate simplified PDF
-npm run illustrations:generate # Convert SVG to PNG
+npm run illustrations:generate # Convert SVG to PNG (see process below)
 npm run wordcount              # Count words across all chapters
 npm run lint:markdown          # Check markdown formatting
 ```
+
+**Illustration Generation Process:**
+
+The `npm run illustrations:generate` command performs these steps:
+
+1. **Downloads cover images** (if missing): Profile.png, A4-Cover.png, Kindle-Cover.png
+2. **Checks for back-cover.png**: This file must be generated manually by:
+   - Opening [web/back-cover.html](web/back-cover.html) in a browser
+   - Taking a full-page screenshot
+   - Saving as `back-cover.png` in `illustrations/`
+3. **Converts SVG to PNG**: All .svg files in illustrations/ are converted to .png using ImageMagick
 
 ## .claude Configuration
 
@@ -347,7 +359,7 @@ Maintain consistent contact information across all files:
 
 When creating web pages, marketing materials, or book covers that feature the author:
 
-- **Profile picture URL:** `https://allabout.network/media_126e99d56f06caf788bee715aff92281d2e31a206`
+- **Profile picture URL:** `https://allabout.network/media_126e99d56f06caf788bee715aff92281d2e31a206.png`
 - Used in: [back-cover.html](web/back-cover.html), marketing materials
 - Format: Square profile image suitable for circular cropping
 - Usage: Reference this URL directly in HTML `<img>` tags or download for local use

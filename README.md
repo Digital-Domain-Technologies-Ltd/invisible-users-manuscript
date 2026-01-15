@@ -88,10 +88,24 @@ npm run pdf:simple          # Simplified PDF
 
 # To generate illustrations:
 npm run illustrations:generate
+# Downloads cover images (if missing), checks for back-cover.png, converts SVG to PNG
 
 # To check word counts:
 npm run wordcount
 ```
+
+### Illustration Generation Process
+
+The `npm run illustrations:generate` command performs three steps:
+
+1. **Downloads cover images** (if missing): Profile.png, A4-Cover.png, Kindle-Cover.png
+2. **Checks for back-cover.png** - if missing, displays instructions:
+   - Open `web/back-cover.html` in a browser
+   - Take a full-page screenshot
+   - Save as `back-cover.png` in `illustrations/`
+3. **Converts all SVG files** in illustrations/ to PNG using ImageMagick
+
+**Note:** ImageMagick is required for SVG conversion. Install with `brew install imagemagick` if needed.
 
 ## Working with This Repository
 
