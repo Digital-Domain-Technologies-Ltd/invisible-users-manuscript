@@ -2572,6 +2572,45 @@ For books, e-books, or published works. Combine with Product type for commercial
 </script>
 ```
 
+**FAQPage (Customer Support):**
+
+For frequently asked questions pages. Enables rich search results and agent answer extraction:
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are your delivery charges?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UK mainland delivery is £4.99 for standard (3-5 working days) and £9.99 for next-day delivery. Orders over £50 qualify for free standard delivery."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is your returns policy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We accept returns within 30 days of delivery for a full refund. Items must be unused and in original packaging. Return shipping is free for faulty items, £4.99 for other returns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you ship internationally?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we ship to EU countries (£12.99, 5-7 working days) and worldwide (£19.99, 7-14 working days). International orders may incur customs charges at the destination country."
+      }
+    }
+  ]
+}
+</script>
+```
+
 **Key Schema.org Properties:**
 
 Critical properties to include on every schema:
@@ -2955,9 +2994,13 @@ Don't let "we can't do everything" prevent you from doing something. Start at yo
 
 ## Further Resources
 
-This chapter provided implementation guidance integrated with the book's narrative. For additional prescriptive reference material:
+This chapter provided implementation guidance integrated with the book's narrative. For additional reference material:
 
-**Building HTML for AI Agents (appendix-ai-friendly-html-guide.md)** - A comprehensive 12-part builder's guide (~8,400 words) with quick reference tables, HTML patterns, server-side implementations, complete examples, and testing strategies. Organised by implementation complexity from immediate fixes to quarterly projects. Includes Luigi's Pizza template for small businesses and complete e-commerce product page patterns.
+**Appendix A (Implementation Cookbook)** - Quick copy-paste recipes for common AI agent compatibility patterns. When you need an immediate solution, start here. Ten production-tested recipes with score impact metrics and priority levels.
+
+**Appendix D (AI-Friendly HTML Guide)** - A comprehensive builder's guide (~3,000 lines) with quick reference tables, HTML patterns, server-side implementations, complete examples, and testing strategies. Available as both a `.txt` file (copy directly into AI coding assistants like Claude Code, Cursor, or GitHub Copilot) and a markdown wrapper for PDF generation. Organised by implementation complexity from immediate fixes to long-term projects. Includes Luigi's Pizza template for small businesses and complete e-commerce product page patterns.
+
+**Appendix L (Proposed AI Metadata Patterns)** - Formal specifications for experimental patterns with forward-compatibility guarantees and adoption decision framework.
 
 **HTML Patterns for AI Agents (appendix-ai-patterns-quick-reference.md)** - A concise, quick-reference guide (~1,200 words) for AI coding assistants. Contains data attribute standards, form field naming conventions, and ready-to-use HTML snippets for common patterns like authentication state, shopping carts, search results, and order confirmations.
 

@@ -1,0 +1,35 @@
+{
+  "@context": "https://schema.org",
+  "@type": ["Product", "Book"],
+  "name": "The Invisible Users",
+  "author": {
+    "@type": "Person",
+    "name": "Tom Cranstoun"
+  },
+  "isbn": "978-1-234567-89-0",
+  "bookFormat": "https://schema.org/EBook",
+  "numberOfPages": 320,
+  "inLanguage": "en-GB",
+  "datePublished": "2026-01-01",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tech Publishers"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "29.99",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock"
+  },
+  "description": "A practical guide examining how modern web design optimised for human users fails for AI agents, and how fixing this benefits everyone.",
+  "genre": ["Technology", "Web Design", "Artificial Intelligence"],
+  "keywords": "AI agents, web design, accessibility, user experience, commerce",
+  "image": "https://example.com/images/invisible-users-cover.jpg",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "47",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+}

@@ -56,6 +56,9 @@ JSON-LD structured data examples:
 - `local-business-schema.json` - LocalBusiness markup
 - `event-schema.json` - Event markup
 - `article-schema.json` - Article markup
+- `faq-page-schema.json` - FAQPage markup for customer support pages
+- `breadcrumb-list-schema.json` - BreadcrumbList for navigation hierarchy
+- `book-schema.json` - Book combined with Product for publications
 
 ### components/
 
@@ -100,8 +103,10 @@ All examples work without JavaScript but can be progressively enhanced.
 
 ## Related Documentation
 
-- **Prescriptive Guide**: `../appendix-ai-friendly-html-guide.md` - Comprehensive implementation guidance
-- **Quick Reference**: `../appendix-ai-patterns-quick-reference.md` - Condensed patterns for AI assistants
+- **Appendix D (AI-Friendly HTML Guide)**: Comprehensive implementation guidance available as `.txt` file for AI coding assistants
+- **Appendix A (Implementation Cookbook)**: Quick copy-paste recipes for common patterns with score impact metrics
+- **Chapter 11 (Technical Advice)**: Full narrative with business context and strategic guidance
+- **Site Files**: `../site-files/` - Essential robots.txt and llms.txt configuration
 - **Platform Configs**: `../apache/`, `../nginx/`, `../nextjs/`, `../wordpress/` - Server configuration
 - **Validation**: `../validation/` - Scripts to verify AI-native implementation
 - **Monitoring**: `../monitoring/` - Track AI agent traffic

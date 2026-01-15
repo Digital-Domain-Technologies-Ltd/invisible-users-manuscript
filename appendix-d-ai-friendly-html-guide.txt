@@ -1,31 +1,3 @@
-# Appendix D: AI-Friendly HTML Guide
-
-A prescriptive guide for developers creating web interfaces that work for both humans and AI agents. The content is formatted as a markdown file that can be copied and fed directly to AI coding assistants like Claude Code, Cursor, or GitHub Copilot.
-
-**To use this guide with AI assistants:**
-
-1. Open `appendix-d-ai-friendly-html-guide.txt` in this directory
-2. Copy the entire content (Ctrl+A, Ctrl+C)
-3. Paste into your AI assistant's context window
-4. Reference specific sections when asking for implementation help
-
-**Guide Contents:**
-
-The guide covers 9 major parts:
-
-1. **Quick Reference Tables** - HTTP status codes, form field names, date formats, common data attributes
-2. **Simple HTML Patterns** - Visual design vs AI parsing, authentication state, explicit state attributes, persistent errors
-3. **Form Patterns** - Disabled button explanations, synchronous validation, multi-step wizards, modal dialogs
-4. **Page Structure Patterns** - Navigation, breadcrumbs, search results, filtering, pagination, cart state, success confirmation
-5. **Structured Data** - Schema.org quick reference (Product, LocalBusiness, Event, Article, FAQPage, BreadcrumbList, Book)
-6. **Why Modern Architecture Confuses AI** - JavaScript execution problem, context separation, dual-channel solution, SSR patterns
-7. **Server-Side Patterns** - Agent detection, cookie consent, captcha handling, rate limiting, error handling
-8. **Complete Examples** - Small business template, e-commerce product page
-9. **Testing and Validation** - Automated Playwright tests, manual validation, real-world testing
-
-**The complete guide is shown below:**
-
-```markdown
 # AI-Friendly HTML Guide
 
 **Version**: 2.0
@@ -3056,4 +3028,3 @@ This isn't accommodation. This is good design that serves everyone.
 ### Further Reading
 
 For business implications, security considerations, and legal frameworks, see *The Invisible Users: Designing the Web for AI Agents and Everyone Else*.
-```

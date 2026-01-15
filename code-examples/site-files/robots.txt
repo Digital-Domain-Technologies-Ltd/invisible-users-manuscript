@@ -1,0 +1,33 @@
+# robots.txt - E-commerce AI Agent Guidance
+# See llms.txt for detailed policies
+# Contact: api-support@example.com
+
+User-agent: *
+Disallow: /admin/
+Disallow: /account/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /api/
+
+User-agent: GPTBot
+Allow: /products/
+Allow: /categories/
+Allow: /reviews/
+Disallow: /
+
+User-agent: ClaudeBot
+Allow: /products/
+Allow: /categories/
+Allow: /reviews/
+Disallow: /
+
+User-agent: PerplexityBot
+Allow: /products/
+Disallow: /
+
+User-agent: OAI-SearchBot
+Allow: /products/
+Allow: /categories/
+Disallow: /
+
+Sitemap: https://example.com/sitemap.xml

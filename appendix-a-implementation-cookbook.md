@@ -509,7 +509,7 @@ Sitemap: https://example.com/sitemap.xml
 
 **Implementation:**
 
-Create `/llms.txt`:
+Create `/llms.txt` (basic version shown here; see Appendix D for comprehensive template):
 
 ```text
 # Example Shop
@@ -734,6 +734,112 @@ updateSubmitButton();
 
 **Cost:** Zero. No JavaScript, no frameworks, no APIs needed.
 
+## Recipe 11: FAQPage Schema for Customer Support
+
+**Problem:** FAQ content not structured for agent extraction
+
+**Score Impact:** +12 points (structured data category)
+
+**Implementation:**
+
+```html
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <title>Frequently Asked Questions - Example Shop</title>
+</head>
+<body>
+
+<main>
+  <h1>Frequently Asked Questions</h1>
+
+  <section itemscope itemtype="https://schema.org/FAQPage">
+
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h2 itemprop="name">What are your delivery charges?</h2>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text">
+          <p>UK mainland delivery is £4.99 for standard (3-5 working days) and £9.99 for next-day delivery. Orders over £50 qualify for free standard delivery.</p>
+        </div>
+      </div>
+    </div>
+
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h2 itemprop="name">What is your returns policy?</h2>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text">
+          <p>We accept returns within 30 days of delivery for a full refund. Items must be unused and in original packaging. Return shipping is free for faulty items, £4.99 for other returns.</p>
+        </div>
+      </div>
+    </div>
+
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h2 itemprop="name">Do you ship internationally?</h2>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <div itemprop="text">
+          <p>Yes, we ship to EU countries (£12.99, 5-7 working days) and worldwide (£19.99, 7-14 working days). International orders may incur customs charges at the destination country.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<!-- Alternative: JSON-LD format (can be used alongside or instead of HTML microdata) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are your delivery charges?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UK mainland delivery is £4.99 for standard (3-5 working days) and £9.99 for next-day delivery. Orders over £50 qualify for free standard delivery."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is your returns policy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We accept returns within 30 days of delivery for a full refund. Items must be unused and in original packaging. Return shipping is free for faulty items, £4.99 for other returns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you ship internationally?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we ship to EU countries (£12.99, 5-7 working days) and worldwide (£19.99, 7-14 working days). International orders may incur customs charges at the destination country."
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+</html>
+```
+
+**Why this matters:**
+
+- Search engines display rich results with expandable Q&A
+- AI agents extract answers without reading entire pages
+- Screen readers announce questions clearly
+- Works with zero JavaScript
+
+**Common mistakes to avoid:**
+
+- Don't nest FAQPage inside other schema types
+- Each question needs both `name` and `acceptedAnswer`
+- Answer `text` should be plain text or HTML, not just a link
+- Use either HTML microdata OR JSON-LD, not both (unless they're identical)
+
+**See also:** Appendix D (AI-Friendly HTML Guide, Section 5: Structured Data) for comprehensive Schema.org patterns.
+
 ---
 
 ## Quick Reference: Scoring Impact
@@ -743,15 +849,99 @@ updateSubmitButton();
 | Persistent errors | +12 points | Priority 1 |
 | Served HTML completeness | +15 points | Priority 1 |
 | Complete pricing | +8 points | Priority 1 |
+| Small business markup | +30 points | Priority 1 |
 | Inline validation | +10 points | Priority 2 |
 | Explicit state attributes | +8 points | Priority 2 |
 | Loading state clarity | +6 points | Priority 2 |
 | robots.txt quality | +25 points | Priority 2 |
 | llms.txt presence | +20 points | Priority 2 |
+| Social media meta tags | +20 points | Priority 2 |
+| FAQPage schema | +12 points | Priority 2 |
+| Reading time metadata | +10 points | Priority 2 |
+| SEO meta tags | +5 points | Priority 2 |
 | Disabled button clarity | +5 points | Priority 3 |
-| Small business markup | +30 points | Priority 1 |
 
 Focus on patterns with highest score impact and lowest implementation effort first.
+
+---
+
+## Recipe 12: Social Media Meta Tags
+
+**Problem:** Links shared on social media show generic previews without rich content
+
+**Score Impact:** +20 points (Open Graph +8, Twitter Card +5, completeness ratio +7)
+
+**Implementation:**
+
+```html
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://example.com/page.html">
+<meta property="og:title" content="Your Page Title">
+<meta property="og:description" content="Brief description for social sharing">
+<meta property="og:image" content="https://example.com/images/preview.jpg">
+<meta property="og:locale" content="en_GB">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your Page Title">
+<meta name="twitter:description" content="Brief description">
+<meta name="twitter:image" content="https://example.com/images/preview.jpg">
+
+<!-- SEO Enhancements -->
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="relevant, keywords, here">
+<meta name="theme-color" content="#1e40af">
+```
+
+**Reading time metadata (add to Schema.org):**
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "timeRequired": "PT10M",
+  "educationalLevel": "Intermediate",
+  "inLanguage": "en-GB"
+}
+```
+
+**ISO 8601 duration format:** `PT10M` = P(Period) + T(Time) + 10M(10 minutes)
+
+**Image requirements:** 1200×630px, under 1MB, JPG or PNG
+
+**Scoring breakdown:**
+
+- **Open Graph tags:** +8 points (minimum 5 of 7 tags required)
+- **Twitter Card tags:** +5 points (minimum 3 of 4 tags required)
+- **Completeness ratio:** +7 points (11 total tags: 7 Open Graph + 4 Twitter)
+- **SEO meta tags:** +5 points (robots, keywords, theme-color)
+- **Reading time metadata:** +10 points (timeRequired +5, completeness ratio +5)
+
+**Validation tools:**
+
+- Facebook: <https://developers.facebook.com/tools/debug/>
+- Twitter: <https://cards-dev.twitter.com/validator>
+- Schema.org: <https://validator.schema.org/>
+
+**Reference:** See [web/META-TAG-ENHANCEMENTS.md](web/META-TAG-ENHANCEMENTS.md) for per-page customization guidance.
+
+---
+
+## Cross-References
+
+**For comprehensive context and business implications:**
+
+- **Chapter 11 (Technical Advice)**: Full narrative explaining why these patterns matter, with business context and strategic guidance
+- **Appendix D (AI-Friendly HTML Guide)**: Complete technical reference with detailed explanations, testing strategies, and production examples. Available as `.txt` file that can be copied directly into AI coding assistants (Claude Code, Cursor, GitHub Copilot)
+- **Appendix L (Proposed AI Metadata Patterns)**: Specifications for experimental patterns with forward-compatibility guarantees
+
+**How to use these together:**
+
+1. **Business decision**: Read Chapter 11 to understand strategic implications
+2. **Quick implementation**: Use recipes from this appendix (Appendix A) for copy-paste solutions
+3. **Deep technical guidance**: Reference Appendix D when AI assistants need complete context
+4. **Pattern specifications**: Check Appendix L before implementing experimental patterns
 
 ---
 

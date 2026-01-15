@@ -6,6 +6,7 @@ This directory contains platform-specific code examples for implementing the pat
 
 ```text
 code-examples/
+├── site-files/       # Essential site root files (robots.txt, llms.txt)
 ├── apache/           # Apache .htaccess configurations
 ├── nginx/            # Nginx configuration files
 ├── nextjs/           # Next.js implementations
@@ -18,6 +19,23 @@ code-examples/
 ```
 
 ## Quick Start
+
+### 0. Essential Site Files (Start Here)
+
+Copy robots.txt and llms.txt to your website root:
+
+```bash
+cp site-files/robots.txt /var/www/html/robots.txt
+cp site-files/llms.txt /var/www/html/llms.txt
+```
+
+**IMPORTANT:** Customize both files before deployment:
+- Replace `example.com` with your actual domain
+- Update contact email addresses
+- Adjust rate limits and access policies
+- See `site-files/README.md` for complete customization guide
+
+**Score Impact:** +45 points total (robots.txt: +25, llms.txt: +20)
 
 ### 1. Apache
 

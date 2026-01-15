@@ -1,0 +1,54 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are your delivery charges?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UK mainland delivery is £4.99 for standard (3-5 working days) and £9.99 for next-day delivery. Orders over £50 qualify for free standard delivery."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is your returns policy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We accept returns within 30 days of delivery for a full refund. Items must be unused and in original packaging. Return shipping is free for faulty items, £4.99 for other returns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you ship internationally?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we ship to EU countries (£12.99, 5-7 working days) and worldwide (£19.99, 7-14 working days). International orders may incur customs charges at the destination country."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does delivery take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard UK delivery: 3-5 working days. Express delivery: 1-2 working days. Next day delivery: Order before 3pm for next working day delivery. International delivery: 5-14 working days depending on destination."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What payment methods do you accept?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We accept Visa, Mastercard, American Express, PayPal, Apple Pay, and Google Pay. All transactions are processed securely with 3D Secure authentication."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer warranties on products?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All products include a minimum 12-month manufacturer's warranty. Extended warranties are available for purchase at checkout for selected products. Warranty terms vary by manufacturer and product category."
+      }
+    }
+  ]
+}
