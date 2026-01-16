@@ -105,7 +105,7 @@ All examples work without JavaScript but can be progressively enhanced.
 
 - **Appendix D (AI-Friendly HTML Guide)**: Comprehensive implementation guidance available as `.txt` file for AI coding assistants
 - **Appendix A (Implementation Cookbook)**: Quick copy-paste recipes for common patterns with score impact metrics
-- **Chapter 11 (Technical Advice)**: Full narrative with business context and strategic guidance
+- **Chapter 12 (Technical Advice)**: Full narrative with business context and strategic guidance
 - **Site Files**: `../site-files/` - Essential robots.txt and llms.txt configuration
 - **Platform Configs**: `../apache/`, `../nginx/`, `../nextjs/`, `../wordpress/` - Server configuration
 - **Validation**: `../validation/` - Scripts to verify AI-native implementation

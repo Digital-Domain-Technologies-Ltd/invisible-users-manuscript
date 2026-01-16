@@ -7,6 +7,10 @@ header-includes: |
   \usepackage{eso-pic}
   \usepackage{graphicx}
   \usepackage{listings}
+  \newcommand*\cleartoleftpage{%
+    \clearpage
+    \ifodd\value{page}\hbox{}\vspace*{\fill}\thispagestyle{empty}\newpage\fi
+  }
   \lstset{
     breaklines=true,
     breakatwhitespace=false,
@@ -26,5 +30,16 @@ header-includes: |
     \maketitle
     \thispagestyle{empty}
     \clearpage
+  }
+  \AtEndDocument{%
+    \cleartoleftpage
+    \begin{titlepage}
+    \AddToShipoutPictureBG*{%
+      \AtPageLowerLeft{%
+        \includegraphics[width=\paperwidth,height=\paperheight]{packages/manuscript/manuscript/illustrations/back-cover.png}%
+      }%
+    }%
+    \null
+    \end{titlepage}
   }
 ---

@@ -1,6 +1,6 @@
 # Identity Delegation Implementation - Proof of Concept
 
-Reference implementation for Chapter 12's "The Missing Identity Layer" section.
+Reference implementation for Chapter 13's "The Missing Identity Layer" section.
 
 ## ⚠️ Important Note
 
@@ -75,7 +75,7 @@ This implementation demonstrates the book's core principle: **businesses should 
 - Delegation tokens provide cryptographic proof of authorization
 - Businesses can verify consent without detection heuristics
 
-### Chapter 12: What Agent Creators Must Build
+### Chapter 13: What Agent Creators Must Build
 
 > "Agent creators need to build for eventual interoperability: support proprietary systems today but design the architecture to support open standards when they emerge."
 
@@ -368,7 +368,7 @@ This proof-of-concept demonstrates the pattern. Production systems need:
 - Rate limiting and abuse prevention
 - User-facing delegation management UI
 
-**The full identity delegation infrastructure will be developed as a future open-source project.** If you're interested in contributing to the production-ready implementation, see Chapter 12's "What Comes Next" section for collaboration opportunities.
+**The full identity delegation infrastructure will be developed as a future open-source project.** If you're interested in contributing to the production-ready implementation, see Chapter 13's "What Comes Next" section for collaboration opportunities.
 
 ## Future Development
 

@@ -8,6 +8,10 @@ header-includes: |
   \usepackage{graphicx}
   \usepackage{listings}
   \usepackage{fancyhdr}
+  \newcommand*\cleartoleftpage{%
+    \clearpage
+    \ifodd\value{page}\hbox{}\vspace*{\fill}\thispagestyle{empty}\newpage\fi
+  }
   \lstset{
     breaklines=true,
     breakatwhitespace=false,
@@ -30,5 +34,16 @@ header-includes: |
     \null
     \end{titlepage}
     \maketitle
+  }
+  \AtEndDocument{%
+    \cleartoleftpage
+    \begin{titlepage}
+    \AddToShipoutPictureBG*{%
+      \AtPageLowerLeft{%
+        \includegraphics[width=\paperwidth,height=\paperheight]{packages/manuscript/manuscript/illustrations/back-cover.png}%
+      }%
+    }%
+    \null
+    \end{titlepage}
   }
 ---

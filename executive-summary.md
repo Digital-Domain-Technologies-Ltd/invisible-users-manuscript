@@ -71,13 +71,13 @@ Your clients already output Schema.org structured data for SEO. They're already 
 
 - **Content Management Systems (WordPress, Contentful, Kontent.ai, Sanity):** Your clients need llms.txt generation, Schema.org templates, and semantic HTML output
 - **E-commerce platforms (Shopify, WooCommerce, Magento):** Your merchants need ACP/UCP protocol support and structured product data
-- **Payment gateways (Stripe, Square, PayPal):** Agent-mediated transactions need identity delegation patterns (Chapter 12)
+- **Payment gateways (Stripe, Square, PayPal):** Agent-mediated transactions need identity delegation patterns (Chapter 13)
 - **Web frameworks (Next.js, Nuxt, Gatsby):** Developers need agent-compatibility templates and testing tools
 - **Hosting platforms (Vercel, Netlify, Cloudflare):** Edge functions could validate llms.txt and inject missing structured data
 
 **Chapter 9 documents the urgency:** Amazon, Microsoft, and Google launched agent commerce simultaneously in January 2026. This wasn't coordination—it was competitive necessity. Platforms now control distribution like Google Search did in the 2000s. Infrastructure vendors that abstract protocol complexity and make agent compatibility automatic become indispensable. Those that don't become legacy systems.
 
-If you're a platform vendor reading this, Chapters 9, 10, and 12 are essential reading. This isn't about your clients' commerce use cases. It's about your competitive positioning and customer retention.
+If you're a platform vendor reading this, Chapters 9, 10, 11, and 13 are essential reading. This isn't about your clients' commerce use cases. It's about your competitive positioning and customer retention.
 
 ## What to Do About It
 
@@ -104,7 +104,7 @@ If you're a platform vendor reading this, Chapters 9, 10, and 12 are essential r
 
 ### Priority 4: Advanced Implementation
 
-- Implement identity delegation patterns for agent-mediated purchases (Chapter 12 provides technical guidance)
+- Implement identity delegation patterns for agent-mediated purchases (Chapter 13 provides technical guidance)
 - Integrate payment protocols: ACP (1M+ merchants) or UCP (20+ major retailers) or both
 - Develop comprehensive agent compatibility testing
 - Create governance frameworks for agent access policies
@@ -113,19 +113,19 @@ If you're a platform vendor reading this, Chapters 9, 10, and 12 are essential r
 
 This book addresses different audiences with different needs:
 
-**Business Leaders**: Chapters 1, 4, 5, 7, 8, 9, and first half of Chapter 10 (Focused reading). Delegate Chapter 12 to teams evaluating agent partnerships.
+**Business Leaders**: Chapters 1, 4, 5, 7, 8, 9, and first half of Chapter 11 (Focused reading). Delegate Chapter 13 to teams evaluating agent partnerships.
 
-**Product Owners**: Chapters 1-5, 9, 10 (Strategic implementation focus). Balance business objectives with technical realities.
+**Product Owners**: Chapters 1-5, 9, 10, 11 (Strategic implementation focus). Balance business objectives with technical realities.
 
-**Content Managers and Strategists**: Chapters 1, 2, 3, 5, 10, 11 (Content-first perspective). Learn agent-friendly content structure.
+**Content Managers and Strategists**: Chapters 1, 2, 3, 5, 10, 11, 12 (Content-first perspective). Learn agent-friendly content structure.
 
-**UX Designers and Information Architects**: Chapters 1-5, 10, 11, 12 (Comprehensive coverage). Create patterns that serve both humans and agents.
+**UX Designers and Information Architects**: Chapters 1-5, 10, 11, 12, 13 (Comprehensive coverage). Create patterns that serve both humans and agents.
 
-**Developers**: Start with Chapters 11-12, then work backwards through Chapters 2, 6, 10 for context (Technical focus)
+**Developers**: Start with Chapters 12-13, then work backwards through Chapters 2, 6, 11 for context (Technical focus)
 
-**Agent System Developers**: Chapter 12 (core focus on validation layers and guardrails), Chapters 2-3 (failure modes), Chapter 11 (website patterns your agents will encounter) (Targeted reading)
+**Agent System Developers**: Chapter 13 (core focus on validation layers and guardrails), Chapters 2-3 (failure modes), Chapter 12 (website patterns your agents will encounter) (Targeted reading)
 
-**Small Business Owners**: Chapters 1, 4, small business sections in Chapter 10 (Quick overview)
+**Small Business Owners**: Chapters 1, 4, small business sections in Chapter 11 (Quick overview)
 
 For detailed reading paths with chapter-by-chapter guidance, see the Reading Guide.
 

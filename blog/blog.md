@@ -253,7 +253,7 @@ This book grew from that realisation. It's not a book about AI. It's a book abou
 
 **Chapters 4 through 8** address implications: business models, content economics, security concerns, legal landscape, and human costs. These might seem tangential to implementation, but they're not. The choices we make about agent compatibility are shaped by these pressures.
 
-**Chapters 9 and 10** provide solutions. Strategic frameworks in Chapter 9. Working code in Chapter 10. If you're impatient to implement, you can start there and work backwards.
+**Chapters 10, 11, and 12** provide solutions. Strategic frameworks in Chapters 10 and 11. Working code in Chapter 12. If you're impatient to implement, you can start there and work backwards.
 
 Throughout, I've tried to be honest about tensions that don't have clean resolutions. Some fixes for agent compatibility conflict with short-term business interests. Some accessibility improvements reduce engagement metrics. Some solutions create new problems. I've flagged these rather than pretending they don't exist.
 
@@ -263,7 +263,7 @@ Throughout, I've tried to be honest about tensions that don't have clean resolut
 Developers and QA specialists who need the technical tools. You get production-ready code and testing strategies to solve immediate pipeline challenges. The **Web Audit Suite** is available as a separate purchase or professional audit service.
 
 **2. Agent System Developers (The Builders)**
-Developers building AI agents, browser extensions, and agentic systems. Chapter 11 is written specifically for you. You get **validation frameworks**, **confidence scoring patterns**, and **guardrails** that prevent pipeline failures like the £203,000 cruise pricing error.
+Developers building AI agents, browser extensions, and agentic systems. Chapter 13 is written specifically for you. You get **validation frameworks**, **confidence scoring patterns**, and **guardrails** that prevent pipeline failures like the £203,000 cruise pricing error.
 
 **3. Business Leaders (The Buyers)**
 Executives who need to understand the strategic risk. You get the **Business Case** to explain "silent conversion failures" and justify the investment in agent compatibility.
@@ -281,9 +281,11 @@ Agencies and investors looking for the next growth category. You get the **Metho
 6. **The Security Maze** - Authentication, delegation, and session inheritance
 7. **The Legal Landscape** - Liability, copyright, and emerging regulation
 8. **The Human Cost** - Digital divide and access implications
-9. **Designing for Both** - Practical solutions that work for everyone
-10. **Technical Advice** - Implementation code and testing strategies
-11. **What Agent Creators Must Build** - Validation layers, confidence scoring, and pipeline failure prevention
+9. **The Platform Race** - Competitive dynamics and platform power
+10. **Generative Engine Optimization** - Discovery patterns for AI agents
+11. **Designing for Both** - Practical solutions that work for everyone
+12. **Technical Advice** - Implementation code and testing strategies
+13. **What Agent Creators Must Build** - Validation layers, confidence scoring, and pipeline failure prevention
 
 ## What You'll Find Inside
 
@@ -389,7 +391,7 @@ The patterns that break agents are patterns we should have fixed years ago. We d
 
 "The Invisible Users: Designing the Web for AI Agents and Everyone Else"
 
-- **11 chapters** covering technical, business, ethical, and human implications
+- **13 chapters** covering technical, business, ethical, and human implications
 - **~57,000 words** of practical, actionable guidance (core manuscript) + 10 appendices online
 - **Working code examples** you can implement tomorrow
 - **10 practical design patterns** with bad/good examples showing correct HTML structure

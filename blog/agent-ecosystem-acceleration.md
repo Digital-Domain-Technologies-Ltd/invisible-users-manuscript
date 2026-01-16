@@ -158,11 +158,11 @@ Claude for Chrome demonstrates production-grade validation patterns:
 
 Study Anthropic's implementation as a reference for building your own agent systems.
 
-**Critical insight on system prompts:** All agents operate with hidden system prompts and guardrails, but these are insufficient protection against errors. The £203,000 cruise pricing error (detailed in Chapter 11) occurred despite whatever guardrails existed. System prompts work at the reasoning level - they cannot catch pipeline failures that occur during data extraction before reasoning begins. Agent creators need programmatic validation layers: range checking, comparative analysis, structured data cross-referencing, confidence scoring, and audit trails. Hallucinations will continue to happen - they're inherent to how language models work - but validation layers catch errors before they reach users.
+**Critical insight on system prompts:** All agents operate with hidden system prompts and guardrails, but these are insufficient protection against errors. The £203,000 cruise pricing error (detailed in Chapter 13) occurred despite whatever guardrails existed. System prompts work at the reasoning level - they cannot catch pipeline failures that occur during data extraction before reasoning begins. Agent creators need programmatic validation layers: range checking, comparative analysis, structured data cross-referencing, confidence scoring, and audit trails. Hallucinations will continue to happen - they're inherent to how language models work - but validation layers catch errors before they reach users.
 
 ## Technical Patterns That Enabled This
 
-Both launches demonstrate the patterns discussed in Chapters 9 and 10:
+Both launches demonstrate the patterns discussed in Chapters 10 and 11:
 
 **Structured data (Schema.org):**
 
@@ -178,7 +178,7 @@ Retailers provide agent-accessible interfaces in addition to human-facing web pa
 
 **DOM access and console reading:**
 
-Claude for Chrome reads the entire DOM state, including hidden elements, data attributes, console errors, and network requests. This makes explicit state attributes (recommended in Chapter 9) even more valuable.
+Claude for Chrome reads the entire DOM state, including hidden elements, data attributes, console errors, and network requests. This makes explicit state attributes (recommended in Chapter 10) even more valuable.
 
 **Identity preservation:**
 
@@ -198,15 +198,15 @@ Microsoft's reported improvements (though unvalidated) suggest that e-commerce s
 
 Claude for Chrome inherits the user's authenticated session, making it impossible for websites to distinguish AI activity from human activity based on authentication alone. This is how it works by design, not a vulnerability to patch.
 
-**Chapter 9 - Universal Patterns:**
+**Chapter 10 - Universal Patterns:**
 
 The convergence principle holds: what agents need is what everyone needs. Partner retailers report that agent-friendly patterns also improved human conversion rates.
 
-**Chapter 10 - Browser Agent Architecture:**
+**Chapter 11 - Browser Agent Architecture:**
 
 Claude for Chrome demonstrates the "rendered HTML" agent type - executing JavaScript, seeing dynamic updates, interacting with fully rendered pages. The distinction between served and rendered HTML matters in production.
 
-**Chapter 11 - Validation Layers:**
+**Chapter 13 - Validation Layers:**
 
 Both systems implement the guardrails discussed: planning mode review, confidence scoring, user confirmation for high-stakes actions, graceful error handling.
 
@@ -314,7 +314,7 @@ Chapter 6 covers these patterns in detail. They're no longer theoretical recomme
 - Read Chapter 2 to see the five failure patterns Claude for Chrome encounters
 - Read Chapter 4 for business implications
 - Read Chapter 6 for security concerns
-- Read Chapters 9 and 10 for implementation patterns
+- Read Chapters 10 and 11 for implementation patterns
 
 **If you've read the book:**
 
@@ -327,8 +327,8 @@ Chapter 6 covers these patterns in detail. They're no longer theoretical recomme
 
 - Use Appendix A - Implementation Cookbook (online at <https://allabout.network/invisible-users/web/appendix-a.html>) for quick patterns
 - Reference Appendix D - AI-Friendly HTML Guide (online at <https://allabout.network/invisible-users/web/appendix-d.html>) for comprehensive patterns
-- See Chapter 10 for working code examples
-- Read Chapter 11 if you're building agent systems
+- See Chapter 12 for working code examples
+- Read Chapter 13 if you're building agent systems
 
 ## The Uncomfortable Question
 
@@ -371,7 +371,7 @@ Are you ready?
 
 ### The Invisible Users: Designing the Web for AI Agents and Everyone Else
 
-- 11 chapters covering technical, business, ethical, and human implications
+- 13 chapters covering technical, business, ethical, and human implications
 - ~57,000 words core manuscript + 10 appendices published online at <https://allabout.network/invisible-users/web/>
 - Working code examples you can implement immediately
 - All 10 appendices published separately online for easy reference and updates

@@ -21,7 +21,7 @@ The guide covers 9 major parts:
 6. **Why Modern Architecture Confuses AI** - JavaScript execution problem, context separation, dual-channel solution, SSR patterns
 7. **Server-Side Patterns** - Agent detection, cookie consent, captcha handling, rate limiting, error handling
 8. **Complete Examples** - Small business template, e-commerce product page
-9. **Testing and Validation** - Automated Playwright tests, manual validation, real-world testing
+9. **Testing and Validation** - Automated Playwright tests, common validation pitfalls, parser auto-correction behavior, manual validation tools
 
 **The complete guide is shown below:**
 
@@ -32,9 +32,9 @@ The guide covers 9 major parts:
 **Last Updated**: January 2026
 **Purpose**: Prescriptive guide for developers building web interfaces for both humans and AI agents
 **Format**: Copy-paste this entire file into your AI assistant for implementation guidance
-**Cross-references**: 
+**Cross-references**:
 - Appendix A (Implementation Cookbook) - Quick copy-paste recipes
-- Chapter 11 (Technical Advice) - Full narrative with business context
+- Chapter 12 (Technical Advice) - Full narrative with business context
 - Appendix L (Proposed AI Metadata Patterns) - Specifications for experimental patterns
 
 ---
@@ -3056,4 +3056,5 @@ This isn't accommodation. This is good design that serves everyone.
 ### Further Reading
 
 For business implications, security considerations, and legal frameworks, see *The Invisible Users: Designing the Web for AI Agents and Everyone Else*.
+
 ```

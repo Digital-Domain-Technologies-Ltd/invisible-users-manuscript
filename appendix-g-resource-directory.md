@@ -84,6 +84,44 @@ Curated resources referenced in *The Invisible Users: Designing the Web for AI A
 - Console: <https://search.google.com/search-console>
 - Monitors structured data errors and rich result performance
 
+### SEO and Meta Tag Validation
+
+### Meta Tags Viewer
+
+- Website: <https://metatagsviewer.com/>
+- Free comprehensive meta tag analyzer
+- Checks: meta tags, Open Graph, Twitter Cards, Schema.org markup
+- No sign-up required, instant analysis
+- Shows how pages appear when shared on social media
+
+### Meta SEO Inspector
+
+- Chrome Extension: <https://chromewebstore.google.com/detail/meta-seo-inspector/ibkclpciafdglkjkcibmohobjkcfkaef>
+- One-click access to all metadata and structured data
+- Smart alerts for missing, too short, or too long tags
+- Views full JSON-LD structured data
+- Verifies compliance with Google Webmaster Guidelines
+
+### Open Graph Validators
+
+- **Preview Tool**: <https://www.opengraph.xyz/> (preview and generate OG meta tags)
+- **OG Validator**: <https://orcascan.com/tools/open-graph-validator> (validate OG tags)
+- **DNSChecker**: <https://dnschecker.org/open-graph-preview-generate-metatags.php> (preview social shares)
+- Shows preview of how pages appear on Facebook and X/Twitter
+- Validates image dimensions (ideal: 1200 × 630 pixels)
+- Checks title and description lengths
+
+### SiteGuru SEO Tools
+
+- Website: <https://www.siteguru.co/free-seo-tools/opengraph>
+- Free Open Graph tag validation
+- Additional SEO analysis tools
+
+### Platform-Specific Validators
+
+- **Facebook Sharing Debugger**: Tests how pages appear when shared on Facebook, clears Facebook's cache
+- **Twitter Card Validator**: Validates Twitter Card meta tags, shows link preview on X/Twitter
+
 ### Accessibility Testing
 
 ### WAVE Web Accessibility Evaluation Tool
@@ -113,6 +151,30 @@ Curated resources referenced in *The Invisible Users: Designing the Web for AI A
 
 - Built into macOS and iOS
 - Guide: <https://support.apple.com/guide/voiceover/welcome/mac>
+
+### HTML Validation
+
+### html-validate
+
+- GitHub: <https://github.com/html-validate/html-validate>
+- npm: <https://www.npmjs.com/package/html-validate>
+- CLI tool for HTML validation
+- Catches common issues:
+  - Unencoded special characters (`&` must be `&amp;`)
+  - Redundant ARIA roles on semantic elements
+  - ARIA attribute misuse
+  - Non-semantic HTML structure
+- Install: `npm install -g html-validate`
+- Usage: `npx html-validate your-file.html`
+
+### W3C Markup Validation Service
+
+- Website: <https://validator.w3.org/>
+- Official HTML5 specification validator
+- Checks compliance with W3C standards
+- Validates DOCTYPE, elements, attributes
+- Free online validation tool
+- Supports file upload, URL input, or direct HTML input
 
 ### Automation Testing
 
@@ -324,7 +386,7 @@ Curated resources referenced in *The Invisible Users: Designing the Web for AI A
 
 ---
 
-## Example Sites (Referenced in Chapter 10)
+## Example Sites (Referenced in Chapter 11)
 
 ### Well-Designed for Agents
 
@@ -556,14 +618,16 @@ Particularly welcome:
 - W3C WAI resources
 - Inclusive design materials
 
-### Chapter 10-11 (Implementation)
+### Chapter 11-12 (Implementation)
 
 - Schema.org documentation
 - JSON-LD tools
 - Playwright testing
+- HTML validation (html-validate, W3C Validator)
+- SEO validation (Meta Tags Viewer, Open Graph validators)
 - [Agent-Friendly Starter Kit](agent-friendly-starter-kit/) - Good vs Bad implementation examples (**Repository directory**)
 
 ---
 
-**Last verified:** 2026-01-22
+**Last verified:** 2026-01-15
 **Next review:** Quarterly (April 2026)

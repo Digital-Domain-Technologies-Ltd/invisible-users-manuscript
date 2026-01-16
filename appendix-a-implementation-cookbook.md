@@ -928,17 +928,122 @@ Focus on patterns with highest score impact and lowest implementation effort fir
 
 ---
 
+## Recipe 13: HTML Validation and Common Pitfalls
+
+**Problem:** Invalid HTML breaks both AI agent parsing and accessibility
+
+**Score Impact:** Variable (fixes multiple categories)
+
+**Implementation:**
+
+### Common Validation Errors to Fix
+
+**1. Unencoded Special Characters:**
+
+```html
+<!-- Bad: Raw ampersands -->
+<div>Technical patterns & implementation</div>
+
+<!-- Good: Properly encoded -->
+<div>Technical patterns &amp; implementation</div>
+```
+
+Always encode: `&` as `&amp;`, `<` as `&lt;`, `>` as `&gt;`, `"` as `&quot;` (in attributes)
+
+**2. Redundant ARIA Roles:**
+
+```html
+<!-- Bad: Redundant role on semantic element -->
+<section role="region" aria-label="Book review">
+
+<!-- Good: Semantic element has implicit role -->
+<section aria-label="Book review">
+```
+
+Semantic elements have implicit roles:
+
+- `<section>` = region (when it has accessible name)
+- `<nav>` = navigation
+- `<main>` = main
+- `<article>` = article
+- `<footer>` = contentinfo (when top-level)
+
+**3. ARIA Attributes on Non-Interactive Elements:**
+
+```html
+<!-- Bad: aria-label on plain div -->
+<div class="stars" aria-label="Rating: 4 out of 5 stars">★★★★☆</div>
+
+<!-- Good: Add role to make it work -->
+<div class="stars" role="img" aria-label="Rating: 4 out of 5 stars">★★★★☆</div>
+```
+
+`aria-label` only works on:
+
+- Interactive elements (buttons, links, inputs)
+- Landmark roles (navigation, main, etc.)
+- Elements with explicit `role="img"` or similar
+
+**4. Missing Semantic Structure:**
+
+```html
+<!-- Bad: Generic divs -->
+<div class="content">
+    <section>...</section>
+</div>
+
+<!-- Good: Semantic landmarks -->
+<div class="content">
+    <main>
+        <article>
+            <section>...</section>
+        </article>
+    </main>
+</div>
+```
+
+### Validation Tools
+
+**html-validate (local CLI):**
+
+```bash
+npx html-validate your-file.html
+```
+
+Catches: unencoded characters, redundant ARIA roles, ARIA misuse, non-semantic structure
+
+**W3C Validator (online):**
+
+Visit: <https://validator.w3.org/>
+
+Checks: HTML5 spec compliance, well-formed markup, valid attributes
+
+**Pre-Deploy Checklist:**
+
+- [ ] All `&` characters encoded as `&amp;`
+- [ ] No redundant `role` attributes on semantic elements
+- [ ] `aria-label` only used on elements that support it
+- [ ] Semantic elements used instead of divs where appropriate
+- [ ] Document has `<main>` landmark
+- [ ] Self-contained content wrapped in `<article>`
+- [ ] Schema.org JSON-LD validates without errors
+- [ ] Passes W3C HTML validator
+
+**See also:** Appendix D (AI-Friendly HTML Guide, Part 9: Testing and Validation) for comprehensive validation guidance and common pitfalls.
+
+---
+
 ## Cross-References
 
 **For comprehensive context and business implications:**
 
-- **Chapter 11 (Technical Advice)**: Full narrative explaining why these patterns matter, with business context and strategic guidance
+- **Chapter 12 (Technical Advice)**: Full narrative explaining why these patterns matter, with business context and strategic guidance
 - **Appendix D (AI-Friendly HTML Guide)**: Complete technical reference with detailed explanations, testing strategies, and production examples. Available as `.txt` file that can be copied directly into AI coding assistants (Claude Code, Cursor, GitHub Copilot)
 - **Appendix L (Proposed AI Metadata Patterns)**: Specifications for experimental patterns with forward-compatibility guarantees
 
 **How to use these together:**
 
-1. **Business decision**: Read Chapter 11 to understand strategic implications
+1. **Business decision**: Read Chapter 12 to understand strategic implications
 2. **Quick implementation**: Use recipes from this appendix (Appendix A) for copy-paste solutions
 3. **Deep technical guidance**: Reference Appendix D when AI assistants need complete context
 4. **Pattern specifications**: Check Appendix L before implementing experimental patterns

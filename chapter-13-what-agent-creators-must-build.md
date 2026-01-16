@@ -1,6 +1,6 @@
 \newpage
 
-# Chapter 12 - What Agent Creators Must Build
+# Chapter 13 - What Agent Creators Must Build
 
 Implementation patterns, validation layers, and guardrails for reliable agent systems.
 
@@ -10,7 +10,7 @@ I've spent ten chapters explaining what websites should build to work for AI age
 
 Even perfectly designed websites cannot prevent all failures. An agent that scrapes a well-structured page can still extract wrong data, misinterpret numbers, or report confidence it shouldn't have. These aren't website design problems. These are agent implementation problems.
 
-Chapter 9 showed what designers should build. Chapter 10 showed how developers should implement it. This chapter completes the picture by addressing what agent creators - the people building AI assistants, browser extensions, CLI tools, and API services - should build into their systems.
+Chapter 11 showed what designers should build. Chapter 12 showed how developers should implement it. This chapter completes the picture by addressing what agent creators - the people building AI assistants, browser extensions, CLI tools, and API services - should build into their systems.
 
 The difference matters. A website can provide clear, semantic HTML with perfect structured data. If the agent lacks validation layers, it will propagate errors anyway. The £203,000 cruise pricing mistake I'll examine in detail shortly happened because both sides failed: the website showed ambiguous pricing, and the agent lacked the guardrails to detect the error before reporting it.
 
@@ -891,7 +891,7 @@ Transparency doesn't solve all problems. You still need Guardrails 1-5 - validat
 
 Publish what you've built. Let users evaluate quality before trusting critical tasks. Let developers debug failures using your methodology. Let the ecosystem improve collectively by learning from documented limitations and failure modes.
 
-Chapter 10 showed what websites should publish: structured data, explicit state, semantic HTML, clear feedback. Guardrail 6 shows what agents should publish: system prompts, validation rules, confidence methodology, known limitations.
+Chapter 11 showed what websites should publish: structured data, explicit state, semantic HTML, clear feedback. Guardrail 6 shows what agents should publish: system prompts, validation rules, confidence methodology, known limitations.
 
 Both sides making their logic explicit. Both sides enabling inspection. That's how reliable systems get built - through transparency, accountability, and collective improvement.
 
@@ -1321,7 +1321,7 @@ The £203,000 pricing error wasn't a hallucination - it was a data extraction fa
 
 **This is the complete picture this book provides.**
 
-Ten chapters diagnosed what's broken and why it matters. Chapter 11 completes the solutions by showing what agent creators must build to create reliable, trustworthy systems that serve users well.
+Eleven chapters diagnosed what's broken and why it matters. Chapter 13 completes the solutions by showing what agent creators must build to create reliable, trustworthy systems that serve users well.
 
 The technology is new. The failures are real. Hallucinations will continue. But the solutions exist: validation layers, confidence scoring, and honest acknowledgment of uncertainty. Both sides need to implement them.
 

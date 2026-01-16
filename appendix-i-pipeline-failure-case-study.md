@@ -18,7 +18,7 @@ This represents a **100x multiplication error** - two extra zeros added to the c
 
 **Note on Anonymization:** Operator names have been anonymized in this appendix. The error occurred in the agent's reasoning and data extraction, not due to any fault by the cruise operators themselves. All operators mentioned in the original output (Saga Cruises, Uniworld River Cruises, Viking River Cruises) provide legitimate services with accurate pricing on their websites.
 
-This appendix provides the complete error analysis that informed Chapter 12's discussion of pipeline failures, validation layers, and confidence scoring. It demonstrates why agent creators must build guardrails into their systems.
+This appendix provides the complete error analysis that informed Chapter 13's discussion of pipeline failures, validation layers, and confidence scoring. It demonstrates why agent creators must build guardrails into their systems.
 
 ---
 
@@ -478,7 +478,7 @@ Critical data needs multiple checkpoints:
 - Source verification (does this match the official site?)
 - Cross-referencing (do multiple sources agree?)
 
-**This is the core lesson of Chapter 12**: Build these checkpoints into your agent systems. They're not optional extras; they're essential guardrails.
+**This is the core lesson of Chapter 13**: Build these checkpoints into your agent systems. They're not optional extras; they're essential guardrails.
 
 ### 5. Format Creates False Confidence
 
@@ -539,9 +539,9 @@ This wasn't an AI "not understanding that £203,000 is expensive" - it was a **d
 - No comparative analysis performed (systemic)
 - No validation against known ranges (missing safeguard)
 
-### Application to Chapter 12
+### Application to Chapter 13
 
-This case study informed the validation framework presented in Chapter 12:
+This case study informed the validation framework presented in Chapter 13:
 
 - **Range validation**: £203,000 > £15,000 maximum → flag
 - **Comparative analysis**: 58x higher than peers → flag
@@ -561,4 +561,4 @@ The error was instructive because it was obviously wrong to human domain knowled
 
 ---
 
-**Cross-reference**: See Chapter 12 for implementation patterns based on this case study.
+**Cross-reference**: See Chapter 13 for implementation patterns based on this case study.

@@ -1,6 +1,6 @@
 \newpage
 
-# Chapter 11 - Technical Advice
+# Chapter 12 - Technical Advice
 
 Implementation code, testing strategies, and practical tools.
 
@@ -1494,7 +1494,7 @@ Before deploying changes, test them from an agent's perspective. Then measure wh
 
 **The proprietary lock-in problem:**
 
-As predicted in Chapter 11, major platforms are building closed identity systems to establish first-mover advantages before open standards emerge. This creates strategic complexity:
+As predicted in Chapter 9, major platforms are building closed identity systems to establish first-mover advantages before open standards emerge. This creates strategic complexity:
 
 - **Microsoft Copilot Checkout** uses Microsoft's proprietary identity delegation (payment details, shipping addresses, order history stored in Microsoft's ecosystem)
 - **Amazon Alexa+** controls shopping behaviour through Amazon's platform (3x purchase increase validates transaction control)
@@ -3044,7 +3044,7 @@ The web is changing. Sites that adapt now will serve agents successfully while i
 
 The choice is yours.
 
-**What about agent creators?** This chapter addressed what website builders should implement. **Chapter 12: What Agent Creators Must Build** completes the picture by showing what validation layers, confidence scoring, and guardrails agent creators should implement to prevent pipeline failures like the £203,000 pricing error. Both sides - website builders and agent creators - must improve to create a reliable agent-mediated web.
+**What about agent creators?** This chapter addressed what website builders should implement. **Chapter 13: What Agent Creators Must Build** completes the picture by showing what validation layers, confidence scoring, and guardrails agent creators should implement to prevent pipeline failures like the £203,000 pricing error. Both sides - website builders and agent creators - must improve to create a reliable agent-mediated web.
 
 ---
 

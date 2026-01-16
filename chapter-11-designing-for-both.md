@@ -1,6 +1,6 @@
 \newpage
 
-# Chapter 10 - Designing for Both
+# Chapter 11 - Designing for Both
 
 Solutions that work for agents without degrading human experience.
 
@@ -9,6 +9,8 @@ Solutions that work for agents without degrading human experience.
 The patterns that break AI agents are the same patterns that have frustrated humans for years. This isn't a coincidence. It's the key to solving both problems at once.
 
 In Chapter 1, I mentioned that what agents need is mostly what everyone needs. Now let me show you precisely what that means - and why it creates a single design target rather than competing requirements.
+
+**Connecting to Chapter 10:** The previous chapter established how to make your site discoverable to agents through GEO (Generative Engine Optimization) - ensuring AI platforms can find and cite your content accurately. This chapter builds on that foundation by showing how to make your site usable once agents arrive. Discovery (Chapter 10) and usability (this chapter) form a unified strategy: structured data that helps agents cite you correctly also helps them complete transactions successfully. The convergence continues.
 
 **A note on universal patterns:** The solutions in this chapter work across the entire agent ecosystem - server-based agents, CLI agents, browser agents, browser extensions, IDE-integrated tools, and local agents. This is deliberate. We're not designing for a specific agent architecture; we're designing for a principle: explicit state, semantic structure, and persistent feedback. A pattern that requires JavaScript execution to work excludes half the ecosystem. A pattern that relies on session inheritance only helps browser extensions. Universal patterns benefit everyone - agents and humans alike - regardless of their technical constraints.
 
@@ -264,6 +266,8 @@ Fourteen pages. Fourteen clicks. Context is lost between each page.
 ## Semantic Structure with JSON-LD
 
 HTML specifies how browsers display content. JSON-LD tells machines what content means.
+
+**Connection to GEO:** As Chapter 10 explained, structured data serves both discovery (helping AI platforms cite your content accurately in generated answers) and usability (helping agents complete transactions on your site). The JSON-LD patterns in this section fulfill both purposes - they're discovery mechanisms and transaction enablers simultaneously.
 
 ### Product Information
 
@@ -718,7 +722,7 @@ The web needs standardisation around agent interaction. Here's what's developing
 
 ### Standards Maturity Framework
 
-Throughout this chapter and Chapter 11, you'll encounter various approaches to AI agent guidance. They exist at different levels of maturity:
+Throughout this chapter and Chapter 12, you'll encounter various approaches to AI agent guidance. They exist at different levels of maturity:
 
 **Established Standards** (use with confidence):
 
@@ -777,7 +781,7 @@ An emerging convention for providing site-wide guidance to AI agents. Similar to
 
 **Real-world example:** Digital Domain Technologies maintains a comprehensive llms.txt file (<https://allabout.network/llms.txt>) that demonstrates practical implementation. Their file organises 91 posts across 6 major categories (Developer Documentation, EDS & Integrations, Core AI/LLM Topics, AEM/CMS Focus, General Blog & Tools, Content Author Resources) with structured access guidelines, rate limits (100 requests per hour per IP), attribution requirements, and precise categorisation. This demonstrates how to structure technical documentation for AI agent consumption whilst maintaining human-readable form.
 
-Chapter 11 covers implementation details and provides templates you can adapt.
+Chapter 12 covers implementation details and provides templates you can adapt.
 
 ### The Three-Layer Approach
 
@@ -908,7 +912,7 @@ Important foundational work that builds on quick wins.
 - **Implement semantic HTML throughout** - Use proper heading hierarchy, landmark regions, and appropriate elements
 - **Add agent detection and logging** - Track agent visits separately to measure impact and identify problems
 - **Review checkout flow for agent compatibility** - Test critical paths with clear state indicators at each step
-- **Test against multiple agent platforms** - Claude for Chrome, Microsoft Copilot, Amazon Alexa+ (see multi-platform testing section in Chapter 11)
+- **Test against multiple agent platforms** - Claude for Chrome, Microsoft Copilot, Amazon Alexa+ (see multi-platform testing section in Chapter 12)
 - **Create agent-friendly API documentation** - If offering API access, document it clearly in llms.txt
 
 ### Priority 3: Core Infrastructure
@@ -945,6 +949,6 @@ The web works best when information is transparent, honest, complete, and access
 
 Building for agents means building better. Not because agents matter more than humans, but because the problems agents expose were always there. We're finally fixing them.
 
-**The complete solutions picture:** This chapter and Chapter 11 address what website builders should implement. **Chapter 12: What Agent Creators Must Build** addresses the other side - what validation layers and guardrails agent creators should implement. Neither side can fix the ecosystem alone. Perfect websites still fail if agents lack validation. Sophisticated agents still fail if websites hide information. Both sides must improve.
+**The complete solutions picture:** This chapter and Chapter 12 address what website builders should implement. **Chapter 13: What Agent Creators Must Build** addresses the other side - what validation layers and guardrails agent creators should implement. Neither side can fix the ecosystem alone. Perfect websites still fail if agents lack validation. Sophisticated agents still fail if websites hide information. Both sides must improve.
 
 The next chapter provides the implementation code. But the philosophy matters more than the technology: design for clarity, and you design for everyone.

@@ -4,7 +4,8 @@
 **Last Updated**: January 2026
 **Purpose**: Prescriptive guide for developers building web interfaces for both humans and AI agents
 **Format**: Copy-paste this entire file into your AI assistant for implementation guidance
-**Cross-references**: 
+**Cross-references**:
+
 - Appendix A (Implementation Cookbook) - Quick copy-paste recipes
 - Chapter 11 (Technical Advice) - Full narrative with business context
 - Appendix L (Proposed AI Metadata Patterns) - Specifications for experimental patterns
@@ -2670,6 +2671,274 @@ Verify your implementations with these tools:
 - WAVE: `https://wave.webaim.org`
 - axe DevTools browser extension
 - Screen reader testing (helps identify structural issues)
+
+### Common Validation Pitfalls
+
+These issues often slip through during implementation but break agent compatibility:
+
+#### 1. Unencoded Special Characters
+
+**Problem:** Raw ampersands and other special characters in HTML content.
+
+**Bad:**
+
+```html
+<div class="audience-item">
+  <strong>Web Professionals</strong>Technical patterns & implementation
+</div>
+```
+
+**Good:**
+
+```html
+<div class="audience-item">
+  <strong>Web Professionals</strong>Technical patterns &amp; implementation
+</div>
+```
+
+**Why it matters:** Agents parsing HTML strictly may reject malformed content. Always encode:
+
+- `&` as `&amp;`
+- `<` as `&lt;`
+- `>` as `&gt;`
+- `"` as `&quot;` (in attributes)
+
+#### 2. Redundant ARIA Roles
+
+**Problem:** Adding explicit roles to elements that already have implicit roles.
+
+**Bad:**
+
+```html
+<section role="region" aria-label="Book review">
+  <!-- Section already has implicit region role -->
+</section>
+```
+
+**Good:**
+
+```html
+<section aria-label="Book review">
+  <!-- aria-label provides accessible name without redundant role -->
+</section>
+```
+
+**Implicit roles to remember:**
+
+- `<section>` = region role (when it has an accessible name)
+- `<nav>` = navigation role
+- `<main>` = main role
+- `<article>` = article role
+- `<aside>` = complementary role
+- `<footer>` = contentinfo role (when top-level)
+- `<header>` = banner role (when top-level)
+
+Only add explicit `role` attributes when changing the semantic meaning.
+
+#### 3. ARIA Attributes on Non-Interactive Elements
+
+**Problem:** Using `aria-label` on elements that don't support it.
+
+**Bad:**
+
+```html
+<div class="stars" aria-label="Rating: 4 out of 5 stars">
+  ★★★★☆
+</div>
+```
+
+**Good - Option 1 (add role):**
+
+```html
+<div class="stars" role="img" aria-label="Rating: 4 out of 5 stars">
+  ★★★★☆
+</div>
+```
+
+**Good - Option 2 (use semantic element):**
+
+```html
+<figure aria-label="Rating: 4 out of 5 stars">
+  <div class="stars">★★★★☆</div>
+</figure>
+```
+
+**Why it matters:** `aria-label` only works on:
+
+- Interactive elements (buttons, links, inputs)
+- Landmark roles (navigation, main, etc.)
+- Elements with explicit `role="img"` or similar
+
+Agents and screen readers ignore `aria-label` on plain divs without roles.
+
+#### 4. Non-Semantic Structure
+
+**Problem:** Using `<div>` where semantic elements are more appropriate.
+
+**Bad:**
+
+```html
+<div class="author-section">
+  <img src="author.jpg" alt="Author name">
+  <div class="author-bio">Bio text...</div>
+</div>
+```
+
+**Good:**
+
+```html
+<section class="author-section" aria-label="About the author">
+  <img src="author.jpg" alt="Author name">
+  <div class="author-bio">Bio text...</div>
+</section>
+```
+
+**Semantic alternatives:**
+
+- `<section>` for thematic groupings with headings
+- `<article>` for self-contained content
+- `<aside>` for tangential content
+- `<nav>` for navigation blocks
+- `<header>` and `<footer>` for page/section headers and footers
+
+#### 5. Missing Semantic Wrappers
+
+**Problem:** Content without proper document structure landmarks.
+
+**Bad:**
+
+```html
+<body>
+  <div class="content">
+    <section>...</section>
+    <section>...</section>
+  </div>
+</body>
+```
+
+**Good:**
+
+```html
+<body>
+  <div class="content">
+    <main>
+      <article>
+        <section>...</section>
+        <section>...</section>
+      </article>
+    </main>
+  </div>
+</body>
+```
+
+**Document structure best practices:**
+
+- One `<main>` per page containing primary content
+- Use `<article>` for self-contained syndicated content
+- Nest `<section>` elements within articles for thematic groupings
+- Every page should have clear landmark structure
+
+#### 6. Validation Tools to Use
+
+**html-validate (local CLI):**
+
+```bash
+npx html-validate your-file.html
+```
+
+Catches:
+
+- Unencoded characters
+- Redundant ARIA roles
+- ARIA misuse
+- Non-semantic structure
+- Accessibility violations
+
+**W3C Validator (online):**
+
+Visit: `https://validator.w3.org/`
+
+Checks:
+
+- HTML5 spec compliance
+- Well-formed markup
+- Valid attributes
+- Proper nesting
+
+**Note on inline styles:** Validation tools often warn about inline styles for maintainability reasons. For production sites with separate CSS files, this is good advice. For single-file HTML pages (like email templates or design comps), inline styles are acceptable and warnings can be ignored.
+
+#### 7. Parser Auto-Correction Behavior
+
+**CRITICAL: Browser engines and HTML parsers automatically fix some invalid HTML.**
+
+When validation matters:
+
+**Raw HTML Source (Pre-Parse):**
+
+- CLI agents reading HTML files directly
+- Build tools processing templates
+- Static site generators
+- API responses with HTML content
+- Email HTML (especially plain text email clients)
+
+Invalid HTML matters here. Run `html-validate` or W3C Validator on source files.
+
+**Parsed HTML (Post-Parse):**
+
+- Browser-based agents (Puppeteer, Selenium, Playwright)
+- In-browser AI assistants (Claude for Chrome, ChatGPT browser mode)
+- JavaScript DOM manipulation
+- Browser DevTools inspection
+
+Invalid HTML is auto-corrected. Parsers fix:
+
+- `&` → `&amp;` (automatically encoded)
+- `<br>` → `<br/>` (automatically closed)
+- Missing closing tags → automatically added
+- Improperly nested tags → automatically restructured
+
+**Why this matters for AI agents:**
+
+Different agent types see different HTML:
+
+```text
+Source HTML:    <div>Technical patterns & implementation</div>
+CLI Agent:      <div>Technical patterns & implementation</div>  ← Sees raw &
+Browser Agent:  <div>Technical patterns &amp; implementation</div>  ← Sees encoded &amp;
+```
+
+**Recommendation:**
+
+1. **Pre-deployment:** Validate raw HTML with `html-validate` or W3C Validator
+2. **During development:** Test with browser automation (Puppeteer) to see what browser-based agents see
+3. **For maximum compatibility:** Ensure raw HTML is valid so BOTH CLI and browser agents work correctly
+
+**Tools that auto-correct:**
+
+- Cheerio (Node.js HTML parser)
+- Puppeteer/Playwright (Chromium engine)
+- JSDOM (JavaScript DOM implementation)
+- All major browser engines (Chrome, Firefox, Safari, Edge)
+
+**Tools that detect raw errors:**
+
+- html-validate (CLI tool)
+- W3C Markup Validation Service
+- ESLint HTML plugins
+- Custom build-time validators
+
+#### 8. Quick Pre-Deploy Checklist
+
+Before deploying HTML changes:
+
+- [ ] All `&` characters encoded as `&amp;`
+- [ ] No redundant `role` attributes on semantic elements
+- [ ] `aria-label` only used on elements that support it
+- [ ] Semantic elements used instead of divs where appropriate
+- [ ] Document has `<main>` landmark
+- [ ] Self-contained content wrapped in `<article>`
+- [ ] Schema.org JSON-LD validates without errors
+- [ ] Passes W3C HTML validator
 
 ---
 

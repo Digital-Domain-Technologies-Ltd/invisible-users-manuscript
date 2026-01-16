@@ -192,7 +192,7 @@ Points to site-wide llms.txt file.
 
 ### Cross-References
 
-- **Mentioned in:** Chapter 11 (Technical Advice)
+- **Mentioned in:** Chapter 12 (Technical Advice)
 - **Implemented in:** Appendix D examples (lines 1556-1568)
 - **Used in:** `agent-friendly-starter-kit/good/index.html`
 - **Enhanced by:** `scripts/enhance-appendix-html.js` (lines 40-47)
@@ -306,7 +306,7 @@ document.getElementById('shipping-status').textContent =
 ### Cross-References (data-agent-visible)
 
 - **Documented in:** Appendix D (lines 1294-1326)
-- **Mentioned in:** Chapter 10 (agent purchase instructions)
+- **Mentioned in:** Chapter 11 (agent purchase instructions)
 - **Not yet implemented in:** Most code examples (opportunity for addition)
 
 ---

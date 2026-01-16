@@ -390,7 +390,7 @@ If you must choose between "integrate one protocol now" versus "wait for both," 
 - Late movers face only one integration
 - But: Early adopters gain 6 months of production experience, debug edge cases first, establish reputation with agents
 
-**The recommendation:** For most transaction-based businesses, integrating one open protocol now is better than waiting. Protocol abstraction layers (discussed in Chapter 11) enable future migration without complete reimplementation. The competitive risk of waiting exceeds the technical risk of choosing wrong, provided you avoid proprietary protocols that lack migration paths.
+**The recommendation:** For most transaction-based businesses, integrating one open protocol now is better than waiting. Protocol abstraction layers (discussed in Chapter 12) enable future migration without complete reimplementation. The competitive risk of waiting exceeds the technical risk of choosing wrong, provided you avoid proprietary protocols that lack migration paths.
 
 ### Developer Experience and Learning Curves
 
@@ -576,13 +576,17 @@ But they matter more urgently than I anticipated when writing them.
 
 **The next chapters provide what you need:**
 
-- **Chapter 10: Designing for Both** - Solution patterns that work for both agents and humans without compromise.
+- **Chapter 10: Generative Engine Optimization** - Discovery strategies that ensure AI platforms can find and cite your content accurately, whilst supporting traditional search engine optimization.
 
-- **Chapter 11: Technical Advice** - Implementation details, code examples, testing strategies, and debugging approaches.
+- **Chapter 11: Designing for Both** - Solution patterns that work for both agents and humans without compromise.
 
-- **Chapter 12: What Agent Creators Must Build** - Validation layers, confidence scoring, and guardrails that prevent the pipeline failures described in Appendix I.
+- **Chapter 12: Technical Advice** - Implementation details, code examples, testing strategies, and debugging approaches.
+
+- **Chapter 13: What Agent Creators Must Build** - Validation layers, confidence scoring, and guardrails that prevent the pipeline failures described in Appendix I.
 
 These aren't theoretical anymore. They're urgent, practical requirements for competing in a market where platforms have committed billions and retailers are integrating now.
+
+**The patterns that work universally - semantic HTML, structured data, explicit state attributes, and discovery mechanisms - form the foundation for everything that follows.** Chapter 10 explores the first layer: making your site discoverable to the agents that will soon be searching for your products, services, and expertise.
 
 ---
 

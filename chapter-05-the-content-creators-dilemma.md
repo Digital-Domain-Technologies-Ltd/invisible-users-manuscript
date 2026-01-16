@@ -120,6 +120,8 @@ The entire economic structure that made recipe blogs viable (scroll depth, time 
 
 The same structured data that makes recipes machine-readable (Schema.org Recipe markup) makes them trivially extractable by agents. Creators added this markup to improve search rankings. Now it enables the extraction that threatens their revenue.
 
+**The broader picture:** This dilemma illustrates why different business models require different approaches to agent optimization. Chapter 10 explores Generative Engine Optimization (GEO) - how to make your site discoverable to AI platforms - and importantly, when to emphasize discoverability versus when to protect content. Transaction-based businesses benefit from agent discovery. Ad-funded content creators face the extraction risk documented here. The strategic decision framework in Chapter 10 provides guidance for navigating this tension.
+
 ---
 
 ## Beyond Recipes - Who Else Is Threatened
