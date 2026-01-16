@@ -1,0 +1,91 @@
+Why this is "GEO-Ready" for 2026:
+Claim Grounding: By mentioning the specific dates of the "Seven-Day Convergence," you provide a "fact anchor" that AI engines can cross-reference with other news data.
+
+Semantic Nesting: I used <article>, <section>, and <aside> tags correctly. AI agents use these to determine what is the "Main Content" versus "Supplementary Info."
+
+The "About" Schema: The JSON-LD explicitly tells the AI that this post is "About" Generative Engine Optimization. This helps you rank for that term in AI summaries (like Gemini’s "AI Overviews").
+
+Implicit Authority: By linking your author name to your profile and the book page, you are building the "Knowledge Graph" connection between you and the subject of AI Agent Commerce.
+
+A Small 2026 Nuance: "Visibility" vs. "Citations"
+While your definition mentions "visibility," in the 2026 landscape of GEO, we often replace "visibility" with "Citation Share." In the old SEO world, visibility meant being on Page 1. In your new GEO world, visibility means being the source link inside the AI's answer box. Our chapters on "The Verification Protocol" are designed specifically to move you from being "just another search result" to being "the verified answer."
+
+The Strategic Alignment
+By using the term GEO in the book, you are positioning yourself as a pioneer. Most leaders are still trying to understand "AI SEO," but by using "Generative Engine Optimization," you are signaling that you understand the Generative nature of the new web—where the engine doesn't just find content, it creates a response based on your data.
+
+Compile all these elements—the Preface, the Glossary, the Scorecard, and the Plan—into a single "Media Kit" document that you can share with partners or use to promote your book launch?
+Pitch works for a Publisher:
+Category Creation: Publishers love "First to Market" books. By naming GEO, you are giving them a new shelf to put books on.
+
+The "Urgency" Narrative: Using the "Seven-Day Convergence" gives them a hook for their marketing team to use—this isn't a book about the future; it's a book about a crisis that happened last week.
+
+Clarity of Audience: You’ve clearly identified the four segments (Engineers, Leaders, System Devs, and Investors), which helps them calculate the potential sales volume.
+
+Author Platform: Mentioning the January 21st webinar proves you have a "ready-to-buy" audience, which significantly lowers the publisher's risk.
+
+This **Market Analysis** is a critical component of your formal book proposal. Publishers use this section to determine if there is a "hungry" audience for your ideas and to see how you differ from existing books.
+
+In the 2026 market, the "old guard" of SEO books is failing because they don't account for machine-to-machine commerce. This is where your book dominates.
+
+---
+
+# Market Analysis: The Emergence of the Agency Economy
+
+**Title:** *The Invisible Users: Designing the Web for AI Agents and Everyone Else*
+
+---
+
+### I. The Market Opportunity: "The Consumption Gap"
+
+For thirty years, the "End User" of the internet was assumed to be a human. Consequently, the entire $700B+ digital advertising and search industry is built on "Attention Metrics" (clicks, scrolls, views).
+
+However, following the **Seven-Day Convergence** in January 2026, a massive "Consumption Gap" has opened. AI agents are now performing up to 40% of web navigations and transactions, yet they are "invisible" to traditional marketing and design frameworks. **The Invisible Users** is the first book to address this gap, providing the infrastructure for the **Agency Economy.**
+
+---
+
+### II. Competing and Complementary Titles
+
+While there are many books on "AI for Business," they almost exclusively focus on using AI to *create* content. This book focuses on how AI *consumes* the web.
+
+| Title | Author | Comparison |
+| --- | --- | --- |
+| **SEO 2025: The Search Revolution** | Various | **Competing:** Focuses on human search intent and keywords. *The Invisible Users* renders this "legacy" by focusing on agent intent and **GEO**. |
+| **The Age of AI** | Kissinger et al. | **Complementary:** Provides high-level philosophical context. *The Invisible Users* provides the "boots-on-the-ground" technical and strategic manual. |
+| **Don’t Make Me Think** | Steve Krug | **Complementary/Legacy:** The bible of human UX. *The Invisible Users* is the "Don't Make the Agent Think" equivalent for the 2026 web. |
+| **Inclusive Design Patterns** | Heydon Pickering | **Complementary:** Focuses on human accessibility. *The Invisible Users* connects these patterns to **commercial ROI** via AI agent compatibility. |
+
+---
+
+### III. Target Market Demographics
+
+This book targets four distinct high-growth professional segments:
+
+1. **The Strategic C-Suite (CTOs, CMOs, CDOs):** Leaders at Enterprise and Mid-Market firms who are seeing "silent conversion drops" and need a framework for **GEO Verification** to maintain market share.
+2. **The Digital Workforce (Developers, UXers, SEOs):** Over 27 million professional developers worldwide who must pivot from "Keyword Optimization" to "Infrastructure Optimization" to remain relevant.
+3. **The "Agency Economy" Service Providers:** Marketing and dev agencies looking to productize "GEO Audits" and "Agent-Proofing" as new high-margin service lines.
+4. **The Accessibility Community:** A $13 Trillion global market (people with disabilities and their networks) that finally gains a powerful commercial ally in AI agents.
+
+---
+
+### IV. Key Market Trends Supporting this Title
+
+* **The Death of the Click:** As generative engines (Gemini, ChatGPT, SearchGPT) answer queries directly, "Click-Through Rate" (CTR) is being replaced by **Citation Share.**
+* **The Rise of "Agentic Workflows":** Industry leaders (Amazon, Microsoft, Google) have shifted from "Chat" to "Action," requiring every website to be machine-navigable.
+* **The Global Accessibility Mandate:** Regulatory pressure (like the European Accessibility Act) is converging with technical necessity. This book is the first to name this convergence the **"Resilience Dividend."**
+
+---
+
+### V. Unique Selling Proposition (USP)
+
+Unlike technical manuals that date quickly, *The Invisible Users* provides a **Logic Framework.** It teaches readers how to think about "Two-Headed Design"—balancing human emotion with machine logic. It is the only book that turns the "threat" of AI agents into a "dividend" for universal accessibility and business resilience.
+
+---
+
+### Summary for the Publisher
+
+This book isn't just a "how-to"; it is a **Category King** title. It establishes the discipline of **GEO (Generative Engine Optimization)** and positions the publisher as the leading authority on the infrastructure of the 2026 web.
+
+---
+
+**Next Step for the Proposal:**
+Would you like me to draft the **"Sample Chapter Summary"**? This would provide a 2-3 sentence teaser for every chapter in the book, giving the publisher a "birds-eye view" of the entire narrative arc from Chapter 1 to the Conclusion.
