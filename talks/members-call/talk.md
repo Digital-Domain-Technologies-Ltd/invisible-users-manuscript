@@ -111,7 +111,7 @@ Modern web design is optimised for visual feedback that humans interpret through
 - Loading spinners without context
 - JavaScript-dependent navigation
 
-These patterns break agents and users with disabilities: keyboard users who cannot grip a mouse, screen reader users who cannot perceive visual cues, voice control users with mobility disabilities, and people with cognitive disabilities who struggle with transient notifications.
+These patterns break agents and users with disabilities: those who navigate with keyboards instead of pointing devices, users who perceive pages through screen readers rather than visually, people with motor disabilities requiring voice control, and those with cognitive differences who need persistent rather than transient information.
 
 **The convergence principle:** Patterns that break AI agents also break humans. Skip links that help keyboard users bypass navigation also help AI agents identify main content. Semantic HTML benefits screen readers and AI parsing simultaneously.
 

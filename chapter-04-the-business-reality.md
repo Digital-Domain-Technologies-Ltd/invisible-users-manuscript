@@ -90,6 +90,8 @@ If a recipe blogger currently earns £3,000 per month from 150,000 page views, a
 
 If 50% becomes agent traffic, income drops to £1,500. The blog stops being economically viable.
 
+Tailwind's commerce opportunity—selling premium UI components—depended on discovery. Agents needed to find Tailwind UI's paid offerings, understand the value proposition, and cite them accurately. Without discovery guidance (llms.txt directing to commercial products, structured data marking up paid tiers, clear differentiation in metadata), the paid products remained invisible. Agent-mediated commerce wasn't just difficult—it was impossible. Discovery precedes commerce; Tailwind failed at discovery, so commerce never became viable.
+
 **The response options are all problematic:**
 
 ### Option 1: Block agents aggressively

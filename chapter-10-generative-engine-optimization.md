@@ -230,6 +230,18 @@ See [book-product-page.html](web/book-product-page.html) for the complete exampl
 
 **Complete working example:** The book's product page at <https://allabout.network/invisible-users> demonstrates all three discovery layers - robots.txt guidance, complete Schema.org Book + Product markup with breadcrumb navigation, and semantic HTML structure with explicit state attributes. View the page source to see how meta tags, JSON-LD structured data, and semantic content structure work together in a production implementation.
 
+### Why Discovery Comes First
+
+Agent-mediated commerce depends entirely on successful discovery. No matter how well-structured your checkout flow, how clear your product specifications, or how robust your transaction handling, these capabilities remain invisible if AI platforms don't cite you.
+
+When someone asks ChatGPT "find me wireless headphones under £100," the agent researches products, compares options, and recommends specific items. If your products aren't discoverable through structured data, semantic HTML, and clear metadata, you don't appear in that research phase. The user never knows you exist.
+
+The platforms launching agent commerce systems (Amazon's Alexa.com, Microsoft's Copilot Checkout, Google's Universal Commerce Protocol) all assume merchant discoverability. The protocols define how agents transact once they've found you, but they don't solve the discovery problem. That's your responsibility.
+
+This is why GEO and SEO convergence matters commercially. The patterns that help AI agents cite you correctly—Schema.org JSON-LD, semantic HTML, clear information architecture—are the same patterns that improve traditional search rankings. When you optimise for GEO, SEO benefits simultaneously. The work compounds across both discovery channels.
+
+Participation in agent-based e-commerce becomes viable only after your business has been discovered and recognised. Until then, agent-mediated transactions cannot occur.
+
 ## The Business Model Crisis - Adapt or Disappear
 
 In November 2024, Tailwind CSS faced a business model crisis that demonstrates what happens when companies fail to adapt to agent-mediated commerce. A developer opened a pull request proposing an llms.txt endpoint for Tailwind's documentation site. The PR sat for nearly two months whilst comments piled up asking why it hadn't been merged.
@@ -734,11 +746,67 @@ Add `inLanguage` to your JSON-LD:
 
 ### Currency Handling in Product Markup
 
-**The challenge:** You sell to UK, US, and EU customers. Prices vary by region due to VAT, shipping costs, and currency conversion.
+**The challenge:** You sell to UK, US, and EU customers. Prices vary by region due to VAT, shipping costs, and currency conversion. International customers need clear pricing in their local currency.
 
-**The solution:** Implement region-specific product pages with appropriate currency markup.
+**The solution:** Use multi-regional offer arrays with `eligibleRegion` to provide region-specific pricing whilst keeping all offers in a single structured data block.
 
-**UK version:**
+**Single product with multiple regional offers:**
+
+```json
+{
+  "@type": "Product",
+  "name": "The Invisible Users (eBook)",
+  "offers": [
+    {
+      "@type": "Offer",
+      "price": "24.99",
+      "priceCurrency": "GBP",
+      "priceValidUntil": "2026-12-31",
+      "valueAddedTaxIncluded": true,
+      "eligibleRegion": {
+        "@type": "Place",
+        "name": "United Kingdom"
+      }
+    },
+    {
+      "@type": "Offer",
+      "price": "32.99",
+      "priceCurrency": "USD",
+      "priceValidUntil": "2026-12-31",
+      "valueAddedTaxIncluded": false,
+      "eligibleRegion": {
+        "@type": "Place",
+        "name": "United States"
+      }
+    },
+    {
+      "@type": "Offer",
+      "price": "29.99",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2026-12-31",
+      "valueAddedTaxIncluded": true,
+      "eligibleRegion": {
+        "@type": "Place",
+        "name": "European Union"
+      }
+    }
+  ]
+}
+```
+
+**Benefits of this approach:**
+
+- Agents can select appropriate regional pricing based on user location
+- All pricing information in one place reduces maintenance burden
+- Clear `eligibleRegion` eliminates ambiguity about which price applies where
+- `valueAddedTaxIncluded` indicates tax treatment per region
+- Search engines understand regional availability and pricing
+
+**Alternative - Region-specific pages:**
+
+If you maintain separate pages per region (example.com/uk/, example.com/us/), each page should only include the relevant regional offer:
+
+**UK page (example.com/uk/product):**
 
 ```json
 {
@@ -747,40 +815,28 @@ Add `inLanguage` to your JSON-LD:
     "@type": "Offer",
     "price": "24.99",
     "priceCurrency": "GBP",
-    "priceValidUntil": "2026-12-31"
+    "priceValidUntil": "2026-12-31",
+    "valueAddedTaxIncluded": true
   }
 }
 ```
 
-**US version:**
+**US page (example.com/us/product):**
 
 ```json
 {
   "@type": "Product",
   "offers": {
     "@type": "Offer",
-    "price": "29.99",
+    "price": "32.99",
     "priceCurrency": "USD",
-    "priceValidUntil": "2026-12-31"
+    "priceValidUntil": "2026-12-31",
+    "valueAddedTaxIncluded": false
   }
 }
 ```
 
-**EU version:**
-
-```json
-{
-  "@type": "Product",
-  "offers": {
-    "@type": "Offer",
-    "price": "27.99",
-    "priceCurrency": "EUR",
-    "priceValidUntil": "2026-12-31"
-  }
-}
-```
-
-**Critical:** Don't show USD prices on the GBP page. Agents extract structured data as authoritative. Mismatches between currency and region reduce trust.
+**Critical:** Don't show USD prices on the GBP page. Agents extract structured data as authoritative. Mismatches between currency and region reduce trust. If using region-specific pages, only include the pricing for that region. If using a single international page, include all regional offers in an array with explicit `eligibleRegion` properties.
 
 ### Language-Specific llms.txt Files
 
@@ -820,11 +876,11 @@ This guides agents to language-appropriate content whilst keeping the structure 
 
 ### Regional Price Variations
 
-**The challenge:** VAT-inclusive pricing in EU, VAT-exclusive in US, different shipping costs by region.
+**The challenge:** VAT treatment varies by product type and region. Digital products (eBooks, software) are standard-rated at 20% VAT in the UK. Physical products (printed books, goods) may be zero-rated (0% VAT) in some jurisdictions. US pricing typically excludes sales tax, shown at checkout. Different shipping costs apply by region.
 
-**The solution:** Be explicit about what's included.
+**The solution:** Be explicit about what's included, using `valueAddedTaxIncluded` to indicate tax status clearly.
 
-**UK (VAT-inclusive):**
+**UK eBook (VAT-inclusive at 20%):**
 
 ```json
 {
@@ -840,23 +896,96 @@ This guides agents to language-appropriate content whilst keeping the structure 
 }
 ```
 
-**US (pre-tax):**
+**UK printed book (zero-rated, no VAT):**
 
 ```json
 {
   "@type": "Offer",
-  "price": "29.99",
-  "priceCurrency": "USD",
+  "price": "34.99",
+  "priceCurrency": "GBP",
   "priceSpecification": {
     "@type": "UnitPriceSpecification",
-    "price": "29.99",
-    "priceCurrency": "USD",
+    "price": "34.99",
+    "priceCurrency": "GBP",
     "valueAddedTaxIncluded": false
   }
 }
 ```
 
-Agents citing your product can accurately represent whether tax is included, preventing confusion when users discover unexpected charges at checkout.
+**US eBook (pre-tax):**
+
+```json
+{
+  "@type": "Offer",
+  "price": "32.99",
+  "priceCurrency": "USD",
+  "priceSpecification": {
+    "@type": "UnitPriceSpecification",
+    "price": "32.99",
+    "priceCurrency": "USD",
+    "valueAddedTaxIncluded": false
+  },
+  "eligibleRegion": {
+    "@type": "Place",
+    "name": "United States"
+  }
+}
+```
+
+**US printed book (pre-tax):**
+
+```json
+{
+  "@type": "Offer",
+  "price": "44.99",
+  "priceCurrency": "USD",
+  "priceSpecification": {
+    "@type": "UnitPriceSpecification",
+    "price": "44.99",
+    "priceCurrency": "USD",
+    "valueAddedTaxIncluded": false
+  },
+  "eligibleRegion": {
+    "@type": "Place",
+    "name": "United States"
+  }
+}
+```
+
+**Multi-regional offer array:**
+
+When selling to multiple regions, use an array of offers with `eligibleRegion` to specify which price applies where:
+
+```json
+{
+  "@type": "Product",
+  "name": "The Invisible Users (eBook)",
+  "offers": [
+    {
+      "@type": "Offer",
+      "price": "24.99",
+      "priceCurrency": "GBP",
+      "valueAddedTaxIncluded": true,
+      "eligibleRegion": {
+        "@type": "Place",
+        "name": "United Kingdom"
+      }
+    },
+    {
+      "@type": "Offer",
+      "price": "32.99",
+      "priceCurrency": "USD",
+      "valueAddedTaxIncluded": false,
+      "eligibleRegion": {
+        "@type": "Place",
+        "name": "United States"
+      }
+    }
+  ]
+}
+```
+
+Agents citing your product can accurately represent whether tax is included, preventing confusion when users discover unexpected charges at checkout. The `eligibleRegion` property helps agents select the appropriate price for their user's location.
 
 ## Dynamic Content and Technical Challenges
 

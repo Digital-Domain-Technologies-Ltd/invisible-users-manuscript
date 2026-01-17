@@ -1291,31 +1291,78 @@ Show complete costs upfront—no surprises at checkout.
 <p class="price">From £99</p>
 ```
 
-**Good — Complete and honest:**
+**Good — Complete and honest (eBook with VAT):**
 
 ```html
 <div class="product-price">
   <span class="currency">£</span>
-  <span class="amount">149.99</span>
-  <span class="vat-status">inc. VAT</span>
+  <span class="amount" data-price="24.99" data-currency="GBP" data-format="ebook">24.99</span>
+  <span class="format-note">(eBook price shown)</span>
 </div>
+<p class="vat-status">eBook inc. VAT | Paperback zero-rated</p>
 
-&lt;details class="price-breakdown"&gt;
-  &lt;summary&gt;Price breakdown&lt;/summary&gt;
+<details class="price-breakdown">
+  <summary>Price breakdown</summary>
   <dl>
-    <dt>Product price</dt>
-    <dd>£139.99</dd>
-    <dt>Shipping</dt>
-    <dd>£10.00</dd>
-    <dt>VAT (included)</dt>
-    <dd>£25.00</dd>
-    <dt>Total</dt>
-    <dd>£149.99</dd>
+    <dt>eBook price</dt>
+    <dd data-format="ebook" data-base-price="20.82">£20.82</dd>
+    <dt>VAT (20%)</dt>
+    <dd data-format="ebook" data-vat="4.17">£4.17 (eBooks only)</dd>
+    <dt>eBook total</dt>
+    <dd data-format="ebook" data-total="24.99"><strong>£24.99</strong></dd>
   </dl>
-&lt;/details&gt;
+  <dl>
+    <dt>Paperback price</dt>
+    <dd data-format="paperback" data-base-price="34.99">£34.99</dd>
+    <dt>VAT</dt>
+    <dd data-format="paperback" data-vat="0.00">£0.00 (printed books are zero-rated)</dd>
+    <dt>Shipping</dt>
+    <dd data-format="paperback" data-shipping="0.00">Free (UK)</dd>
+    <dt>Paperback total</dt>
+    <dd data-format="paperback" data-total="34.99"><strong>£34.99</strong></dd>
+  </dl>
+</details>
 ```
 
-No deceptive "from" pricing. Complete costs are visible. Breakdown available but not intrusive.
+**International pricing (multi-currency):**
+
+```html
+<details class="international-pricing">
+  <summary>International pricing</summary>
+  <dl>
+    <dt data-region="usa">USA customers</dt>
+    <dd>
+      <ul>
+        <li data-format="ebook" data-price="32.99" data-currency="USD" data-vat="0.00">
+          <strong>eBook:</strong> $32.99 (approx. £24.99 at current exchange rates, no UK VAT for non-UK customers)
+        </li>
+        <li data-format="paperback" data-price="44.99" data-currency="USD" data-vat="0.00">
+          <strong>Paperback:</strong> $44.99 (approx. £34.99 at current exchange rates, zero-rated for VAT)
+        </li>
+        <li>Instant digital delivery worldwide for eBooks</li>
+        <li>Prices shown in USD for USA customers at checkout</li>
+      </ul>
+    </dd>
+    <dt data-region="international">Other international customers</dt>
+    <dd>
+      <ul>
+        <li data-format="ebook">eBook pricing: Calculated at checkout based on current exchange rates from £24.99 GBP base. No UK VAT charged outside UK.</li>
+        <li data-format="paperback">Paperback pricing: Calculated at checkout based on current exchange rates from £34.99 GBP base. Zero-rated for VAT everywhere.</li>
+        <li>Instant digital delivery worldwide for eBooks</li>
+      </ul>
+    </dd>
+  </dl>
+</details>
+```
+
+**Key patterns demonstrated:**
+
+- No deceptive "from" pricing - actual prices shown upfront
+- Format-specific pricing with explicit `data-format` attributes
+- VAT treatment clearly indicated (20% for eBooks, zero-rated for printed books)
+- International pricing with regional `data-region` attributes
+- Complete costs visible, detailed breakdown available but not intrusive
+- Machine-readable attributes for AI agent parsing
 
 ### Error Recovery Pattern
 

@@ -6,7 +6,7 @@ It was late 2024, and I was comparing tour operators for a trip through Southeas
 
 The agent had looked at one tour operator's paginated day-by-day breakdown for a 14-day tour, seen only Day 1, and concluded that was the entire trip. The competitor's single-page itinerary was readable in full. Based on this, my assistant recommended the wrong company.
 
-I caught the error, and that led me down a path I hadn't anticipated. I started examining why the agent had failed, and found a pattern. The same design choices that confused my AI assistant also confused users with disabilities: keyboard users who cannot grip a mouse, screen reader users who cannot perceive visual cues, voice control users with mobility disabilities, and people with cognitive disabilities who struggle with sequential navigation. (Chapter 1 explores this accessibility connection in depth, with examples that made the pattern clear to me.)
+I caught the error, and that led me down a path I hadn't anticipated. I started examining why the agent had failed, and found a pattern. The same design choices that confused my AI assistant also confused users with disabilities: people who rely on keyboards rather than mice, those using screen readers to navigate, voice control users who cannot make precise movements, and people with cognitive processing differences who find sequential navigation challenging. (Chapter 1 explores this accessibility connection in depth, with examples that made the pattern clear to me.)
 
 We'd built a web that worked brilliantly for one specific type of user: someone with good vision, working on a desktop, with focused attention and plenty of time. Everyone else had been struggling quietly for years. Now AI agents were struggling loudly, and there was finally commercial pressure to fix the problems.
 
@@ -81,6 +81,8 @@ Three major shifts drive the urgency of this title:
 **The business model crisis is already here.** In January 2025, Tailwind CSS laid off 75% of its team after their traffic-dependent revenue model collapsed. When AI agents started answering developer questions without sending traffic to documentation sites, companies relying on pageviews for product awareness found their monetisation path broken. Adam Wathan's explanation when closing an llms.txt pull request was stark: "Making it easier for LLMs to read our docs just means less traffic to our docs which means less people learning about our paid products and the business being even less sustainable."
 
 This isn't theoretical. Companies are failing right now because their business models assume human browsing behaviour that no longer dominates discovery. Any business depending on traffic-driven advertising, affiliate click-throughs, or awareness marketing requiring site visits faces the same crisis. The adaptation required is urgent: transform to agent-compatible revenue models (direct transactions, paid services, API access, subscriptions) or watch revenue collapse whilst agents extract free content and paid offerings remain invisible.
+
+The sequence is critical: discovery precedes commerce. Agent-mediated transactions become viable only after your business has been discovered and recognised by AI platforms. Until then, commerce capability remains irrelevant because agents never send users to your site. The patterns that enable GEO discovery simultaneously improve SEO rankings—the work compounds across both channels.
 
 ---
 

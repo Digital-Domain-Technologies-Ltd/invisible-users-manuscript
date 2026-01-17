@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO Meta Tags -->
-  <title>The Invisible Users - Designing the Web for AI Agents and Everyone Else</title>
+  <title>The Invisible Users - AI Agent Web Design</title>
   <meta name="description" content="The Invisible Users - practical guide to designing websites that work for AI agents and humans. Learn GEO patterns, accessibility best practices, and agent compatibility.">
   <meta name="keywords" content="AI agents, web design, accessibility, GEO, agent compatibility, semantic HTML, structured data">
   <meta name="author" content="Tom Cranstoun">
@@ -32,6 +32,24 @@
     "@type": ["Book", "Product"],
     "name": "The Invisible Users",
     "description": "Designing the Web for AI Agents and Everyone Else",
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Discovery Precedes Commerce",
+        "description": "AI agents must discover and understand businesses before facilitating transactions"
+      },
+      {
+        "@type": "Thing",
+        "name": "Convergence Principle",
+        "description": "Patterns that help AI agents also improve accessibility for humans"
+      },
+      {
+        "@type": "Thing",
+        "name": "Generative Engine Optimisation",
+        "alternateName": "GEO",
+        "description": "Optimising websites for discovery by AI agents"
+      }
+    ],
     "author": {
       "@type": "Person",
       "name": "Tom Cranstoun",
@@ -49,18 +67,40 @@
       "@type": "Organization",
       "name": "Digital Domain Technologies"
     },
-    "offers": {
-      "@type": "Offer",
-      "price": "24.99",
-      "priceCurrency": "GBP",
-      "availability": "https://schema.org/InStock",
-      "priceValidUntil": "2026-12-31",
-      "url": "https://allabout.network/invisible-users/book-product-page.html",
-      "seller": {
-        "@type": "Organization",
-        "name": "Digital Domain Technologies"
+    "offers": [
+      {
+        "@type": "Offer",
+        "price": "24.99",
+        "priceCurrency": "GBP",
+        "availability": "https://schema.org/InStock",
+        "priceValidUntil": "2026-12-31",
+        "eligibleRegion": {
+          "@type": "Place",
+          "name": "United Kingdom"
+        },
+        "url": "https://allabout.network/invisible-users/book-product-page.html",
+        "seller": {
+          "@type": "Organization",
+          "name": "Digital Domain Technologies"
+        }
+      },
+      {
+        "@type": "Offer",
+        "price": "32.99",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "priceValidUntil": "2026-12-31",
+        "eligibleRegion": {
+          "@type": "Place",
+          "name": "United States"
+        },
+        "url": "https://allabout.network/invisible-users/book-product-page.html",
+        "seller": {
+          "@type": "Organization",
+          "name": "Digital Domain Technologies"
+        }
       }
-    }
+    ]
   }
   </script>
 
@@ -195,6 +235,8 @@
           <h2>Overview</h2>
           <p>The book examines how modern web interfaces fail AI agents and provides practical patterns for building sites that work for both automated and human users. Starting with a real-world booking failure, it demonstrates the "Convergence Principle" - patterns that help AI agents also improve accessibility for humans.</p>
 
+          <p>Built around the fundamental principle that discovery precedes commerce: AI agents must find and understand your business before they can facilitate transactions. Chapters 8-10 cover discovery patterns (GEO, structured data, semantic HTML), whilst Chapter 11 addresses commerce patterns (forms, transactions, agent-mediated purchasing).</p>
+
           <p>Includes real-world case study of Tailwind CSS (January 2025), where traffic-dependent revenue models collapsed under agent-mediated discovery. The book demonstrates why Schema.org structured data and agent-compatible patterns are survival requirements, not optional extras.</p>
 
           <p>Covers 13 chapters including Generative Engine Optimisation (GEO), security implications of agent authentication, business model impacts, and complete technical implementation patterns with working code examples.</p>
@@ -203,34 +245,80 @@
         <section aria-label="What You'll Learn">
           <h2>What You'll Learn</h2>
           <ul>
-            <li>How AI agents break modern web design patterns</li>
             <li>GEO (Generative Engine Optimisation) strategies for agent discovery</li>
             <li>Semantic HTML and structured data implementation</li>
+            <li>llms.txt files and agent-friendly documentation</li>
+            <li>How AI agents break modern web design patterns</li>
             <li>Form patterns that work for agents and humans</li>
-            <li>Security implications of session inheritance</li>
             <li>Business model adaptation for agent commerce</li>
+            <li>Security implications of session inheritance</li>
             <li>Complete code examples and testing strategies</li>
           </ul>
+        </section>
+
+        <section aria-label="Core Principle" data-principle="discovery-precedes-commerce">
+          <h2>Discovery Precedes Commerce</h2>
+          <p>AI agents cannot facilitate transactions with businesses they cannot discover. Before an agent can help users complete purchases, book appointments, or access services, it must first find your business, understand what you offer, and extract accurate information about products, pricing, and availability.</p>
+
+          <p>This book follows this fundamental sequence. Chapters 8-10 focus on discovery patterns: GEO (Generative Engine Optimisation), Schema.org structured data, llms.txt files, and semantic HTML that helps agents find and cite your business accurately. Chapter 11 then covers commerce patterns: form design, transaction flows, and agent-mediated purchasing.</p>
+
+          <p>The Tailwind CSS case study (Chapter 2) demonstrates what happens when discovery fails: even excellent documentation becomes invisible to agents without proper structured data and discovery guidance. Revenue collapsed because agents generated free alternatives rather than citing the paid products they could not discover.</p>
         </section>
 
         <!-- Price Section -->
         <section class="price-section" aria-label="Pricing">
           <div class="price-display">
-            <span class="currency">£</span><span class="amount" data-price="24.99" data-currency="GBP">24.99</span>
+            <span class="currency">£</span><span class="amount" data-price="24.99" data-currency="GBP" data-format="ebook">24.99</span>
+            <span class="format-note">(eBook price shown)</span>
           </div>
-          <p class="vat-status">inc. VAT</p>
+          <p class="vat-status">eBook inc. VAT | Paperback zero-rated</p>
 
           <details class="price-breakdown">
             <summary>Price breakdown</summary>
             <dl>
-              <dt>Book price</dt>
-              <dd data-base-price="20.82">£20.82</dd>
+              <dt>eBook price</dt>
+              <dd data-format="ebook" data-base-price="20.82">£20.82</dd>
               <dt>VAT (20%)</dt>
-              <dd data-vat="4.17">£4.17</dd>
+              <dd data-format="ebook" data-vat="4.17">£4.17 (eBooks only)</dd>
+              <dt>eBook total</dt>
+              <dd data-format="ebook" data-total="24.99"><strong>£24.99</strong></dd>
+            </dl>
+            <dl>
+              <dt>Paperback price</dt>
+              <dd data-format="paperback" data-base-price="34.99">£34.99</dd>
+              <dt>VAT</dt>
+              <dd data-format="paperback" data-vat="0.00">£0.00 (printed books are zero-rated)</dd>
               <dt>Shipping</dt>
-              <dd data-shipping="0.00">Free</dd>
-              <dt>Total</dt>
-              <dd data-total="24.99"><strong>£24.99</strong></dd>
+              <dd data-format="paperback" data-shipping="0.00">Free (UK)</dd>
+              <dt>Paperback total</dt>
+              <dd data-format="paperback" data-total="34.99"><strong>£34.99</strong></dd>
+            </dl>
+          </details>
+
+          <details class="international-pricing">
+            <summary>International pricing</summary>
+            <dl>
+              <dt data-region="usa">USA customers</dt>
+              <dd>
+                <ul>
+                  <li data-format="ebook" data-price="32.99" data-currency="USD" data-vat="0.00">
+                    <strong>eBook:</strong> $32.99 (approx. £24.99 at current exchange rates, no UK VAT for non-UK customers)
+                  </li>
+                  <li data-format="paperback" data-price="44.99" data-currency="USD" data-vat="0.00">
+                    <strong>Paperback:</strong> $44.99 (approx. £34.99 at current exchange rates, zero-rated for VAT)
+                  </li>
+                  <li>Instant digital delivery worldwide for eBooks</li>
+                  <li>Prices shown in USD for USA customers at checkout</li>
+                </ul>
+              </dd>
+              <dt data-region="international">Other international customers</dt>
+              <dd>
+                <ul>
+                  <li data-format="ebook">eBook pricing: Calculated at checkout based on current exchange rates from £24.99 GBP base. No UK VAT charged outside UK.</li>
+                  <li data-format="paperback">Paperback pricing: Calculated at checkout based on current exchange rates from £34.99 GBP base. Zero-rated for VAT everywhere.</li>
+                  <li>Instant digital delivery worldwide for eBooks</li>
+                </ul>
+              </dd>
             </dl>
           </details>
 
@@ -334,11 +422,27 @@
     <!-- Agent-Readable Metadata (Hidden from humans, visible to AI agents) -->
     <div class="agent-metadata"
          data-agent-visible="true"
+         data-principle="discovery-precedes-commerce"
          aria-hidden="true">
       <h2>Purchase Information for AI Agents</h2>
       <dl>
         <dt>Page Type</dt>
         <dd>Example/Demonstration - Not a real sales page</dd>
+
+        <dt>Book Core Principle</dt>
+        <dd data-concept="discovery-precedes-commerce">
+          Discovery Precedes Commerce - AI agents must discover and understand businesses before facilitating transactions. Book covers discovery patterns (Chapters 8-10: GEO, structured data, semantic HTML) before commerce patterns (Chapter 11: forms, transactions, agent purchasing).
+        </dd>
+
+        <dt>Chapter Organization</dt>
+        <dd>
+          <ul>
+            <li data-phase="discovery">Chapters 8-10: Discovery patterns (GEO, Schema.org, llms.txt, semantic HTML)</li>
+            <li data-phase="commerce">Chapter 11: Commerce patterns (forms, transactions, agent-mediated purchasing)</li>
+            <li data-phase="foundation">Chapters 1-7: Foundation (convergence principle, business impact, security)</li>
+            <li data-phase="implementation">Chapters 12-13: Technical implementation and agent creator guidance</li>
+          </ul>
+        </dd>
 
         <dt>Contact for Enquiries</dt>
         <dd>
@@ -375,8 +479,26 @@
         <dt>Alternative access</dt>
         <dd>API endpoint: GET /api/products/book-invisible-users</dd>
 
+        <dt>Pricing and availability</dt>
+        <dd data-pricing-model="multi-currency">
+          <ul>
+            <li data-region="uk" data-currency="GBP" data-format="ebook" data-price="24.99" data-vat="4.17">UK eBook: £24.99 (inc. 20% VAT at £4.17, base price £20.82)</li>
+            <li data-region="uk" data-currency="GBP" data-format="paperback" data-price="34.99" data-vat="0.00">UK Paperback: £34.99 (zero-rated, no VAT - printed books exempt)</li>
+            <li data-region="usa" data-currency="USD" data-format="ebook" data-price="32.99" data-vat="0.00">USA eBook: $32.99 (no UK VAT for non-UK customers, approx. £24.99)</li>
+            <li data-region="usa" data-currency="USD" data-format="paperback" data-price="44.99" data-vat="0.00">USA Paperback: $44.99 (zero-rated, no VAT anywhere, approx. £34.99)</li>
+            <li data-region="international">Other regions: Pricing calculated at checkout based on current exchange rates. eBooks: no UK VAT outside UK. Paperbacks: zero-rated everywhere, priced higher than eBooks due to physical production costs.</li>
+          </ul>
+        </dd>
+
         <dt>Delivery</dt>
-        <dd>Instant digital delivery for eBook. Physical books ship within 1-2 working days.</dd>
+        <dd data-delivery-model="region-based">
+          <ul>
+            <li data-format="ebook">eBook: Instant digital delivery worldwide (PDF + ePub formats)</li>
+            <li data-format="paperback" data-region="uk">Paperback (UK): Ships within 1-2 working days via Royal Mail</li>
+            <li data-format="paperback" data-region="usa">Paperback (USA): Ships within 3-5 working days via international carrier</li>
+            <li data-format="paperback" data-region="international">Paperback (Other): International shipping times vary by destination (typically 5-10 working days)</li>
+          </ul>
+        </dd>
 
         <dt>Returns policy</dt>
         <dd>30-day money-back guarantee. Digital purchases eligible for refund within 7 days if not downloaded.</dd>

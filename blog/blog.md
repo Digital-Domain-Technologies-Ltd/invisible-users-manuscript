@@ -8,7 +8,7 @@ The agent had looked at one tour operator's paginated day-by-day breakdown, seen
 
 I caught the error. But I wondered: how many people wouldn't?
 
-That question led me down a path I hadn't anticipated. The same design choices that confused my AI assistant also confused screen reader users, people with cognitive disabilities, and anyone who processed pages sequentially rather than spatially.
+That question led me down a path I hadn't anticipated. The same design choices that confused my AI assistant also confused people navigating with screen readers, those with cognitive differences affecting spatial processing, and anyone who experienced pages in sequence rather than as visual layouts.
 
 We'd built a web that worked brilliantly for one specific type of user: someone with good vision, working on a desktop, with focused attention and plenty of time. Everyone else had been struggling quietly for years. Now AI agents were struggling loudly, and there was finally commercial pressure to fix the problems.
 

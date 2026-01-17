@@ -116,6 +116,16 @@ Amazon's Alexa+ announcement was notably vague about standards and interoperabil
 
 Expect Amazon to declare its position within six months. The platform race won't wait longer.
 
+### Merchant Readiness Depends on Discovery
+
+The January 2026 platform launches—Amazon's Alexa.com, Microsoft's Copilot Checkout expansion, Google's Universal Commerce Protocol—solved the transaction layer. They defined protocols for how agents complete purchases, handle authentication, process payments, and confirm orders.
+
+What these platforms didn't solve is merchant discoverability. The protocols assume agents can already find your products, understand your offerings, and extract accurate specifications. If your product pages lack structured data, your pricing is ambiguous, or your inventory status isn't machine-readable, agents can't include you in recommendations.
+
+This creates a two-tier merchant ecosystem: discoverable merchants who capture agent-mediated transactions, and invisible merchants who don't appear in agent research phases. The business advantage goes to those who implemented GEO patterns before the commerce platforms launched.
+
+Discovery readiness became the prerequisite for commerce participation.
+
 ---
 
 ## Microsoft's Isolation Problem

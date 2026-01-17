@@ -1353,7 +1353,7 @@ Agent creators: implement the validation layers described in this chapter. Check
 
 Neither side can fix the ecosystem alone. Websites that provide perfect structured data still fail if agents don't use it for validation. Agents with sophisticated validation still fail if websites hide information or show ephemeral errors.
 
-**The accessibility connection:** When you build reliable agents with proper validation layers, you're serving users with disabilities who delegate tasks because direct interaction is difficult. Keyboard users who cannot grip a mouse, voice control users with mobility disabilities, people with cognitive disabilities who need clear information - they all benefit from agents that acknowledge uncertainty and refuse to act when confidence is low.
+**The accessibility connection:** When you build reliable agents with proper validation layers, you're serving users with disabilities who delegate tasks because direct interaction is difficult. People who cannot use a mouse and rely on keyboard navigation, those with limited mobility using voice commands, and users with cognitive disabilities who require clear, explicit information - they all benefit from agents that acknowledge uncertainty and refuse to act when confidence is low.
 
 The convergence principle extends to agent creators: patterns that make agents reliable for financial transactions also make them reliable for users who depend on assistive technologies. Confidence scoring, graceful degradation, and explicit warnings serve everyone.
 
