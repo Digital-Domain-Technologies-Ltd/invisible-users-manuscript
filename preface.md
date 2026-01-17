@@ -134,7 +134,7 @@ The chapters build sequentially, with each building on concepts introduced earli
 
 Tom Cranstoun has worked on web technology since the early days of the commercial internet. Over three decades, he's seen the web evolve from hand-coded HTML pages to the sophisticated application platforms we rely on today.
 
-His career spans technical implementation, strategic consulting, and the difficult work of translating between what engineers can build and what businesses need. He's worked with organisations ranging from startups to enterprises, across sectors including finance, media, and retail.
+His career spans technical implementation, strategic consulting, and the difficult work of translating between what engineers can build and what businesses need. He's worked with organisations ranging from startups to enterprises, across sectors including finance, media, and retail. His recent focus on agent-ready infrastructure for organisations like Nissan-Renault, Ford, and MediaMonks has demonstrated how the convergence principle works in practice: patterns that help AI agents also help humans with disabilities, cognitive load, or non-ideal conditions.
 
 This book grew from patterns he noticed across projects: the same accessibility problems appearing in different contexts, the same design assumptions failing for unexpected user types, the same commercial pressures shaping what gets fixed and what gets ignored.
 
