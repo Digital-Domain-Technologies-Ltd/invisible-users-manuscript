@@ -12,6 +12,8 @@ This represents a fundamental shift: agents aren't just reading static HTML anym
 
 **Your conversion funnel has invisible drop-offs.** When agents fail to read your pricing, miss content hidden behind pagination, or can't tell if a form submission succeeded, the human user goes to a competitor. This doesn't show up in your analytics as a failed conversion - it shows as a short session or a bounce. You never see the lost sale.
 
+**The business model crisis is already here.** In January 2025, Tailwind CSS laid off 75% of its team after their traffic-dependent revenue model collapsed. When AI agents started answering developer questions without sending traffic to documentation sites, the business couldn't sustain salaries. Adam Wathan explained: "Making it easier for LLMs to read our docs just means less traffic to our docs which means less people learning about our paid products and the business being even less sustainable." This isn't unique to Tailwind - any business depending on traffic-driven advertising, affiliate click-throughs, or awareness marketing requiring site visits faces the same crisis.
+
 **The timeline has accelerated.** With three major platforms launching simultaneously in January 2026 and over 1 million merchants already supporting agent transactions, adoption is happening faster than predicted. Businesses that wait risk competitive disadvantage as agent-mediated commerce reaches 10-20% of transactions within 6-9 months.
 
 **The impact varies by business model:**

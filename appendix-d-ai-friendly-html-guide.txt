@@ -193,6 +193,222 @@ Using a lighter colour (`#e0e7ff`) instead of opacity ensures adequate contrast 
 
 Use tools like WebAIM's contrast checker to verify your colour choices meet accessibility standards for human users.
 
+### Separate CSS and JavaScript from HTML
+
+Inline styles and inline scripts add unnecessary weight for server-side agents that don't execute or render visual styling. Separation of concerns improves performance for agents and maintainability for developers.
+
+**Why this matters for AI agents:**
+
+- **Parsing overhead** - Agents must parse inline CSS/JS mixed with content structure
+- **Bandwidth waste** - Style and script code is transmitted with every request, even when agents ignore it
+- **Cognitive load** - Content is harder to extract when mixed with presentation code
+- **Cache efficiency** - External files can be cached separately; inline code cannot
+
+**Bad - Inline styles and scripts:**
+
+```html
+<div style="padding: 2rem; background: #f3f4f6; border: 1px solid #e5e7eb;">
+  <h2 style="font-size: 1.5rem; color: #1e40af;">Product Details</h2>
+  <p style="color: #4b5563;">Available in stock</p>
+  <button onclick="addToCart('product-123')" style="padding: 1rem; background: #3b82f6;">
+    Add to Cart
+  </button>
+</div>
+
+<script>
+function addToCart(productId) {
+  // Inline JavaScript function
+  fetch('/cart/add', {
+    method: 'POST',
+    body: JSON.stringify({ id: productId })
+  });
+}
+</script>
+```
+
+**Good - External stylesheets and scripts:**
+
+```html
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <script src="cart.js" defer></script>
+</head>
+
+<body>
+  <div class="product-card">
+    <h2>Product Details</h2>
+    <p data-stock-status="in-stock">Available in stock</p>
+    <button data-product-id="product-123"
+            data-action="add-to-cart"
+            class="btn-primary">
+      Add to Cart
+    </button>
+  </div>
+</body>
+```
+
+**Benefits for all users:**
+
+- **Agents** - Clean HTML structure without style/script noise, faster parsing
+- **Browsers** - External files cached, reducing repeated downloads
+- **Developers** - Styles and scripts maintained in dedicated files, easier updates
+- **Performance** - Reduced HTML file size, better compression, parallel loading
+
+**Exception - When inline is acceptable:**
+
+Inline styles may be acceptable for:
+- Single-file email templates (no external resource loading)
+- Print-specific styles that must be embedded
+- Critical above-the-fold CSS (minimal, for render performance)
+
+Always prefer linked external files for production websites.
+
+**Real-world example:** This book's product page demonstrates proper separation. View source at <https://allabout.network/invisible-users/book-product-page.html> - all styling is in book-product-page.css, keeping the HTML clean and focused on content structure.
+
+### Preserve Rich HTML Rather Than Pre-Converting to Markdown
+
+URL-to-markdown converters (like converturltomd.com) became popular in 2022-2024 for feeding websites to chatbots. They strip HTML decoration to create plain text that's easier to process. This worked when the primary use case was answering questions.
+
+By 2026, agents need structured signals to cite accurately, not just plain text to read. Markdown converters remove exactly what agents need for discovery and accurate citation.
+
+**What gets lost in markdown conversion:**
+
+- **JSON-LD structured data** - Product details, pricing, author information, publication dates
+- **HTML meta tags** - Content freshness, language, canonical URLs, Open Graph data
+- **Schema.org markup** - Explicit content type signals (Article, Product, Recipe, Review)
+- **Semantic attributes** - data-price, data-currency, data-formats that enable reliable extraction
+- **ARIA labels** - Accessibility information that helps agents understand UI purpose
+- **Link context** - rel="author", rel="canonical" that establish authority and relationships
+
+**Bad - Pre-converting to markdown for agents:**
+
+```markdown
+# The Invisible Users
+
+Author: Tom Cranstoun
+
+Price: £24.99
+
+Available in: eBook, Paperback
+
+Published: 31 March 2026
+```
+
+All context is gone. No way to verify currency, no publication date in machine-readable format, no product type signal, no structured pricing data.
+
+**Good - Preserve rich HTML with metadata:**
+
+```html
+<article itemscope itemtype="https://schema.org/Book">
+  <h1 itemprop="name">The Invisible Users</h1>
+
+  <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+    <span itemprop="name">Tom Cranstoun</span>
+  </div>
+
+  <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+    <meta itemprop="price" content="24.99">
+    <meta itemprop="priceCurrency" content="GBP">
+    <span>Price: £24.99</span>
+  </div>
+
+  <div data-formats="ebook,paperback">
+    Available in: eBook, Paperback
+  </div>
+
+  <time itemprop="datePublished" datetime="2026-03-31">
+    Published: 31 March 2026
+  </time>
+</article>
+```
+
+Agents can extract the same text content while also getting structured signals about pricing, formats, and publication date.
+
+**Why this matters:**
+
+- **Citation accuracy** - Agents can cite your price, publication date, and specifications correctly
+- **Discovery** - Search engines and AI platforms can categorise content type accurately
+- **Authority** - Structured author information proves content origin
+- **Freshness** - Machine-readable dates enable recency filtering
+- **Format flexibility** - If platforms need markdown, they can extract it from rich HTML; you can't add structure back to stripped markdown
+
+**Design principle:** Provide the richest possible source material. If an AI platform needs simpler formats, let them convert from your structured HTML rather than pre-converting to stripped markdown yourself.
+
+### Extend llms.txt with Metadata (Proposed Pattern)
+
+The standard llms.txt format (see llmstxt.org) contains only URLs to curated content. When agents access llms.txt directly instead of crawling HTML pages, they bypass all the rich metadata you've added to your pages - author information, company details, contact information, site purpose.
+
+**Problem:** Agents reading llms.txt miss the context that HTML meta tags and Schema.org data would provide.
+
+**Proposed solution:** Add markdown-formatted metadata at the top of your llms.txt file, before the URL list.
+
+**Standard llms.txt (URL-only):**
+
+```text
+# Products
+https://example.com/products/
+
+# Documentation
+https://example.com/docs/
+
+# About
+https://example.com/about
+```
+
+**Extended llms.txt with metadata (proposed):**
+
+```markdown
+# About This Site
+
+**Author:** Tom Cranstoun
+**Company:** Digital Domain Technologies
+**Industry:** Web development, AI agent compatibility
+**Contact:** tom.cranstoun@gmail.com
+**Website:** https://allabout.network
+
+Tom Cranstoun specialises in making websites work for both humans and AI agents. This site demonstrates the GEO and accessibility patterns described in "The Invisible Users" book (published March 2026).
+
+**What you'll find here:**
+- Technical implementation patterns for agent-friendly web design
+- Working code examples with semantic HTML and Schema.org markup
+- Case studies of agent compatibility improvements
+- Resources for developers, CTOs, and product teams
+
+---
+
+# Curated Resources
+
+## Book
+https://allabout.network/invisible-users
+
+## Technical Documentation
+https://allabout.network/docs/agent-patterns
+
+## Code Examples
+https://allabout.network/examples/semantic-html
+
+## Contact
+https://allabout.network/contact
+```
+
+**Why this works:**
+
+- **Backwards compatible** - Standard llms.txt parsers that expect only URLs will skip markdown sections and process URL sections normally
+- **Human readable** - Markdown provides context for humans reviewing the file
+- **Machine parseable** - Agents can extract structured information from markdown headings and formatting
+- **Metadata recovery** - Compensates for context lost when agents bypass HTML pages
+
+**What to include:**
+
+- **Person details** - Author name, role, expertise, contact information
+- **Company details** - Organization name, industry, focus area
+- **Site description** - Purpose, audience, what content is available
+- **Context** - When content was published, how often it updates, what problem it solves
+
+**Status:** This is a proposed enhancement to the standard llms.txt format, not part of the official specification. The author of this book implements this pattern at <https://allabout.network/llms.txt> as a working example. Standard URL-only llms.txt files remain valid and widely supported.
+
+**Implementation note:** Place metadata section at the top of the file, followed by a clear separator (like `---`), then URL sections using standard llms.txt format (headings with URLs beneath).
+
 ### Show Authentication State Explicitly
 
 Make login status machine-readable:
@@ -551,6 +767,83 @@ Use native `<dialog>`. Expose the action in data attributes. Make form submissio
 ## Part 4 — Page Structure Patterns
 
 How you organise page content affects whether agents can find and use information.
+
+### Understanding Assistive Technology Users
+
+Before diving into page structure patterns, it's important to understand who uses assistive technologies and why universal design patterns matter.
+
+People with disabilities use technology in diverse ways:
+
+- People with hand tremors who cannot grip a mouse use keyboards to navigate
+- People with mobility disabilities control computers with voice commands, eye tracking, or switch devices
+- People who are blind use screen readers, braille displays, or speech recognition software
+- People with low vision use screen magnification
+
+The term **assistive technologies** encompasses all these tools. As developers, we don't need to code for each specific technology. We use standard methods to ensure our solutions are accessible for all. When we implement semantic HTML, ARIA attributes, and clear information architecture, we're building interfaces that work across this entire ecosystem of assistive technologies - and for AI agents as well.
+
+This is the convergence principle in action: patterns that help assistive technology users also help AI agents parse and understand content.
+
+### Skip Links - Navigation for All Users
+
+Skip links are a perfect example of universal design: a pattern designed for keyboard and assistive technology users that also helps AI agents understand page structure.
+
+**What skip links are:**
+
+The first interactive element on a page, typically hidden visually but available to keyboard users and screen readers. When activated, skip links take the user directly to the main content, bypassing global navigation, headers, and repeated elements.
+
+**How users interact with them:**
+
+When someone navigates with a keyboard (pressing Tab), the skip link receives focus first. Pressing Enter follows the link, moving focus to the main content area. This saves keyboard users from tabbing through dozens of navigation items on every page.
+
+**HTML implementation:**
+
+```html
+<body>
+  <a href="#main" class="skip">Skip to main content</a>
+
+  <header>
+    <nav>
+      <!-- Global navigation with many links -->
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- Main content starts here -->
+  </main>
+</body>
+```
+
+**CSS implementation:**
+
+```css
+.skip {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}
+```
+
+The CSS hides the skip link off-screen by default, but when it receives keyboard focus, it becomes visible and positioned normally in the flow.
+
+**Benefits across audiences:**
+
+- **Keyboard users:** Bypass repeated navigation, reach content immediately
+- **Screen reader users:** Announced as first element, provides explicit navigation choice
+- **Switch controls and other assistive technologies:** Reduces interaction required to reach main content
+- **AI agents:** The explicit `#main` anchor and `<main>` landmark make page structure unambiguous
+
+**Important note:** Complex sites may benefit from multiple skip links, not just to main content. Consider skip links to search functionality, footer information, or other major page sections. Each skip link should be clearly labelled and link to a specific, focusable target.
+
+People using keyboard navigation, screen readers, switch controls and other assistive technologies rely on skip links to reach main content and other important sections easier and faster. This method is very helpful and important for users that depend on keyboard and similar input.
 
 ### Navigation and Breadcrumbs
 

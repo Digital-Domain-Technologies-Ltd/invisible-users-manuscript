@@ -2,7 +2,15 @@
 
 \markboth{Appendix H: Example llms.txt File}{Appendix H: Example llms.txt File}
 
-This is an example of an `llms.txt` file. It demonstrates the patterns and structure discussed in Chapter 4.
+This is an example of an `llms.txt` file demonstrating **extended format with metadata** - a proposed enhancement to the standard llms.txt specification.
+
+**Format note:** The standard llms.txt format (llmstxt.org) contains only URLs to curated content. This example extends that format with markdown-formatted metadata at the top of the file - author bio, company details, contact information, site description.
+
+**Why extend llms.txt?** When agents access llms.txt directly instead of crawling HTML pages, they miss the rich metadata layers (Schema.org, HTML meta tags, author information). Extended llms.txt compensates by embedding that context directly in the file.
+
+**Status:** This is a proposed pattern, not part of the official llms.txt specification. Standard URL-only llms.txt files remain valid. This extended format is backwards-compatible - parsers expecting only URLs will skip markdown sections and process URL sections normally.
+
+The example below shows both metadata sections (top) and standard URL sections (bottom), separated by clear category headings.
 
 ```markdown
 # Digital Domain Technologies (DDT)

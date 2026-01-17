@@ -6,9 +6,11 @@ It was late 2024, and I was comparing tour operators for a trip through Southeas
 
 The agent had looked at one tour operator's paginated day-by-day breakdown for a 14-day tour, seen only Day 1, and concluded that was the entire trip. The competitor's single-page itinerary was readable in full. Based on this, my assistant recommended the wrong company.
 
-I caught the error, and that led me down a path I hadn't anticipated. I started examining why the agent had failed, and found a pattern. The same design choices that confused my AI assistant also confused screen reader users, people with cognitive disabilities, and anyone who processed pages sequentially rather than spatially. (Chapter 1 explores this accessibility connection in depth, with examples that made the pattern clear to me.)
+I caught the error, and that led me down a path I hadn't anticipated. I started examining why the agent had failed, and found a pattern. The same design choices that confused my AI assistant also confused users with disabilities: keyboard users who cannot grip a mouse, screen reader users who cannot perceive visual cues, voice control users with mobility disabilities, and people with cognitive disabilities who struggle with sequential navigation. (Chapter 1 explores this accessibility connection in depth, with examples that made the pattern clear to me.)
 
 We'd built a web that worked brilliantly for one specific type of user: someone with good vision, working on a desktop, with focused attention and plenty of time. Everyone else had been struggling quietly for years. Now AI agents were struggling loudly, and there was finally commercial pressure to fix the problems.
+
+The deeper I looked, the more I realised the solution wasn't just better HTML. It was metadata. When AI agents cite products in their answers, they need structured data—Schema.org JSON-LD markup that specifies exact prices, formats, availability. Without this machine-readable layer, agents hallucinate details or cite competitors who provided explicit signals. Chapter 10 shows how the same structured data that helps Google show rich snippets also helps ChatGPT cite you accurately. The work compounds across discovery channels.
 
 **The market moved faster than I expected.** When I started writing, AI agents accessing websites felt like an emerging concern. By the time I completed the manuscript in early 2026, the landscape had fundamentally transformed.
 
@@ -26,7 +28,7 @@ This book grew from that realisation. It's not a book about AI, HTML, or coding.
 
 **The irony continued whilst writing this book.** When building the book's own website to demonstrate AI-friendly patterns, I initially used `opacity: 0.9` on header text for visual subtlety. AI agents and screen readers read it perfectly—they parse HTML structure directly and ignore CSS styling. But the low contrast failed WCAG accessibility standards for sighted humans. I'd built an AI-friendly interface that excluded people with low vision, exactly the pattern the book warns against.
 
-The fix was simple: replace opacity with explicit colours that meet contrast ratios. The lesson was profound: visual design problems and structural problems are separate. AI agents need explicit state and semantic markup. Humans need adequate contrast and readable text. Both matter. Neither is optional. We can't optimise for one group whilst neglecting another.
+The fix was simple: replace opacity with explicit colours that meet contrast ratios. The lesson was profound: visual design problems and structural problems are separate. AI agents need explicit state and semantic markup (skip links, data attributes, JSON-LD). Humans need adequate contrast and readable text. Both matter. Neither is optional. The convergence principle: patterns that help keyboard users also help AI agents. We can't optimise for one group whilst neglecting another.
 
 This example now appears in Chapter 8 and Appendix D as a teaching case. It's the kind of real-world learning through failure that makes patterns stick.
 
@@ -75,6 +77,10 @@ Three major shifts drive the urgency of this title:
 * **The Decline of the Click:** As generative engines (Gemini, ChatGPT, SearchGPT) answer queries directly, "Click-Through Rate" (CTR) is being replaced by **Citation Share**.
 * **The Rise of "Agentic Workflows":** Industry leaders (Amazon, Microsoft, Google) have shifted from "Chat" to "Action", requiring every website to be machine-navigable.
 * **The Global Accessibility Mandate:** Regulatory pressure (like the European Accessibility Act) is converging with technical necessity. This book names this convergence the **"Resilience Dividend"**.
+
+**The business model crisis is already here.** In January 2025, Tailwind CSS laid off 75% of its team after their traffic-dependent revenue model collapsed. When AI agents started answering developer questions without sending traffic to documentation sites, companies relying on pageviews for product awareness found their monetisation path broken. Adam Wathan's explanation when closing an llms.txt pull request was stark: "Making it easier for LLMs to read our docs just means less traffic to our docs which means less people learning about our paid products and the business being even less sustainable."
+
+This isn't theoretical. Companies are failing right now because their business models assume human browsing behaviour that no longer dominates discovery. Any business depending on traffic-driven advertising, affiliate click-throughs, or awareness marketing requiring site visits faces the same crisis. The adaptation required is urgent: transform to agent-compatible revenue models (direct transactions, paid services, API access, subscriptions) or watch revenue collapse whilst agents extract free content and paid offerings remain invisible.
 
 ---
 

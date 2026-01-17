@@ -305,7 +305,91 @@ Agents can now make informed timeout decisions.
 
 **Lesson:** Loading states should indicate expected duration. "Loading..." is insufficient - specify how long.
 
-## 9. robots.txt Missing Sitemap Declaration
+## 9. Inline Styles Bloat HTML for Agents
+
+**The Problem:** Used inline styles for convenience during development but never refactored to external CSS. Agents that parse HTML but don't execute CSS were downloading and processing hundreds of lines of unused styling code with every page request.
+
+**First attempt:**
+
+```html
+<div style="padding: 2rem; background: #f3f4f6; border-radius: 8px;">
+  <h2 style="font-size: 1.5rem; color: #1e40af; margin-bottom: 1rem;">
+    Product Details
+  </h2>
+  <button style="padding: 1rem 2rem; background: #3b82f6; color: white; border: none;"
+          onclick="addToCart()">
+    Add to Cart
+  </button>
+</div>
+```
+
+This HTML file was 45KB, with 22KB being inline styles that CLI agents and server-based agents never use. They still parse it, slowing down extraction.
+
+**Solution:** Move all styling to external CSS file:
+
+```html
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <script src="cart.js" defer></script>
+</head>
+
+<body>
+  <div class="product-card">
+    <h2>Product Details</h2>
+    <button class="btn-primary" data-action="add-to-cart">Add to Cart</button>
+  </div>
+</body>
+```
+
+HTML file reduced to 23KB. Browsers cache the CSS file. Agents parse clean HTML without style noise.
+
+**Lesson:** Separate presentation from content. Inline styles waste bandwidth for agents that don't render them and make HTML harder to parse. External CSS benefits everyone - agents get faster parsing, browsers get caching, developers get maintainability.
+
+## 10. Pre-Converting Pages to Markdown Stripped Metadata
+
+**The Problem:** Built a "chatbot-friendly" site by converting all pages to markdown. In 2023, this seemed smart - simpler format, easier parsing, clean text. By 2025, agents struggled to cite us accurately. Prices were often wrong, publication dates got hallucinated, author attribution disappeared.
+
+**Investigation revealed the problem:**
+
+Our conversion pipeline stripped everything that agents needed for accurate discovery and citation:
+
+- JSON-LD structured data (product details, pricing, reviews)
+- HTML meta tags (publication dates, author information, canonical URLs)
+- Schema.org markup (explicit content type signals)
+- Semantic attributes (data-price, data-currency, data-formats)
+
+We had optimised for the 2023 paradigm (chatbots that just answered questions) whilst the market moved to 2026 reality (agents that discover, evaluate, compare, and cite sources with accuracy).
+
+**What we saw:**
+
+Agents reading our markdown would cite "approximately £30" when price was exactly £24.99. They'd say "published recently" when we had explicit dates. They'd mention the product but not link to our site because they had no canonical URL.
+
+Competitors with rich HTML and structured data got cited accurately. We got vague references or got skipped entirely.
+
+**Solution:** Serve rich HTML with full metadata layers:
+
+```html
+<article itemscope itemtype="https://schema.org/Book">
+  <h1 itemprop="name">The Invisible Users</h1>
+
+  <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+    <meta itemprop="price" content="24.99">
+    <meta itemprop="priceCurrency" content="GBP">
+    <meta itemprop="availability" content="https://schema.org/InStock">
+    <span>£24.99</span>
+  </div>
+
+  <time itemprop="datePublished" datetime="2026-03-31">
+    Published: 31 March 2026
+  </time>
+</article>
+```
+
+Citation accuracy improved dramatically. Agents now reference exact prices, correct dates, proper author attribution. If a platform needs markdown, they can extract it from our rich HTML - we don't pre-strip the signals they need.
+
+**Lesson:** Don't optimise for yesterday's paradigm. Agents in 2026 need structured metadata for accurate citation, not stripped markdown that loses context. Provide rich source material and let platforms convert to simpler formats if needed. You can't add structure back to stripped markdown, but you can always extract markdown from rich HTML.
+
+## 11. robots.txt Missing Sitemap Declaration
 
 **The Problem:** Created robots.txt but forgot sitemap declaration. Agents couldn't discover content efficiently.
 
@@ -331,7 +415,7 @@ Agents now discover 10,000 pages instantly instead of crawling slowly.
 
 **Lesson:** robots.txt should always declare sitemap. Dramatically improves discoverability.
 
-## 10. Schema.org Types Wrong for Content
+## 12. Schema.org Types Wrong for Content
 
 **The Problem:** Used `Article` type for product pages. Agents expected article content, got confused by pricing.
 
@@ -361,7 +445,7 @@ Agents now discover 10,000 pages instantly instead of crawling slowly.
 
 **Lesson:** Use correct Schema.org types: Product for products, Article for articles, LocalBusiness for businesses. Type mismatch confuses agents.
 
-## 11. Testing Only in Chrome
+## 13. Testing Only in Chrome
 
 **The Problem:** Tested agent compatibility only in Chrome DevTools with JavaScript disabled.
 
@@ -389,7 +473,7 @@ curl -s https://example.com/product/123 | \
 
 **Lesson:** Test served HTML with actual HTTP clients (curl/wget), not just browser DevTools.
 
-## 12. Incomplete Pricing Disclosure Persisted
+## 14. Incomplete Pricing Disclosure Persisted
 
 **The Problem:** Changed "From £99" to "£149.99" on product pages, but forgot checkout summary, confirmation emails, and API responses.
 
@@ -413,7 +497,7 @@ grep -r "base_price" .
 
 **Lesson:** Pattern changes must be applied everywhere. Use grep to find all instances, update systematically.
 
-## 13. API and Web UI Out of Sync
+## 15. API and Web UI Out of Sync
 
 **The Problem:** Fixed web UI for agents, but API still returned paginated results and incomplete data.
 
@@ -460,7 +544,7 @@ app.get('/api/products', (req, res) => {
 
 **Lesson:** API must match or exceed web UI quality. Don't fix UI and leave API broken.
 
-## 14. Forgetting Mobile Viewport
+## 16. Forgetting Mobile Viewport
 
 **The Problem:** Fixed desktop patterns but mobile site still paginated, hid content, showed incomplete prices.
 
@@ -484,7 +568,7 @@ test('mobile pricing complete', async ({ page }) => {
 
 **Lesson:** Agent-friendly patterns must work on mobile too. Test all breakpoints.
 
-## 15. Authentication Required for Public Data
+## 17. Authentication Required for Public Data
 
 **The Problem:** Added authentication to API endpoints, breaking agent access to public product data.
 

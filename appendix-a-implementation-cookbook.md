@@ -1026,6 +1026,8 @@ Checks: HTML5 spec compliance, well-formed markup, valid attributes
 - [ ] Semantic elements used instead of divs where appropriate
 - [ ] Document has `<main>` landmark
 - [ ] Self-contained content wrapped in `<article>`
+- [ ] CSS in external stylesheet files (not inline `style=""` attributes)
+- [ ] JavaScript in external script files (not inline `onclick=""` or `<script>` blocks)
 - [ ] Schema.org JSON-LD validates without errors
 - [ ] Passes W3C HTML validator
 

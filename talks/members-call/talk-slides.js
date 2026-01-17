@@ -177,7 +177,23 @@ function createInvisibleUsersDeck() {
         "Toast notifications and modals",
         "Loading spinners without context",
         "JavaScript-dependent navigation",
-        "These patterns break agents and screen readers."
+        "These patterns break agents and users with disabilities.",
+        "Convergence principle: patterns that break agents also break humans."
+      ]
+    },
+
+    // 9b. The Citation Problem
+    {
+      type: 'standard',
+      title: "The Citation Problem",
+      subtitle: "Agents need metadata to cite accurately:",
+      body: [
+        "When ChatGPT recommends products, it needs exact pricing",
+        "Without Schema.org JSON-LD markup, agents hallucinate details",
+        "Agents cite competitors who provided explicit signals",
+        "Same structured data helps Google show rich snippets",
+        "Same structured data helps AI agents cite you correctly",
+        "One improvement serves both discovery channels."
       ]
     },
 
@@ -198,50 +214,54 @@ function createInvisibleUsersDeck() {
     {
       type: 'standard',
       title: "The Solution",
-      subtitle: "Make Implicit State Explicit",
+      subtitle: "Universal Design Patterns",
       body: [
         "No rebuilding interfaces",
         "No special agent-only experiences",
         "Small, well-understood changes",
-        "Improve accessibility for everyone",
-        "Three concrete patterns with code and business value."
+        "Benefits: keyboard users, screen readers, voice control, agents",
+        "Skip links, semantic HTML, explicit state",
+        "Three concrete patterns with business value."
       ]
     },
 
     // 12. Pattern 1
     {
       type: 'standard',
-      title: "Pattern #1: Persistent Errors",
-      subtitle: "Instead of vanishing toast notifications:",
+      title: "Pattern #1: Skip Links",
+      subtitle: "Navigation aid for keyboard users and agents:",
       body: [
-        "<form data-state='incomplete'> with <div role='alert'>",
-        "Use aria-invalid and aria-describedby",
-        "Business value: Conversion rates improve for everyone."
+        "<a href='#main' class='skip'>Skip to main content</a>",
+        "Hidden visually, available to keyboard users",
+        "Helps agents identify main content area",
+        "Business value: Benefits keyboard users, screen readers, agents simultaneously."
       ]
     },
 
     // 13. Pattern 2
     {
       type: 'standard',
-      title: "Pattern #2: Complete Pricing",
-      subtitle: "Instead of 'From £99':",
+      title: "Pattern #2: Persistent Errors",
+      subtitle: "Instead of vanishing toast notifications:",
       body: [
-        "Use Schema.org/Offer markup",
-        "Explicit price and currency meta tags",
-        "<details> for fee breakdown",
-        "Business value: No hidden fees. Agent-readable. Builds trust."
+        "<form data-state='incomplete'> with <div role='alert'>",
+        "Use aria-invalid and aria-describedby",
+        "Benefits distracted humans, screen readers, agents",
+        "Business value: Conversion rates improve for everyone."
       ]
     },
 
     // 14. Pattern 3
     {
       type: 'standard',
-      title: "Pattern #3: Explicit State",
-      subtitle: "Make cart state visible:",
+      title: "Pattern #3: Semantic HTML",
+      subtitle: "Use proper HTML5 elements:",
       body: [
-        "DOM attributes: data-state='active', data-item-count='3'",
-        "Role='status' for live updates",
-        "Business value: State persists. Debugging easier. Integration testing reliable."
+        "<main>, <nav>, <article>, <header>, <footer>",
+        "Helps search engines rank better",
+        "Screen readers navigate more effectively",
+        "Agents parse structure accurately",
+        "Business value: One improvement, multiple audiences benefit."
       ]
     },
 
@@ -265,11 +285,12 @@ function createInvisibleUsersDeck() {
       title: "Quick Wins: Start Here",
       subtitle: "Critical Priority 1 Changes:",
       body: [
-        "Add persistent error messages",
+        "Add skip links (benefits keyboard users and agents)",
+        "Add persistent error messages (helps everyone)",
+        "Use semantic HTML (<main>, <nav>, <article>)",
         "Display complete pricing (no hidden fees)",
-        "Ensure served HTML contains core content",
         "Add basic Schema.org structured data",
-        "Start with highest impact, lowest effort."
+        "Each change benefits multiple audiences."
       ]
     },
 
@@ -349,7 +370,9 @@ function createInvisibleUsersDeck() {
       body: [
         "Designers/Devs must ensure agents navigate successfully",
         "When agents fail, that's a design gap affecting everyone",
-        "Agent failures expose problems that affect humans too."
+        "Agent failures expose problems that affect humans too",
+        "Universal design patterns benefit keyboard users, screen readers, agents",
+        "Accessibility work now has commercial pressure behind it."
       ]
     },
 

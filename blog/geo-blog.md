@@ -1,0 +1,189 @@
+# The Invisible Users - Why Your Website is Failing Customers You Can't See
+
+Why universal design patterns matter more than ever - and what happened when a £19 million business learned this the hard way.
+
+---
+
+**About this article:** This is an excerpt from "The Invisible Users: Designing the Web for AI Agents and Everyone Else", due for publication Q1 2026. For updates on the book launch and practical insights, follow me on [LinkedIn](https://linkedin.com/in/tomcranstoun).
+
+---
+
+## The £19 Million Collapse
+
+In January 2025, Tailwind CSS laid off 75% of its team after revenue collapsed from what had been a £19 million business. Their revenue model had depended on documentation traffic leading to paid product discovery. When AI coding assistants started answering developer questions without sending traffic to documentation sites, the business model failed.
+
+Founder Adam Wathan explained when closing an llms.txt integration request: "Making it easier for LLMs to read our docs just means less traffic to our docs which means less people learning about our paid products and the business being even less sustainable."
+
+Tailwind's problem wasn't technical. Their documentation was excellent - clear, semantic HTML, strong SEO fundamentals, comprehensive content. The problem was strategic: they had optimised for human browsing behaviour whilst discovery shifted to AI platforms.
+
+When developers asked ChatGPT or Claude "how do I build a responsive navbar with dropdown menus?", the agents generated free Tailwind CSS code from scratch rather than citing Tailwind UI's paid templates. The paid product remained invisible to agents because the company lacked discovery guidance - no llms.txt file directing agents to commercial offerings, no structured data marking up paid tiers, no differentiation between the free framework and premium components.
+
+This isn't theoretical. This happened to a sophisticated technical company at the cutting edge of web development. If Tailwind Labs missed the requirement for agent-specific discovery patterns, most businesses are similarly exposed.
+
+## The Invisible Failure Pattern
+
+I refer to AI agents as "invisible users" for two reasons.
+
+First, they're invisible to most site owners. Unless you're specifically tracking agent traffic - and most aren't - you have no idea how many agents visit your site or whether they succeed at their tasks. They blend into your analytics as slightly unusual sessions: short visits, no scrolling, rapid form completion, then gone.
+
+Your website analytics look normal. Session duration is fine. Bounce rate is acceptable. Conversion rate hasn't changed dramatically. But revenue is down, and you can't figure out why.
+
+Here's what's happening: AI agents are visiting your site, extracting your content, answering user questions, and sending those users to your competitors. You never see these visits in your analytics. You never see the lost conversions. You just see the revenue gap.
+
+Second, your interface is partly invisible to agents. They can't see your beautiful animations. They don't notice your subtle colour changes. They miss your three-second toast notifications. They don't understand that a loading spinner indicates "wait" and that a greyed-out button indicates "not available". They experience a stripped-down, confusing version of the site you carefully designed.
+
+Does the toast notification appear for 3 seconds and then disappear? The agent missed it completely. It was busy parsing another part of the page. By the time it sought confirmation, the message had disappeared. The agent reported success even though the task had failed.
+
+That elegant single-page application where content updates seamlessly without changing URLs? The agent clicked a button, waited, and saw the same URL. Did something happen? Should it stay longer? Is there an error somewhere it hasn't found? It has no way to know.
+
+## The Convergence Principle
+
+Here's the pattern I noticed: the same design choices that confused my AI assistant also confused screen reader users, people with cognitive disabilities, and anyone who processed pages sequentially rather than spatially.
+
+Late in 2024, I was comparing tour operators for a trip through Southeast Asia. I'd delegated the research to an AI assistant. The agent looked at one tour operator's paginated day-by-day breakdown for a 14-day tour, saw only Day 1, and concluded that was the entire trip. The competitor's single-page itinerary was readable in full. Based on this, my assistant recommended the wrong company.
+
+The pagination pattern that broke the agent also breaks screen reader users who can't navigate pagination accessibly, people with cognitive disabilities who can't track state across pages, and anyone trying to make comparisons who can't see the full picture at once.
+
+The web accessibility movement taught us something important: designing for edge cases improves experience for everyone.
+
+Curb cuts help wheelchair users, parents with pushchairs, travellers with suitcases, and delivery workers with trolleys. Captions help deaf viewers, people in noisy environments, language learners, and anyone who prefers reading to listening. High-contrast text helps visually impaired users and people reading screens in bright sunlight.
+
+Agent-friendly design follows the same principle.
+
+Clear error messages that persist until acknowledged - better for agents, better for distracted humans. Explicit state indicators that don't rely on animation - better for agents, better for screen reader users. Complete information on single pages instead of forced pagination - better for agents, better for everyone trying to make comparisons.
+
+The patterns that work for machines also work for humans. Not all humans. Not the idealised user giving full attention to an ideal device with high-speed internet. But real humans: tired, distracted, impaired, stressed, multitasking, using old phones on slow connections.
+
+We've been designing for ideal conditions. Agents force us to create for reality.
+
+## Why Universal Patterns Matter
+
+This isn't about "AI optimization" as a separate concern. These are universal design patterns that serve multiple audiences simultaneously.
+
+When you implement semantic HTML - using proper `<article>`, `<section>`, `<nav>`, and `<header>` elements instead of generic `<div>` tags - you're making your content structure explicit. AI agents can parse it more accurately. Search engines understand your content hierarchy better and rank you higher. Screen readers navigate more effectively. The work compounds.
+
+When you add Schema.org structured data - JSON-LD markup describing your products, services, articles, and business information - you're providing machine-readable facts. AI agents cite you accurately in their answers. Search engines show rich snippets in results (star ratings, prices, availability). The same structured data serves both discovery channels.
+
+When you create an llms.txt file - a curated guide to your most important content, similar to how robots.txt guides search crawlers - you're directing AI agents to valuable resources. This isn't separate from your traditional SEO work. It's an extension of the same principle: making your site legible to machines that can't intuit context from visual design.
+
+When you fix your information architecture - explicit pricing on product pages, complete specifications, persistent error messages - you're improving clarity for everyone. Agents extract accurate information. Humans find what they need faster. Accessibility improves. SEO benefits.
+
+You're not doing separate work for agents. You're fixing what should have been fixed years ago.
+
+## The Discovery Shift
+
+Traditional SEO focused on ranking: getting your site to appear first in search results. The goal was clicks. The more visible your result, the more traffic you captured. You ranked well in Google, users clicked through to your site, you captured the conversion.
+
+That model is breaking down.
+
+ChatGPT, Claude, Perplexity, and Google's AI Overview answer questions directly. When a user asks "best project management tools for small teams", the AI gives a recommendation based on what it found during its research phase. If your site isn't structured for AI discovery, you don't get cited. The user never knows you exist.
+
+The click disappears. The citation replaces it.
+
+This is GEO - Generative Engine Optimization. Instead of optimising for clicks, you're optimising for accurate citations in AI-generated answers. When ChatGPT answers a question about your product or service, you want it to cite you correctly - with the right name, accurate specifications, current pricing, and a clear path for the user to transact.
+
+Here's the critical convergence: the patterns that help AI agents cite you correctly are the same patterns that improve your traditional search ranking.
+
+Structured data (Schema.org JSON-LD). Semantic HTML. Clear information architecture. Explicit metadata. These aren't separate strategies for different platforms. They're unified principles that work across the entire discovery ecosystem - Google Search, Bing, ChatGPT, Claude, Perplexity, and every other system that needs to understand what your site offers.
+
+When you optimise for GEO, you're also optimising for SEO. The work compounds across both discovery channels.
+
+## The Business Reality
+
+Tailwind Labs' mistake was focusing on free documentation whilst paid products remained invisible to agents. Any business depending on traffic-driven advertising revenue, affiliate marketing with click-through tracking, "freemium" models where free docs drive awareness of paid products through browsing, or marketing sites designed to maximise time-on-site faces the same crisis.
+
+The market moved faster than anyone expected. When work on AI agent commerce started in 2024, it felt like an emerging concern. By early 2026, the landscape had fundamentally transformed.
+
+December 2025: Microsoft announced Copilot Checkout, signalling that agent commerce had moved from experiment to platform strategy.
+
+January 2026: Three major platforms launched agent commerce systems within seven days. Amazon's Alexa.com (January 5th), Microsoft's Copilot Checkout expansion (January 8th), Google's Universal Commerce Protocol with Target and Walmart (January 11th). The timeline that had been projected as "12-18 months" compressed to weeks.
+
+This isn't future speculation. Agent traffic is real, growing, and affecting conversion rates right now. Most site owners don't know it's happening.
+
+The adaptation required is urgent: transform to agent-compatible revenue models (direct transactions, paid services, API access, subscriptions) or watch revenue collapse whilst agents extract free content and paid offerings remain invisible.
+
+## Three Practical Steps
+
+You don't need to be technical to start addressing this. Here are three steps business leaders can take:
+
+### 1. Audit Your Current State
+
+What do agents actually see when they visit your site? Simple tests reveal the gaps:
+
+Visit your key product pages, service descriptions, and content. View the page source (not "inspect element" - that shows rendered HTML after JavaScript executes). What agents see is the served HTML. If critical information only appears after JavaScript loads dynamic content, agents miss it.
+
+Try a screen reader. Enable VoiceOver (Mac), NVDA (Windows), or JAWS. Navigate your site with keyboard only. If the screen reader struggles, agents will too. Missing semantic structure, unclear headings, and ambiguous links become immediately obvious.
+
+### 2. Prioritise Discovery
+
+Implement an llms.txt file - a curated guide to your 10-30 most important pages. Think highlights, not comprehensive listings. Direct agents to your products, services, documentation, about page, and key content.
+
+Audit your Schema.org structured data. Run key pages through Google's Rich Results Test. Check for missing required fields (price, availability, currency for products). Ensure structured data matches visible content - if JSON-LD says £24.99 but visible HTML shows £29.99, agents cite the structured data authoritatively and users lose trust when they visit.
+
+### 3. Fix Universal Patterns
+
+Semantic HTML: Use proper `<article>`, `<section>`, `<nav>`, `<header>` elements. Implement clear heading hierarchies (H1 → H2 → H3, no skips). This helps agents, search engines, and screen reader users simultaneously.
+
+Clear information architecture: Explicit pricing on product pages. Complete specifications. Persistent error messages that don't disappear after 3 seconds. State management that doesn't rely on JavaScript animations or visual cues alone.
+
+These changes benefit everyone who uses your site, not just agents.
+
+## A Note on Edge Optimization
+
+Tools like Adobe's Optimize at Edge offer a tempting shortcut: serve different content to AI agents than to humans. Pre-render JavaScript-heavy pages. Simplify complex paragraphs. Add summaries. Improve heading structures. All at the CDN layer, without touching your CMS or affecting human visitors.
+
+But here's the critical question: if your content needs simpler paragraphs, clearer headings, and better summaries for AI agents, doesn't it need those things for humans too?
+
+Edge optimization addresses one genuine technical problem: JavaScript visibility. Modern websites load content through JavaScript after the initial page renders. Browsers execute JavaScript and show users the complete page. AI agents request HTML, receive the initial response, and stop. Pre-rendering captures pages after JavaScript executes and serves that to AI agents. This is legitimate - it solves a real technical constraint.
+
+But serving simplified content, improved headings, and generated summaries only to AI agents? That's avoiding content quality work. If your heading structure confuses AI agents, it probably confuses some human readers too. If your paragraphs are too complex for AI to process effectively, they might be too complex for some readers as well.
+
+Fix the underlying content. Make headings clearer for everyone. Write more readable paragraphs. Add useful summaries. These changes benefit humans and AI agents simultaneously. Use edge optimization diagnostically to identify problems, not as a permanent solution that maintains two versions of your content indefinitely.
+
+## The Trust Dividend
+
+In 2026, platforms - Google, OpenAI, Anthropic, Perplexity - act as gatekeepers. Their agents only send traffic to sites that have a high success rate for automated tasks.
+
+If agents consistently fail on your site - timeout errors, confusing structure, missing information - platforms deprioritise you in citations. Why would ChatGPT cite a restaurant it can't extract menu information from? Why would Claude reference a product page where the price is ambiguous?
+
+But if agents consistently succeed - accurate extraction, clear transaction paths, reliable structured data - platforms trust you. They cite you more frequently. They send users to you with confidence.
+
+This compounds. Every successful agent interaction makes future citations more likely. Every failed interaction makes future citations less likely.
+
+The convergence principle ensures your investment pays multiple dividends:
+
+Human accessibility improves (legal compliance, broader audience reach). SEO performance improves (better rankings, featured snippets, rich results). Agent citations increase (GEO visibility, transaction capture). Platform trust accumulates (compounding discoverability advantage).
+
+The first businesses in each sector to become genuinely agent-friendly gain an advantage. When someone asks their AI assistant to find a hotel, compare insurance quotes, or book a restaurant, the sites that work reliably get the business. The sites that confuse or frustrate agents get filtered out before a human ever sees them.
+
+## The Market is Moving Now
+
+This market is in rocket-fuel mode. Three major platforms launched agent commerce systems within seven days in January 2026. By the time you read this, more platforms will have launched, more protocols will compete for adoption, and the timeline will have compressed further.
+
+Companies implementing universal patterns right now capture agent-mediated traffic. Companies waiting to "see how things develop" watch competitors pull ahead whilst their own discovery collapses.
+
+The invisible users aren't a distant future. They're visiting your site right now. Every day, more tasks are delegated to AI agents. Every day, those agents encounter sites that confuse, frustrate, and ultimately fail them.
+
+Most site owners are unaware this is happening. They see traffic numbers, bounce rates, and conversion metrics, but they don't see the invisible failures. They don't know that an agent visited, couldn't complete its task, and sent its human elsewhere.
+
+The patterns remain valid regardless of which platforms or protocols dominate: semantic HTML, explicit state management, structured data, clear information architecture. But the commercial urgency continues accelerating.
+
+The question isn't whether to adapt. It's whether you adapt whilst there's still competitive advantage in being early, or whether you adapt later under pressure when competitors have already captured the agent-mediated market share.
+
+---
+
+## Learn More
+
+**"The Invisible Users: Designing the Web for AI Agents and Everyone Else"** covers these topics in comprehensive detail:
+
+- Complete implementation patterns for semantic HTML and structured data
+- Business frameworks for evaluating agent compatibility
+- Testing and validation workflows
+- Priority-based implementation roadmap
+- Real-world case studies and business impact analysis
+- Discovery patterns (GEO) and transaction patterns
+- Agent creator guidance for reliable systems
+
+**Publication:** Q1 2026
+
+For updates on the book launch, practical insights, and analysis of the evolving AI agent landscape, follow me on [LinkedIn](https://linkedin.com/in/tomcranstoun) or contact me at <tom.cranstoun@gmail.com>.

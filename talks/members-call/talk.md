@@ -54,7 +54,7 @@ AI agents are called "invisible users" for two reasons:
 1. **They're invisible to site owners** — Unless you're specifically tracking agent traffic (and most aren't), you have no idea how many agents visit your site or whether they succeed. They blend into analytics as slightly unusual sessions.
 2. **Your interface is partly invisible to them** — They can't see your beautiful animations, don't notice subtle colour changes, miss three-second toast notifications, and don't understand that a loading spinner means "wait."
 
-**The Five Types of Invisible Failure**
+### The Five Types of Invisible Failure
 
 Let's explore the specific patterns that break AI agents:
 
@@ -111,7 +111,9 @@ Modern web design is optimised for visual feedback that humans interpret through
 - Loading spinners without context
 - JavaScript-dependent navigation
 
-These patterns break agents and screen readers. AI agents face the same barriers humans with disabilities have encountered for years.
+These patterns break agents and users with disabilities: keyboard users who cannot grip a mouse, screen reader users who cannot perceive visual cues, voice control users with mobility disabilities, and people with cognitive disabilities who struggle with transient notifications.
+
+**The convergence principle:** Patterns that break AI agents also break humans. Skip links that help keyboard users bypass navigation also help AI agents identify main content. Semantic HTML benefits screen readers and AI parsing simultaneously.
 
 ### Two HTML States: The Gap
 
@@ -141,6 +143,38 @@ These patterns break agents and screen readers. AI agents face the same barriers
 
 To most agents, your product catalogue is invisible.
 
+### The Citation Problem
+
+**Agents Need Metadata to Cite Accurately:**
+
+When ChatGPT recommends products in its answers, it needs exact pricing, formats, and availability. Without Schema.org JSON-LD markup providing this structured data, agents hallucinate details or cite competitors who provided explicit signals.
+
+**The convergence:** The same structured data that helps Google show rich snippets (star ratings, prices) also helps AI agents cite you correctly in their answers.
+
+**Example JSON-LD:**
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Book",
+  "name": "The Invisible Users",
+  "author": {
+    "@type": "Person",
+    "name": "Tom Cranstoun"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "24.99",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+```
+
+**Business value:** One improvement serves both discovery channels - Google Search and AI citations.
+
 ---
 
 ## The Solution: Make Implicit State Explicit [TIME: 6 minutes]
@@ -151,7 +185,50 @@ Small, well-understood changes that improve accessibility for everyone.
 
 **Three concrete patterns with code and business value.**
 
-### Pattern #1: Persistent Errors
+### Pattern #1: Skip Links
+
+**Navigation Aid for Keyboard Users and Agents:**
+
+Skip links are the first interactive element on a page, typically hidden visually but available to keyboard users and screen readers. When activated, they take users directly to main content, bypassing navigation.
+
+```html
+<body>
+  <a href="#main" class="skip">Skip to main content</a>
+
+  <header>
+    <nav>
+      <!-- Global navigation with many links -->
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- Main content starts here -->
+  </main>
+</body>
+```
+
+**CSS:**
+
+```css
+.skip {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}
+```
+
+**Business value:** Benefits keyboard users, screen readers, and agents simultaneously. Perfect example of convergence principle - one pattern helps multiple audiences.
+
+### Pattern #2: Persistent Errors
 
 Instead of vanishing toast notifications:
 
@@ -171,9 +248,9 @@ Instead of vanishing toast notifications:
 **Business value:** Conversion rates improve for everyone.
 
 - Errors persist until fixed (no vanishing)
-- Screen readers can announce them
-- Agents can read and act on them
+- Benefits distracted humans, screen readers, agents
 - Users with cognitive disabilities have time to process
+- Agents can read and act on them reliably
 
 ### Pattern #2: Complete Pricing
 
@@ -201,7 +278,38 @@ Instead of 'From £99':
 - Reduces support queries about charges
 - Improves conversion through transparency
 
-### Pattern #3: Explicit State
+### Pattern #3: Semantic HTML
+
+**Use Proper HTML5 Elements:**
+
+Beyond data attributes, use semantic HTML elements that communicate structure:
+
+```html
+<main>
+  <article>
+    <header>
+      <h1>Product Title</h1>
+    </header>
+
+    <section aria-label="Product Details">
+      <!-- Product information -->
+    </section>
+
+    <nav aria-label="Product Navigation">
+      <!-- Related products -->
+    </nav>
+  </article>
+</main>
+```
+
+**Business value:** One improvement, multiple audiences benefit.
+
+- Search engines rank better
+- Screen readers navigate more effectively
+- Agents parse structure accurately
+- Developers maintain code more easily
+
+### Pattern #4: Explicit State
 
 Make cart state visible:
 
@@ -247,10 +355,13 @@ Quick wins, not expensive rebuilds.
 
 **Critical Priority 1 Changes:**
 
-- Add persistent error messages
+- Add skip links (benefits keyboard users and agents)
+- Add persistent error messages (helps everyone)
+- Use semantic HTML (`<main>`, `<nav>`, `<article>`)
 - Display complete pricing (no hidden fees)
-- Ensure served HTML contains core content
-- Add basic Schema.org structured data
+- Add basic Schema.org structured data (JSON-LD)
+
+**Each change benefits multiple audiences simultaneously.**
 
 These changes benefit everyone immediately.
 
@@ -347,6 +458,8 @@ As designers, developers, product owners, and executives:
 - This isn't optional - it's a professional obligation
 - Parallels accessibility, security, user experience
 - When agents fail, that's a design gap affecting everyone
+- Universal design patterns benefit keyboard users, screen readers, agents
+- Accessibility work now has commercial pressure behind it
 
 **Agent failures expose problems that affect humans too.** We're finally fixing issues we should have fixed years ago.
 

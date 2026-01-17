@@ -577,6 +577,26 @@ Wikipedia combines human-readable articles with machine-readable data.
 
 An agent can extract structured facts from Wikidata, or parse the predictable infobox structure, or use the API directly.
 
+### Example Book Product Page - Convergence in Practice
+
+An example book product page demonstrates the Convergence Principle with a practical implementation: informing visitors (both human and AI agents) that it's an example page, not a real sales site.
+
+**What makes it work:**
+
+- Visible notice box at the top of the page with yellow background
+- Contact information (email and LinkedIn) in served HTML
+- JavaScript popup for human users who click "Add to Cart"
+- Agent-metadata section with structured page type and contact details
+- All information available without JavaScript execution
+
+**Why this demonstrates convergence:**
+
+The visible notice serves multiple audiences simultaneously. Human users see it immediately when they load the page. They also get an interactive popup if they attempt to add to cart. AI agents reading the served HTML see the same notice in the static markup. The agent-metadata section provides additional structured information for agents that might parse that section specifically.
+
+This isn't two separate implementations - one for humans, one for agents. It's a single design where the visible text works for everyone, and the JavaScript enhancement adds interactivity for browsers that support it. The principle: make core information visible in HTML, then enhance the experience with JavaScript where available.
+
+See [book-product-page.html](packages/manuscript/manuscript/web/book-product-page.html) for the complete example implementation.
+
 ## Small Business Version
 
 "I run a restaurant. I don't have Stripe's engineering team."
@@ -648,7 +668,7 @@ Fair point. Here's what you actually need:
 </html>
 ```
 
-This requires no JavaScript, no frameworks, no APIs—just semantic HTML with schema.org microdata.
+This requires no JavaScript, no frameworks, no APIs—just semantic HTML with schema.org microdata. Keep styling in external CSS files rather than inline styles - this reduces HTML file size and improves parsing speed for agents that don't execute CSS. Keep the rich semantic markup intact rather than pre-converting to stripped markdown - if platforms need simpler formats, let them extract from your structured source.
 
 **What this enables:**
 

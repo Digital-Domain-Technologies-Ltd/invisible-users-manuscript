@@ -16,6 +16,8 @@ The difference matters. A website can provide clear, semantic HTML with perfect 
 
 Fixing this ecosystem requires work from both parties. That's what this chapter provides.
 
+The convergence principle applies to agent creators too. When you build validation layers that catch pricing errors, you're building systems that serve all users better - including those with cognitive disabilities who need clear, unambiguous information. When you implement confidence scoring, you're acknowledging uncertainty in ways that benefit everyone who relies on your agent. The patterns that make agents reliable for financial transactions also make them reliable for users who depend on assistive technologies.
+
 ![What Agent Creators Must Build - validation pipeline and confidence scoring system](illustrations/chapter-11-what-agent-creators-must-build.png)
 
 ## The Three Failure Types
@@ -350,6 +352,37 @@ const result = validator.crossReference(htmlPrice, jsonLDPrice);
 ```
 
 If the website provides `"price": "2030"` in JSON-LD but your HTML parser extracted "203000", you've found a data extraction error. Trust the structured data. It was explicitly marked up for machine consumption.
+
+**Why structured data matters for citations:** Chapter 10 explains how Schema.org JSON-LD enables accurate agent citations in AI-generated answers. When your agent extracts pricing, the structured data isn't just for validation - it's the authoritative source that helps other agents cite correctly. Trust structured data over HTML extraction because that's what the ecosystem depends on for accuracy. When ChatGPT or Claude answers pricing questions, they rely on this machine-readable layer. Your validation layers should do the same.
+
+### Skip Links Recognition
+
+When parsing HTML, recognize skip links as navigation aids that also signal page structure:
+
+```javascript
+class HTMLParser {
+  identifySkipLinks(html) {
+    // Skip links typically appear first in body
+    const skipLinks = html.querySelectorAll('a[href^="#"][class*="skip"]');
+
+    if (skipLinks.length > 0) {
+      // Use skip link target to identify main content
+      const mainContentId = skipLinks[0].getAttribute('href').substring(1);
+      const mainContent = html.getElementById(mainContentId);
+
+      return {
+        hasSkipLinks: true,
+        mainContentLocation: mainContentId,
+        confidence: 95  // High confidence - explicit structure signal
+      };
+    }
+
+    return { hasSkipLinks: false, confidence: 70 };
+  }
+}
+```
+
+**Why this matters:** Skip links provide explicit signals about page structure. When a website implements skip links (Chapter 10 pattern), agents should recognize and use them to identify main content accurately. This is convergence in practice - a pattern designed for keyboard users that also helps agents parse structure. When you encounter `<a href="#main" class="skip">Skip to main content</a>`, you've found a strong signal about where the primary content begins. Use it.
 
 ### Confidence Accumulation
 
@@ -816,6 +849,13 @@ Here's what a transparency manifest could look like:
       "methodology": "Compare extracted data against competitor averages from same search",
       "outlierDetection": "Flag values >10x from competitor average",
       "minimumCompleteness": "50% of sources must return data, else trigger manual verification"
+    },
+
+    "semanticHTMLParsing": {
+      "enabled": true,
+      "skipLinkRecognition": true,
+      "methodology": "Use skip links to identify main content when present, improving content extraction accuracy",
+      "confidenceBonus": "5% confidence increase when skip links present (indicates well-structured HTML)"
     },
 
     "actionThresholds": {
@@ -1312,6 +1352,10 @@ Agent creators: implement the validation layers described in this chapter. Check
 **The convergence is clear.** Good websites provide structured, explicit, semantic content. Good agents validate that content before acting on it. Together, they create reliable agent-mediated experiences.
 
 Neither side can fix the ecosystem alone. Websites that provide perfect structured data still fail if agents don't use it for validation. Agents with sophisticated validation still fail if websites hide information or show ephemeral errors.
+
+**The accessibility connection:** When you build reliable agents with proper validation layers, you're serving users with disabilities who delegate tasks because direct interaction is difficult. Keyboard users who cannot grip a mouse, voice control users with mobility disabilities, people with cognitive disabilities who need clear information - they all benefit from agents that acknowledge uncertainty and refuse to act when confidence is low.
+
+The convergence principle extends to agent creators: patterns that make agents reliable for financial transactions also make them reliable for users who depend on assistive technologies. Confidence scoring, graceful degradation, and explicit warnings serve everyone.
 
 **Hallucinations will continue to happen.** Language models are probabilistic systems that occasionally generate plausible-sounding but incorrect information. No amount of training will eliminate this entirely. This isn't a temporary limitation that future models will solve - it's an inherent characteristic of how these systems work. They predict probable continuations based on patterns, not verified facts.
 

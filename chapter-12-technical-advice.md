@@ -272,6 +272,7 @@ Here's how common patterns compare when designed for agents versus humans-only:
 | **Validation** | Error appears only on submit | Agent submits repeatedly, users frustrated by sequential reveals | Inline validation with clear requirements upfront | Immediate feedback, all errors visible, reduces failed submissions |
 | **Pricing** | "From £99" with hidden fees | Agent compares wrong prices, users experience price surprise | Total price displayed prominently with breakdown | Accurate comparisons, transparent costs, builds trust |
 | **Loading** | Spinner with no context | Agent doesn't know how long to wait or if stuck | `data-state="loading"` with expected duration | Clear progress indication, timeout handling, accessible status |
+| **Styling** | Inline CSS and JavaScript mixed with content | Bloats HTML, slows parsing, agents must process unused styling code | External CSS and JS files with clean HTML | Faster parsing for agents, better caching for browsers, easier maintenance |
 
 **Key insight:** Every "agent-friendly" pattern in the right column also improves human experience. You're not optimising for machines at the expense of humans - you're fixing patterns that broke for everyone.
 
