@@ -3593,6 +3593,278 @@ Start with priority 1 (costs nothing, saves time immediately), then implement pr
 
 ---
 
+## Part 13 — Dynamic Content Patterns
+
+Content that moves, changes, or reveals itself over time creates timing problems for AI agents. Agents must snapshot pages at specific moments - if content appears gradually, rotates through states, or animates into view, timing becomes critical.
+
+### Problem: Carousels Hide Content
+
+**Manual carousels** - Agent sees slide 1 and a "Next" button. No indication of how many slides exist or what they contain. Agent must either click repeatedly until content stops changing, assume slide 1 is representative, or give up.
+
+**Auto-rotating carousels** - Agent visits during transition between slides, sees fragments of both or blank space. Even if timing aligns perfectly, agent has no way to know slides 2-N exist.
+
+**Economic incentive**: Five products in a compact rotating showcase fit neatly above the fold. Five products listed vertically occupy more space. The carousel looks dynamic and modern. The list looks static and boring. But agents comparing prices see only the first product in each carousel.
+
+### Solution: Static Alternatives with Explicit State
+
+```html
+<!-- Carousel with explicit state -->
+<div class="carousel"
+     data-total-slides="5"
+     data-current-slide="1"
+     data-autoplay="false"
+     aria-label="Featured products carousel">
+  <div class="slide" data-slide-index="1" aria-label="Slide 1 of 5">
+    <h3>Wireless Headphones</h3>
+    <p data-price="89.99" data-currency="GBP">£89.99</p>
+  </div>
+  <div class="slide" data-slide-index="2" aria-label="Slide 2 of 5">
+    <h3>Portable Speaker</h3>
+    <p data-price="129.99" data-currency="GBP">£129.99</p>
+  </div>
+  <!-- Slides 3-5 -->
+
+  <button class="prev"
+          aria-label="Previous slide"
+          data-carousel-control="prev">
+    Previous
+  </button>
+  <button class="next"
+          aria-label="Next slide"
+          data-carousel-control="next">
+    Next
+  </button>
+</div>
+
+<!-- Static alternative - ALL content accessible without JavaScript -->
+<details>
+  <summary>View all 5 featured products</summary>
+  <ul data-agent-visible="true">
+    <li>Wireless Headphones - £89.99</li>
+    <li>Portable Speaker - £129.99</li>
+    <li>USB-C Cable - £19.99</li>
+    <li>Phone Stand - £24.99</li>
+    <li>Screen Protector - £12.99</li>
+  </ul>
+</details>
+```
+
+**Why this works:**
+
+- `data-total-slides` and `data-slide-index` tell agents exactly how many items exist
+- `aria-label` provides screen reader context
+- Static `<details>` element ensures agents access all content without carousel navigation
+- Visual users get the dynamic carousel, agents get the complete list
+
+### Problem: Animated Text Appears Gradually
+
+Typewriter effects revealing text character-by-character. Ticker-tape text scrolling horizontally. Fade-in effects revealing content sections as users scroll. Agent snapshots page mid-animation, sees incomplete text.
+
+**JavaScript libraries compound the problem:** Typed.js and TypeIt dynamically manipulate DOM content. Before execution, full text might exist in HTML. After execution, text gets replaced with JavaScript-controlled character-by-character updates. CLI agents reading served HTML see complete text. Browser-based agents reading rendered HTML see animation mid-progress. Same page, different content depending on when accessed.
+
+### Solution: Complete Text in HTML, Animation as Enhancement
+
+**Bad approach - text doesn't exist until animation completes:**
+
+```html
+<h1 id="headline"></h1>
+<script>
+  new Typed('#headline', {
+    strings: ['Welcome to our platform that transforms workflows'],
+    typeSpeed: 50
+  });
+</script>
+```
+
+Served HTML: empty heading. Agent reports nothing.
+
+**Good approach - text exists immediately, animation enhances:**
+
+```html
+<h1 aria-live="off">
+  Welcome to our platform that transforms workflows
+</h1>
+<script>
+  // CSS animation only - content already in DOM
+  const heading = document.querySelector('h1');
+  heading.classList.add('typewriter-effect');
+</script>
+
+<!-- Optional: animation control -->
+<button data-animation-control="pause"
+        aria-label="Pause all animations">
+  Pause animations
+</button>
+
+<div data-animation-state="playing"
+     data-animation-duration="3000">
+  <!-- Animated content -->
+</div>
+```
+
+**Why this works:**
+
+- Complete text exists in HTML before JavaScript runs
+- `aria-live="off"` prevents screen readers announcing each character during animation
+- `data-animation-state` and `data-animation-duration` make timing explicit
+- Pause control provides user override (WCAG 2.2.2 compliance for animations >5 seconds)
+
+### Problem: Background Media Without Text Alternatives
+
+Background video showing product in use. Animated GIF demonstrating three-step assembly process. Visual conveys information, but agents see only `<video>` or `<img>` tag.
+
+**Decorative vs informational distinction matters:** Background video of clouds drifting = purely aesthetic. Missing it loses nothing. Video demonstrating product setup = critical information. Agent needs transcript or text alternative.
+
+Most sites provide neither. Most developers assume background video is decorative because "background" implies decoration. But watch carefully: many sites use "background" video to convey substantive product information whilst avoiding writing text descriptions.
+
+### Solution: Explicit Role Attributes and Transcripts
+
+**Decorative video - purely aesthetic:**
+
+```html
+<video data-video-role="decorative"
+       aria-hidden="true"
+       autoplay muted loop playsinline>
+  <source src="ambient-clouds.mp4" type="video/mp4">
+</video>
+```
+
+`data-video-role="decorative"` signals intent explicitly. `aria-hidden="true"` removes from accessibility trees. Agents know to ignore it.
+
+**Informational video - needs text alternative:**
+
+```html
+<video data-video-role="informational"
+       controls
+       aria-labelledby="video-title">
+  <source src="product-setup.mp4" type="video/mp4">
+  <track kind="captions" src="product-setup-en.vtt" srclang="en" label="English">
+</video>
+<h3 id="video-title">Product Setup Guide</h3>
+<details>
+  <summary>View transcript</summary>
+  <ol data-agent-visible="true">
+    <li>Remove product from packaging</li>
+    <li>Connect power cable to rear panel</li>
+    <li>Press power button on front</li>
+    <li>Wait for LED to turn green (approximately 30 seconds)</li>
+  </ol>
+</details>
+```
+
+Video provides visual demonstration. Transcript provides text alternative. `data-video-role="informational"` signals agents should look for alternatives. Controls ensure users and agents can pause, rewind, control playback.
+
+**Animated GIFs follow same logic:**
+
+```html
+<img src="assembly-steps.gif"
+     alt="Three-step assembly process"
+     aria-describedby="assembly-detail">
+<div id="assembly-detail" data-agent-visible="true">
+  Assembly steps:
+  1. Insert tab A into slot B
+  2. Rotate clockwise 90 degrees until click
+  3. Secure with provided screw
+</div>
+```
+
+GIF shows process visually. Linked description explains textually. Both humans and agents get complete information in preferred format.
+
+### Problem: Autoplay Creates Stability Ambiguity
+
+When does a page finish loading? When DOM is complete? When all images load? When autoplaying video completes? Agents must decide when page is "ready" for analysis. Autoplay videos that loop infinitely mean page is never truly finished. Agent must either interrupt analysis to capture content mid-stream or wait indefinitely for completion event that will never arrive.
+
+### Solution: Pause Controls Signal Stability
+
+WCAG 2.2.2 guideline: moving content lasting longer than 5 seconds must provide pause controls. This exists for users with attention deficits, motion sensitivity, or reading disabilities who need to freeze movement to focus. Same requirement solves agent stability problem. Providing pause controls creates clear signal: "Content is stable when video is paused."
+
+```html
+<video autoplay muted loop controls>
+  <source src="product-demo.mp4" type="video/mp4">
+</video>
+```
+
+Without controls, stability remains ambiguous. With controls, agents know when content is ready for analysis.
+
+### Problem: Progressive Disclosure Hides Information
+
+Accordion panels that animate open (agent sees closed state). Expand/collapse with animation timing delays. "Read more" links that JavaScript-expand content inline. Tabs that load content on-demand.
+
+### Solution: Server-Side Rendering with JavaScript Enhancement
+
+**Bad approach - content loads on click:**
+
+```html
+<div class="tabs">
+  <button onclick="loadTab('specs')">Specifications</button>
+  <button onclick="loadTab('shipping')">Shipping</button>
+  <div id="tab-content">
+    <!-- Content loads on click -->
+  </div>
+</div>
+```
+
+Only one tab's content exists at a time. Agents miss everything not currently displayed.
+
+**Good approach - all content in HTML, JavaScript adds interactivity:**
+
+```html
+<div class="tabbed-content">
+  <nav aria-label="Product information sections">
+    <a href="#specs">Specifications</a>
+    <a href="#shipping">Shipping</a>
+  </nav>
+
+  <section id="specs" data-tab-panel="true">
+    <h2>Specifications</h2>
+    <!-- Complete spec content in HTML -->
+  </section>
+
+  <section id="shipping" data-tab-panel="true">
+    <h2>Shipping</h2>
+    <!-- Complete shipping content in HTML -->
+  </section>
+</div>
+
+<script>
+  // JavaScript adds tab hiding/showing without removing content from DOM
+  enhanceTabs('.tabbed-content');
+</script>
+```
+
+Served HTML contains all content. Anchors work without JavaScript - clicking jumps to relevant section. JavaScript adds tab interface without removing content from DOM. Agents parsing page see everything. Visual users get organised tab interface.
+
+### Data Attributes Reference for Dynamic Content
+
+| Attribute | Values | Use On |
+| --------- | ------ | ------ |
+| data-total-slides | Numeric | Carousels |
+| data-current-slide | Numeric | Carousels |
+| data-slide-index | Numeric | Individual carousel slides |
+| data-autoplay | true, false | Carousels |
+| data-carousel-control | prev, next, pause, play | Carousel buttons |
+| data-animation-state | playing, paused | Animated content containers |
+| data-animation-duration | Milliseconds | Animated content containers |
+| data-animation-control | pause, play, skip | Animation control buttons |
+| data-video-role | decorative, informational | Video elements |
+| data-tab-panel | true | Tab panel sections |
+
+### Priority Ranking
+
+| Priority | Action | Effort | Impact |
+| -------- | ------ | ------ | ------ |
+| 1 | Add text alternatives for animated GIFs | Low | High |
+| 1 | Mark background videos as decorative with data-video-role | Low | High |
+| 1 | Provide pause controls for autoplay media (WCAG 2.2.2) | Low | High |
+| 2 | Replace auto-rotating carousels with manual navigation | Medium | High |
+| 2 | Add "View all" option for carousel content | Low | High |
+| 2 | Ensure animated text fully visible in served HTML | Medium | Medium |
+| 3 | Server-side render tab content, JavaScript adds interactivity | High | Medium |
+
+Start with priority 1 (minimal code changes, immediate accessibility compliance, helps both humans and agents).
+
+---
+
 ## Summary
 
 **Build HTML where:**

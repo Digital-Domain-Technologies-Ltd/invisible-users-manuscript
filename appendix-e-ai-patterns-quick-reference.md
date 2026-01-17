@@ -37,6 +37,14 @@ Use these consistently:
 | data-error-code | ERROR_TYPE | Error messages |
 | data-step | Numeric | Multi-step forms |
 | data-total-steps | Numeric | Multi-step forms |
+| data-total-slides | Numeric | Carousels |
+| data-current-slide | Numeric | Carousels |
+| data-slide-index | Numeric | Carousel slides |
+| data-autoplay | true, false | Carousels |
+| data-animation-state | playing, paused | Animated content |
+| data-animation-duration | Milliseconds | Animated content |
+| data-animation-control | pause, play, skip | Animation buttons |
+| data-video-role | decorative, informational | Video elements |
 
 ---
 
@@ -494,6 +502,10 @@ All examples use 2025 AI agent user-agents: GPTBot, ClaudeBot, PerplexityBot, OA
 - Use ambiguous field names (fname, addr1)
 - Omit currency from prices
 - Hide form validation until submission
+- Auto-rotate carousels without static alternatives
+- Use typewriter/ticker-tape text without complete HTML
+- Add informational video/GIFs without text descriptions
+- Autoplay media without pause controls
 
 ---
 
@@ -509,3 +521,8 @@ All examples use 2025 AI agent user-agents: GPTBot, ClaudeBot, PerplexityBot, OA
 - Show stock/availability explicitly
 - Include Schema.org markup
 - Make dialogs with `<dialog>` element
+- Provide static list alternative for carousels
+- Include complete text in HTML before animation
+- Mark background video as decorative/informational
+- Provide transcripts for informational media
+- Add pause controls for animations >5 seconds

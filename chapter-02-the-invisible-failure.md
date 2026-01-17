@@ -404,6 +404,66 @@ The reason was clearly stated - at the top of a page the agent had scrolled past
 
 ---
 
+## Dynamic Content Patterns
+
+The failure modes discussed so far involve content that exists but is positioned where agents can't easily see it. Toast notifications, pagination, hidden tabs, below-the-fold text - all present but inconvenient.
+
+Dynamic content patterns introduce a different category of problem: content that moves, changes, or reveals itself over time. Agents must snapshot the page at a specific moment. If the content appears gradually, rotates through multiple states, or animates into view, the timing becomes critical. Snapshot too early and you miss it. Snapshot during a transition and you capture an intermediate state that conveys neither the starting position nor the final destination.
+
+These patterns optimise for human visual perception at the expense of reliable machine parsing.
+
+### Carousels and Rotating Content
+
+A carousel displaying customer testimonials rotates through five reviews. Each testimonial appears for 3 seconds before sliding away.
+
+An agent analysing the page sees testimonial number one. Maybe. The timing depends on when the snapshot occurs. If the agent visits during the transition between slides - when slide 1 is sliding out and slide 2 is sliding in - it might see fragments of both or a blank space where content should be.
+
+Even if timing aligns perfectly and the agent captures slide 1 completely, it has no way to know that slides 2, 3, 4, and 5 exist. The agent reports: "Customer satisfaction appears high based on the single available review."
+
+**Manual carousels present a different obstacle.** Content doesn't auto-rotate; users must click "Next" to advance. The agent sees slide 1 and a next button. It might understand that clicking reveals more. But many carousel implementations provide no indication of what's coming or how many slides exist. The agent must either:
+
+- Click repeatedly until no new content appears (potentially dozens of times)
+- Assume slide 1 is representative and move on
+- Give up immediately when encountering interactive content
+
+**The economic pressure favouring carousels is visual impact.** Five products displayed as a compact rotating showcase fit neatly above the fold. Five products listed vertically occupy more space. The carousel looks dynamic and modern. The list looks static and boring.
+
+But the agent comparing prices across five retailers sees only the first product in each carousel. Its recommendation bases itself on 20% of available information. The user buys the selected item. The agent never discovers that item number 4 in the carousel was both higher quality and lower cost.
+
+**Decorative carousels cause less direct harm.** A hero banner rotating through three promotional images conveys brand identity and visual interest. If the agent misses images 2 and 3, no critical information is lost. But even decorative carousels consume page load time and complicate parsing without adding machine-readable value.
+
+### Animated Text and Progressive Reveals
+
+Text that types itself character by character. Marquee text scrolling horizontally across the screen. Fade-in effects that reveal content sections gradually as users scroll. These animations create visual interest and draw attention.
+
+They also create timing problems.
+
+An agent visits a landing page where the main headline appears via typewriter effect over 4 seconds. The agent snapshots the page at 2 seconds. It sees: "Welcome to our prod". The headline reads "Welcome to our product that transforms your workflow." But the agent reports incomplete text. Users see a fluid animation. Agents see a truncated sentence.
+
+**Ticker-tape text that scrolls continuously creates an unsolvable problem.** Imagine a stock ticker displaying 100 company prices scrolling from right to left. A human can watch for the specific stock they care about and read the price as it passes. An agent attempting the same task must either:
+
+- Capture a snapshot and analyse whichever 5-10 prices happen to be visible at that moment
+- Wait and capture multiple snapshots, attempting to reconstruct the complete sequence
+- Read the underlying data source if it's exposed in the DOM (it rarely is)
+
+**The JavaScript libraries enabling these effects compound the difficulty.** Typed.js and TypeIt dynamically manipulate DOM content to create the illusion of text being typed in real-time. Before execution, the full text might exist in the HTML as plain text. After execution, that text gets replaced with JavaScript-controlled character-by-character updates. CLI agents reading the served HTML see the complete text. Browser-based agents reading the rendered HTML see the animation mid-progress. The same page delivers different content depending on when and how it's accessed.
+
+### Background Media and Decorative Motion
+
+A product page features a looping background video showing the item in use. The video autoplays, has no controls, and contains no captions. The visual conveys texture, scale, and context. An agent parsing the page sees a `<video>` tag and nothing more.
+
+**Animated GIFs present similar challenges.** A GIF showing three steps of product assembly conveys the process wordlessly. Human users watch the loop and understand. Agents see `<img src="assembly.gif" alt="assembly">`. The alt text exists but provides minimal detail. The step-by-step process visible to humans remains invisible to machines.
+
+The distinction between decorative and informational media matters. A background video of clouds drifting across the sky serves aesthetic purposes only. If an agent misses it, no information is lost. But a video demonstrating the product setup process contains critical information. The agent should access either the video transcript or a text alternative explaining the steps.
+
+Most sites provide neither. Most developers assume background video is decorative because "background" implies decoration. But watch carefully: many sites use "background" video to convey substantive product information whilst avoiding the commitment of writing text descriptions.
+
+**Autoplay creates confusion about page stability.** When does a page finish loading? When the DOM is complete? When all images load? When autoplaying video completes? Agents must decide when a page is "ready" for analysis. Autoplay videos that loop infinitely mean the page is never truly finished. The agent must either interrupt its analysis to capture content mid-stream or wait indefinitely for a completion event that will never arrive.
+
+**The WCAG 2.2.2 guideline requires that moving content lasting longer than 5 seconds must provide pause controls.** This exists for users with attention deficits, motion sensitivity, or reading disabilities who need to freeze movement to focus. The same requirement solves the agent stability problem. Providing pause controls creates a clear signal: "Content is stable when video is paused." Without controls, stability remains ambiguous.
+
+---
+
 ## Console Fallacy
 
 "Errors are logged to console. The agent can see those."

@@ -11,7 +11,7 @@ A prescriptive guide for developers creating web interfaces that work for both h
 
 **Guide Contents:**
 
-The guide covers 9 major parts:
+The guide covers 13 major parts:
 
 1. **Quick Reference Tables** - HTTP status codes, form field names, date formats, common data attributes
 2. **Simple HTML Patterns** - Visual design vs AI parsing, separating CSS/JavaScript from HTML, preserving rich HTML vs markdown conversion, extending llms.txt with metadata (proposed pattern), authentication state, explicit state attributes, persistent errors
@@ -22,6 +22,10 @@ The guide covers 9 major parts:
 7. **Server-Side Patterns** - Agent detection, cookie consent, captcha handling, rate limiting, error handling
 8. **Complete Examples** - Small business template, e-commerce product page
 9. **Testing and Validation** - Automated Playwright tests, common validation pitfalls, parser auto-correction behavior, manual validation tools
+10. **Implementation Priority** - Priority ranking for implementation roadmap
+11. **Why This Matters** - Business justification and convergence principle
+12. **Building for AI Development Assistants** - Patterns for AI coding assistants working with your codebase
+13. **Dynamic Content Patterns** - Carousels, animated text, background media, progressive disclosure, autoplay stability
 
 **The complete guide is shown below:**
 

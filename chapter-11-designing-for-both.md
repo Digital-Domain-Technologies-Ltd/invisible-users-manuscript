@@ -200,6 +200,201 @@ When an error occurs:
 
 No toasts. No auto-dismissing messages. No information loss.
 
+## Static Alternatives for Dynamic Content
+
+Carousels, animated text, and background videos create visual interest. They also create information gaps for agents. The solution isn't to eliminate animation entirely - it's to ensure the underlying content exists in a stable, machine-readable form before adding visual enhancements.
+
+### Carousel Pattern That Works
+
+Remember the product showcase carousel from Chapter 2? Five items rotating through, agents seeing only item one. The fix involves providing all content in both dynamic and static forms.
+
+**Dynamic version (for visual users):**
+
+```html
+<div class="carousel"
+     data-total-slides="5"
+     data-current-slide="1"
+     data-autoplay="false"
+     aria-label="Featured products carousel">
+  <div class="slide" data-slide-index="1" aria-label="Slide 1 of 5">
+    <h3>Wireless Headphones</h3>
+    <p>£89.99</p>
+  </div>
+  <!-- JavaScript reveals slides 2-5 on navigation -->
+</div>
+```
+
+**Static alternative (for agents and accessibility):**
+
+```html
+<details>
+  <summary>View all 5 featured products</summary>
+  <ul data-agent-visible="true">
+    <li>Wireless Headphones - £89.99</li>
+    <li>Portable Speaker - £129.99</li>
+    <li>USB-C Cable - £19.99</li>
+    <li>Phone Stand - £24.99</li>
+    <li>Screen Protector - £12.99</li>
+  </ul>
+</details>
+```
+
+The carousel creates visual appeal. The static list ensures nothing is hidden. The `<details>` element lets users who want to see everything expand the list. Agents can parse both - carousel structure tells them dynamic content exists, static list provides complete information.
+
+### Animated Text Pattern
+
+Typewriter effects and ticker-tape animations work for visual appeal but fail for information reliability. The solution: serve complete text in the HTML, add animation via CSS or JavaScript as an enhancement.
+
+**Bad approach:**
+
+```html
+<h1 id="headline"></h1>
+<script>
+  new Typed('#headline', {
+    strings: ['Welcome to our platform that transforms workflows'],
+    typeSpeed: 50
+  });
+</script>
+```
+
+The served HTML contains nothing. Browser-based agents see partial text mid-animation. CLI agents see an empty heading.
+
+**Good approach:**
+
+```html
+<h1 aria-live="off">
+  Welcome to our platform that transforms workflows
+</h1>
+<script>
+  // Animation adds to UX without replacing content
+  const heading = document.querySelector('h1');
+  heading.classList.add('typewriter-effect');
+</script>
+```
+
+The complete text exists in the HTML immediately. The `aria-live="off"` attribute prevents screen readers from announcing each character during animation. The script adds visual effect without touching the underlying content. All agents - CLI, browser-based, screen-reader-using - access the same complete text.
+
+### Background Video and Media Patterns
+
+The distinction between decorative and informational video matters. Decorative video can remain purely visual. Informational video needs a text alternative.
+
+**Decorative video:**
+
+```html
+<video data-video-role="decorative"
+       aria-hidden="true"
+       autoplay muted loop playsinline>
+  <source src="ambient-clouds.mp4" type="video/mp4">
+</video>
+```
+
+The `data-video-role="decorative"` attribute signals intent explicitly. The `aria-hidden="true"` removes it from accessibility trees. Agents know to ignore it. Users with motion sensitivity can disable autoplay in browser settings.
+
+**Informational video:**
+
+```html
+<video data-video-role="informational"
+       controls
+       aria-labelledby="video-title">
+  <source src="product-setup.mp4" type="video/mp4">
+  <track kind="captions" src="product-setup-en.vtt" srclang="en" label="English">
+</video>
+<h3 id="video-title">Product Setup Guide</h3>
+<details>
+  <summary>View transcript</summary>
+  <ol data-agent-visible="true">
+    <li>Remove product from packaging</li>
+    <li>Connect power cable to rear panel</li>
+    <li>Press power button on front</li>
+    <li>Wait for LED to turn green (approximately 30 seconds)</li>
+  </ol>
+</details>
+```
+
+The video provides visual demonstration. The transcript provides text alternative. The `data-video-role="informational"` attribute signals that agents should look for alternatives. The controls ensure users (and agents) can pause, rewind, and control playback.
+
+**Animated GIFs should follow the same logic:**
+
+```html
+<img src="assembly-steps.gif"
+     alt="Three-step assembly process"
+     aria-describedby="assembly-detail">
+<div id="assembly-detail" data-agent-visible="true">
+  Assembly steps:
+  1. Insert tab A into slot B
+  2. Rotate clockwise 90 degrees until click
+  3. Secure with provided screw
+</div>
+```
+
+The GIF shows the process visually. The linked description explains it textually. Both humans and agents get complete information in their preferred format.
+
+### Progressive Disclosure Pattern
+
+Accordions and tabs organise information for humans. They hide information from agents. The solution: server-side rendering with JavaScript enhancement.
+
+**Bad approach:**
+
+```html
+<div class="tabs">
+  <button onclick="loadTab('specs')">Specifications</button>
+  <button onclick="loadTab('shipping')">Shipping</button>
+  <div id="tab-content">
+    <!-- Content loads on click -->
+  </div>
+</div>
+```
+
+Only one tab's content exists at a time. Agents miss everything not currently displayed.
+
+**Good approach:**
+
+```html
+<div class="tabbed-content">
+  <nav aria-label="Product information sections">
+    <a href="#specs">Specifications</a>
+    <a href="#shipping">Shipping</a>
+  </nav>
+
+  <section id="specs" data-tab-panel="true">
+    <h2>Specifications</h2>
+    <!-- Complete spec content -->
+  </section>
+
+  <section id="shipping" data-tab-panel="true">
+    <h2>Shipping</h2>
+    <!-- Complete shipping content -->
+  </section>
+</div>
+
+<script>
+  // JavaScript adds tab hiding/showing without removing content from DOM
+  enhanceTabs('.tabbed-content');
+</script>
+```
+
+The served HTML contains all content. The anchors work without JavaScript - clicking jumps to the relevant section. JavaScript adds the tab interface without removing content from the DOM. Agents parsing the page see everything. Visual users get the organised tab interface.
+
+### Animation Control
+
+When animation must exist, provide controls. Users with motion sensitivity, attention difficulties, or processing delays need them. Agents benefit from the same controls - they signal when content is stable for analysis.
+
+```html
+<button data-animation-control="pause"
+        aria-label="Pause all animations">
+  Pause animations
+</button>
+
+<div data-animation-state="playing"
+     data-animation-duration="5000">
+  <!-- Animated content -->
+</div>
+```
+
+The `data-animation-state` attribute makes the current state explicit. The `data-animation-duration` attribute tells agents (and assistive technology) how long to wait. The pause control provides manual override.
+
+WCAG 2.2.2 requires pause controls for animations longer than 5 seconds. This guideline exists for human accessibility. Following it simultaneously solves agent reliability. What helps people with disabilities helps AI agents. Convergence.
+
 ## Complete Information, No Forced Pagination
 
 Remember the tour company that split its 14-day itinerary across 14 pages? They lost business because my agent couldn't navigate the pagination. But they also lost business from humans who wanted to compare the whole journey at a glance.

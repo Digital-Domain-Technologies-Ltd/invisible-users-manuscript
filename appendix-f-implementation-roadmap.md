@@ -110,6 +110,51 @@ This example shows how to represent the complete pricing breakdown mentioned abo
 - `shippingDetails` provides explicit delivery cost and destination information
 - This structured data allows AI agents to understand complete pricing before initiating purchases
 
+### Dynamic Content
+
+- [ ] **Add text alternatives for animated GIFs** - Use `aria-describedby` to link descriptive text explaining what the GIF demonstrates
+- [ ] **Mark background videos as decorative** - Add `data-video-role="decorative"` and `aria-hidden="true"` to purely visual videos
+- [ ] **Provide pause controls for autoplay media** - WCAG 2.2.2 compliance: animations >5 seconds need pause controls
+
+**Example (animated GIF with description):**
+
+```html
+<img src="assembly-process.gif"
+     alt="Three-step assembly process"
+     aria-describedby="assembly-detail">
+<div id="assembly-detail" data-agent-visible="true">
+  Assembly steps:
+  1. Insert tab A into slot B
+  2. Rotate clockwise 90 degrees until click
+  3. Secure with provided screw
+</div>
+```
+
+**Example (decorative vs informational video):**
+
+```html
+<!-- Decorative: purely aesthetic -->
+<video data-video-role="decorative"
+       aria-hidden="true"
+       autoplay muted loop playsinline>
+  <source src="ambient-clouds.mp4" type="video/mp4">
+</video>
+
+<!-- Informational: needs transcript -->
+<video data-video-role="informational"
+       controls>
+  <source src="product-demo.mp4" type="video/mp4">
+  <track kind="captions" src="demo-en.vtt">
+</video>
+<details>
+  <summary>View transcript</summary>
+  <ol>
+    <li>Step 1 description</li>
+    <li>Step 2 description</li>
+  </ol>
+</details>
+```
+
 ---
 
 ## Priority 1.5: Protocol Integration Strategy
@@ -360,6 +405,53 @@ Consider professional audit or implementation services if:
 - [ ] **Add jump navigation** - For long pages, provide a table of contents with anchor links
 - [ ] **Expand critical content** - Don't hide essential information behind tabs or accordions
 - [ ] **Make search results complete** - Show all results or clearly indicate pagination
+
+### Dynamic Content Patterns
+
+- [ ] **Replace auto-rotating carousels with manual navigation** - Remove auto-advance timing, let users control progression
+- [ ] **Add "View all" option for carousel content** - Provide static list showing all items at once
+- [ ] **Ensure animated text fully visible in served HTML** - Complete text in HTML, animation as CSS enhancement only
+- [ ] **Provide transcripts for informational videos** - All non-decorative video needs text alternative
+
+**Example (carousel with static alternative):**
+
+```html
+<div class="carousel"
+     data-total-slides="5"
+     data-current-slide="1"
+     data-autoplay="false"
+     aria-label="Featured products">
+  <div class="slide" data-slide-index="1" aria-label="Slide 1 of 5">
+    Product 1
+  </div>
+  <!-- Slides 2-5 -->
+</div>
+
+<!-- Static alternative -->
+<details>
+  <summary>View all 5 products</summary>
+  <ul data-agent-visible="true">
+    <li>Product 1 - £89.99</li>
+    <li>Product 2 - £129.99</li>
+    <li>Product 3 - £19.99</li>
+    <li>Product 4 - £24.99</li>
+    <li>Product 5 - £12.99</li>
+  </ul>
+</details>
+```
+
+**Example (animated text done correctly):**
+
+```html
+<!-- Complete text in HTML -->
+<h1 aria-live="off">
+  Welcome to our platform that transforms workflows
+</h1>
+<script>
+  // CSS animation only - content already in DOM
+  document.querySelector('h1').classList.add('typewriter-effect');
+</script>
+```
 
 ### Loading States
 

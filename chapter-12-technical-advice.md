@@ -2264,6 +2264,161 @@ Don't just disable buttons. Explain why they're disabled and what's needed.
 
 **Why this works:** Everyone knows precisely what's needed to proceed. No guessing.
 
+### Pattern 2a: Carousel State Attributes
+
+Carousels hide content from agents unless you make the structure explicit. Use data attributes to signal carousel state and provide navigation context.
+
+**Bad - Agent sees only slide 1:**
+
+```html
+<div class="carousel">
+  <div class="slide active">Product 1</div>
+  <div class="slide">Product 2</div>
+  <div class="slide">Product 3</div>
+  <button class="prev">Previous</button>
+  <button class="next">Next</button>
+</div>
+```
+
+**Good - Complete carousel state:**
+
+```html
+<div class="carousel"
+     data-total-slides="3"
+     data-current-slide="1"
+     data-autoplay="false"
+     aria-label="Featured products carousel">
+  <div class="slide"
+       data-slide-index="1"
+       aria-label="Slide 1 of 3">
+    Product 1
+  </div>
+  <div class="slide"
+       data-slide-index="2"
+       aria-label="Slide 2 of 3">
+    Product 2
+  </div>
+  <div class="slide"
+       data-slide-index="3"
+       aria-label="Slide 3 of 3">
+    Product 3
+  </div>
+  <button class="prev"
+          aria-label="Previous slide"
+          data-carousel-control="prev">
+    Previous
+  </button>
+  <button class="next"
+          aria-label="Next slide"
+          data-carousel-control="next">
+    Next
+  </button>
+</div>
+
+<!-- Provide static alternative -->
+<details>
+  <summary>View all products</summary>
+  <ul data-agent-visible="true">
+    <li>Product 1</li>
+    <li>Product 2</li>
+    <li>Product 3</li>
+  </ul>
+</details>
+```
+
+**Why this works:** The `data-total-slides` and `data-slide-index` attributes tell agents exactly how many items exist and where each sits in the sequence. The `aria-label` attributes provide screen reader context. The static `<details>` element ensures agents can access all content without carousel navigation.
+
+### Pattern 2b: Animation Control Attributes
+
+Animated text and progressive reveals need explicit state markers and control options.
+
+**Bad - Text appears gradually, agent sees partial content:**
+
+```html
+<h1 id="headline"></h1>
+<script>
+  new Typed('#headline', {
+    strings: ['Complete headline text that appears slowly'],
+    typeSpeed: 50
+  });
+</script>
+```
+
+**Good - Complete text with animation as enhancement:**
+
+```html
+<h1 aria-live="off">
+  Complete headline text that appears slowly
+</h1>
+<script>
+  // CSS animation only, content already in DOM
+  document.querySelector('h1').classList.add('typewriter-effect');
+</script>
+
+<!-- Animation control -->
+<button data-animation-control="pause"
+        aria-label="Pause all animations">
+  Pause animations
+</button>
+
+<div data-animation-state="playing"
+     data-animation-duration="3000">
+  <!-- Animated content -->
+</div>
+```
+
+**Why this works:** The complete text exists in the HTML before JavaScript runs. The `aria-live="off"` prevents screen readers announcing each character during animation. The `data-animation-state` and `data-animation-duration` attributes make timing explicit. The pause control provides user override.
+
+### Pattern 2c: Media Role Disambiguation
+
+Background videos and animated GIFs need clear signals about whether they're decorative or informational.
+
+**Decorative video:**
+
+```html
+<video data-video-role="decorative"
+       aria-hidden="true"
+       autoplay muted loop playsinline>
+  <source src="ambient-background.mp4" type="video/mp4">
+</video>
+```
+
+**Informational video:**
+
+```html
+<video data-video-role="informational"
+       controls
+       aria-labelledby="video-title">
+  <source src="product-demo.mp4" type="video/mp4">
+  <track kind="captions" src="demo-en.vtt" srclang="en" label="English">
+</video>
+<h3 id="video-title">Product Demonstration</h3>
+<details>
+  <summary>View transcript</summary>
+  <ol data-agent-visible="true">
+    <li>Step 1 description</li>
+    <li>Step 2 description</li>
+    <li>Step 3 description</li>
+  </ol>
+</details>
+```
+
+**Animated GIFs:**
+
+```html
+<img src="process.gif"
+     alt="Three-step process diagram"
+     aria-describedby="process-detail">
+<div id="process-detail" data-agent-visible="true">
+  Process steps:
+  1. Initial state
+  2. Intermediate transformation
+  3. Final result
+</div>
+```
+
+**Why this works:** The `data-video-role` attribute signals intent explicitly. Decorative media uses `aria-hidden="true"` to remove it from accessibility trees. Informational media provides transcripts or detailed descriptions. Agents know which media to ignore and which to analyse.
+
 ### Pattern 3: Complete Content on One Page
 
 Stop splitting content unnecessarily. Show everything with good organisation.
