@@ -120,6 +120,8 @@ Implement an llms.txt file - a curated guide to your 10-30 most important pages.
 
 Audit your Schema.org structured data. Run key pages through Google's Rich Results Test. Check for missing required fields (price, availability, currency, format for products). Ensure structured data matches visible content - if JSON-LD says the eBook costs £24.99 but visible HTML shows £34.99 (the paperback price), or if the format isn't clearly indicated, agents cite the structured data authoritatively, and users lose trust when they visit. For products with multiple formats or regional pricing, use explicit `data-format` and `eligibleRegion` attributes to eliminate ambiguity.
 
+Use precise Schema.org types to mark your content correctly. AI systems trained on entertainment scripts may confuse professional content with fictional dialogue without explicit type signals. Legal analysis needs `Legislation` or `LegalDocument` types, not generic `Article`. Medical content needs `MedicalScholarlyArticle`. Business analysis needs `AnalysisNewsArticle`. Without these specific types, agents trained on TV scripts and movie dialogue may treat your legal brief like an Ally McBeal episode or confuse medical analysis with Grey's Anatomy dialogue. The specificity prevents hallucinations and ensures accurate citations.
+
 ### 3. Fix Universal Patterns
 
 Semantic HTML: Use proper `<article>`, `<section>`, `<nav>`, `<header>` elements. Implement clear heading hierarchies (H1 → H2 → H3, no skips). This helps agents, search engines, and screen reader users simultaneously.
