@@ -1,6 +1,6 @@
 \newpage
 
-# Chapter 3 - The Architectural Conflict
+# Chapter 3 - Architectural Conflict
 
 How modern web architecture creates the problem.
 
@@ -58,7 +58,7 @@ The constraints that shape human cognition don't apply. But that doesn't mean ag
 
 ---
 
-## The Optimisation Mismatch
+## Optimisation Mismatch
 
 Human-optimised interfaces are designed to optimise for **forgetting and re-finding**. We can't store everything in memory, so we store less critical information in memory and retrieve it on demand. We trust that users will remember where things are and navigate back when needed.
 
@@ -124,7 +124,7 @@ This is slow, error-prone, and often incomplete. The agent might miss sections i
 
 ---
 
-## The Animation Tax
+## Animation Tax
 
 Animations serve genuine purposes for humans:
 
@@ -213,7 +213,7 @@ Each of these states is apparent to humans through visual conventions. Every one
 
 ---
 
-## The SPA Navigation Catastrophe
+## SPA Navigation Catastrophe
 
 Traditional multi-page websites had precise semantics. Each URL represented a distinct state. Navigating between states was explicit: click a link, the browser requests a new URL, and the server returns a new page. The browser's back button worked predictably. Bookmarks captured exact states.
 
@@ -260,7 +260,7 @@ SPAs hide all of this behind JavaScript that the agent cannot inspect. The URL b
 
 ---
 
-## The HATEOAS Dream and Why It Failed
+## HATEOAS Dream and Why It Failed
 
 Twenty years ago, the REST architecture proposed a solution to precisely this problem. HATEOAS (Hypermedia as the Engine of Application State) suggests that APIs include hypermedia links that describe available actions and where to go next.
 
@@ -311,7 +311,7 @@ Custom APIs have none of this. Each API defines its own link format, vocabulary,
 
 ---
 
-## The Need for Semantic Meaning
+## Need for Semantic Meaning
 
 Modern HTML describes how things look, not what they mean.
 
@@ -357,7 +357,7 @@ The fifteen years of learned behaviour that tells a human "this looks like a che
 
 ---
 
-## The Console Fallacy Revisited
+## Console Fallacy Revisited
 
 Developers often assume that debugging information is available to automated visitors. "The error is logged to the console. The agent can check the console."
 
@@ -383,7 +383,7 @@ Every error, every state change, every critical piece of information must be rep
 
 ---
 
-## The Dual Audience Problem
+## Dual Audience Problem
 
 We now face a question that doesn't have an easy answer: how do you serve two audiences with opposite needs?
 
@@ -426,7 +426,7 @@ This is the most promising approach, but it requires rethinking fundamental desi
 
 ---
 
-## The Accessibility Connection
+## Accessibility Connection
 
 Here's the most important insight in this chapter: **AI-optimised interfaces converge with accessibility-optimised interfaces.**
 

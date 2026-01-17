@@ -52,7 +52,7 @@ This creates a first-mover advantage that's hard to claw back.
 AI agents are called "invisible users" for two reasons:
 
 1. **They're invisible to site owners** — Unless you're specifically tracking agent traffic (and most aren't), you have no idea how many agents visit your site or whether they succeed. They blend into analytics as slightly unusual sessions.
-2. **Your interface is partly invisible to them** — They can't see your beautiful animations, don't notice subtle color changes, miss three-second toast notifications, and don't understand that a loading spinner means "wait."
+2. **Your interface is partly invisible to them** — They can't see your beautiful animations, don't notice subtle colour changes, miss three-second toast notifications, and don't understand that a loading spinner means "wait."
 
 **The Five Types of Invisible Failure**
 

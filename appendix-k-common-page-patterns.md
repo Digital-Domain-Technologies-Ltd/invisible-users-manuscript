@@ -17,7 +17,7 @@ This appendix provides complete, production-ready HTML for twenty common page ty
 - **Accessible markup** — ARIA attributes and WCAG-compliant structure
 - **Real content** — Not lorem ipsum, but actual marketing copy demonstrating tone and structure
 
-### The Common Skeleton
+### Common Skeleton
 
 All examples share the same foundational structure:
 
@@ -44,7 +44,7 @@ This demonstrates production-ready architecture with:
 - Single source of truth for styles across all pages
 - Browser caching of CSS files for performance
 - Maintainable codebase with centralized styling
-- Proper separation of content, presentation, and behavior
+- Proper separation of content, presentation, and behaviour
 
 **JavaScript organization:**
 
@@ -101,14 +101,14 @@ Need a feature not shown here? Refer to Appendix D (AI-Friendly HTML Guide) for 
 
 The refactored structure demonstrates:
 
-- **Separation of concerns:** HTML (content), CSS (presentation), JavaScript (behavior)
+- **Separation of concerns:** HTML (content), CSS (presentation), JavaScript (behaviour)
 - **Maintainability:** Change styles once in `styles.css`, affect all pages
 - **Performance:** Browser caches CSS/JS files, reducing bandwidth
 - **Scalability:** Add new pages easily by referencing shared resources
 
 ---
 
-## 1. Home Page: The Digital Storefront
+## 1. Home Page: Digital Storefront
 
 The home page is your digital storefront. It must immediately communicate what you offer, who you serve, and why visitors should care. For AI agents, it needs clear schema, navigation structure, and value proposition data.
 
@@ -1125,7 +1125,7 @@ The consulting service page sells professional services — in this case, web au
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login | The Invisible Users</title>
   <meta name="ai-preferred-access" content="html">
-  
+
   <!-- Schema.org structured data for login page -->
   <script type="application/ld+json">
   {
@@ -2693,7 +2693,7 @@ The 404 error page provides helpful guidance when content is unavailable. For AI
 </head>
 <body>
   <main class="error-container" role="main" data-error-type="404" data-error-code="404">
-    
+
     <div class="error-code">404</div>
     <h1>Page Not Found</h1>
     <p class="error-message">The page you're looking for doesn't exist or has been moved.</p>

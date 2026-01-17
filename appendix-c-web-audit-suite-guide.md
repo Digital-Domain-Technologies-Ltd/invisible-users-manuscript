@@ -60,7 +60,7 @@ npm start -- -s https://example.com \
 | ----------- | -------- | ------- | --------------- |
 | 0-40 | Low | Critical issues, agents fail frequently | Immediate action needed |
 | 41-60 | Moderate-low | Basic functionality, many problems | Systematic improvements required |
-| 61-80 | Moderate-high | Good implementation, minor gaps | Refinement and optimization |
+| 61-80 | Moderate-high | Good implementation, minor gaps | Refinement and optimisation |
 | 81-100 | High | Excellent, professional-grade | Maintain and monitor |
 
 **Priority Fixes Based on Score:**
@@ -150,7 +150,7 @@ npm start -- -s https://example.com \
 **Key Factors:**
 
 - Meta descriptions present and adequate length
-- Title tags optimized
+- Title tags optimised
 - Heading hierarchy (H1, H2, H3)
 - Image alt text
 - Internal linking structure
@@ -158,7 +158,7 @@ npm start -- -s https://example.com \
 
 **Agent Relevance:**
 
-SEO best practices align with agent needs:
+SEO best practices match agent needs:
 
 - Clear titles help agents understand page purpose
 - Structured headings provide content hierarchy
@@ -258,7 +258,7 @@ Focus on:
 
 **Low Priority (Ongoing):**
 
-- Score optimization above 80
+- Score optimisation above 80
 - Advanced features
 - Competitive differentiation
 
@@ -399,7 +399,7 @@ Month 1:
 
 Quarter 1:
 
-- Optimize content extraction policies
+- Optimise content extraction policies
 - Implement rate limiting headers
 - Add API documentation
 
@@ -431,7 +431,7 @@ Monthly:
 
 Quarterly:
 
-- Optimize low-scoring pages
+- Optimise low-scoring pages
 - Review and update llms.txt
 - Benchmark against competitors
 

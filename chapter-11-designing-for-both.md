@@ -10,7 +10,7 @@ The patterns that break AI agents are the same patterns that have frustrated hum
 
 In Chapter 1, I mentioned that what agents need is mostly what everyone needs. Now let me show you precisely what that means - and why it creates a single design target rather than competing requirements.
 
-**Connecting to Chapter 10:** The previous chapter established how to make your site discoverable to agents through GEO (Generative Engine Optimization) - ensuring AI platforms can find and cite your content accurately. This chapter builds on that foundation by showing how to make your site usable once agents arrive. Discovery (Chapter 10) and usability (this chapter) form a unified strategy: structured data that helps agents cite you correctly also helps them complete transactions successfully. The convergence continues.
+**Connecting to Chapter 10:** The previous chapter established how to make your site discoverable to agents through GEO (Generative Engine Optimisation) - ensuring AI platforms can find and cite your content accurately. This chapter builds on that foundation by showing how to make your site usable once agents arrive. Discovery (Chapter 10) and usability (this chapter) form a unified strategy: structured data that helps agents cite you correctly also helps them complete transactions successfully. The convergence continues.
 
 **A note on universal patterns:** The solutions in this chapter work across the entire agent ecosystem - server-based agents, CLI agents, browser agents, browser extensions, IDE-integrated tools, and local agents. This is deliberate. We're not designing for a specific agent architecture; we're designing for a principle: explicit state, semantic structure, and persistent feedback. A pattern that requires JavaScript execution to work excludes half the ecosystem. A pattern that relies on session inheritance only helps browser extensions. Universal patterns benefit everyone - agents and humans alike - regardless of their technical constraints.
 
@@ -18,7 +18,7 @@ In Chapter 1, I mentioned that what agents need is mostly what everyone needs. N
 
 ![Designing for Both - the convergence principle of accessibility and agent-friendly design](illustrations/chapter-09-convergence-principle.png)
 
-## The Convergence Principle
+## Convergence Principle
 
 Screen readers need semantic HTML to understand page structure. So do agents.
 
@@ -54,7 +54,7 @@ Now consider the alternative. The error appears at the top of the form, stays vi
 
 This single change helps everyone. Not ideally - different users have different needs - but substantially.
 
-### The Business Case
+### Business Case
 
 This convergence has commercial implications. In the UK, roughly 16 million people have some form of disability. Globally, the World Health Organisation estimates 1.3 billion people - 16% of the population - experience significant disability.
 
@@ -89,7 +89,7 @@ The spinner appears. Then it disappears. Was that success or failure? How long s
 **After - Explicit:**
 
 ```html
-<div class="loading-indicator" 
+<div class="loading-indicator"
      data-state="loading"
      data-started="2025-12-21T10:30:00Z"
      data-expected-duration="2000"
@@ -148,7 +148,7 @@ The button explains why it's disabled. The form status shows exactly what's need
 
 Errors need to stick around until they're fixed.
 
-### The Error Display Pattern
+### Error Display Pattern
 
 **Before - Toast that vanishes:**
 
@@ -163,8 +163,8 @@ Errors need to stick around until they're fixed.
 ```html
 <form id="booking-form">
   <!-- Error summary at top, always visible when errors exist -->
-  <div class="error-summary" 
-       role="alert" 
+  <div class="error-summary"
+       role="alert"
        aria-live="assertive">
     <h2>Please fix the following errors</h2>
     <ul id="error-list">
@@ -174,12 +174,12 @@ Errors need to stick around until they're fixed.
 
   <div class="field">
     <label for="email">Email address</label>
-    <input type="email" 
-           id="email" 
+    <input type="email"
+           id="email"
            name="email"
            aria-invalid="true"
            aria-describedby="email-error">
-    <div class="field-error" 
+    <div class="field-error"
          id="email-error"
          role="alert">
       Enter a valid email address (example: name@company.com)
@@ -206,7 +206,7 @@ Remember the tour company that split its 14-day itinerary across 14 pages? They 
 
 The solution isn't complicated. Provide complete information on a single page with clear organisation.
 
-### The Tour Itinerary Pattern
+### Tour Itinerary Pattern
 
 **Before - Forced pagination:**
 
@@ -222,7 +222,7 @@ Fourteen pages. Fourteen clicks. Context is lost between each page.
 ```html
 <article class="tour-itinerary">
   <h1>14-Day Southeast Asia Adventure</h1>
-  
+
   <nav class="day-navigation" aria-label="Jump to day">
     <a href="#day-1">Day 1: Bangkok</a>
     <a href="#day-2">Day 2: Ayutthaya</a>
@@ -289,7 +289,7 @@ An agent can guess this is a product with a price. Is £149.99 the final price, 
 ```html
 <div class="product" itemscope itemtype="https://schema.org/Product">
   <h1 itemprop="name">Wireless Headphones</h1>
-  
+
   <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
     <p class="price">
       <span itemprop="priceCurrency" content="GBP">£</span>
@@ -301,7 +301,7 @@ An agent can guess this is a product with a price. Is £149.99 the final price, 
       In stock: <span itemprop="inventoryLevel">23</span> available
     </p>
   </div>
-  
+
   <button>Add to basket</button>
 </div>
 
@@ -387,7 +387,7 @@ Schema.org provides vocabularies for most things you'd want to describe:
 
 Use the vocabulary that matches your content. Start with one type and expand.
 
-### The Structured Data Dilemma
+### Structured Data Dilemma
 
 Here's the irony that Chapter 5 documented: the same Schema.org markup that improves search rankings makes content trivially extractable by agents. Recipe sites added structured data to rank higher on Google. News sites marked up articles to earn rich snippets. Tutorial creators added how-to schemas to increase visibility. They optimised for search engines. Now they're facing agent extraction without ad revenue.
 
@@ -413,19 +413,19 @@ If you have an API that's better for agents than scraping your HTML, tell them a
 <head>
   <!-- Where the API lives -->
   <meta name="ai-api-endpoint" content="https://api.example.com/v1">
-  
+
   <!-- Documentation -->
   <meta name="ai-api-docs" content="https://api.example.com/docs">
-  
+
   <!-- Authentication method -->
   <meta name="ai-api-auth" content="oauth2">
-  
+
   <!-- Rate limits -->
   <meta name="ai-api-rate-limit" content="100/minute">
-  
+
   <!-- Pricing information -->
   <meta name="ai-api-pricing" content="https://example.com/api-pricing">
-  
+
   <!-- This page's API equivalent -->
   <meta name="ai-api-resource" content="/products/12345">
 </head>
@@ -457,13 +457,13 @@ An agent visiting `https://example.com/products/wireless-headphones` sees immedi
 
 Most businesses should start with optimised HTML (it's cheaper and helps SEO) and add APIs later if demand justifies it.
 
-**Critical note about existing APIs:** If you already expose an API—even a simple one—ensure it provides equivalent or superior access to your HTML interface. The most costly mistakes occur when teams optimize HTML for agents whilst leaving APIs degraded. Agents using your API will receive inferior data (incomplete pricing, paginated results, missing structured format) compared to agents scraping your improved HTML. This inconsistency creates unpredictable agent behaviour and undermines your optimization work. See Appendix B (Lesson 13: "API and Web UI Out of Sync") for production failures where exactly this happened.
+**Critical note about existing APIs:** If you already expose an API—even a simple one—ensure it provides equivalent or superior access to your HTML interface. The most costly mistakes occur when teams optimise HTML for agents whilst leaving APIs degraded. Agents using your API will receive inferior data (incomplete pricing, paginated results, missing structured format) compared to agents scraping your improved HTML. This inconsistency creates unpredictable agent behaviour and undermines your optimisation work. See Appendix B (Lesson 13: "API and Web UI Out of Sync") for production failures where exactly this happened.
 
 ## Identity Delegation Patterns
 
 Chapter 4 described how agents sever customer relationships. When designing agent-friendly interfaces, you'll need to consider identity delegation.
 
-### The pattern
+### Pattern
 
 Agents should be able to present authorisation tokens that identify the actual customer. This allows:
 
@@ -577,7 +577,7 @@ Wikipedia combines human-readable articles with machine-readable data.
 
 An agent can extract structured facts from Wikidata, or parse the predictable infobox structure, or use the API directly.
 
-## The Small Business Version
+## Small Business Version
 
 "I run a restaurant. I don't have Stripe's engineering team."
 
@@ -594,7 +594,7 @@ Fair point. Here's what you actually need:
 
 <div itemscope itemtype="https://schema.org/Restaurant">
   <h1 itemprop="name">Luigi's Pizza</h1>
-  
+
   <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
     <p>
       <span itemprop="streetAddress">123 Main Street</span>,
@@ -604,8 +604,8 @@ Fair point. Here's what you actually need:
   </div>
 
   <p>Phone: <span itemprop="telephone">0161 123 4567</span></p>
-  
-  <p>Open: 
+
+  <p>Open:
     <time itemprop="openingHours" datetime="Mo-Su 11:00-22:00">
       11am - 10pm daily
     </time>
@@ -613,13 +613,13 @@ Fair point. Here's what you actually need:
 
   <div itemprop="menu" itemscope itemtype="https://schema.org/Menu">
     <h2>Menu</h2>
-    
+
     <div itemprop="hasMenuSection" itemscope itemtype="https://schema.org/MenuSection">
       <h3 itemprop="name">Pizzas</h3>
-      
+
       <div itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
         <p>
-          <span itemprop="name">Margherita</span> - 
+          <span itemprop="name">Margherita</span> -
           <span itemprop="offers" itemscope itemtype="https://schema.org/Offer">
             <span itemprop="priceCurrency" content="GBP">£</span>
             <span itemprop="price">12.99</span>
@@ -630,7 +630,7 @@ Fair point. Here's what you actually need:
 
       <div itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
         <p>
-          <span itemprop="name">Pepperoni</span> - 
+          <span itemprop="name">Pepperoni</span> -
           <span itemprop="offers" itemscope itemtype="https://schema.org/Offer">
             <span itemprop="priceCurrency" content="GBP">£</span>
             <span itemprop="price">14.99</span>
@@ -783,7 +783,7 @@ An emerging convention for providing site-wide guidance to AI agents. Similar to
 
 Chapter 12 covers implementation details and provides templates you can adapt.
 
-### The Three-Layer Approach
+### Three-Layer Approach
 
 The most effective agent compatibility combines three complementary systems:
 
@@ -929,7 +929,7 @@ Systematic platform improvements for long-term benefits.
 
 **Implementation approach:** Start with Priority 1 items - they're designed for immediate deployment with minimal risk. Move to Priority 2 once you've measured the impact of initial changes. Priority 3 items are strategic investments that require planning but deliver long-term competitive advantage.
 
-## The Convergence Continues
+## Convergence Continues
 
 Every solution in this chapter helps multiple audiences:
 

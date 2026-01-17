@@ -1,6 +1,6 @@
 \newpage
 
-# Chapter 8 - The Human Cost
+# Chapter 8 - Human Cost
 
 The digital divide implications.
 
@@ -16,7 +16,7 @@ This chapter examines who benefits from agent-mediated web access, who doesn't, 
 
 ![The Human Cost - examining access disparities and who gets left behind](illustrations/chapter-08-human-cost.png)
 
-## The Access Problem
+## Access Problem
 
 AI agents require several things to function:
 
@@ -64,7 +64,7 @@ Here's how different barriers exclude populations from agent benefits and amplif
 
 **Key insight:** AI agents act as productivity multipliers. Multipliers amplify existing differences. Those already advantaged gain dramatically more. Those struggling fall further behind. Each advantage builds on the last - someone with all five access points gets exponentially more value than someone with none.
 
-## The Capability Gap
+## Capability Gap
 
 Even among people who can access agents, effectiveness varies enormously.
 
@@ -84,7 +84,7 @@ These are learned skills. People with higher levels of education, greater techni
 
 The agent becomes a productivity multiplier. But multipliers amplify existing differences. Someone who already works efficiently becomes dramatically more efficient. Someone who struggles continues to struggle, perhaps more so.
 
-## The Language Exclusion
+## Language Exclusion
 
 AI agents work best in English.
 
@@ -111,7 +111,7 @@ Cultural expression suffers. Idioms, humour, local references, culturally-specif
 
 The web was supposed to connect cultures. Agent-mediated web access may instead homogenise them.
 
-## The Age Divide
+## Age Divide
 
 Different generations have different relationships with technology.
 
@@ -150,7 +150,7 @@ This is true - when it works. But it requires:
 
 For many older people, one or more of these is missing.
 
-## The Disability Question
+## Disability Question
 
 The relationship between agents and disability is complicated. Some disabilities benefit significantly from agent access. Others may be harmed.
 
@@ -178,7 +178,7 @@ If websites optimise for agents while neglecting traditional accessibility, peop
 
 This isn't inevitable. Agent-friendly and accessibility-friendly design overlap substantially; both require clear structure, explicit state, and semantic markup. However, the overlap is incomplete, and priorities can diverge.
 
-### The Visual Design Divergence
+### Visual Design Divergence
 
 Here's an important distinction: **AI agents don't see your website's visual design**.
 
@@ -215,13 +215,14 @@ Humans saw faded text with insufficient contrast. Screen reader users heard the 
 Both matter. Neither is optional. The overlap helps both groups, but each has unique needs.
 
 **WCAG contrast requirements for human users:**
+
 - Normal text: 4.5:1 minimum (WCAG AA)
 - Large text (18pt+): 3:1 minimum (WCAG AA)
 - Enhanced: 7:1 for normal text (WCAG AAA)
 
 AI agents don't need these ratios. Humans do. Design for both.
 
-## The Education Gap
+## Education Gap
 
 Effective agent use is a skill. Skills require learning. Learning opportunities aren't equally distributed.
 
@@ -253,7 +254,7 @@ Late or ineffective users fall further behind. Tasks that seem simple to experie
 
 We've seen this pattern before with basic computer literacy, internet search skills, and social media navigation. Agent literacy will follow the same trajectory unless deliberately addressed.
 
-## The Economic Divide
+## Economic Divide
 
 Agent access has real costs.
 
@@ -388,7 +389,7 @@ Support training efforts. Share knowledge with those learning to use agents effe
 
 Provide feedback—report when agents fail for non-English languages, accessibility needs, or other edge cases. Visibility drives improvement.
 
-## The Uncomfortable Reality
+## Uncomfortable Reality
 
 Technology transitions tend to benefit the already-privileged first.
 
@@ -410,7 +411,7 @@ The question isn't whether agents will become more accessible. They almost certa
 
 If we leave it to market forces alone, the gap will be wider and last longer.
 
-## The Parallel to Earlier Chapters
+## Parallel to Earlier Chapters
 
 This chapter connects to everything before it.
 
@@ -428,7 +429,7 @@ The legal uncertainties of Chapter 7 - liability, terms of service, privacy regu
 
 Design decisions regarding web interfaces have ripple effects. They affect who can participate in the digital economy, who can access services, and who gets left behind. The technical is political.
 
-## The Optimistic Case
+## Optimistic Case
 
 This chapter has been pessimistic. Let me offer some counterbalance.
 

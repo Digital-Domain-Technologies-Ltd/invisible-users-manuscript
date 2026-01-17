@@ -22,7 +22,7 @@ Throughout writing, I updated chapters to reflect events overtaking predictions.
 
 For the latest developments, see <https://allabout.network/invisible-users/news.html> where I track industry events as they unfold.
 
-This book grew from that realisation. It's not a book about AI. It's a book about web design, and the assumptions we've embedded into it. AI agents are the lens, but the subject is broader: how do we build digital spaces that work for users we didn't anticipate?
+This book grew from that realisation. It's not a book about AI, HTML, or coding. It's a book for business first, whilst catering for the technical teams who deliver it. AI agents are the focus, but the subject is broader: how do we build digital spaces that work for users we didn't anticipate?
 
 **The irony continued whilst writing this book.** When building the book's own website to demonstrate AI-friendly patterns, I initially used `opacity: 0.9` on header text for visual subtlety. AI agents and screen readers read it perfectly—they parse HTML structure directly and ignore CSS styling. But the low contrast failed WCAG accessibility standards for sighted humans. I'd built an AI-friendly interface that excluded people with low vision, exactly the pattern the book warns against.
 
@@ -34,13 +34,15 @@ This example now appears in Chapter 8 and Appendix D as a teaching case. It's th
 
 ## What This Book Is
 
-This is a practical guide and a thinking framework. Each chapter addresses a specific aspect of the collision between agent capabilities and web design conventions, from technical failures to business model tensions to legal uncertainties.
+This is a practical guide and a thinking framework. Unlike technical manuals that date quickly, *The Invisible Users* provides a logic framework. It teaches readers how to think about "Two-Headed Design"—balancing human emotion with machine logic. It aims to turn the perceived threat of AI agents into a "resilience dividend" for universal accessibility.
+
+**This book establishes the infrastructure standards for the agentic web.** It moves beyond simple "how-to" instructions to provide the foundational resilience for the 2026 web.
 
 **This is a theory book, not a research study.** The field of AI agent interaction with websites is too new for comprehensive empirical research. You won't find citations to academic papers proving the patterns I describe, because those papers don't exist yet. What you will find is a structured way to think about emerging problems and evaluate potential responses.
 
 **The figures and examples are illustrative, not validated.** When I write "if agent traffic reaches 30% of visits with minimal ad revenue, a site could see revenue decline by roughly one-third," that's a logical calculation, not a proven outcome. I've avoided false precision - you'll see ranges and qualified language rather than specific percentages presented as facts.
 
-**This book offers frameworks for decision-making, not proven solutions.** The patterns that appear to work for agent compatibility also align with accessibility best practices, which gives us confidence. But we don't yet know which approaches will become standard, which will evolve, and which will be superseded by better alternatives.
+**This book offers frameworks for decision-making, not proven solutions.** The patterns that appear to work for agent compatibility also support accessibility best practices, which gives us confidence. But we don't yet know which approaches will become standard, which will evolve, and which will be superseded by better alternatives.
 
 The book follows a structured progression from problem to solution:
 
@@ -66,21 +68,31 @@ This isn't a manifesto. There are genuine disagreements about how to handle agen
 
 ---
 
+## Key Market Trends
+
+Three major shifts drive the urgency of this title:
+
+* **The Decline of the Click:** As generative engines (Gemini, ChatGPT, SearchGPT) answer queries directly, "Click-Through Rate" (CTR) is being replaced by **Citation Share**.
+* **The Rise of "Agentic Workflows":** Industry leaders (Amazon, Microsoft, Google) have shifted from "Chat" to "Action", requiring every website to be machine-navigable.
+* **The Global Accessibility Mandate:** Regulatory pressure (like the European Accessibility Act) is converging with technical necessity. This book names this convergence the **"Resilience Dividend"**.
+
+---
+
 ## Who This Book Is For
 
 This book is written for four distinct audiences, each of whom holds a piece of the solution:
 
-**1. Web Professionals & Engineers**
-The full digital team: developers, system architects, product owners, project managers, UX designers, content strategists, and QA engineers. You are the text's primary audience. Developers will find technical patterns and code examples. Designers will discover interface patterns that serve both humans and agents. Product owners and project managers will understand prioritisation frameworks. Content strategists will learn agent-friendly content structure. QA engineers will find testing approaches for agent compatibility. The [Web Audit Suite](../web-audit-suite/) is available as a separate purchase or professional audit service.
+**1. The Strategic C-Suite (CTOs, CMOs, CDOs)**
+Leaders at enterprise and mid-market firms who are seeing "silent conversion drops" and need a framework for **Commerce Infrastructure Readiness** to maintain market share. Chapters 4, 5, and 9 are particularly relevant here.
 
-**2. Agent System Developers**
-Developers building AI agents, browser extensions, and agentic systems that interact with websites. Chapter 12 is written specifically for you. You'll find validation frameworks, confidence scoring patterns, and guardrails that prevent pipeline failures like the £203,000 cruise pricing error. Your agents need robust data quality controls.
+**2. The Digital Workforce (Developers, Architects, Product Owners, PMs, UX, Content, QA)**
+The full digital team—developers, system architects, product owners, project managers, UX designers, content strategists, and QA engineers—who must pivot from "Keyword Optimisation" to "Infrastructure Optimisation". This group finds technical patterns and interface designs throughout the book.
 
-**3. Business Leaders & Decision Makers**
-CTOs, CMOs, and executives who need to understand the strategic shift. You don't need to write the code, but you do need to understand why "silent conversion failures" are happening and how to resource the fix. Chapters 4, 5, and 9 are written specifically for you.
+**3. The "Agency Economy" Service Providers**
+Marketing and dev agencies looking to productise "**Agent-Compatibility Audits**" and "Agent-Proofing" as new high-margin service lines. The methodology described creates a new category of professional services.
 
-**4. Partners & Investors**
-Agencies looking to offer new services and investors evaluating the next phase of web evolution. The methodology described here creates a new category of professional services—audit, remediation, and certification—that will likely dominate web development discussions for the next decade.
+**4. The Accessibility Community**
+A $13 trillion global market (people with disabilities and their networks) that finally gains a powerful commercial ally in AI agents.
 
 ---
 
@@ -135,7 +147,7 @@ The "Invisible Users" metaphor provides a useful framework for understanding the
 
 ### Practical Application
 
-The most valuable aspect of the book is the "Convergence Principle." The author demonstrates that optimizing for AI agents often reinforces existing accessibility best practices. The technical guidance, particularly the HTML patterns in Appendix D, is practical and grounded in real-world scenarios. Developers will find actionable advice they can implement immediately.
+The most valuable aspect of the book is the "Convergence Principle." The author demonstrates that optimising for AI agents often reinforces existing accessibility best practices. The technical guidance, particularly the HTML patterns in Appendix D, is practical and grounded in real-world scenarios. Developers will find actionable advice they can implement immediately.
 
 ### Forward-Looking Context
 

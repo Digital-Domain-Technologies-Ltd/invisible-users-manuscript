@@ -43,7 +43,7 @@ Browser automation plus commerce integration equals ecosystem tipping point.
 
 **Claude for Chrome solves the "how":** Agents can now navigate authenticated sessions, fill complex forms, extract data from any website, and coordinate multi-step processes across tabs. The technical capability exists at scale.
 
-**Copilot Checkout solves the "why":** The business case is becoming clearer. Transaction-based businesses report improved conversion rates. Platform power shifts to AI companies who control distribution. Retailers who optimize early capture preferential placement.
+**Copilot Checkout solves the "why":** The business case is becoming clearer. Transaction-based businesses report improved conversion rates. Platform power shifts to AI companies who control distribution. Retailers who optimise early capture preferential placement.
 
 Together, they demonstrate that agent-mediated web interaction isn't coming - it's here. Not in research labs. Not in limited pilots. In production, at scale, processing real transactions.
 
@@ -97,7 +97,7 @@ This isn't agent-specific vulnerability. It's a limitation of IP-based detection
 
 Microsoft reports improved conversion rates for partner retailers using Copilot Checkout, though these figures have not been independently validated. Partner retailers include Urban Outfitters, Anthropologie, Etsy, and Shopify stores - real production implementations processing real transactions.
 
-The business case for agent optimization is becoming clearer. Retailers implementing agent-compatible patterns report improved conversion rates. The exact impact varies by site, traffic composition, and implementation quality.
+The business case for agent optimisation is becoming clearer. Retailers implementing agent-compatible patterns report improved conversion rates. The exact impact varies by site, traffic composition, and implementation quality.
 
 ### Platform Power Shift Is Happening
 
@@ -228,7 +228,7 @@ This suggests other platform-specific implementations will emerge before industr
 
 ### Reported Conversion Impact
 
-Microsoft's reported improvements (though unvalidated by independent research) suggest the business case for agent optimization may be stronger than initially projected.
+Microsoft's reported improvements (though unvalidated by independent research) suggest the business case for agent optimisation may be stronger than initially projected.
 
 ## The New Industry Appendix (Online)
 
@@ -361,7 +361,7 @@ Claude for Chrome - which I was using whilst writing the case studies - launched
 
 The window to act isn't two years. It's now. Whilst agent traffic is still 10-20% of total traffic, whilst competitive pressure is building but not yet dominant, whilst you can still gain first-mover advantage in your market.
 
-In two years, agent compatibility will be table stakes. The businesses that optimize now will capture the high-conversion traffic whilst competitors are still deciding whether to act.
+In two years, agent compatibility will be table stakes. The businesses that optimise now will capture the high-conversion traffic whilst competitors are still deciding whether to act.
 
 Are you ready?
 

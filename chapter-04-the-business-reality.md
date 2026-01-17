@@ -1,6 +1,6 @@
 \newpage
 
-# Chapter 4 - The Business Reality
+# Chapter 4 - Business Reality
 
 The commercial implications of agent-mediated commerce.
 
@@ -16,7 +16,7 @@ Understanding these tensions is necessary before discussing solutions. Some busi
 
 ---
 
-## The Revenue Model Collision
+## Revenue Model Collision
 
 Consider how most free websites make money:
 
@@ -114,7 +114,7 @@ These help but don't solve the fundamental problem: the attention economy depend
 
 ---
 
-## E-Commerce - Where Incentives Align
+## E-Commerce - Where Incentives Match
 
 Not every business model suffers from agent traffic. Transaction-based businesses often benefit.
 
@@ -155,7 +155,7 @@ See online Appendix J (<https://allabout.network/invisible-users/web/appendix-j.
 
 ---
 
-## The Price Comparison Death Spiral
+## Price Comparison Death Spiral
 
 But there's a problem lurking in e-commerce agent optimisation: **perfect price transparency erodes margins.**
 
@@ -233,7 +233,7 @@ Old: £50/user/month
 New: £0.01/API call + £10/user/month
 ```
 
-This aligns cost with value but creates unpredictability for customers. Heavy automation becomes expensive. You're penalising efficiency.
+This matches cost with value but creates unpredictability for customers. Heavy automation becomes expensive. You're penalising efficiency.
 
 *Value-based pricing:*
 
@@ -245,7 +245,7 @@ New: Priced on outcomes
 £Z per deal closed
 ```
 
-This aligns with customer value but is harder to measure and attribute. What counts as a "deal closed" varies wildly.
+This matches customer value but is harder to measure and attribute. What counts as a "deal closed" varies wildly.
 
 *The API tax:*
 
@@ -273,7 +273,7 @@ Compete on being the easiest to automate—race to the top on agent-friendliness
 
 ---
 
-## The Data Collection Catastrophe
+## Data Collection Catastrophe
 
 Beyond direct revenue, many businesses depend on user data for targeting, personalisation, and analytics. Agent traffic breaks this, too.
 
@@ -313,7 +313,7 @@ If agents mediate more web interaction, the surveillance capitalism model that f
 
 ---
 
-## The Severed Customer Relationship
+## Severed Customer Relationship
 
 The problem extends beyond marketing data. When an agent purchases on behalf of a human, the seller may never know the actual customer.
 
@@ -399,7 +399,7 @@ Cryptographic proofs of identity without centralised storage. The customer creat
 
 Browser vendors build delegation directly into the platform. When an agent needs to act on behalf of the logged-in user, the browser provides identity with user consent.
 
-**Advantages:** Built into the platform everyone uses, leverages existing browser identity.
+**Advantages:** Built into the platform everyone uses, uses existing browser identity.
 
 **Disadvantages:** Requires coordination across browser vendors, is limited to in-browser agents, and has a slow standards process.
 
@@ -617,7 +617,7 @@ Complex products with hidden fees become transparent to agent analysis. Simpler 
 
 ---
 
-## The Investment Perspective
+## Investment Perspective
 
 For investors, agent traffic creates both opportunities and risks:
 
@@ -643,7 +643,7 @@ For investors, agent traffic creates both opportunities and risks:
 
 ---
 
-## The Uncomfortable Truth
+## Uncomfortable Truth
 
 Most businesses don't want users to complete tasks quickly.
 
@@ -781,7 +781,7 @@ For each exposure level, consider these approaches:
 - **Stay informed:** Understand emerging patterns in your industry
 - **Reassess annually:** Your exposure may change as agent adoption grows
 
-### The Location Detection Challenge
+### Location Detection Challenge
 
 Browser extensions and "smart AI" browsers may be operated by users with VPNs, corporate proxies, or mobile networks that mask their actual location. Do you really know where your visitors are located?
 
@@ -819,7 +819,7 @@ Use this matrix to decide your strategic response:
 
 The January 2026 platform race introduced multiple commerce protocols for agent-mediated transactions. Businesses with transaction-based revenue now face a critical decision: Which protocol should you integrate with, if any?
 
-### The Protocol Landscape
+### Protocol Landscape
 
 Three major approaches emerged:
 
@@ -849,6 +849,7 @@ Integrate with **at least one open protocol immediately**. Rationale:
 - Open protocols enable migration if one protocol wins
 
 **Protocol choice guidance:**
+
 - If you're already on Shopify/Etsy: ACP integration may be automatic (verify with your platform)
 - If you have significant search traffic: UCP provides Google Search distribution advantage
 - If you have engineering resources: Support both ACP and UCP to maximise agent reach
@@ -983,7 +984,7 @@ Fix the obvious problems now: transparent pricing, visible errors, and complete 
 
 ---
 
-## The Path Forward
+## Path Forward
 
 The business reality of agent traffic is nuanced. There are genuine winners and losers. Incentives don't always align with user benefit. The transition will be painful for some industries.
 

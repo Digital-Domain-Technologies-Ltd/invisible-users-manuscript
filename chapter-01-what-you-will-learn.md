@@ -110,7 +110,7 @@ Throughout this book, when agent type matters to understanding a problem or solu
 
 ---
 
-## The Accessibility Connection
+## Accessibility Connection
 
 The web accessibility movement taught us something important: designing for edge cases improves experience for everyone.
 

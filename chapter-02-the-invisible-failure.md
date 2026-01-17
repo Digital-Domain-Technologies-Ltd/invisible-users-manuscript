@@ -22,7 +22,7 @@ This chapter catalogues the specific patterns that cause these failures. Each on
 
 ![The Anatomy of Invisible Failure - common patterns that silently break AI agents](illustrations/chapter-02-illustration.png)
 
-## The Six Types of Invisible Failure: Summary
+## Six Types of Invisible Failure: Summary
 
 | Pattern | Problem | Agent Impact | Human Impact | Example |
 | ------- | ------- | ------------ | ------------ | ------- |
@@ -117,7 +117,7 @@ These choices optimise for metrics that matter to the business, while making the
 
 ---
 
-## The Single-Page Application Problem
+## Single-Page Application Problem
 
 Single-page applications represented a genuine advancement in web development: faster interactions, smoother transitions, and a more app-like experience. No more full-page reloads for every action.
 
@@ -216,7 +216,7 @@ Each cycle takes time. Each error reveals only one problem. The agent might need
 
 ```html
 <form data-state="incomplete">
-  <input name="email" data-validation="invalid" 
+  <input name="email" data-validation="invalid"
          data-error="Must be a valid email format (currently: usergmail.com)">
   <input name="phone" data-validation="missing"
          data-error="Required field, not yet provided">
@@ -323,7 +323,7 @@ I've seen agents:
 **What helps:**
 
 ```html
-<div data-loading="true" 
+<div data-loading="true"
      data-loading-started="2025-01-15T10:30:00Z"
      data-expected-duration="3000"
      data-timeout="10000">
@@ -404,7 +404,7 @@ The reason was clearly stated - at the top of a page the agent had scrolled past
 
 ---
 
-## The Console Fallacy
+## Console Fallacy
 
 "Errors are logged to console. The agent can see those."
 
@@ -430,7 +430,7 @@ Every error, every state change, every piece of information must be represented 
 
 ---
 
-## The False Positive Crisis
+## False Positive Crisis
 
 The most dangerous failures aren't the obvious ones. They're the invisible successes.
 

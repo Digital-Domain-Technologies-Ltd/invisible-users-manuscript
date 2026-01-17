@@ -30,6 +30,7 @@ cp site-files/llms.txt /var/www/html/llms.txt
 ```
 
 **IMPORTANT:** Customize both files before deployment:
+
 - Replace `example.com` with your actual domain
 - Update contact email addresses
 - Adjust rate limits and access policies

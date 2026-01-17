@@ -58,32 +58,6 @@ While there are many books on "AI for Business," they almost exclusively focus o
 
 ### III. Target Market Demographics
 
-This book targets four distinct high-growth professional segments:
-
-1. **The Strategic C-Suite (CTOs, CMOs, CDOs):** Leaders at Enterprise and Mid-Market firms who are seeing "silent conversion drops" and need a framework for **GEO Verification** to maintain market share.
-2. **The Digital Workforce (Developers, UXers, SEOs):** Over 27 million professional developers worldwide who must pivot from "Keyword Optimization" to "Infrastructure Optimization" to remain relevant.
-3. **The "Agency Economy" Service Providers:** Marketing and dev agencies looking to productize "GEO Audits" and "Agent-Proofing" as new high-margin service lines.
-4. **The Accessibility Community:** A $13 Trillion global market (people with disabilities and their networks) that finally gains a powerful commercial ally in AI agents.
-
----
-
-### IV. Key Market Trends Supporting this Title
-
-* **The Death of the Click:** As generative engines (Gemini, ChatGPT, SearchGPT) answer queries directly, "Click-Through Rate" (CTR) is being replaced by **Citation Share.**
-* **The Rise of "Agentic Workflows":** Industry leaders (Amazon, Microsoft, Google) have shifted from "Chat" to "Action," requiring every website to be machine-navigable.
-* **The Global Accessibility Mandate:** Regulatory pressure (like the European Accessibility Act) is converging with technical necessity. This book is the first to name this convergence the **"Resilience Dividend."**
-
----
-
-### V. Unique Selling Proposition (USP)
-
-Unlike technical manuals that date quickly, *The Invisible Users* provides a **Logic Framework.** It teaches readers how to think about "Two-Headed Design"—balancing human emotion with machine logic. It is the only book that turns the "threat" of AI agents into a "dividend" for universal accessibility and business resilience.
-
----
-
-### Summary for the Publisher
-
-This book isn't just a "how-to"; it is a **Category King** title. It establishes the discipline of **GEO (Generative Engine Optimization)** and positions the publisher as the leading authority on the infrastructure of the 2026 web.
 
 ---
 

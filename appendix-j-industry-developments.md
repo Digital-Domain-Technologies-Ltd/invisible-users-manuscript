@@ -29,7 +29,7 @@ OpenAI and Stripe announced the Agentic Commerce Protocol (ACP), an open standar
 ### Key Details
 
 **Announcement Date:** 29 September 2024
-**Organizations:** OpenAI and Stripe (codevelopers)
+**Organisations:** OpenAI and Stripe (codevelopers)
 **License:** Apache 2.0 (open source)
 **Implementation:** Powers "Instant Checkout" in ChatGPT
 **Availability:** U.S. ChatGPT Plus, Pro, and Free users
@@ -432,7 +432,7 @@ Comet's free release pressures competitors:
 Browser agents are no longer limited to paid subscribers. Millions of users with free access means:
 
 - Agent traffic becomes meaningful percentage of total traffic
-- Must optimize for agents or risk losing conversions
+- Must optimise for agents or risk losing conversions
 - Cannot assume "agents are rare/expensive users we can ignore"
 
 ### What This Validates
@@ -526,7 +526,7 @@ This is the validation layer architecture discussed in Chapter 12: agents need c
 
 **Detection and Bot Blocking:**
 
-If Comet disguises itself as Chrome (using Chromium User-Agent), how can websites distinguish legitimate human browsing from agent automation? Amazon's lawsuit against Perplexity (documented in Appendix J) centers on this question.
+If Comet disguises itself as Chrome (using Chromium User-Agent), how can websites distinguish legitimate human browsing from agent automation? Amazon's lawsuit against Perplexity (documented in Appendix J) centres on this question.
 
 **Privacy and Data Collection:**
 
@@ -1720,6 +1720,7 @@ Possible explanations:
 If major retailers endorsed UCP whilst 1M+ merchants support ACP, fragmentation becomes acute within 6 months. Retailers can't maintain dual protocols indefinitely. Either:
 
 - Platforms converge protocols (unified standard)
+- Platforms converge protocols (unified standard)
 - One protocol wins clearly (market consolidation)
 - Retailers demand interoperability (technical bridging)
 
@@ -1729,10 +1730,6 @@ The cooperation that enabled UCP endorsement may also enable ACP/UCP merger. If 
 
 ### Cross-References to Book Content
 
-- **NEW Chapter 9: "The Platform Race"** - This announcement validates the entire chapter's thesis
-- **Chapter 4: "Platform Power Shifts"** - Google leveraging search monopoly exactly as predicted
-- **Chapter 4: "Agent Exposure Assessment"** - Timeline compression increases urgency for high-exposure businesses
-- **Chapter 10: "Designing for Both"** - Open protocols enable universal pattern approach
 - **Chapter 12: "Technical Advice"** - Implementation guide for protocol-agnostic patterns
 - **Chapter 13: "Identity Abstraction"** - Agent creators must support multiple protocols during convergence
 - **Appendix F: "Implementation Roadmap"** - Prioritize tasks based on compressed timeline

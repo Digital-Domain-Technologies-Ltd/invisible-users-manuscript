@@ -244,7 +244,7 @@ const outliers = validator.analyseOutliers(prices);
 
 When one price is 58 times higher than the median, that's a red flag. Either it's a genuinely different product (luxury suite vs standard cabin), or it's a data error. Either way, it deserves explicit attention and user notification.
 
-#### The Incomplete Data Problem
+#### Incomplete Data Problem
 
 **Critical insight from the £203k error**: The agent retrieved pricing for only one of three operators. This incomplete data pattern should itself have triggered warnings and reduced confidence.
 
@@ -433,7 +433,7 @@ Zero confidence. Multiple warnings. Clear recommendation. The agent should not r
 
 Not all agent actions carry the same risk. Reading information has different requirements than making purchases. The confidence threshold should match the action's consequences.
 
-### The Confidence Spectrum
+### Confidence Spectrum
 
 **High Confidence (90%+):** Act autonomously without user confirmation.
 
@@ -728,7 +728,7 @@ A transparency manifest should include:
 
 **Standards emergence:** The field needs quality standards. We have no certification programmes, no independent testing, no way to differentiate reliable agents from negligent ones. Publishing methodology is a first step towards collective standards.
 
-#### The Uncomfortable Truth
+#### Uncomfortable Truth
 
 I won't pretend this is cost-free.
 
@@ -895,7 +895,7 @@ Chapter 11 showed what websites should publish: structured data, explicit state,
 
 Both sides making their logic explicit. Both sides enabling inspection. That's how reliable systems get built - through transparency, accountability, and collective improvement.
 
-## The Missing Identity Layer
+## Missing Identity Layer
 
 Here's what agent creators must navigate: the identity delegation landscape has evolved rapidly, but fragmentation remains the challenge. As of January 2026, we have two open protocols and one closed system competing for adoption.
 
@@ -1191,7 +1191,7 @@ Over time, your validation layers become more sophisticated. You're encoding hum
 
 This is how agent quality improves. Not through better language models (though that helps), but through better pipelines that catch errors before they reach the reasoning engine.
 
-## The Validation Roadmap
+## Validation Roadmap
 
 If you're building an agent, here's how to prioritise validation implementation.
 
@@ -1327,7 +1327,7 @@ The technology is new. The failures are real. Hallucinations will continue. But 
 
 That's how we build a web that works for everyone - human and machine alike.
 
-## Open Protocol Reality: The Platform Race
+## Open Protocol Reality: Platform Race
 
 **As of January 2026:** Three major platforms launched agent commerce systems within seven days, fundamentally changing the competitive landscape for identity delegation. Chapter 9 documents this seven-day acceleration in detail - this section examines the implications for agent creators.
 

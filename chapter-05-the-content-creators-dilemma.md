@@ -1,6 +1,6 @@
 \newpage
 
-# Chapter 5 - The Content Creator's Dilemma
+# Chapter 5 - Content Creator's Dilemma
 
 How AI consumption threatens existing business models.
 
@@ -16,7 +16,7 @@ For them, agent traffic isn't a strategic consideration. It's a question of surv
 
 ---
 
-## The Economics of Free Content
+## Economics of Free Content
 
 Most free content on the internet follows the same basic model:
 
@@ -152,7 +152,7 @@ Free educational resources - Khan Academy alternatives, coding tutorials, langua
 
 ---
 
-## The Ethical Question
+## Ethical Question
 
 Is agent extraction of content theft or progress?
 
@@ -244,7 +244,7 @@ Publish freely, hope for indirect benefits - reputation, opportunities, the sati
 
 ---
 
-## The Detection Arms Race
+## Detection Arms Race
 
 Some creators choose to fight - blocking agents while allowing humans. This initiates an escalation that benefits nobody.
 
@@ -361,7 +361,7 @@ Some of this is already happening. OpenAI has deals with some publishers. But th
 
 ---
 
-## The Legal Landscape
+## Legal Landscape
 
 Courts are beginning to address these questions. The outcomes will shape the industry.
 
@@ -489,7 +489,7 @@ Applied to AI:
 
 ---
 
-## The User's Role
+## User's Role
 
 Users - the humans who employ AI agents - have a stake in this too, whether they realise it or not.
 
@@ -575,7 +575,7 @@ In the meantime, what can different parties do?
 
 ---
 
-## The Uncomfortable Truth
+## Uncomfortable Truth
 
 The advertising-funded model for free content is breaking. Not just because of AI agents - ad-blockers, platform shifts, and attention fragmentation were already eroding it. But agents accelerate the collapse.
 
@@ -691,7 +691,7 @@ Different paths forward have different requirements and feasibility:
 
 ---
 
-## The Path Forward
+## Path Forward
 
 For content creators reading this: the situation is difficult, and honesty about your vulnerability helps more than optimism.
 

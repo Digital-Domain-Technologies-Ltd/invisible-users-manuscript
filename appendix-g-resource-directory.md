@@ -523,7 +523,7 @@ Curated resources referenced in *The Invisible Users: Designing the Web for AI A
 
 - Website: <https://webaim.org>
 
-### The A11Y Project
+### A11Y Project
 
 - Website: <https://www.a11yproject.com>
 - Community-driven accessibility resources

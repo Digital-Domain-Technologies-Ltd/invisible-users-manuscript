@@ -1,6 +1,6 @@
 \newpage
 
-# Chapter 6 - The Security Maze
+# Chapter 6 - Security Maze
 
 Security implications of AI agents acting on user behalf.
 
@@ -118,7 +118,7 @@ This isn't a bug in banking security. It's a fundamental architectural gap. Secu
 
 **Production validation:** Claude for Chrome (December 2025), Amazon Alexa.com (January 2026), and other browser-based agents now demonstrate this session inheritance in production. See Appendix J for timeline.
 
-### The Indistinguishability Problem
+### Indistinguishability Problem
 
 From the bank's perspective, three actors look nearly identical:
 
@@ -139,7 +139,7 @@ This fundamentally breaks the assumption that "authenticated session = authorize
 
 ---
 
-## The Command Channel Problem
+## Command Channel Problem
 
 This problem becomes dangerous when it is automated.
 
@@ -191,7 +191,7 @@ The AI then uses your fully authenticated session - your CAPTCHA token, your Clo
 
 The attacker never needed access to your email account. They just needed to send an email that appeared to come from you.
 
-### The Always-On Risk
+### Always-On Risk
 
 The WhatsApp setup makes this worse. The author describes their AI as:
 
@@ -249,13 +249,13 @@ Security must be architected with the assumption that agents lack robust validat
 
 ---
 
-## The Other Authentication Problem
+## Other Authentication Problem
 
 Session inheritance affects in-browser AI. But what about agents that need to authenticate independently?
 
 Here, the problem is different: agents can't pass the security checks.
 
-### The Credential Dilemma
+### Credential Dilemma
 
 When you send an external agent - one running on Anthropic's or OpenAI's servers - to book a hotel on your behalf, how does it log in?
 
@@ -267,7 +267,7 @@ When you send an external agent - one running on Anthropic's or OpenAI's servers
 
 But almost no consumer sites support OAuth delegation for AI agents. The infrastructure doesn't exist.
 
-### The Two-Factor Wall
+### Two-Factor Wall
 
 Two-factor authentication blocks agents completely:
 
@@ -373,7 +373,7 @@ When the site loads, the banner blocks everything, and the agent sees a modal wi
 
 The banner blocks the screen until you interact. There's no standard way for agents to recognise "this is a required consent step."
 
-### The GDPR Irony
+### GDPR Irony
 
 GDPR is intended to protect privacy and give users control. The implementation creates barriers that make agent-based browsing - which could consistently enforce user preferences across every site - nearly impossible.
 
@@ -397,7 +397,7 @@ The site sets cookies accordingly—no banner interaction is required.
 
 ---
 
-## The Bot Detection Problem
+## Bot Detection Problem
 
 Many sites actively try to block automated access. This creates an arms race where everyone loses.
 
@@ -415,7 +415,7 @@ Many sites actively try to block automated access. This creates an arms race whe
 
 Each technique harms legitimate users while sophisticated bots evade them.
 
-### The Session Inheritance Bypass
+### Session Inheritance Bypass
 
 Here's the deeper problem: in-browser AI agents automatically bypass all of this.
 
@@ -439,7 +439,7 @@ An in-browser agent never triggers bot detection because, from the site's perspe
 
 When AI agents access sensitive information, the risks compound.
 
-### The Gradient of Sensitivity
+### Gradient of Sensitivity
 
 Not all data is equally sensitive:
 
@@ -453,7 +453,7 @@ Most AI agents treat all data the same. They don't distinguish between "what res
 
 This is wrong. Security controls should match sensitivity.
 
-### The Session Inheritance Risk
+### Session Inheritance Risk
 
 The session inheritance problem exacerbates this. Your browser extension can see everything you see:
 
@@ -528,7 +528,7 @@ Some tasks span multiple pages: filling out a form, reviewing information, confi
 
 ---
 
-## The Path Forward
+## Path Forward
 
 Security in the age of AI agents faces two distinct challenges:
 

@@ -62,7 +62,7 @@ Characteristics:
 - State changes applied
 - What humans see in DevTools
 
-### The Compatibility Problem
+### Compatibility Problem
 
 **Example:** A product page with client-side price loading:
 
@@ -87,7 +87,7 @@ Browser agents with JavaScript see: "£149.99" (correct)
 - JavaScript-dependent features fail
 - Progressive enhancement is critical
 
-### The Solution: Server-Side Truth
+### Solution: Server-Side Truth
 
 Serve HTML that works without JavaScript, then enhance with JavaScript:
 
@@ -288,54 +288,54 @@ class AgentDetector {
       technical: 0
     };
   }
-  
+
   checkFormSpeed() {
     const form = document.querySelector('form');
     if (!form) return;
-    
+
     const fieldTimes = [];
-    
+
     form.querySelectorAll('input').forEach(input => {
       input.addEventListener('focus', () => {
         input.dataset.focusTime = Date.now();
       });
-      
+
       input.addEventListener('blur', () => {
         const duration = Date.now() - input.dataset.focusTime;
         fieldTimes.push(duration);
-        
+
         if (duration < 100) this.signals.timing++;
       });
     });
   }
-  
+
   checkMouseBehavior() {
     let mouseMoves = 0;
     let clicks = 0;
-    
+
     document.addEventListener('mousemove', () => mouseMoves++);
     document.addEventListener('click', () => clicks++);
-    
+
     setTimeout(() => {
       if (clicks > 0 && mouseMoves < 10) {
         this.signals.interaction++;
       }
     }, 5000);
   }
-  
+
   checkTechnicalMarkers() {
     if (navigator.webdriver) {
       this.signals.technical++;
     }
-    
+
     if (!window.chrome && navigator.userAgent.includes('Chrome')) {
       this.signals.technical++;
     }
   }
-  
+
   isLikelyAgent() {
-    const total = this.signals.timing + 
-                  this.signals.interaction + 
+    const total = this.signals.timing +
+                  this.signals.interaction +
                   this.signals.technical;
     return total >= 3;
   }
@@ -360,29 +360,29 @@ Server-side detection complements this:
 ```javascript
 function analyzeRequest(req) {
   const signals = [];
-  
+
   const suspiciousAgents = [
-    'headless', 'phantomjs', 'selenium', 
+    'headless', 'phantomjs', 'selenium',
     'webdriver', 'bot', 'crawler'
   ];
-  
+
   const ua = req.headers['user-agent']?.toLowerCase() || '';
   if (suspiciousAgents.some(pattern => ua.includes(pattern))) {
     signals.push('suspicious_ua');
   }
-  
+
   if (!req.headers['accept-language']) {
     signals.push('no_language');
   }
-  
+
   const sessionRequests = getSessionRequests(req.sessionID);
-  const timespan = sessionRequests[sessionRequests.length - 1].time - 
+  const timespan = sessionRequests[sessionRequests.length - 1].time -
                    sessionRequests[0].time;
-  
+
   if (sessionRequests.length > 10 && timespan < 5000) {
     signals.push('rapid_requests');
   }
-  
+
   return {
     isLikelyAgent: signals.length >= 2,
     signals: signals
@@ -402,13 +402,13 @@ Most form failures come from validation happening too late. Here's a form that v
     <p>Completion: <span id="completion-pct">0%</span></p>
     <p>Errors: <span id="error-count">3</span></p>
   </div>
-  
+
   <div class="field">
     <label for="email">Email address</label>
-    <input 
-      type="email" 
-      id="email" 
-      name="email" 
+    <input
+      type="email"
+      id="email"
+      name="email"
       required
       data-validation-state="empty"
     >
@@ -416,13 +416,13 @@ Most form failures come from validation happening too late. Here's a form that v
       <span class="status-text">Required field, not yet filled</span>
     </output>
   </div>
-  
+
   <div class="field">
     <label for="date">Appointment date</label>
-    <input 
-      type="date" 
-      id="date" 
-      name="date" 
+    <input
+      type="date"
+      id="date"
+      name="date"
       required
       min="2025-12-22"
       data-validation-state="empty"
@@ -431,7 +431,7 @@ Most form failures come from validation happening too late. Here's a form that v
       <span class="status-text">Required: must be future date</span>
     </output>
   </div>
-  
+
   <button type="submit" id="submit-btn" disabled>
     Book appointment (3 fields incomplete)
   </button>
@@ -446,22 +446,22 @@ class SynchronousValidator {
     this.form = document.getElementById(formId);
     this.fields = this.form.querySelectorAll('[data-validation-state]');
     this.submitBtn = this.form.querySelector('[type="submit"]');
-    
+
     this.fields.forEach(field => {
       field.addEventListener('input', () => this.validateField(field));
       field.addEventListener('blur', () => this.validateField(field));
     });
-    
+
     this.validateAll();
   }
-  
+
   validateField(field) {
     const output = field.parentElement.querySelector('output');
     const statusText = output.querySelector('.status-text');
-    
+
     let state = 'valid';
     let message = 'Valid';
-    
+
     if (field.value.trim() === '') {
       state = 'empty';
       message = 'Required field, not yet filled';
@@ -481,42 +481,42 @@ class SynchronousValidator {
       }
     } else if (field.type === 'date') {
       const selectedDate = new Date(field.value);
-      const minDate = field.hasAttribute('min') ? 
+      const minDate = field.hasAttribute('min') ?
         new Date(field.getAttribute('min')) : null;
-      
+
       if (minDate && selectedDate < minDate) {
         state = 'invalid';
         message = 'Date must be in the future';
       }
     }
-    
+
     field.dataset.validationState = state;
     statusText.textContent = message;
-    
+
     this.updateFormState();
   }
-  
+
   validateAll() {
     this.fields.forEach(field => this.validateField(field));
   }
-  
+
   updateFormState() {
     const states = Array.from(this.fields)
       .map(f => f.dataset.validationState);
-    
+
     const emptyCount = states.filter(s => s === 'empty').length;
     const invalidCount = states.filter(s => s === 'invalid').length;
     const validCount = states.filter(s => s === 'valid').length;
     const totalCount = states.length;
-    
-    document.getElementById('completion-pct').textContent = 
+
+    document.getElementById('completion-pct').textContent =
       Math.round((validCount / totalCount) * 100) + '%';
-    document.getElementById('error-count').textContent = 
+    document.getElementById('error-count').textContent =
       emptyCount + invalidCount;
-    
+
     const canSubmit = emptyCount === 0 && invalidCount === 0;
     this.submitBtn.disabled = !canSubmit;
-    
+
     if (canSubmit) {
       this.submitBtn.textContent = 'Book appointment';
       this.form.dataset.state = 'complete';
@@ -614,23 +614,23 @@ Single-page applications create ambiguity about state changes. Traditional multi
 // Server-side route handling
 app.post('/cart/add', (req, res) => {
   const { product_id, quantity } = req.body;
-  
+
   // Validate
   if (!req.session.authenticated) {
     return res.redirect(303, '/login?return_to=/cart');
   }
-  
+
   if (!req.session.paymentMethod) {
     return res.redirect(303, '/account/payment?return_to=/cart');
   }
-  
+
   // Process
   try {
     const result = addToCart(req.session.userId, product_id, quantity);
-    
+
     // Clear redirect to confirmation - URL changes, state is explicit
     res.redirect(303, `/cart/added?product=${product_id}&order=${result.orderId}`);
-    
+
   } catch (error) {
     // Error page with clear explanation
     res.status(400).render('error', {
@@ -668,21 +668,21 @@ app.get('/cart/added', (req, res) => {
 <body>
   <main>
     <h1>Successfully added to cart</h1>
-    
-    <div class="confirmation-details" 
+
+    <div class="confirmation-details"
          data-status="success"
          data-action-completed="add-to-cart">
       <p>Product: {{ product.name }}</p>
       <p>Quantity: {{ quantity }}</p>
       <p>Order reference: {{ orderId }}</p>
     </div>
-    
+
     <div class="cart-summary">
       <h2>Current cart</h2>
       <p>Items: {{ cart.itemCount }}</p>
       <p>Total: £{{ cart.total }}</p>
     </div>
-    
+
     <nav class="next-actions">
       <h2>What would you like to do next?</h2>
       <ul>
@@ -779,7 +779,7 @@ Beyond structured data on individual pages, agents need site-wide guidance. Two 
 
 The robots.txt standard is well-known, but AI agent compliance requires more sophistication than traditional crawler respect.
 
-#### The Compliance Spectrum
+#### Compliance Spectrum
 
 ##### Level 0: No robots.txt
 
@@ -851,7 +851,7 @@ Sitemap: https://example.com/sitemap.xml
 
 Multiple AI agents declared, sensitive path protection, helpful comments, llms.txt reference, sitemap declaration.
 
-#### Interactive Compliance: The User Choice Problem
+#### Interactive Compliance: User Choice Problem
 
 When an agent encounters a robots.txt restriction, who decides what happens?
 
@@ -913,7 +913,7 @@ This preserves user agency whilst defaulting to ethical behaviour.
 
 **Why scoring matters:** Sites with high robots.txt scores demonstrate professional AI readiness, clear policies, and ethical stance. This correlates with higher agent trust and completion rates.
 
-### The llms.txt File
+### llms.txt File
 
 Think of `llms.txt` as `robots.txt` for AI agents. It resides at the root of your site and instructs agents on how to interact with your content.
 
@@ -1231,14 +1231,14 @@ These patterns are proposed, not standardised. They work today because they're s
 ```html
 <head>
   <title>Wireless Headphones - Example Shop</title>
-  
+
   <meta name="ai-api-endpoint" content="/api/v1/products/WH-1000">
   <meta name="ai-preferred-access" content="api">
   <meta name="ai-structured-data" content="json-ld">
   <meta name="ai-freshness" content="hourly">
   <meta name="ai-content-policy" content="full-extraction-allowed">
   <meta name="ai-identity-delegation" content="/api/auth/delegate">
-  
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -1256,14 +1256,14 @@ These patterns are proposed, not standardised. They work today because they're s
 ```html
 <head>
   <title>Market Analysis: Q4 2025 - NewsDaily</title>
-  
+
   <meta name="ai-preferred-access" content="html">
   <meta name="ai-content-policy" content="summary-only, max-words-150">
   <meta name="ai-attribution" content="required">
   <meta name="ai-freshness" content="static">
   <meta name="ai-commercial-use" content="prohibited">
-  
-  <link rel="alternate" type="application/json" 
+
+  <link rel="alternate" type="application/json"
         href="/api/articles/market-analysis-q4-2025.json">
 </head>
 ```
@@ -1310,7 +1310,7 @@ extraction: product-data-allowed
   <meta name="ai-api-endpoint" content="/api/v1/products/WH-1000">
   <meta name="ai-freshness" content="hourly">
   <meta name="ai-structured-data" content="json-ld">
-  
+
   <!-- Semantic content -->
   <script type="application/ld+json">
   {
@@ -1556,56 +1556,56 @@ const { test, expect } = require('@playwright/test');
 test('agent can complete purchase', async ({ page }) => {
   // Emulate agent behaviour
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  
+
   await page.goto('/product/12345');
-  
+
   // Check page state is explicit
   const pageState = await page.getAttribute(
-    '[data-load-state]', 
+    '[data-load-state]',
     'data-load-state'
   );
   expect(pageState).toBe('complete');
-  
+
   // Fill form instantly
   await page.fill('#quantity', '2');
-  
+
   // Validation should be immediate
   const validationState = await page.getAttribute(
-    '#quantity', 
+    '#quantity',
     'data-validation-state'
   );
   expect(validationState).toBe('valid');
-  
+
   // Submit button should be enabled
   const buttonText = await page.textContent('#submit-btn');
   expect(buttonText).not.toContain('disabled');
-  
+
   await page.click('#submit-btn');
-  
+
   // Should navigate to clear success page
   await page.waitForURL('**/cart/added**');
-  
+
   const successMessage = await page.textContent('h1');
   expect(successMessage).toContain('added to cart');
 });
 
 test('errors are visible and persistent', async ({ page }) => {
   await page.goto('/checkout');
-  
+
   // Submit with invalid data
   await page.fill('#email', 'not-an-email');
   await page.click('#submit-btn');
-  
+
   // Error should be immediately visible
   const errorVisible = await page.isVisible('.error-summary');
   expect(errorVisible).toBe(true);
-  
+
   // Wait to ensure error persists (no auto-dismiss)
   await page.waitForTimeout(5000);
-  
+
   const stillVisible = await page.isVisible('.error-summary');
   expect(stillVisible).toBe(true);
-  
+
   // Error should explain the problem
   const errorText = await page.textContent('.error-summary');
   expect(errorText).toContain('email');
@@ -1613,16 +1613,16 @@ test('errors are visible and persistent', async ({ page }) => {
 
 test('no information disappears', async ({ page }) => {
   await page.goto('/booking');
-  
+
   // Capture initial content
   const initialText = await page.textContent('body');
-  
+
   // Wait for any animations or timed elements
   await page.waitForTimeout(10000);
-  
+
   // Capture final content
   const finalText = await page.textContent('body');
-  
+
   // Key information should still be present
   // (Toasts would fail this test)
   expect(finalText.length).toBeGreaterThanOrEqual(initialText.length * 0.95);
@@ -1705,19 +1705,19 @@ class SegmentedAnalytics {
   constructor() {
     this.sessionType = this.detectSessionType();
   }
-  
+
   detectSessionType() {
     // Check server hint
     const meta = document.querySelector('meta[name="interface-type"]');
     if (meta?.content === 'agent') return 'agent';
-    
+
     // Check stored classification
     const stored = sessionStorage.getItem('session_type');
     if (stored) return stored;
-    
+
     return 'human'; // Default
   }
-  
+
   track(eventName, properties = {}) {
     const event = {
       name: eventName,
@@ -1726,7 +1726,7 @@ class SegmentedAnalytics {
       url: window.location.href,
       ...properties
     };
-    
+
     // Send to analytics
     fetch('/api/analytics', {
       method: 'POST',
@@ -1734,14 +1734,14 @@ class SegmentedAnalytics {
       body: JSON.stringify(event)
     });
   }
-  
+
   trackConversion(value, currency = 'GBP') {
     this.track('conversion', {
       value: value,
       currency: currency
     });
   }
-  
+
   trackTaskCompletion(taskName, success, durationMs) {
     this.track('task_completion', {
       task: taskName,
@@ -1785,7 +1785,7 @@ CREATE TABLE task_completions (
 );
 
 -- Query for comparison
-SELECT 
+SELECT
   session_type,
   COUNT(*) as attempts,
   SUM(CASE WHEN success THEN 1 ELSE 0 END) as successes,
@@ -1808,7 +1808,7 @@ class AgentErrorLogger {
   constructor() {
     this.errors = [];
   }
-  
+
   logError(context, error, pageState) {
     const entry = {
       timestamp: new Date().toISOString(),
@@ -1832,16 +1832,16 @@ class AgentErrorLogger {
       },
       domSnapshot: this.getRelevantDOM()
     };
-    
+
     this.errors.push(entry);
     this.send(entry);
   }
-  
+
   getRelevantDOM() {
     // Capture form state, visible messages, key elements
     const form = document.querySelector('form');
     if (!form) return null;
-    
+
     return {
       fields: Array.from(form.querySelectorAll('input, select, textarea')).map(f => ({
         name: f.name,
@@ -1856,7 +1856,7 @@ class AgentErrorLogger {
       }
     };
   }
-  
+
   send(entry) {
     fetch('/api/agent-errors', {
       method: 'POST',
@@ -1882,7 +1882,7 @@ try {
 // Aggregate errors to identify patterns
 app.get('/admin/agent-errors/summary', async (req, res) => {
   const summary = await db.query(`
-    SELECT 
+    SELECT
       context,
       error_code,
       COUNT(*) as occurrences,
@@ -1894,7 +1894,7 @@ app.get('/admin/agent-errors/summary', async (req, res) => {
     ORDER BY occurrences DESC
     LIMIT 20
   `);
-  
+
   res.json({
     period: 'last_7_days',
     top_errors: summary.rows
@@ -2083,11 +2083,11 @@ app.use((req, res, next) => {
   if (req.path.startsWith('/api/')) {
     return apiLimiter(req, res, next);
   }
-  
+
   if (req.isAgent) {
     return agentLimiter(req, res, next);
   }
-  
+
   return humanLimiter(req, res, next);
 });
 ```
@@ -2113,8 +2113,8 @@ When you change your site, agents might break. Manage this carefully:
 <input name="email_address" id="email-field">
 
 // NEW version - keep old name as alias
-<input name="email" 
-       id="email-field" 
+<input name="email"
+       id="email-field"
        data-legacy-name="email_address">
 
 // Server accepts both
@@ -2340,7 +2340,7 @@ Show complete costs upfront—no surprises at checkout.
 
 **Why this works:** No deceptive "from" pricing. Complete costs are visible. Breakdown available but not intrusive.
 
-### Pattern 5: The Small Business Template
+### Pattern 5: Small Business Template
 
 You don't need complex infrastructure. Here's a complete restaurant site that works perfectly for agents:
 
@@ -2748,7 +2748,7 @@ Verify your implementations:
 - axe DevTools browser extension
 - Screen reader testing (helps identify structural issues)
 
-### Pattern 10: The Three-Layer Approach
+### Pattern 10: Three-Layer Approach
 
 Use all three together for maximum clarity:
 
@@ -3006,7 +3006,7 @@ This chapter provided implementation guidance integrated with the book's narrati
 
 Both guides complement this chapter with additional patterns and examples not covered in the main narrative. The appendix-ai-friendly-html-guide.md file provides the "how to build" prescriptive guidance, whilst appendix-ai-patterns-quick-reference.md serves as a rapid reference for code generation.
 
-## The Path Forward
+## Path Forward
 
 This chapter gave you concrete implementations. The code works - these patterns are foundational and practical. But implementation alone won't solve everything.
 

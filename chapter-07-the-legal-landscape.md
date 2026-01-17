@@ -1,6 +1,6 @@
 \newpage
 
-# Chapter 7 - The Legal Landscape
+# Chapter 7 - Legal Landscape
 
 Legal frameworks struggling to keep pace.
 
@@ -14,7 +14,7 @@ This chapter isn't legal advice - I'm not a lawyer. But understanding the landsc
 
 ![The Legal Landscape - mapping liability, copyright, and regulatory questions](illustrations/chapter-07-legal-landscape.png)
 
-## The Legal Grey Zone: Key Scenarios
+## Legal Grey Zone: Key Scenarios
 
 Five common scenarios demonstrate the legal uncertainty surrounding AI agents:
 
@@ -28,7 +28,7 @@ Five common scenarios demonstrate the legal uncertainty surrounding AI agents:
 
 **Key insight:** Courts haven't ruled. Legislators haven't addressed. Every agent-mediated transaction involves undefined legal risk. This uncertainty creates friction for users, platforms, and businesses.
 
-## The Liability Question
+## Liability Question
 
 Start with a simple scenario.
 
@@ -95,7 +95,7 @@ Commercial use of agents to access our services requires separate authorisation.
 
 This creates clarity. Users know where they stand. The site can enforce specific rules rather than vague prohibitions. And agent platforms know what behaviour their tools must support.
 
-## The Copyright Question
+## Copyright Question
 
 When an agent reads a webpage and summarises it for you, is that copyright infringement?
 
@@ -160,7 +160,7 @@ Agent platforms need explicit data-processing agreements that cover agent-mediat
 
 None of this is impossible. It just hasn't been done yet.
 
-## The Accessibility Connection
+## Accessibility Connection
 
 Accessibility law creates an interesting angle on agent-friendly design.
 
@@ -462,7 +462,7 @@ Monitor activity. Review what your agents are doing. Check confirmations indepen
 
 Proceed carefully. This is the legal wild west. Courts are establishing precedents. Regulators are writing rules. Companies are figuring out policies. In ten years, we'll have clarity. Right now, we have uncertainty. Act accordingly.
 
-## The Path Forward
+## Path Forward
 
 The current legal ambiguity isn't sustainable. As agent use grows, the pressure for clarity increases. We'll see:
 

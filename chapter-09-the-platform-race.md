@@ -1,6 +1,6 @@
 \newpage
 
-# Chapter 9 - The Platform Race
+# Chapter 9 - Platform Race
 
 The future arrived faster than expected.
 
@@ -20,7 +20,7 @@ This chapter examines what happened in that remarkable week, what it means for t
 
 ---
 
-## The Seven-Day Acceleration
+## Seven-Day Acceleration
 
 **January 5, 2026:** Amazon announced Alexa+, an enhanced AI assistant integrated directly into their commerce platform. Users can now ask Alexa to research products, compare options, check inventory across warehouses, and complete purchases - all through natural conversation. The system inherits user preferences, payment methods, and delivery addresses. It's not a research tool that hands off to humans. It's an agent that completes transactions.
 
@@ -68,7 +68,7 @@ But open only wins if it actually works. And right now, we don't have one open s
 
 Each platform brings different strengths and faces different constraints.
 
-### OpenAI/Stripe: The First Mover
+### OpenAI/Stripe: First Mover
 
 ACP launched four months before Google's UCP announcement. This matters enormously in a standards race. By September 2024, OpenAI and Stripe had secured adoption from Shopify and Etsy - platforms representing over 1 million merchants collectively.
 
@@ -78,7 +78,7 @@ ACP launched four months before Google's UCP announcement. This matters enormous
 
 **Their strategy:** Establish ACP as the de facto standard before alternatives gain traction. Keep the specification open but guide its evolution. Build network effects through merchant adoption.
 
-### Google: The Leverage Player
+### Google: Strategic Player
 
 Google brings something no other platform can match: search monopoly.
 
@@ -86,11 +86,11 @@ When Google surfaces Business Agent shopping directly in search results, retaile
 
 **Their advantage:** Distribution. Google doesn't need to convince users to adopt a new tool. They already use Google Search. Business Agent simply appears when users search for products. The friction is minimal. The reach is total.
 
-**Their challenge:** Regulators are already scrutinising Google's market power. Leveraging search dominance to drive commerce adoption invites antitrust attention. Google must balance aggressive adoption with regulatory caution.
+**Their challenge:** Regulators are already scrutinising Google's market power. Using search dominance to drive commerce adoption invites antitrust attention. Google must balance aggressive adoption with regulatory caution.
 
 **Their strategy:** Partner with major retailers to demonstrate UCP's viability. Use search distribution to drive rapid adoption. Maintain "open" positioning to deflect competitive concerns.
 
-### Microsoft: The Enterprise Fortress
+### Microsoft: Enterprise Fortress
 
 Microsoft chose isolation deliberately. They believe enterprise integration trumps open standards.
 
@@ -102,7 +102,7 @@ Microsoft chose isolation deliberately. They believe enterprise integration trum
 
 **The problem:** Microsoft is betting enterprises will force merchant adoption. Google and OpenAI are betting merchants will force agent adoption. Only one of these bets can be right.
 
-### Amazon: The Unknown Position
+### Amazon: Unknown Position
 
 Amazon's Alexa+ announcement was notably vague about standards and interoperability.
 
@@ -112,7 +112,7 @@ Amazon's Alexa+ announcement was notably vague about standards and interoperabil
 
 **Why it matters:** Amazon controls enough commerce volume that their decision influences everyone else. If Amazon adopts ACP or UCP, those protocols become required. If Amazon builds proprietary, merchants face yet another integration burden.
 
-**The pressure:** Amazon can't ignore agent commerce. If Google's Business Agent and Microsoft's Copilot enable seamless shopping across merchants, Amazon must compete. But Amazon's business model prefers keeping transactions within its ecosystem. These incentives conflict.
+**The pressure:** Amazon can't ignore agent commerce. If Google's Business Agent and Microsoft's Copilot enable smooth shopping across merchants, Amazon must compete. But Amazon's business model prefers keeping transactions within its ecosystem. These incentives conflict.
 
 Expect Amazon to declare its position within six months. The platform race won't wait longer.
 
@@ -148,7 +148,7 @@ Microsoft's closed approach might work if they were first and dominant. But they
 
 Microsoft has three options:
 
-1. **Maintain proprietary, bet on enterprise leverage** - Hope B2B volume forces merchant adoption despite consumer reluctance.
+1. **Maintain proprietary, bet on enterprise strength** - Hope B2B volume forces merchant adoption despite consumer reluctance.
 
 2. **Adopt one of the open protocols** - Join ACP or UCP, abandon Copilot Checkout's proprietary infrastructure, preserve agent relevance at the cost of control.
 
@@ -192,7 +192,7 @@ Consumer merchants care about traffic volume and conversion rates across all cha
 
 Proprietary protocols create ongoing costs:
 
-- Security review and vulnerability patching (can't leverage community review like open protocols)
+- Security review and vulnerability patching (can't use community review like open protocols)
 - Merchant support and integration assistance (can't rely on third-party tutorials and tooling)
 - Competitive pressure to match open protocol features (must implement every ACP/UCP improvement)
 - Partnership negotiations (must convince each merchant individually rather than relying on platform adoption)
@@ -225,7 +225,7 @@ The question isn't whether Microsoft abandons proprietary. It's how long they wa
 
 ---
 
-## The Fragmentation Danger
+## Fragmentation Danger
 
 Two open protocols sounds better than one closed protocol. And it is.
 
@@ -278,7 +278,7 @@ Call it "Universal Agentic Commerce Protocol" or "Commerce Agent Standard" or wh
 
 OpenAI, Stripe, and Google all have incentives to converge:
 
-- **For OpenAI/Stripe:** Merging with Google prevents Microsoft from leveraging fragmentation. A unified standard backed by Google's search distribution is stronger than ACP alone.
+- **For OpenAI/Stripe:** Merging with Google prevents Microsoft from exploiting fragmentation. A unified standard backed by Google's search distribution is stronger than ACP alone.
 
 - **For Google:** Merging with OpenAI/Stripe brings 1 million existing merchant integrations and mature tooling. UCP alone must build this from scratch.
 
@@ -416,7 +416,7 @@ Developers must learn two distinct patterns, two authentication models, two debu
 
 **Mitigation strategy:** Build internal abstraction layers so most developers work with shared business logic, whilst a small platform team manages protocol-specific implementations. This concentrates protocol knowledge in specialists rather than requiring all developers to understand both systems.
 
-### The Cost-Benefit Reality
+### Cost-Benefit Reality
 
 Is supporting both protocols worth it?
 
@@ -436,7 +436,7 @@ Integrate one protocol maximum. The maintenance burden of dual integration likel
 
 ---
 
-## The Maturity Signal
+## Maturity Signal
 
 Here's what January 2026 proved: this isn't speculation anymore.
 

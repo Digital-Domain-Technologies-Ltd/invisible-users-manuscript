@@ -126,7 +126,7 @@ Use names that agents recognise. Pick one convention (camelCase or snake_case) a
 Always use ISO 8601 in data attributes, even when displaying locally formatted dates:
 
 ```html
-<time datetime="2025-03-15T14:30:00Z" 
+<time datetime="2025-03-15T14:30:00Z"
       data-timezone="Europe/London">
   3:30 PM GMT
 </time>
@@ -137,7 +137,7 @@ For date inputs, show the expected format:
 ```html
 <div class="date-picker">
   <label for="departure-date">Departure date</label>
-  <input type="date" 
+  <input type="date"
          id="departure-date"
          name="departureDate"
          min="2025-01-01"
@@ -226,7 +226,7 @@ Make login status machine-readable:
 
 ```html
 <!-- When logged in -->
-<div id="auth-status" 
+<div id="auth-status"
      data-authenticated="true"
      data-user-id="user-456"
      data-session-expires="2025-01-15T14:30:00Z">
@@ -457,15 +457,15 @@ Everyone knows exactly what's needed to proceed. No guessing.
 Validate as users type. Show all errors at once. Never wait until submission to reveal problems.
 
 ```html
-<form id="checkout-form" 
-      action="/checkout" 
+<form id="checkout-form"
+      action="/checkout"
       method="POST"
       data-state="incomplete"
       data-errors="2"
       novalidate>
-  
-  <div class="error-summary" 
-       role="alert" 
+
+  <div class="error-summary"
+       role="alert"
        aria-live="polite"
        data-visible="true">
     <h2>2 errors need fixing</h2>
@@ -477,8 +477,8 @@ Validate as users type. Show all errors at once. Never wait until submission to 
 
   <div class="field" data-field-state="error">
     <label for="email">Email address</label>
-    <input type="email" 
-           id="email" 
+    <input type="email"
+           id="email"
            name="email"
            value="invalid-email"
            aria-invalid="true"
@@ -492,15 +492,15 @@ Validate as users type. Show all errors at once. Never wait until submission to 
 
   <div class="field" data-field-state="valid">
     <label for="name">Full name</label>
-    <input type="text" 
-           id="name" 
+    <input type="text"
+           id="name"
            name="name"
            value="Jane Smith"
            aria-invalid="false"
            data-validation-state="valid">
   </div>
 
-  <button type="submit" 
+  <button type="submit"
           disabled
           aria-disabled="true"
           data-submit-blocked="true"
@@ -517,11 +517,11 @@ The submit button explains exactly why it's disabled. Agents can read the curren
 For complex processes, show clear progress and make each step bookmarkable.
 
 ```html
-<form action="/booking" method="POST" 
-      data-step="2" 
+<form action="/booking" method="POST"
+      data-step="2"
       data-total-steps="4"
       data-can-proceed="true">
-  
+
   <nav aria-label="Booking progress">
     <ol class="steps">
       <li data-step="1" data-status="complete">
@@ -534,11 +534,11 @@ For complex processes, show clear progress and make each step bookmarkable.
       <li data-step="4" data-status="pending">Confirm</li>
     </ol>
   </nav>
-  
+
   <div class="step-content">
     <!-- Current step content -->
   </div>
-  
+
   <div class="step-navigation">
     <button type="button" formaction="?step=1">Back</button>
     <button type="submit" formaction="?step=3">Continue</button>
@@ -553,15 +553,15 @@ Each step changes the URL (`/booking?step=2`). Progress is visible. State persis
 Modals break agents badly when implemented as JavaScript overlays. Use native HTML:
 
 ```html
-<dialog id="confirm-delete" 
+<dialog id="confirm-delete"
         open
         aria-labelledby="dialog-title"
         data-action="confirm-deletion"
         data-target-id="item-123">
-  
+
   <h2 id="dialog-title">Delete this item?</h2>
   <p>This action cannot be undone.</p>
-  
+
   <form method="dialog">
     <button value="cancel">Cancel</button>
     <button value="confirm" formaction="/items/123/delete" formmethod="POST">
@@ -645,17 +645,17 @@ Make search results and filter states machine-readable.
 **Search Results:**
 
 ```html
-<div class="search-results" 
+<div class="search-results"
      data-query="wireless headphones"
      data-total-results="47"
      data-page="1"
      data-per-page="20"
      data-sort="relevance">
-  
+
   <p class="results-summary">
     Showing 1-20 of 47 results for "wireless headphones"
   </p>
-  
+
   <ol class="results-list">
     <li data-result-position="1" data-product-id="WH-1000">
       <a href="/products/wh-1000">Wireless Headphones WH-1000</a>
@@ -663,7 +663,7 @@ Make search results and filter states machine-readable.
     </li>
     <!-- More results -->
   </ol>
-  
+
   <nav aria-label="Search results pagination">
     <a href="?q=wireless+headphones&page=2" data-page="2">Next</a>
   </nav>
@@ -673,11 +673,11 @@ Make search results and filter states machine-readable.
 **Filter State:**
 
 ```html
-<form class="filters" 
-      action="/products" 
+<form class="filters"
+      action="/products"
       method="GET"
       data-active-filters="3">
-  
+
   <div class="active-filters" aria-live="polite">
     <p>Active filters:</p>
     <ul>
@@ -696,22 +696,22 @@ Make search results and filter states machine-readable.
     </ul>
     <a href="/products" class="clear-all">Clear all filters</a>
   </div>
-  
+
   <fieldset>
     <legend>Price range</legend>
     <label>
-      <input type="radio" name="price" value="0-100" 
+      <input type="radio" name="price" value="0-100"
              data-result-count="12">
       Under £100 (12)
     </label>
     <label>
-      <input type="radio" name="price" value="100-200" 
+      <input type="radio" name="price" value="100-200"
              checked
              data-result-count="23">
       £100-£200 (23)
     </label>
   </fieldset>
-  
+
   <button type="submit">Apply filters</button>
 </form>
 ```
@@ -728,15 +728,15 @@ When pagination is unavoidable (thousands of products), make it agent-friendly:
      data-total-pages="24"
      data-total-items="472"
      data-per-page="20">
-  
+
   <a href="?page=1" data-page="1">First</a>
   <a href="?page=2" data-page="2" rel="prev">Previous</a>
-  
+
   <span aria-current="page" data-page="3">Page 3 of 24</span>
-  
+
   <a href="?page=4" data-page="4" rel="next">Next</a>
   <a href="?page=24" data-page="24">Last</a>
-  
+
   <!-- Machine-readable summary -->
   <p class="pagination-summary">
     Showing items 41-60 of 472
@@ -759,18 +759,18 @@ Prefer: complete content on one page with anchor navigation. When paginating: in
 Make shopping cart contents visible and machine-readable:
 
 ```html
-<div id="shopping-cart" 
+<div id="shopping-cart"
      data-cart-id="cart-abc123"
      data-item-count="3"
      data-subtotal="279.97"
      data-currency="GBP"
      data-last-updated="2025-01-15T10:30:00Z">
-  
+
   <h2>Your basket (3 items)</h2>
-  
+
   <ul class="cart-items">
-    <li data-product-id="WH-1000" 
-        data-quantity="1" 
+    <li data-product-id="WH-1000"
+        data-quantity="1"
         data-unit-price="149.99"
         data-line-total="149.99">
       <span class="product-name">Wireless Headphones WH-1000</span>
@@ -788,7 +788,7 @@ Make shopping cart contents visible and machine-readable:
     </li>
     <!-- More items -->
   </ul>
-  
+
   <div class="cart-summary">
     <dl>
       <dt>Subtotal</dt>
@@ -801,7 +801,7 @@ Make shopping cart contents visible and machine-readable:
       <dd data-total="279.97">£279.97</dd>
     </dl>
   </div>
-  
+
   <a href="/checkout" class="checkout-button"
      data-checkout-ready="true">
     Proceed to checkout
@@ -816,32 +816,32 @@ Include: item count, individual line items with quantities and prices, running t
 After a transaction completes, show clear confirmation:
 
 ```html
-<div class="order-confirmation" 
+<div class="order-confirmation"
      role="status"
      data-order-status="confirmed"
      data-order-id="ORD-2025-0115-7890">
-  
+
   <h1>Order confirmed</h1>
-  
+
   <div class="confirmation-details">
     <dl>
       <dt>Order number</dt>
       <dd data-order-id="ORD-2025-0115-7890">ORD-2025-0115-7890</dd>
-      
+
       <dt>Order date</dt>
       <dd><time datetime="2025-01-15T10:35:00Z">15 January 2025, 10:35 AM</time></dd>
-      
+
       <dt>Total paid</dt>
       <dd data-total="279.97" data-currency="GBP">£279.97</dd>
-      
+
       <dt>Payment method</dt>
       <dd data-payment-method="card" data-card-last4="4242">Card ending 4242</dd>
-      
+
       <dt>Estimated delivery</dt>
       <dd data-delivery-date="2025-01-17">17-18 January 2025</dd>
     </dl>
   </div>
-  
+
   <div class="delivery-address">
     <h2>Delivering to</h2>
     <address>
@@ -850,7 +850,7 @@ After a transaction completes, show clear confirmation:
       Manchester M1 1AA
     </address>
   </div>
-  
+
   <div class="order-items">
     <h2>Items ordered</h2>
     <ul>
@@ -859,7 +859,7 @@ After a transaction completes, show clear confirmation:
       </li>
     </ul>
   </div>
-  
+
   <div class="next-actions">
     <a href="/orders/ORD-2025-0115-7890">Track this order</a>
     <a href="/orders">View all orders</a>
@@ -894,10 +894,10 @@ For multi-currency or multi-language sites, make the current context explicit:
     </select>
     <button type="submit">Update</button>
   </form>
-  
+
   <!-- Prices with explicit currency -->
-  <span class="price" 
-        data-amount="149.99" 
+  <span class="price"
+        data-amount="149.99"
         data-currency="GBP"
         data-currency-symbol="£">
     £149.99
@@ -913,14 +913,14 @@ Use `hreflang` links for language alternatives. Put currency and locale in data 
 Present shipping choices clearly:
 
 ```html
-<fieldset class="shipping-options" 
+<fieldset class="shipping-options"
           data-destination-country="GB"
           data-destination-postcode="M1 1AA">
   <legend>Choose delivery option</legend>
-  
+
   <label class="shipping-option" data-shipping-id="standard">
-    <input type="radio" 
-           name="shipping" 
+    <input type="radio"
+           name="shipping"
            value="standard"
            data-price="0.00"
            data-delivery-days-min="3"
@@ -930,15 +930,15 @@ Present shipping choices clearly:
     <span class="option-price" data-price="0.00">Free</span>
     <span class="option-time">3-5 working days</span>
     <span class="option-estimate">
-      Estimated arrival: 
-      <time datetime="2025-01-20">20 Jan</time> - 
+      Estimated arrival:
+      <time datetime="2025-01-20">20 Jan</time> -
       <time datetime="2025-01-22">22 Jan</time>
     </span>
   </label>
-  
+
   <label class="shipping-option" data-shipping-id="express">
-    <input type="radio" 
-           name="shipping" 
+    <input type="radio"
+           name="shipping"
            value="express"
            data-price="5.99"
            data-delivery-days-min="1"
@@ -947,15 +947,15 @@ Present shipping choices clearly:
     <span class="option-price" data-price="5.99">£5.99</span>
     <span class="option-time">1-2 working days</span>
     <span class="option-estimate">
-      Estimated arrival: 
-      <time datetime="2025-01-16">16 Jan</time> - 
+      Estimated arrival:
+      <time datetime="2025-01-16">16 Jan</time> -
       <time datetime="2025-01-17">17 Jan</time>
     </span>
   </label>
-  
+
   <label class="shipping-option" data-shipping-id="next-day">
-    <input type="radio" 
-           name="shipping" 
+    <input type="radio"
+           name="shipping"
            value="next-day"
            data-price="9.99"
            data-delivery-days-min="1"
@@ -966,7 +966,7 @@ Present shipping choices clearly:
     <span class="option-time">Next working day</span>
     <span class="option-note">Order before 2pm</span>
     <span class="option-estimate">
-      Estimated arrival: 
+      Estimated arrival:
       <time datetime="2025-01-16">16 Jan</time>
     </span>
   </label>
@@ -1059,7 +1059,7 @@ When something fails mid-transaction, show clear recovery paths:
 <div class="transaction-error" role="alert" data-error-code="PAYMENT_DECLINED">
   <h2>Payment was declined</h2>
   <p>Your card ending 4242 was declined by your bank.</p>
-  
+
   <div class="recovery-options">
     <h3>What you can do</h3>
     <ul>
@@ -1068,7 +1068,7 @@ When something fails mid-transaction, show clear recovery paths:
       <li><a href="/cart">Return to basket</a> (your items are saved)</li>
     </ul>
   </div>
-  
+
   &lt;details&gt;
     &lt;summary&gt;Technical details&lt;/summary&gt;
     <dl>
@@ -1581,7 +1581,7 @@ Disallow: /admin/
 Sitemap: https://example.com/sitemap.xml
 ```
 
-### The Three-Layer Approach
+### Three-Layer Approach
 
 Use all three together for maximum clarity:
 
@@ -1642,7 +1642,7 @@ An agent visiting your page:
 
 Before implementing solutions, it helps to understand why AI agents struggle with modern web architectures.
 
-### The JavaScript Execution Problem
+### JavaScript Execution Problem
 
 Most AI systems cannot execute JavaScript. This means:
 
@@ -1671,7 +1671,7 @@ Headless architectures separate content from presentation. This creates problems
 
 For AI, accessing a headless website is like reading a document with no formatting, no headlines, and no visual organisation.
 
-### The Dual-Channel Solution
+### Dual-Channel Solution
 
 The solution is "dual-channel content" — serving rich interactive experiences to humans while providing structured, accessible formats to AI systems that don't require JavaScript execution or visual interpretation.
 
@@ -1817,7 +1817,7 @@ Identify AI agents from request headers to serve appropriate responses or track 
 ```javascript
 function detectAgent(req, res, next) {
   const ua = req.headers['user-agent'] || '';
-  
+
   const agentPatterns = {
     'gptbot': 'openai',
     'chatgpt': 'openai',
@@ -1827,9 +1827,9 @@ function detectAgent(req, res, next) {
     'bingbot': 'microsoft',
     'perplexitybot': 'perplexity'
   };
-  
+
   const lowerUA = ua.toLowerCase();
-  
+
   for (const [pattern, provider] of Object.entries(agentPatterns)) {
     if (lowerUA.includes(pattern)) {
       req.isAIAgent = true;
@@ -1838,7 +1838,7 @@ function detectAgent(req, res, next) {
       break;
     }
   }
-  
+
   req.isAIAgent = req.isAIAgent || false;
   next();
 }
@@ -1867,15 +1867,15 @@ Cookie consent dialogs break AI agents when they overlay content or require inte
 <html data-consent-status="pending">
 <body>
   <!-- Consent banner -->
-  <dialog id="cookie-consent" 
+  <dialog id="cookie-consent"
           open
           aria-labelledby="consent-title"
           data-consent-required="true"
           data-consent-categories="necessary,analytics,marketing">
-    
+
     <h2 id="consent-title">Cookie preferences</h2>
     <p>We use cookies to improve your experience.</p>
-    
+
     <form action="/consent" method="POST">
       <fieldset>
         <label>
@@ -1891,13 +1891,13 @@ Cookie consent dialogs break AI agents when they overlay content or require inte
           Marketing
         </label>
       </fieldset>
-      
+
       <button type="submit" name="action" value="accept-all">Accept all</button>
       <button type="submit" name="action" value="accept-selected">Accept selected</button>
       <button type="submit" name="action" value="reject-optional">Reject optional</button>
     </form>
   </dialog>
-  
+
   <!-- Main content always accessible -->
   <main>
     <!-- Page content here -->
@@ -1949,12 +1949,12 @@ function botProtection(req, res, next) {
   if (req.isAIAgent && isVerifiedAgent(req)) {
     return next();
   }
-  
+
   // Suspicious patterns - challenge
   if (isSuspiciousRequest(req)) {
     return res.status(403).render('captcha-challenge');
   }
-  
+
   next();
 }
 
@@ -1964,11 +1964,11 @@ function isVerifiedAgent(req) {
     'openai': ['20.15.240.0/24', '20.171.206.0/24'],
     'anthropic': ['...'],
   };
-  
+
   // Check if IP matches claimed provider
   const provider = req.agentProvider;
   const clientIP = req.ip;
-  
+
   return verifyIPRange(clientIP, knownAgentIPs[provider]);
 }
 ```
@@ -1980,10 +1980,10 @@ When you must use captcha, provide an alternative:
 ```html
 <div class="bot-protection" data-protection-type="captcha">
   <p>Please verify you're human:</p>
-  
+
   <!-- Standard captcha for browsers -->
   <div class="captcha-widget" id="recaptcha"></div>
-  
+
   <!-- Alternative for AI agents -->
   <div class="agent-alternative" data-agent-visible="true" style="display: none;">
     <p>AI agents: Request API access instead.</p>
@@ -2065,15 +2065,15 @@ This gives agents clear signals:
 // Express.js example
 app.post('/checkout', (req, res) => {
   const order = processOrder(req.body);
-  
+
   if (order.success) {
     // 303 redirect after successful POST
     res.redirect(303, `/orders/${order.id}/confirmation`);
   } else {
     // Return to form with errors
-    res.status(400).render('checkout', { 
+    res.status(400).render('checkout', {
       errors: order.errors,
-      values: req.body 
+      values: req.body
     });
   }
 });
@@ -2244,7 +2244,7 @@ You don't need complex infrastructure. Here's a complete small business page:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Luigi's Pizza - Manchester</title>
-  
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -2309,7 +2309,7 @@ You don't need complex infrastructure. Here's a complete small business page:
 
     <section id="menu">
       <h2>Menu</h2>
-      
+
       <article class="menu-item" itemscope itemtype="https://schema.org/MenuItem">
         <h3 itemprop="name">Margherita</h3>
         <p itemprop="description">Tomato sauce, mozzarella, fresh basil</p>
@@ -2341,20 +2341,20 @@ You don't need complex infrastructure. Here's a complete small business page:
           <input type="text" id="name" name="name" required
                  data-validation-state="pending">
         </div>
-        
+
         <div class="field">
           <label for="phone">Phone number</label>
           <input type="tel" id="phone" name="phone" required
                  data-validation-state="pending">
         </div>
-        
+
         <div class="field">
           <label for="date">Date</label>
           <input type="date" id="date" name="date" required
                  min="2025-01-01"
                  data-validation-state="pending">
         </div>
-        
+
         <div class="field">
           <label for="time">Time</label>
           <select id="time" name="time" required>
@@ -2367,13 +2367,13 @@ You don't need complex infrastructure. Here's a complete small business page:
             <option value="20:30">8:30 PM</option>
           </select>
         </div>
-        
+
         <div class="field">
           <label for="guests">Number of guests</label>
-          <input type="number" id="guests" name="guests" 
+          <input type="number" id="guests" name="guests"
                  min="1" max="12" value="2" required>
         </div>
-        
+
         <button type="submit">Request Booking</button>
       </form>
     </section>
@@ -2395,10 +2395,10 @@ No JavaScript required. Complete structured data. Clear forms with explicit stat
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wireless Headphones - TechStore</title>
-  
+
   <meta name="ai-api-endpoint" content="/api/v1/products/WH-1000">
   <meta name="ai-freshness" content="hourly">
-  
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -2450,7 +2450,7 @@ No JavaScript required. Complete structured data. Clear forms with explicit stat
 <body>
 <main itemscope itemtype="https://schema.org/Product">
   <h1 itemprop="name">Wireless Headphones WH-1000</h1>
-  
+
   <div class="product-price">
     <span class="currency">£</span>
     <span class="amount" itemprop="price" content="149.99">149.99</span>
@@ -2557,7 +2557,7 @@ test('complete information visible on product page', async ({ page }) => {
   // Check for explicit pricing
   const price = await page.$('[data-price]');
   expect(price).toBeTruthy();
-  
+
   // Check stock information is explicit
   const stockInfo = await page.$('[data-in-stock]');
   expect(stockInfo).toBeTruthy();
@@ -2565,11 +2565,11 @@ test('complete information visible on product page', async ({ page }) => {
 
 test('authentication state is explicit', async ({ page }) => {
   await page.goto('/');
-  
+
   // Auth status should always be present
   const authStatus = await page.$('#auth-status');
   expect(authStatus).toBeTruthy();
-  
+
   // Should have data-authenticated attribute
   const isAuthenticated = await page.getAttribute('#auth-status', 'data-authenticated');
   expect(['true', 'false']).toContain(isAuthenticated);
@@ -2577,11 +2577,11 @@ test('authentication state is explicit', async ({ page }) => {
 
 test('breadcrumbs have Schema.org markup', async ({ page }) => {
   await page.goto('/products/headphones/wh-1000');
-  
+
   // Check for BreadcrumbList
   const breadcrumbList = await page.$('[itemtype="https://schema.org/BreadcrumbList"]');
   expect(breadcrumbList).toBeTruthy();
-  
+
   // Check for position metadata
   const positions = await page.$$('[itemprop="position"]');
   expect(positions.length).toBeGreaterThan(0);
@@ -2589,14 +2589,14 @@ test('breadcrumbs have Schema.org markup', async ({ page }) => {
 
 test('search results are machine-readable', async ({ page }) => {
   await page.goto('/search?q=headphones');
-  
+
   // Check for result metadata
   const results = await page.$('.search-results');
   expect(results).toBeTruthy();
-  
+
   const totalResults = await page.getAttribute('.search-results', 'data-total-results');
   expect(parseInt(totalResults)).toBeGreaterThan(0);
-  
+
   // Check individual results have IDs
   const resultItems = await page.$$('[data-product-id]');
   expect(resultItems.length).toBeGreaterThan(0);
@@ -2604,27 +2604,27 @@ test('search results are machine-readable', async ({ page }) => {
 
 test('cart state is explicit', async ({ page }) => {
   await page.goto('/cart');
-  
+
   // Check cart has state attributes
   const cart = await page.$('#shopping-cart');
   expect(cart).toBeTruthy();
-  
+
   const itemCount = await page.getAttribute('#shopping-cart', 'data-item-count');
   expect(itemCount).toBeDefined();
-  
+
   const subtotal = await page.getAttribute('#shopping-cart', 'data-subtotal');
   expect(subtotal).toBeDefined();
 });
 
 test('pagination includes total counts', async ({ page }) => {
   await page.goto('/products?page=2');
-  
+
   // Check pagination has metadata
   const pagination = await page.$('.pagination');
   if (pagination) {
     const currentPage = await page.getAttribute('.pagination', 'data-current-page');
     const totalPages = await page.getAttribute('.pagination', 'data-total-pages');
-    
+
     expect(currentPage).toBe('2');
     expect(parseInt(totalPages)).toBeGreaterThan(0);
   }
@@ -2632,11 +2632,11 @@ test('pagination includes total counts', async ({ page }) => {
 
 test('filter state reflected in URL and DOM', async ({ page }) => {
   await page.goto('/products?category=headphones&price_max=200');
-  
+
   // Check URL parameters match displayed filters
   const activeFilters = await page.$('.active-filters');
   expect(activeFilters).toBeTruthy();
-  
+
   // Check filter values are in data attributes
   const categoryFilter = await page.$('[data-filter="category"]');
   expect(categoryFilter).toBeTruthy();
@@ -2644,9 +2644,9 @@ test('filter state reflected in URL and DOM', async ({ page }) => {
 
 test('llms.txt exists and is valid', async ({ page }) => {
   const response = await page.goto('/llms.txt');
-  
+
   expect(response.status()).toBe(200);
-  
+
   const content = await page.content();
   // Should start with H1 title
   expect(content).toMatch(/^#\s+.+/m);
@@ -2667,11 +2667,11 @@ test('404 page references llms.txt', async ({ page }) => {
 
 test('consent banner does not block content', async ({ page }) => {
   await page.goto('/products/wh-1000');
-  
+
   // Even with a consent banner, product info should be accessible
   const productName = await page.$('h1');
   expect(productName).toBeTruthy();
-  
+
   const price = await page.$('[data-price]');
   expect(price).toBeTruthy();
 });
@@ -2800,7 +2800,7 @@ The patterns above focus on web interfaces for AI agents interacting with end us
 
 AI assistants learn through "skills" — structured documentation that teaches them how to work with specific technologies. You can extend this pattern to your own codebase, giving AI deep understanding of your architecture, conventions, and transformation processes.
 
-### The Runtime Debugging Trap
+### Runtime Debugging Trap
 
 AI assistants naturally debug what they can see, not what they should modify. In modern development, the code AI observes at runtime often bears little resemblance to your source code. Templates become components. Configuration generates routes. Build processes transform everything.
 
@@ -2922,17 +2922,17 @@ When your system generates or transforms code dynamically, document the transfor
 
 ## Runtime Code Transformations
 
-### The Golden Rule
+### Golden Rule
 Never debug or modify generated files directly — always trace back to source.
 
 ### Template-to-Code Generation
-- Source: `templates/component.hbs` 
+- Source: `templates/component.hbs`
 - Runtime: `build/components/UserCard.js`
 - Transformation: Handlebars → ES6 modules
 - AI Pitfall: Changes to generated files get overwritten on next build
 - Solution: Modify template, run `npm run generate`
 
-### Dynamic Route Generation  
+### Dynamic Route Generation
 - Source: `config/routes.yml`
 - Runtime: Express middleware registration
 - Transformation: YAML → Express route handlers
@@ -2959,8 +2959,8 @@ touch-points:
     debug-endpoint: /debug/trace
     logs: cloudwatch:auth-service
     safe-restart: true
-  
-  - service: payment-processing  
+
+  - service: payment-processing
     debug-endpoint: /health/detailed
     logs: datadog:payments
     safe-restart: false  # Critical service - never restart
@@ -2980,11 +2980,11 @@ Add clear markers to generated files so AI knows not to modify them:
 ```javascript
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT DIRECTLY
- * 
+ *
  * Source: templates/api-client.hbs
  * Generated: 2025-01-15T10:30:00Z
  * Regenerate: npm run generate:api-client
- * 
+ *
  * Changes to this file will be lost on next build.
  */
 ```
