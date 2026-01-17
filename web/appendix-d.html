@@ -151,17 +151,19 @@ directory</li>
 <li>Reference specific sections when asking for implementation help</li>
 </ol>
 <p><strong>Guide Contents:</strong></p>
-<p>The guide covers 9 major parts:</p>
+<p>The guide covers 13 major parts:</p>
 <ol type="1">
 <li><strong>Quick Reference Tables</strong> - HTTP status codes, form
 field names, date formats, common data attributes</li>
 <li><strong>Simple HTML Patterns</strong> - Visual design vs AI parsing,
+separating CSS/JavaScript from HTML, preserving rich HTML vs markdown
+conversion, extending llms.txt with metadata (proposed pattern),
 authentication state, explicit state attributes, persistent errors</li>
 <li><strong>Form Patterns</strong> - Disabled button explanations,
 synchronous validation, multi-step wizards, modal dialogs</li>
-<li><strong>Page Structure Patterns</strong> - Navigation, breadcrumbs,
-search results, filtering, pagination, cart state, success
-confirmation</li>
+<li><strong>Page Structure Patterns</strong> - Understanding assistive
+technology users, skip links, navigation, breadcrumbs, search results,
+filtering, pagination, cart state, success confirmation</li>
 <li><strong>Structured Data</strong> - Schema.org quick reference
 (Product, LocalBusiness, Event, Article, FAQPage, BreadcrumbList,
 Book)</li>
@@ -175,6 +177,14 @@ e-commerce product page</li>
 <li><strong>Testing and Validation</strong> - Automated Playwright
 tests, common validation pitfalls, parser auto-correction behavior,
 manual validation tools</li>
+<li><strong>Implementation Priority</strong> - Priority ranking for
+implementation roadmap</li>
+<li><strong>Why This Matters</strong> - Business justification and
+convergence principle</li>
+<li><strong>Building for AI Development Assistants</strong> - Patterns
+for AI coding assistants working with your codebase</li>
+<li><strong>Dynamic Content Patterns</strong> - Carousels, animated
+text, background media, progressive disclosure, autoplay stability</li>
 </ol>
 <p><strong>The complete guide is shown below:</strong></p>
 <div class="sourceCode" id="cb1" data-role="code-container"><pre
@@ -278,7 +288,7 @@ class="sourceCode markdown"><code class="sourceCode markdown" data-role="code-co
 <span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>Always use ISO 8601 in data attributes, even when displaying locally formatted dates:</span>
 <span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="in">```html</span></span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">time</span><span class="ot"> datetime</span><span class="op">=</span><span class="st">&quot;2025-03-15T14:30:00Z&quot;</span><span class="ot"> </span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">time</span><span class="ot"> datetime</span><span class="op">=</span><span class="st">&quot;2025-03-15T14:30:00Z&quot;</span></span>
 <span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="ot">      data-timezone</span><span class="op">=</span><span class="st">&quot;Europe/London&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>  3:30 PM GMT</span>
 <span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">time</span><span class="dt">&gt;</span></span></code></pre></div>
@@ -286,7 +296,7 @@ class="sourceCode markdown"><code class="sourceCode markdown" data-role="code-co
 <div class="sourceCode" id="cb2" data-role="code-container"><pre
 class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;date-picker&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> for</span><span class="op">=</span><span class="st">&quot;departure-date&quot;</span><span class="dt">&gt;</span>Departure date<span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;date&quot;</span><span class="ot"> </span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;date&quot;</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ot">         id</span><span class="op">=</span><span class="st">&quot;departure-date&quot;</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ot">         name</span><span class="op">=</span><span class="st">&quot;departureDate&quot;</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ot">         min</span><span class="op">=</span><span class="st">&quot;2025-01-01&quot;</span></span>
@@ -445,7 +455,7 @@ Explicitly</h3>
 <p>Make login status machine-readable:</p>
 <div class="sourceCode" id="cb5" data-role="code-container"><pre
 class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- When logged in --&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;auth-status&quot;</span><span class="ot"> </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;auth-status&quot;</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-authenticated</span><span class="op">=</span><span class="st">&quot;true&quot;</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-user-id</span><span class="op">=</span><span class="st">&quot;user-456&quot;</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-session-expires</span><span class="op">=</span><span class="st">&quot;2025-01-15T14:30:00Z&quot;</span><span class="dt">&gt;</span></span>
@@ -653,15 +663,15 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <p>Validate as users type. Show all errors at once. Never wait until
 submission to reveal problems.</p>
 <div class="sourceCode" id="cb16" data-role="code-container"><pre
-class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">form</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;checkout-form&quot;</span><span class="ot"> </span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ot">      action</span><span class="op">=</span><span class="st">&quot;/checkout&quot;</span><span class="ot"> </span></span>
+class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">form</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;checkout-form&quot;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ot">      action</span><span class="op">=</span><span class="st">&quot;/checkout&quot;</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="ot">      method</span><span class="op">=</span><span class="st">&quot;POST&quot;</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="ot">      data-state</span><span class="op">=</span><span class="st">&quot;incomplete&quot;</span></span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="ot">      data-errors</span><span class="op">=</span><span class="st">&quot;2&quot;</span></span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="ot">      novalidate</span><span class="dt">&gt;</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;error-summary&quot;</span><span class="ot"> </span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="ot">       role</span><span class="op">=</span><span class="st">&quot;alert&quot;</span><span class="ot"> </span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;error-summary&quot;</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="ot">       role</span><span class="op">=</span><span class="st">&quot;alert&quot;</span></span>
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="ot">       aria-live</span><span class="op">=</span><span class="st">&quot;polite&quot;</span></span>
 <span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="ot">       data-visible</span><span class="op">=</span><span class="st">&quot;true&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>2 errors need fixing<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
@@ -673,8 +683,8 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;field&quot;</span><span class="ot"> data-field-state</span><span class="op">=</span><span class="st">&quot;error&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> for</span><span class="op">=</span><span class="st">&quot;email&quot;</span><span class="dt">&gt;</span>Email address<span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;email&quot;</span><span class="ot"> </span></span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="ot">           id</span><span class="op">=</span><span class="st">&quot;email&quot;</span><span class="ot"> </span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;email&quot;</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="ot">           id</span><span class="op">=</span><span class="st">&quot;email&quot;</span></span>
 <span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="ot">           name</span><span class="op">=</span><span class="st">&quot;email&quot;</span></span>
 <span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="ot">           value</span><span class="op">=</span><span class="st">&quot;invalid-email&quot;</span></span>
 <span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a><span class="ot">           aria-invalid</span><span class="op">=</span><span class="st">&quot;true&quot;</span></span>
@@ -688,15 +698,15 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;field&quot;</span><span class="ot"> data-field-state</span><span class="op">=</span><span class="st">&quot;valid&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> for</span><span class="op">=</span><span class="st">&quot;name&quot;</span><span class="dt">&gt;</span>Full name<span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
-<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;text&quot;</span><span class="ot"> </span></span>
-<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a><span class="ot">           id</span><span class="op">=</span><span class="st">&quot;name&quot;</span><span class="ot"> </span></span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;text&quot;</span></span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a><span class="ot">           id</span><span class="op">=</span><span class="st">&quot;name&quot;</span></span>
 <span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a><span class="ot">           name</span><span class="op">=</span><span class="st">&quot;name&quot;</span></span>
 <span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a><span class="ot">           value</span><span class="op">=</span><span class="st">&quot;Jane Smith&quot;</span></span>
 <span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a><span class="ot">           aria-invalid</span><span class="op">=</span><span class="st">&quot;false&quot;</span></span>
 <span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a><span class="ot">           data-validation-state</span><span class="op">=</span><span class="st">&quot;valid&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
 <span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;submit&quot;</span><span class="ot"> </span></span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;submit&quot;</span></span>
 <span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a><span class="ot">          disabled</span></span>
 <span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a><span class="ot">          aria-disabled</span><span class="op">=</span><span class="st">&quot;true&quot;</span></span>
 <span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a><span class="ot">          data-submit-blocked</span><span class="op">=</span><span class="st">&quot;true&quot;</span></span>
@@ -710,11 +720,11 @@ the current validation state of every field.</p>
 <p>For complex processes, show clear progress and make each step
 bookmarkable.</p>
 <div class="sourceCode" id="cb17" data-role="code-container"><pre
-class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">form</span><span class="ot"> action</span><span class="op">=</span><span class="st">&quot;/booking&quot;</span><span class="ot"> method</span><span class="op">=</span><span class="st">&quot;POST&quot;</span><span class="ot"> </span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ot">      data-step</span><span class="op">=</span><span class="st">&quot;2&quot;</span><span class="ot"> </span></span>
+class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">form</span><span class="ot"> action</span><span class="op">=</span><span class="st">&quot;/booking&quot;</span><span class="ot"> method</span><span class="op">=</span><span class="st">&quot;POST&quot;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ot">      data-step</span><span class="op">=</span><span class="st">&quot;2&quot;</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="ot">      data-total-steps</span><span class="op">=</span><span class="st">&quot;4&quot;</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="ot">      data-can-proceed</span><span class="op">=</span><span class="st">&quot;true&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">nav</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">&quot;Booking progress&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">ol</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;steps&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">li</span><span class="ot"> data-step</span><span class="op">=</span><span class="st">&quot;1&quot;</span><span class="ot"> data-status</span><span class="op">=</span><span class="st">&quot;complete&quot;</span><span class="dt">&gt;</span></span>
@@ -727,11 +737,11 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">li</span><span class="ot"> data-step</span><span class="op">=</span><span class="st">&quot;4&quot;</span><span class="ot"> data-status</span><span class="op">=</span><span class="st">&quot;pending&quot;</span><span class="dt">&gt;</span>Confirm<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
 <span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">ol</span><span class="dt">&gt;</span></span>
 <span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">nav</span><span class="dt">&gt;</span></span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;step-content&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- Current step content --&gt;</span></span>
 <span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;step-navigation&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;button&quot;</span><span class="ot"> formaction</span><span class="op">=</span><span class="st">&quot;?step=1&quot;</span><span class="dt">&gt;</span>Back<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
 <span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;submit&quot;</span><span class="ot"> formaction</span><span class="op">=</span><span class="st">&quot;?step=3&quot;</span><span class="dt">&gt;</span>Continue<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
@@ -744,15 +754,15 @@ JavaScript.</p>
 <p>Modals break agents badly when implemented as JavaScript overlays.
 Use native HTML:</p>
 <div class="sourceCode" id="cb18" data-role="code-container"><pre
-class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">dialog</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;confirm-delete&quot;</span><span class="ot"> </span></span>
+class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">dialog</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;confirm-delete&quot;</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="ot">        open</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="ot">        aria-labelledby</span><span class="op">=</span><span class="st">&quot;dialog-title&quot;</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-action</span><span class="op">=</span><span class="st">&quot;confirm-deletion&quot;</span></span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-target-id</span><span class="op">=</span><span class="st">&quot;item-123&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h2</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;dialog-title&quot;</span><span class="dt">&gt;</span>Delete this item?<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>This action cannot be undone.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">form</span><span class="ot"> method</span><span class="op">=</span><span class="st">&quot;dialog&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> value</span><span class="op">=</span><span class="st">&quot;cancel&quot;</span><span class="dt">&gt;</span>Cancel<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
 <span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> value</span><span class="op">=</span><span class="st">&quot;confirm&quot;</span><span class="ot"> formaction</span><span class="op">=</span><span class="st">&quot;/items/123/delete&quot;</span><span class="ot"> formmethod</span><span class="op">=</span><span class="st">&quot;POST&quot;</span><span class="dt">&gt;</span></span>
@@ -824,17 +834,17 @@ navigation links in HTML, not JavaScript-generated menus.</p>
 <p>Make search results and filter states machine-readable.</p>
 <p><strong>Search Results:</strong></p>
 <div class="sourceCode" id="cb21" data-role="code-container"><pre
-class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;search-results&quot;</span><span class="ot"> </span></span>
+class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;search-results&quot;</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-query</span><span class="op">=</span><span class="st">&quot;wireless headphones&quot;</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-total-results</span><span class="op">=</span><span class="st">&quot;47&quot;</span></span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-page</span><span class="op">=</span><span class="st">&quot;1&quot;</span></span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-per-page</span><span class="op">=</span><span class="st">&quot;20&quot;</span></span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-sort</span><span class="op">=</span><span class="st">&quot;relevance&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;results-summary&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    Showing 1-20 of 47 results for &quot;wireless headphones&quot;</span>
 <span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">ol</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;results-list&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">li</span><span class="ot"> data-result-position</span><span class="op">=</span><span class="st">&quot;1&quot;</span><span class="ot"> data-product-id</span><span class="op">=</span><span class="st">&quot;WH-1000&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;/products/wh-1000&quot;</span><span class="dt">&gt;</span>Wireless Headphones WH-1000<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
@@ -842,18 +852,18 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
 <span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- More results --&gt;</span></span>
 <span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">ol</span><span class="dt">&gt;</span></span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">nav</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">&quot;Search results pagination&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;?q=wireless+headphones</span><span class="er">&amp;</span><span class="st">page=2&quot;</span><span class="ot"> data-page</span><span class="op">=</span><span class="st">&quot;2&quot;</span><span class="dt">&gt;</span>Next<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
 <span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">nav</span><span class="dt">&gt;</span></span>
 <span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div>
 <p><strong>Filter State:</strong></p>
 <div class="sourceCode" id="cb22" data-role="code-container"><pre
-class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">form</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;filters&quot;</span><span class="ot"> </span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="ot">      action</span><span class="op">=</span><span class="st">&quot;/products&quot;</span><span class="ot"> </span></span>
+class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">form</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;filters&quot;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="ot">      action</span><span class="op">=</span><span class="st">&quot;/products&quot;</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="ot">      method</span><span class="op">=</span><span class="st">&quot;GET&quot;</span></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="ot">      data-active-filters</span><span class="op">=</span><span class="st">&quot;3&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;active-filters&quot;</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">&quot;polite&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Active filters:<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">ul</span><span class="dt">&gt;</span></span>
@@ -872,22 +882,22 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">ul</span><span class="dt">&gt;</span></span>
 <span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;/products&quot;</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;clear-all&quot;</span><span class="dt">&gt;</span>Clear all filters<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
 <span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">fieldset</span><span class="dt">&gt;</span></span>
 <span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">legend</span><span class="dt">&gt;</span>Price range<span class="dt">&lt;/</span><span class="kw">legend</span><span class="dt">&gt;</span></span>
 <span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">label</span><span class="dt">&gt;</span></span>
-<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;radio&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;price&quot;</span><span class="ot"> value</span><span class="op">=</span><span class="st">&quot;0-100&quot;</span><span class="ot"> </span></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;radio&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;price&quot;</span><span class="ot"> value</span><span class="op">=</span><span class="st">&quot;0-100&quot;</span></span>
 <span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a><span class="ot">             data-result-count</span><span class="op">=</span><span class="st">&quot;12&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>      Under £100 (12)</span>
 <span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
 <span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">label</span><span class="dt">&gt;</span></span>
-<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;radio&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;price&quot;</span><span class="ot"> value</span><span class="op">=</span><span class="st">&quot;100-200&quot;</span><span class="ot"> </span></span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;radio&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;price&quot;</span><span class="ot"> value</span><span class="op">=</span><span class="st">&quot;100-200&quot;</span></span>
 <span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a><span class="ot">             checked</span></span>
 <span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a><span class="ot">             data-result-count</span><span class="op">=</span><span class="st">&quot;23&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>      £100-£200 (23)</span>
 <span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
 <span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">fieldset</span><span class="dt">&gt;</span></span>
-<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;submit&quot;</span><span class="dt">&gt;</span>Apply filters<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
 <span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">form</span><span class="dt">&gt;</span></span></code></pre></div>
 <p>Key points: filters reflected in URL parameters, active filters
@@ -902,15 +912,15 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-total-pages</span><span class="op">=</span><span class="st">&quot;24&quot;</span></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-total-items</span><span class="op">=</span><span class="st">&quot;472&quot;</span></span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-per-page</span><span class="op">=</span><span class="st">&quot;20&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;?page=1&quot;</span><span class="ot"> data-page</span><span class="op">=</span><span class="st">&quot;1&quot;</span><span class="dt">&gt;</span>First<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
 <span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;?page=2&quot;</span><span class="ot"> data-page</span><span class="op">=</span><span class="st">&quot;2&quot;</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;prev&quot;</span><span class="dt">&gt;</span>Previous<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> aria-current</span><span class="op">=</span><span class="st">&quot;page&quot;</span><span class="ot"> data-page</span><span class="op">=</span><span class="st">&quot;3&quot;</span><span class="dt">&gt;</span>Page 3 of 24<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;?page=4&quot;</span><span class="ot"> data-page</span><span class="op">=</span><span class="st">&quot;4&quot;</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;next&quot;</span><span class="dt">&gt;</span>Next<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
 <span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;?page=24&quot;</span><span class="ot"> data-page</span><span class="op">=</span><span class="st">&quot;24&quot;</span><span class="dt">&gt;</span>Last<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Machine-readable summary --&gt;</span></span>
 <span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;pagination-summary&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>    Showing items 41-60 of 472</span>
@@ -931,18 +941,18 @@ URL.</p>
 <h3 id="cart-and-basket-state">Cart and Basket State</h3>
 <p>Make shopping cart contents visible and machine-readable:</p>
 <div class="sourceCode" id="cb24" data-role="code-container"><pre
-class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;shopping-cart&quot;</span><span class="ot"> </span></span>
+class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;shopping-cart&quot;</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-cart-id</span><span class="op">=</span><span class="st">&quot;cart-abc123&quot;</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-item-count</span><span class="op">=</span><span class="st">&quot;3&quot;</span></span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-subtotal</span><span class="op">=</span><span class="st">&quot;279.97&quot;</span></span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-currency</span><span class="op">=</span><span class="st">&quot;GBP&quot;</span></span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-last-updated</span><span class="op">=</span><span class="st">&quot;2025-01-15T10:30:00Z&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Your basket (3 items)<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">ul</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;cart-items&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">li</span><span class="ot"> data-product-id</span><span class="op">=</span><span class="st">&quot;WH-1000&quot;</span><span class="ot"> </span></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-quantity</span><span class="op">=</span><span class="st">&quot;1&quot;</span><span class="ot"> </span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">li</span><span class="ot"> data-product-id</span><span class="op">=</span><span class="st">&quot;WH-1000&quot;</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-quantity</span><span class="op">=</span><span class="st">&quot;1&quot;</span></span>
 <span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-unit-price</span><span class="op">=</span><span class="st">&quot;149.99&quot;</span></span>
 <span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-line-total</span><span class="op">=</span><span class="st">&quot;149.99&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;product-name&quot;</span><span class="dt">&gt;</span>Wireless Headphones WH-1000<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
@@ -960,7 +970,7 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
 <span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- More items --&gt;</span></span>
 <span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">ul</span><span class="dt">&gt;</span></span>
-<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;cart-summary&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">dl</span><span class="dt">&gt;</span></span>
 <span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">dt</span><span class="dt">&gt;</span>Subtotal<span class="dt">&lt;/</span><span class="kw">dt</span><span class="dt">&gt;</span></span>
@@ -973,7 +983,7 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">dd</span><span class="ot"> data-total</span><span class="op">=</span><span class="st">&quot;279.97&quot;</span><span class="dt">&gt;</span>£279.97<span class="dt">&lt;/</span><span class="kw">dd</span><span class="dt">&gt;</span></span>
 <span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">dl</span><span class="dt">&gt;</span></span>
 <span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-44"><a href="#cb24-44" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;/checkout&quot;</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;checkout-button&quot;</span></span>
 <span id="cb24-45"><a href="#cb24-45" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-checkout-ready</span><span class="op">=</span><span class="st">&quot;true&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a>    Proceed to checkout</span>
@@ -985,32 +995,32 @@ readiness state.</p>
 <h3 id="success-confirmation-pattern">Success Confirmation Pattern</h3>
 <p>After a transaction completes, show clear confirmation:</p>
 <div class="sourceCode" id="cb25" data-role="code-container"><pre
-class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;order-confirmation&quot;</span><span class="ot"> </span></span>
+class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;order-confirmation&quot;</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="ot">     role</span><span class="op">=</span><span class="st">&quot;status&quot;</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-order-status</span><span class="op">=</span><span class="st">&quot;confirmed&quot;</span></span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="ot">     data-order-id</span><span class="op">=</span><span class="st">&quot;ORD-2025-0115-7890&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>Order confirmed<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;confirmation-details&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">dl</span><span class="dt">&gt;</span></span>
 <span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">dt</span><span class="dt">&gt;</span>Order number<span class="dt">&lt;/</span><span class="kw">dt</span><span class="dt">&gt;</span></span>
 <span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">dd</span><span class="ot"> data-order-id</span><span class="op">=</span><span class="st">&quot;ORD-2025-0115-7890&quot;</span><span class="dt">&gt;</span>ORD-2025-0115-7890<span class="dt">&lt;/</span><span class="kw">dd</span><span class="dt">&gt;</span></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">dt</span><span class="dt">&gt;</span>Order date<span class="dt">&lt;/</span><span class="kw">dt</span><span class="dt">&gt;</span></span>
 <span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">dd</span><span class="dt">&gt;&lt;</span><span class="kw">time</span><span class="ot"> datetime</span><span class="op">=</span><span class="st">&quot;2025-01-15T10:35:00Z&quot;</span><span class="dt">&gt;</span>15 January 2025, 10:35 AM<span class="dt">&lt;/</span><span class="kw">time</span><span class="dt">&gt;&lt;/</span><span class="kw">dd</span><span class="dt">&gt;</span></span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">dt</span><span class="dt">&gt;</span>Total paid<span class="dt">&lt;/</span><span class="kw">dt</span><span class="dt">&gt;</span></span>
 <span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">dd</span><span class="ot"> data-total</span><span class="op">=</span><span class="st">&quot;279.97&quot;</span><span class="ot"> data-currency</span><span class="op">=</span><span class="st">&quot;GBP&quot;</span><span class="dt">&gt;</span>£279.97<span class="dt">&lt;/</span><span class="kw">dd</span><span class="dt">&gt;</span></span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">dt</span><span class="dt">&gt;</span>Payment method<span class="dt">&lt;/</span><span class="kw">dt</span><span class="dt">&gt;</span></span>
 <span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">dd</span><span class="ot"> data-payment-method</span><span class="op">=</span><span class="st">&quot;card&quot;</span><span class="ot"> data-card-last4</span><span class="op">=</span><span class="st">&quot;4242&quot;</span><span class="dt">&gt;</span>Card ending 4242<span class="dt">&lt;/</span><span class="kw">dd</span><span class="dt">&gt;</span></span>
-<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">dt</span><span class="dt">&gt;</span>Estimated delivery<span class="dt">&lt;/</span><span class="kw">dt</span><span class="dt">&gt;</span></span>
 <span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">dd</span><span class="ot"> data-delivery-date</span><span class="op">=</span><span class="st">&quot;2025-01-17&quot;</span><span class="dt">&gt;</span>17-18 January 2025<span class="dt">&lt;/</span><span class="kw">dd</span><span class="dt">&gt;</span></span>
 <span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">dl</span><span class="dt">&gt;</span></span>
 <span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;delivery-address&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Delivering to<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
 <span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">address</span><span class="dt">&gt;</span></span>
@@ -1019,7 +1029,7 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a>      Manchester M1 1AA</span>
 <span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">address</span><span class="dt">&gt;</span></span>
 <span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;order-items&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb25-37"><a href="#cb25-37" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Items ordered<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
 <span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">ul</span><span class="dt">&gt;</span></span>
@@ -1028,7 +1038,7 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb25-41"><a href="#cb25-41" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
 <span id="cb25-42"><a href="#cb25-42" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">ul</span><span class="dt">&gt;</span></span>
 <span id="cb25-43"><a href="#cb25-43" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb25-44"><a href="#cb25-44" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-44"><a href="#cb25-44" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-45"><a href="#cb25-45" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;next-actions&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb25-46"><a href="#cb25-46" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;/orders/ORD-2025-0115-7890&quot;</span><span class="dt">&gt;</span>Track this order<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
 <span id="cb25-47"><a href="#cb25-47" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;/orders&quot;</span><span class="dt">&gt;</span>View all orders<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
@@ -1061,10 +1071,10 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">select</span><span class="dt">&gt;</span></span>
 <span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;submit&quot;</span><span class="dt">&gt;</span>Update<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
 <span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">form</span><span class="dt">&gt;</span></span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Prices with explicit currency --&gt;</span></span>
-<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;price&quot;</span><span class="ot"> </span></span>
-<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-amount</span><span class="op">=</span><span class="st">&quot;149.99&quot;</span><span class="ot"> </span></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;price&quot;</span></span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-amount</span><span class="op">=</span><span class="st">&quot;149.99&quot;</span></span>
 <span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-currency</span><span class="op">=</span><span class="st">&quot;GBP&quot;</span></span>
 <span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-currency-symbol</span><span class="op">=</span><span class="st">&quot;£&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>    £149.99</span>
@@ -1078,14 +1088,14 @@ not just numbers.</p>
 Options</h3>
 <p>Present shipping choices clearly:</p>
 <div class="sourceCode" id="cb27" data-role="code-container"><pre
-class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">fieldset</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;shipping-options&quot;</span><span class="ot"> </span></span>
+class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">fieldset</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;shipping-options&quot;</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="ot">          data-destination-country</span><span class="op">=</span><span class="st">&quot;GB&quot;</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="ot">          data-destination-postcode</span><span class="op">=</span><span class="st">&quot;M1 1AA&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">legend</span><span class="dt">&gt;</span>Choose delivery option<span class="dt">&lt;/</span><span class="kw">legend</span><span class="dt">&gt;</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;shipping-option&quot;</span><span class="ot"> data-shipping-id</span><span class="op">=</span><span class="st">&quot;standard&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;radio&quot;</span><span class="ot"> </span></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="ot">           name</span><span class="op">=</span><span class="st">&quot;shipping&quot;</span><span class="ot"> </span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;radio&quot;</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="ot">           name</span><span class="op">=</span><span class="st">&quot;shipping&quot;</span></span>
 <span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="ot">           value</span><span class="op">=</span><span class="st">&quot;standard&quot;</span></span>
 <span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="ot">           data-price</span><span class="op">=</span><span class="st">&quot;0.00&quot;</span></span>
 <span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="ot">           data-delivery-days-min</span><span class="op">=</span><span class="st">&quot;3&quot;</span></span>
@@ -1095,15 +1105,15 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;option-price&quot;</span><span class="ot"> data-price</span><span class="op">=</span><span class="st">&quot;0.00&quot;</span><span class="dt">&gt;</span>Free<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
 <span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;option-time&quot;</span><span class="dt">&gt;</span>3-5 working days<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
 <span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;option-estimate&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>      Estimated arrival: </span>
-<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">time</span><span class="ot"> datetime</span><span class="op">=</span><span class="st">&quot;2025-01-20&quot;</span><span class="dt">&gt;</span>20 Jan<span class="dt">&lt;/</span><span class="kw">time</span><span class="dt">&gt;</span> - </span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>      Estimated arrival:</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">time</span><span class="ot"> datetime</span><span class="op">=</span><span class="st">&quot;2025-01-20&quot;</span><span class="dt">&gt;</span>20 Jan<span class="dt">&lt;/</span><span class="kw">time</span><span class="dt">&gt;</span> -</span>
 <span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">time</span><span class="ot"> datetime</span><span class="op">=</span><span class="st">&quot;2025-01-22&quot;</span><span class="dt">&gt;</span>22 Jan<span class="dt">&lt;/</span><span class="kw">time</span><span class="dt">&gt;</span></span>
 <span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
 <span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
-<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;shipping-option&quot;</span><span class="ot"> data-shipping-id</span><span class="op">=</span><span class="st">&quot;express&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;radio&quot;</span><span class="ot"> </span></span>
-<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a><span class="ot">           name</span><span class="op">=</span><span class="st">&quot;shipping&quot;</span><span class="ot"> </span></span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;radio&quot;</span></span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a><span class="ot">           name</span><span class="op">=</span><span class="st">&quot;shipping&quot;</span></span>
 <span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a><span class="ot">           value</span><span class="op">=</span><span class="st">&quot;express&quot;</span></span>
 <span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a><span class="ot">           data-price</span><span class="op">=</span><span class="st">&quot;5.99&quot;</span></span>
 <span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a><span class="ot">           data-delivery-days-min</span><span class="op">=</span><span class="st">&quot;1&quot;</span></span>
@@ -1112,15 +1122,15 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;option-price&quot;</span><span class="ot"> data-price</span><span class="op">=</span><span class="st">&quot;5.99&quot;</span><span class="dt">&gt;</span>£5.99<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
 <span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;option-time&quot;</span><span class="dt">&gt;</span>1-2 working days<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
 <span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;option-estimate&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>      Estimated arrival: </span>
-<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">time</span><span class="ot"> datetime</span><span class="op">=</span><span class="st">&quot;2025-01-16&quot;</span><span class="dt">&gt;</span>16 Jan<span class="dt">&lt;/</span><span class="kw">time</span><span class="dt">&gt;</span> - </span>
+<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>      Estimated arrival:</span>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">time</span><span class="ot"> datetime</span><span class="op">=</span><span class="st">&quot;2025-01-16&quot;</span><span class="dt">&gt;</span>16 Jan<span class="dt">&lt;/</span><span class="kw">time</span><span class="dt">&gt;</span> -</span>
 <span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">time</span><span class="ot"> datetime</span><span class="op">=</span><span class="st">&quot;2025-01-17&quot;</span><span class="dt">&gt;</span>17 Jan<span class="dt">&lt;/</span><span class="kw">time</span><span class="dt">&gt;</span></span>
 <span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
 <span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
-<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;shipping-option&quot;</span><span class="ot"> data-shipping-id</span><span class="op">=</span><span class="st">&quot;next-day&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;radio&quot;</span><span class="ot"> </span></span>
-<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a><span class="ot">           name</span><span class="op">=</span><span class="st">&quot;shipping&quot;</span><span class="ot"> </span></span>
+<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;radio&quot;</span></span>
+<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a><span class="ot">           name</span><span class="op">=</span><span class="st">&quot;shipping&quot;</span></span>
 <span id="cb27-44"><a href="#cb27-44" aria-hidden="true" tabindex="-1"></a><span class="ot">           value</span><span class="op">=</span><span class="st">&quot;next-day&quot;</span></span>
 <span id="cb27-45"><a href="#cb27-45" aria-hidden="true" tabindex="-1"></a><span class="ot">           data-price</span><span class="op">=</span><span class="st">&quot;9.99&quot;</span></span>
 <span id="cb27-46"><a href="#cb27-46" aria-hidden="true" tabindex="-1"></a><span class="ot">           data-delivery-days-min</span><span class="op">=</span><span class="st">&quot;1&quot;</span></span>
@@ -1131,7 +1141,7 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb27-51"><a href="#cb27-51" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;option-time&quot;</span><span class="dt">&gt;</span>Next working day<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
 <span id="cb27-52"><a href="#cb27-52" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;option-note&quot;</span><span class="dt">&gt;</span>Order before 2pm<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
 <span id="cb27-53"><a href="#cb27-53" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;option-estimate&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb27-54"><a href="#cb27-54" aria-hidden="true" tabindex="-1"></a>      Estimated arrival: </span>
+<span id="cb27-54"><a href="#cb27-54" aria-hidden="true" tabindex="-1"></a>      Estimated arrival:</span>
 <span id="cb27-55"><a href="#cb27-55" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">time</span><span class="ot"> datetime</span><span class="op">=</span><span class="st">&quot;2025-01-16&quot;</span><span class="dt">&gt;</span>16 Jan<span class="dt">&lt;/</span><span class="kw">time</span><span class="dt">&gt;</span></span>
 <span id="cb27-56"><a href="#cb27-56" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
 <span id="cb27-57"><a href="#cb27-57" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
@@ -1205,7 +1215,7 @@ available but not intrusive.</p>
 class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;transaction-error&quot;</span><span class="ot"> role</span><span class="op">=</span><span class="st">&quot;alert&quot;</span><span class="ot"> data-error-code</span><span class="op">=</span><span class="st">&quot;PAYMENT_DECLINED&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Payment was declined<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Your card ending 4242 was declined by your bank.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;recovery-options&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h3</span><span class="dt">&gt;</span>What you can do<span class="dt">&lt;/</span><span class="kw">h3</span><span class="dt">&gt;</span></span>
 <span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">ul</span><span class="dt">&gt;</span></span>
@@ -1214,7 +1224,7 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;/cart&quot;</span><span class="dt">&gt;</span>Return to basket<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span> (your items are saved)<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
 <span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">ul</span><span class="dt">&gt;</span></span>
 <span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>  <span class="dv">&amp;lt;</span>details<span class="dv">&amp;gt;</span></span>
 <span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>    <span class="dv">&amp;lt;</span>summary<span class="dv">&amp;gt;</span>Technical details<span class="dv">&amp;lt;</span>/summary<span class="dv">&amp;gt;</span></span>
 <span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">dl</span><span class="dt">&gt;</span></span>
@@ -1780,7 +1790,7 @@ Disallow: /admin/
 # See /llms.txt for interaction policies
 
 Sitemap: https://example.com/sitemap.xml</code></pre>
-<h3 id="the-three-layer-approach">The Three-Layer Approach</h3>
+<h3 id="three-layer-approach">Three-Layer Approach</h3>
 <p>Use all three together for maximum clarity:</p>
 <p><strong>Layer 1 — llms.txt (site-wide defaults)</strong> — Emerging
 Convention:</p>
@@ -1835,8 +1845,7 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 Architecture Confuses AI</h2>
 <p>Before implementing solutions, it helps to understand why AI agents
 struggle with modern web architectures.</p>
-<h3 id="the-javascript-execution-problem">The JavaScript Execution
-Problem</h3>
+<h3 id="javascript-execution-problem">JavaScript Execution Problem</h3>
 <p>Most AI systems cannot execute JavaScript. This means:</p>
 <ul>
 <li>Content loaded asynchronously after the initial page load remains
@@ -1864,7 +1873,7 @@ inaccessible</li>
 </ul>
 <p>For AI, accessing a headless website is like reading a document with
 no formatting, no headlines, and no visual organisation.</p>
-<h3 id="the-dual-channel-solution">The Dual-Channel Solution</h3>
+<h3 id="dual-channel-solution">Dual-Channel Solution</h3>
 <p>The solution is “dual-channel content” — serving rich interactive
 experiences to humans while providing structured, accessible formats to
 AI systems that don’t require JavaScript execution or visual
@@ -2044,7 +2053,7 @@ responses or track usage separately.</p>
 <div class="sourceCode" id="cb54" data-role="code-container"><pre
 class="sourceCode javascript"><code class="sourceCode javascript" data-role="code-content"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">detectAgent</span>(req<span class="op">,</span> res<span class="op">,</span> next) {</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ua <span class="op">=</span> req<span class="op">.</span><span class="at">headers</span>[<span class="st">&#39;user-agent&#39;</span>] <span class="op">||</span> <span class="st">&#39;&#39;</span><span class="op">;</span></span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> agentPatterns <span class="op">=</span> {</span>
 <span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;gptbot&#39;</span><span class="op">:</span> <span class="st">&#39;openai&#39;</span><span class="op">,</span></span>
 <span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;chatgpt&#39;</span><span class="op">:</span> <span class="st">&#39;openai&#39;</span><span class="op">,</span></span>
@@ -2054,9 +2063,9 @@ class="sourceCode javascript"><code class="sourceCode javascript" data-role="cod
 <span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;bingbot&#39;</span><span class="op">:</span> <span class="st">&#39;microsoft&#39;</span><span class="op">,</span></span>
 <span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;perplexitybot&#39;</span><span class="op">:</span> <span class="st">&#39;perplexity&#39;</span></span>
 <span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
-<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb54-14"><a href="#cb54-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> lowerUA <span class="op">=</span> ua<span class="op">.</span><span class="fu">toLowerCase</span>()<span class="op">;</span></span>
-<span id="cb54-15"><a href="#cb54-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb54-15"><a href="#cb54-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb54-16"><a href="#cb54-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">const</span> [pattern<span class="op">,</span> provider] <span class="kw">of</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">entries</span>(agentPatterns)) {</span>
 <span id="cb54-17"><a href="#cb54-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (lowerUA<span class="op">.</span><span class="fu">includes</span>(pattern)) {</span>
 <span id="cb54-18"><a href="#cb54-18" aria-hidden="true" tabindex="-1"></a>      req<span class="op">.</span><span class="at">isAIAgent</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
@@ -2065,7 +2074,7 @@ class="sourceCode javascript"><code class="sourceCode javascript" data-role="cod
 <span id="cb54-21"><a href="#cb54-21" aria-hidden="true" tabindex="-1"></a>      <span class="cf">break</span><span class="op">;</span></span>
 <span id="cb54-22"><a href="#cb54-22" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb54-23"><a href="#cb54-23" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb54-24"><a href="#cb54-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb54-24"><a href="#cb54-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb54-25"><a href="#cb54-25" aria-hidden="true" tabindex="-1"></a>  req<span class="op">.</span><span class="at">isAIAgent</span> <span class="op">=</span> req<span class="op">.</span><span class="at">isAIAgent</span> <span class="op">||</span> <span class="kw">false</span><span class="op">;</span></span>
 <span id="cb54-26"><a href="#cb54-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">next</span>()<span class="op">;</span></span>
 <span id="cb54-27"><a href="#cb54-27" aria-hidden="true" tabindex="-1"></a>}</span>
@@ -2093,15 +2102,15 @@ alternatives.</p>
 class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> data-consent-status</span><span class="op">=</span><span class="st">&quot;pending&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Consent banner --&gt;</span></span>
-<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">dialog</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;cookie-consent&quot;</span><span class="ot"> </span></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">dialog</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;cookie-consent&quot;</span></span>
 <span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="ot">          open</span></span>
 <span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a><span class="ot">          aria-labelledby</span><span class="op">=</span><span class="st">&quot;consent-title&quot;</span></span>
 <span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a><span class="ot">          data-consent-required</span><span class="op">=</span><span class="st">&quot;true&quot;</span></span>
 <span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a><span class="ot">          data-consent-categories</span><span class="op">=</span><span class="st">&quot;necessary,analytics,marketing&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h2</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;consent-title&quot;</span><span class="dt">&gt;</span>Cookie preferences<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
 <span id="cb55-11"><a href="#cb55-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>We use cookies to improve your experience.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb55-12"><a href="#cb55-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb55-12"><a href="#cb55-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb55-13"><a href="#cb55-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">form</span><span class="ot"> action</span><span class="op">=</span><span class="st">&quot;/consent&quot;</span><span class="ot"> method</span><span class="op">=</span><span class="st">&quot;POST&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb55-14"><a href="#cb55-14" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">fieldset</span><span class="dt">&gt;</span></span>
 <span id="cb55-15"><a href="#cb55-15" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">label</span><span class="dt">&gt;</span></span>
@@ -2117,13 +2126,13 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb55-25"><a href="#cb55-25" aria-hidden="true" tabindex="-1"></a>          Marketing</span>
 <span id="cb55-26"><a href="#cb55-26" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
 <span id="cb55-27"><a href="#cb55-27" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;/</span><span class="kw">fieldset</span><span class="dt">&gt;</span></span>
-<span id="cb55-28"><a href="#cb55-28" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb55-28"><a href="#cb55-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb55-29"><a href="#cb55-29" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;submit&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;action&quot;</span><span class="ot"> value</span><span class="op">=</span><span class="st">&quot;accept-all&quot;</span><span class="dt">&gt;</span>Accept all<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
 <span id="cb55-30"><a href="#cb55-30" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;submit&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;action&quot;</span><span class="ot"> value</span><span class="op">=</span><span class="st">&quot;accept-selected&quot;</span><span class="dt">&gt;</span>Accept selected<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
 <span id="cb55-31"><a href="#cb55-31" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;submit&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;action&quot;</span><span class="ot"> value</span><span class="op">=</span><span class="st">&quot;reject-optional&quot;</span><span class="dt">&gt;</span>Reject optional<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
 <span id="cb55-32"><a href="#cb55-32" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">form</span><span class="dt">&gt;</span></span>
 <span id="cb55-33"><a href="#cb55-33" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">dialog</span><span class="dt">&gt;</span></span>
-<span id="cb55-34"><a href="#cb55-34" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb55-34"><a href="#cb55-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb55-35"><a href="#cb55-35" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Main content always accessible --&gt;</span></span>
 <span id="cb55-36"><a href="#cb55-36" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">main</span><span class="dt">&gt;</span></span>
 <span id="cb55-37"><a href="#cb55-37" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- Page content here --&gt;</span></span>
@@ -2165,12 +2174,12 @@ class="sourceCode javascript"><code class="sourceCode javascript" data-role="cod
 <span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (req<span class="op">.</span><span class="at">isAIAgent</span> <span class="op">&amp;&amp;</span> <span class="fu">isVerifiedAgent</span>(req)) {</span>
 <span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">next</span>()<span class="op">;</span></span>
 <span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Suspicious patterns - challenge</span></span>
 <span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">isSuspiciousRequest</span>(req)) {</span>
 <span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res<span class="op">.</span><span class="fu">status</span>(<span class="dv">403</span>)<span class="op">.</span><span class="fu">render</span>(<span class="st">&#39;captcha-challenge&#39;</span>)<span class="op">;</span></span>
 <span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb58-11"><a href="#cb58-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb58-11"><a href="#cb58-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb58-12"><a href="#cb58-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">next</span>()<span class="op">;</span></span>
 <span id="cb58-13"><a href="#cb58-13" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb58-14"><a href="#cb58-14" aria-hidden="true" tabindex="-1"></a></span>
@@ -2180,11 +2189,11 @@ class="sourceCode javascript"><code class="sourceCode javascript" data-role="cod
 <span id="cb58-18"><a href="#cb58-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;openai&#39;</span><span class="op">:</span> [<span class="st">&#39;20.15.240.0/24&#39;</span><span class="op">,</span> <span class="st">&#39;20.171.206.0/24&#39;</span>]<span class="op">,</span></span>
 <span id="cb58-19"><a href="#cb58-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;anthropic&#39;</span><span class="op">:</span> [<span class="st">&#39;...&#39;</span>]<span class="op">,</span></span>
 <span id="cb58-20"><a href="#cb58-20" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
-<span id="cb58-21"><a href="#cb58-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb58-21"><a href="#cb58-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb58-22"><a href="#cb58-22" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Check if IP matches claimed provider</span></span>
 <span id="cb58-23"><a href="#cb58-23" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> provider <span class="op">=</span> req<span class="op">.</span><span class="at">agentProvider</span><span class="op">;</span></span>
 <span id="cb58-24"><a href="#cb58-24" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> clientIP <span class="op">=</span> req<span class="op">.</span><span class="at">ip</span><span class="op">;</span></span>
-<span id="cb58-25"><a href="#cb58-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb58-25"><a href="#cb58-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb58-26"><a href="#cb58-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">verifyIPRange</span>(clientIP<span class="op">,</span> knownAgentIPs[provider])<span class="op">;</span></span>
 <span id="cb58-27"><a href="#cb58-27" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p><strong>Captcha Fallback for Agents:</strong></p>
@@ -2192,10 +2201,10 @@ class="sourceCode javascript"><code class="sourceCode javascript" data-role="cod
 <div class="sourceCode" id="cb59" data-role="code-container"><pre
 class="sourceCode html"><code class="sourceCode html" data-role="code-content"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;bot-protection&quot;</span><span class="ot"> data-protection-type</span><span class="op">=</span><span class="st">&quot;captcha&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Please verify you&#39;re human:<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Standard captcha for browsers --&gt;</span></span>
 <span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;captcha-widget&quot;</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;recaptcha&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Alternative for AI agents --&gt;</span></span>
 <span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;agent-alternative&quot;</span><span class="ot"> data-agent-visible</span><span class="op">=</span><span class="st">&quot;true&quot;</span><span class="ot"> style</span><span class="op">=</span><span class="st">&quot;display: none;&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>AI agents: Request API access instead.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
@@ -2261,15 +2270,15 @@ provide clarity.</p>
 class="sourceCode javascript"><code class="sourceCode javascript" data-role="code-content"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Express.js example</span></span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>app<span class="op">.</span><span class="fu">post</span>(<span class="st">&#39;/checkout&#39;</span><span class="op">,</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> {</span>
 <span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> order <span class="op">=</span> <span class="fu">processOrder</span>(req<span class="op">.</span><span class="at">body</span>)<span class="op">;</span></span>
-<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (order<span class="op">.</span><span class="at">success</span>) {</span>
 <span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 303 redirect after successful POST</span></span>
 <span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>    res<span class="op">.</span><span class="fu">redirect</span>(<span class="dv">303</span><span class="op">,</span> <span class="vs">`/orders/</span><span class="sc">${</span>order<span class="op">.</span><span class="at">id</span><span class="sc">}</span><span class="vs">/confirmation`</span>)<span class="op">;</span></span>
 <span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
 <span id="cb63-9"><a href="#cb63-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Return to form with errors</span></span>
-<span id="cb63-10"><a href="#cb63-10" aria-hidden="true" tabindex="-1"></a>    res<span class="op">.</span><span class="fu">status</span>(<span class="dv">400</span>)<span class="op">.</span><span class="fu">render</span>(<span class="st">&#39;checkout&#39;</span><span class="op">,</span> { </span>
+<span id="cb63-10"><a href="#cb63-10" aria-hidden="true" tabindex="-1"></a>    res<span class="op">.</span><span class="fu">status</span>(<span class="dv">400</span>)<span class="op">.</span><span class="fu">render</span>(<span class="st">&#39;checkout&#39;</span><span class="op">,</span> {</span>
 <span id="cb63-11"><a href="#cb63-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">errors</span><span class="op">:</span> order<span class="op">.</span><span class="at">errors</span><span class="op">,</span></span>
-<span id="cb63-12"><a href="#cb63-12" aria-hidden="true" tabindex="-1"></a>      <span class="dt">values</span><span class="op">:</span> req<span class="op">.</span><span class="at">body</span> </span>
+<span id="cb63-12"><a href="#cb63-12" aria-hidden="true" tabindex="-1"></a>      <span class="dt">values</span><span class="op">:</span> req<span class="op">.</span><span class="at">body</span></span>
 <span id="cb63-13"><a href="#cb63-13" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
 <span id="cb63-14"><a href="#cb63-14" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb63-15"><a href="#cb63-15" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
@@ -2449,7 +2458,7 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">&quot;UTF-8&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;viewport&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Luigi&#39;s Pizza - Manchester<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
-<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb70-8"><a href="#cb70-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">&quot;application/ld+json&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb70-9"><a href="#cb70-9" aria-hidden="true" tabindex="-1"></a>  {</span>
 <span id="cb70-10"><a href="#cb70-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;@context&quot;</span><span class="op">:</span> <span class="st">&quot;https://schema.org&quot;</span><span class="op">,</span></span>
@@ -2514,7 +2523,7 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb70-69"><a href="#cb70-69" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb70-70"><a href="#cb70-70" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">section</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;menu&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb70-71"><a href="#cb70-71" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Menu<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
-<span id="cb70-72"><a href="#cb70-72" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb70-72"><a href="#cb70-72" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb70-73"><a href="#cb70-73" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">article</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;menu-item&quot;</span><span class="ot"> itemscope itemtype</span><span class="op">=</span><span class="st">&quot;https://schema.org/MenuItem&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb70-74"><a href="#cb70-74" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">h3</span><span class="ot"> itemprop</span><span class="op">=</span><span class="st">&quot;name&quot;</span><span class="dt">&gt;</span>Margherita<span class="dt">&lt;/</span><span class="kw">h3</span><span class="dt">&gt;</span></span>
 <span id="cb70-75"><a href="#cb70-75" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> itemprop</span><span class="op">=</span><span class="st">&quot;description&quot;</span><span class="dt">&gt;</span>Tomato sauce, mozzarella, fresh basil<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
@@ -2546,20 +2555,20 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb70-101"><a href="#cb70-101" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;text&quot;</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;name&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;name&quot;</span><span class="ot"> required</span></span>
 <span id="cb70-102"><a href="#cb70-102" aria-hidden="true" tabindex="-1"></a><span class="ot">                 data-validation-state</span><span class="op">=</span><span class="st">&quot;pending&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb70-103"><a href="#cb70-103" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb70-104"><a href="#cb70-104" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb70-104"><a href="#cb70-104" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb70-105"><a href="#cb70-105" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;field&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb70-106"><a href="#cb70-106" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> for</span><span class="op">=</span><span class="st">&quot;phone&quot;</span><span class="dt">&gt;</span>Phone number<span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
 <span id="cb70-107"><a href="#cb70-107" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;tel&quot;</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;phone&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;phone&quot;</span><span class="ot"> required</span></span>
 <span id="cb70-108"><a href="#cb70-108" aria-hidden="true" tabindex="-1"></a><span class="ot">                 data-validation-state</span><span class="op">=</span><span class="st">&quot;pending&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb70-109"><a href="#cb70-109" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb70-110"><a href="#cb70-110" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb70-110"><a href="#cb70-110" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb70-111"><a href="#cb70-111" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;field&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb70-112"><a href="#cb70-112" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> for</span><span class="op">=</span><span class="st">&quot;date&quot;</span><span class="dt">&gt;</span>Date<span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
 <span id="cb70-113"><a href="#cb70-113" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;date&quot;</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;date&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;date&quot;</span><span class="ot"> required</span></span>
 <span id="cb70-114"><a href="#cb70-114" aria-hidden="true" tabindex="-1"></a><span class="ot">                 min</span><span class="op">=</span><span class="st">&quot;2025-01-01&quot;</span></span>
 <span id="cb70-115"><a href="#cb70-115" aria-hidden="true" tabindex="-1"></a><span class="ot">                 data-validation-state</span><span class="op">=</span><span class="st">&quot;pending&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb70-116"><a href="#cb70-116" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb70-117"><a href="#cb70-117" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb70-117"><a href="#cb70-117" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb70-118"><a href="#cb70-118" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;field&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb70-119"><a href="#cb70-119" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> for</span><span class="op">=</span><span class="st">&quot;time&quot;</span><span class="dt">&gt;</span>Time<span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
 <span id="cb70-120"><a href="#cb70-120" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;</span><span class="kw">select</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;time&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;time&quot;</span><span class="ot"> required</span><span class="dt">&gt;</span></span>
@@ -2572,13 +2581,13 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb70-127"><a href="#cb70-127" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">option</span><span class="ot"> value</span><span class="op">=</span><span class="st">&quot;20:30&quot;</span><span class="dt">&gt;</span>8:30 PM<span class="dt">&lt;/</span><span class="kw">option</span><span class="dt">&gt;</span></span>
 <span id="cb70-128"><a href="#cb70-128" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;/</span><span class="kw">select</span><span class="dt">&gt;</span></span>
 <span id="cb70-129"><a href="#cb70-129" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb70-130"><a href="#cb70-130" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb70-130"><a href="#cb70-130" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb70-131"><a href="#cb70-131" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;field&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb70-132"><a href="#cb70-132" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> for</span><span class="op">=</span><span class="st">&quot;guests&quot;</span><span class="dt">&gt;</span>Number of guests<span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
-<span id="cb70-133"><a href="#cb70-133" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;number&quot;</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;guests&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;guests&quot;</span><span class="ot"> </span></span>
+<span id="cb70-133"><a href="#cb70-133" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;number&quot;</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;guests&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;guests&quot;</span></span>
 <span id="cb70-134"><a href="#cb70-134" aria-hidden="true" tabindex="-1"></a><span class="ot">                 min</span><span class="op">=</span><span class="st">&quot;1&quot;</span><span class="ot"> max</span><span class="op">=</span><span class="st">&quot;12&quot;</span><span class="ot"> value</span><span class="op">=</span><span class="st">&quot;2&quot;</span><span class="ot"> required</span><span class="dt">&gt;</span></span>
 <span id="cb70-135"><a href="#cb70-135" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb70-136"><a href="#cb70-136" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb70-136"><a href="#cb70-136" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb70-137"><a href="#cb70-137" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;submit&quot;</span><span class="dt">&gt;</span>Request Booking<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
 <span id="cb70-138"><a href="#cb70-138" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;/</span><span class="kw">form</span><span class="dt">&gt;</span></span>
 <span id="cb70-139"><a href="#cb70-139" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">section</span><span class="dt">&gt;</span></span>
@@ -2598,10 +2607,10 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">&quot;UTF-8&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;viewport&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb71-6"><a href="#cb71-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Wireless Headphones - TechStore<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
-<span id="cb71-7"><a href="#cb71-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb71-7"><a href="#cb71-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb71-8"><a href="#cb71-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;ai-api-endpoint&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;/api/v1/products/WH-1000&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb71-9"><a href="#cb71-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;ai-freshness&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;hourly&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb71-10"><a href="#cb71-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb71-10"><a href="#cb71-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb71-11"><a href="#cb71-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">&quot;application/ld+json&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb71-12"><a href="#cb71-12" aria-hidden="true" tabindex="-1"></a>  {</span>
 <span id="cb71-13"><a href="#cb71-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;@context&quot;</span><span class="op">:</span> <span class="st">&quot;https://schema.org&quot;</span><span class="op">,</span></span>
@@ -2653,7 +2662,7 @@ class="sourceCode html"><code class="sourceCode html" data-role="code-content"><
 <span id="cb71-59"><a href="#cb71-59" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
 <span id="cb71-60"><a href="#cb71-60" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">main</span><span class="ot"> itemscope itemtype</span><span class="op">=</span><span class="st">&quot;https://schema.org/Product&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb71-61"><a href="#cb71-61" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h1</span><span class="ot"> itemprop</span><span class="op">=</span><span class="st">&quot;name&quot;</span><span class="dt">&gt;</span>Wireless Headphones WH-1000<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
-<span id="cb71-62"><a href="#cb71-62" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb71-62"><a href="#cb71-62" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb71-63"><a href="#cb71-63" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;product-price&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb71-64"><a href="#cb71-64" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;currency&quot;</span><span class="dt">&gt;</span>£<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
 <span id="cb71-65"><a href="#cb71-65" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;amount&quot;</span><span class="ot"> itemprop</span><span class="op">=</span><span class="st">&quot;price&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;149.99&quot;</span><span class="dt">&gt;</span>149.99<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
@@ -2756,7 +2765,7 @@ class="sourceCode javascript"><code class="sourceCode javascript" data-role="cod
 <span id="cb72-39"><a href="#cb72-39" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Check for explicit pricing</span></span>
 <span id="cb72-40"><a href="#cb72-40" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> price <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">$</span>(<span class="st">&#39;[data-price]&#39;</span>)<span class="op">;</span></span>
 <span id="cb72-41"><a href="#cb72-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(price)<span class="op">.</span><span class="fu">toBeTruthy</span>()<span class="op">;</span></span>
-<span id="cb72-42"><a href="#cb72-42" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-42"><a href="#cb72-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-43"><a href="#cb72-43" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Check stock information is explicit</span></span>
 <span id="cb72-44"><a href="#cb72-44" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> stockInfo <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">$</span>(<span class="st">&#39;[data-in-stock]&#39;</span>)<span class="op">;</span></span>
 <span id="cb72-45"><a href="#cb72-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(stockInfo)<span class="op">.</span><span class="fu">toBeTruthy</span>()<span class="op">;</span></span>
@@ -2764,11 +2773,11 @@ class="sourceCode javascript"><code class="sourceCode javascript" data-role="cod
 <span id="cb72-47"><a href="#cb72-47" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-48"><a href="#cb72-48" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&#39;authentication state is explicit&#39;</span><span class="op">,</span> <span class="kw">async</span> ({ page }) <span class="kw">=&gt;</span> {</span>
 <span id="cb72-49"><a href="#cb72-49" aria-hidden="true" tabindex="-1"></a>  <span class="cf">await</span> page<span class="op">.</span><span class="fu">goto</span>(<span class="st">&#39;/&#39;</span>)<span class="op">;</span></span>
-<span id="cb72-50"><a href="#cb72-50" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-50"><a href="#cb72-50" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-51"><a href="#cb72-51" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Auth status should always be present</span></span>
 <span id="cb72-52"><a href="#cb72-52" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> authStatus <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">$</span>(<span class="st">&#39;#auth-status&#39;</span>)<span class="op">;</span></span>
 <span id="cb72-53"><a href="#cb72-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(authStatus)<span class="op">.</span><span class="fu">toBeTruthy</span>()<span class="op">;</span></span>
-<span id="cb72-54"><a href="#cb72-54" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-54"><a href="#cb72-54" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-55"><a href="#cb72-55" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Should have data-authenticated attribute</span></span>
 <span id="cb72-56"><a href="#cb72-56" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> isAuthenticated <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">getAttribute</span>(<span class="st">&#39;#auth-status&#39;</span><span class="op">,</span> <span class="st">&#39;data-authenticated&#39;</span>)<span class="op">;</span></span>
 <span id="cb72-57"><a href="#cb72-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>([<span class="st">&#39;true&#39;</span><span class="op">,</span> <span class="st">&#39;false&#39;</span>])<span class="op">.</span><span class="fu">toContain</span>(isAuthenticated)<span class="op">;</span></span>
@@ -2776,11 +2785,11 @@ class="sourceCode javascript"><code class="sourceCode javascript" data-role="cod
 <span id="cb72-59"><a href="#cb72-59" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-60"><a href="#cb72-60" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&#39;breadcrumbs have Schema.org markup&#39;</span><span class="op">,</span> <span class="kw">async</span> ({ page }) <span class="kw">=&gt;</span> {</span>
 <span id="cb72-61"><a href="#cb72-61" aria-hidden="true" tabindex="-1"></a>  <span class="cf">await</span> page<span class="op">.</span><span class="fu">goto</span>(<span class="st">&#39;/products/headphones/wh-1000&#39;</span>)<span class="op">;</span></span>
-<span id="cb72-62"><a href="#cb72-62" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-62"><a href="#cb72-62" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-63"><a href="#cb72-63" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Check for BreadcrumbList</span></span>
 <span id="cb72-64"><a href="#cb72-64" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> breadcrumbList <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">$</span>(<span class="st">&#39;[itemtype=&quot;https://schema.org/BreadcrumbList&quot;]&#39;</span>)<span class="op">;</span></span>
 <span id="cb72-65"><a href="#cb72-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(breadcrumbList)<span class="op">.</span><span class="fu">toBeTruthy</span>()<span class="op">;</span></span>
-<span id="cb72-66"><a href="#cb72-66" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-66"><a href="#cb72-66" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-67"><a href="#cb72-67" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Check for position metadata</span></span>
 <span id="cb72-68"><a href="#cb72-68" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> positions <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">$$</span>(<span class="st">&#39;[itemprop=&quot;position&quot;]&#39;</span>)<span class="op">;</span></span>
 <span id="cb72-69"><a href="#cb72-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(positions<span class="op">.</span><span class="at">length</span>)<span class="op">.</span><span class="fu">toBeGreaterThan</span>(<span class="dv">0</span>)<span class="op">;</span></span>
@@ -2788,14 +2797,14 @@ class="sourceCode javascript"><code class="sourceCode javascript" data-role="cod
 <span id="cb72-71"><a href="#cb72-71" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-72"><a href="#cb72-72" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&#39;search results are machine-readable&#39;</span><span class="op">,</span> <span class="kw">async</span> ({ page }) <span class="kw">=&gt;</span> {</span>
 <span id="cb72-73"><a href="#cb72-73" aria-hidden="true" tabindex="-1"></a>  <span class="cf">await</span> page<span class="op">.</span><span class="fu">goto</span>(<span class="st">&#39;/search?q=headphones&#39;</span>)<span class="op">;</span></span>
-<span id="cb72-74"><a href="#cb72-74" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-74"><a href="#cb72-74" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-75"><a href="#cb72-75" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Check for result metadata</span></span>
 <span id="cb72-76"><a href="#cb72-76" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> results <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">$</span>(<span class="st">&#39;.search-results&#39;</span>)<span class="op">;</span></span>
 <span id="cb72-77"><a href="#cb72-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(results)<span class="op">.</span><span class="fu">toBeTruthy</span>()<span class="op">;</span></span>
-<span id="cb72-78"><a href="#cb72-78" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-78"><a href="#cb72-78" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-79"><a href="#cb72-79" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> totalResults <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">getAttribute</span>(<span class="st">&#39;.search-results&#39;</span><span class="op">,</span> <span class="st">&#39;data-total-results&#39;</span>)<span class="op">;</span></span>
 <span id="cb72-80"><a href="#cb72-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(<span class="pp">parseInt</span>(totalResults))<span class="op">.</span><span class="fu">toBeGreaterThan</span>(<span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb72-81"><a href="#cb72-81" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-81"><a href="#cb72-81" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-82"><a href="#cb72-82" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Check individual results have IDs</span></span>
 <span id="cb72-83"><a href="#cb72-83" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> resultItems <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">$$</span>(<span class="st">&#39;[data-product-id]&#39;</span>)<span class="op">;</span></span>
 <span id="cb72-84"><a href="#cb72-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(resultItems<span class="op">.</span><span class="at">length</span>)<span class="op">.</span><span class="fu">toBeGreaterThan</span>(<span class="dv">0</span>)<span class="op">;</span></span>
@@ -2803,27 +2812,27 @@ class="sourceCode javascript"><code class="sourceCode javascript" data-role="cod
 <span id="cb72-86"><a href="#cb72-86" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-87"><a href="#cb72-87" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&#39;cart state is explicit&#39;</span><span class="op">,</span> <span class="kw">async</span> ({ page }) <span class="kw">=&gt;</span> {</span>
 <span id="cb72-88"><a href="#cb72-88" aria-hidden="true" tabindex="-1"></a>  <span class="cf">await</span> page<span class="op">.</span><span class="fu">goto</span>(<span class="st">&#39;/cart&#39;</span>)<span class="op">;</span></span>
-<span id="cb72-89"><a href="#cb72-89" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-89"><a href="#cb72-89" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-90"><a href="#cb72-90" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Check cart has state attributes</span></span>
 <span id="cb72-91"><a href="#cb72-91" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> cart <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">$</span>(<span class="st">&#39;#shopping-cart&#39;</span>)<span class="op">;</span></span>
 <span id="cb72-92"><a href="#cb72-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(cart)<span class="op">.</span><span class="fu">toBeTruthy</span>()<span class="op">;</span></span>
-<span id="cb72-93"><a href="#cb72-93" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-93"><a href="#cb72-93" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-94"><a href="#cb72-94" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> itemCount <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">getAttribute</span>(<span class="st">&#39;#shopping-cart&#39;</span><span class="op">,</span> <span class="st">&#39;data-item-count&#39;</span>)<span class="op">;</span></span>
 <span id="cb72-95"><a href="#cb72-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(itemCount)<span class="op">.</span><span class="fu">toBeDefined</span>()<span class="op">;</span></span>
-<span id="cb72-96"><a href="#cb72-96" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-96"><a href="#cb72-96" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-97"><a href="#cb72-97" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> subtotal <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">getAttribute</span>(<span class="st">&#39;#shopping-cart&#39;</span><span class="op">,</span> <span class="st">&#39;data-subtotal&#39;</span>)<span class="op">;</span></span>
 <span id="cb72-98"><a href="#cb72-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(subtotal)<span class="op">.</span><span class="fu">toBeDefined</span>()<span class="op">;</span></span>
 <span id="cb72-99"><a href="#cb72-99" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
 <span id="cb72-100"><a href="#cb72-100" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-101"><a href="#cb72-101" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&#39;pagination includes total counts&#39;</span><span class="op">,</span> <span class="kw">async</span> ({ page }) <span class="kw">=&gt;</span> {</span>
 <span id="cb72-102"><a href="#cb72-102" aria-hidden="true" tabindex="-1"></a>  <span class="cf">await</span> page<span class="op">.</span><span class="fu">goto</span>(<span class="st">&#39;/products?page=2&#39;</span>)<span class="op">;</span></span>
-<span id="cb72-103"><a href="#cb72-103" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-103"><a href="#cb72-103" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-104"><a href="#cb72-104" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Check pagination has metadata</span></span>
 <span id="cb72-105"><a href="#cb72-105" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> pagination <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">$</span>(<span class="st">&#39;.pagination&#39;</span>)<span class="op">;</span></span>
 <span id="cb72-106"><a href="#cb72-106" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (pagination) {</span>
 <span id="cb72-107"><a href="#cb72-107" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> currentPage <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">getAttribute</span>(<span class="st">&#39;.pagination&#39;</span><span class="op">,</span> <span class="st">&#39;data-current-page&#39;</span>)<span class="op">;</span></span>
 <span id="cb72-108"><a href="#cb72-108" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> totalPages <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">getAttribute</span>(<span class="st">&#39;.pagination&#39;</span><span class="op">,</span> <span class="st">&#39;data-total-pages&#39;</span>)<span class="op">;</span></span>
-<span id="cb72-109"><a href="#cb72-109" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb72-109"><a href="#cb72-109" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-110"><a href="#cb72-110" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(currentPage)<span class="op">.</span><span class="fu">toBe</span>(<span class="st">&#39;2&#39;</span>)<span class="op">;</span></span>
 <span id="cb72-111"><a href="#cb72-111" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(<span class="pp">parseInt</span>(totalPages))<span class="op">.</span><span class="fu">toBeGreaterThan</span>(<span class="dv">0</span>)<span class="op">;</span></span>
 <span id="cb72-112"><a href="#cb72-112" aria-hidden="true" tabindex="-1"></a>  }</span>
@@ -2831,11 +2840,11 @@ class="sourceCode javascript"><code class="sourceCode javascript" data-role="cod
 <span id="cb72-114"><a href="#cb72-114" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-115"><a href="#cb72-115" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&#39;filter state reflected in URL and DOM&#39;</span><span class="op">,</span> <span class="kw">async</span> ({ page }) <span class="kw">=&gt;</span> {</span>
 <span id="cb72-116"><a href="#cb72-116" aria-hidden="true" tabindex="-1"></a>  <span class="cf">await</span> page<span class="op">.</span><span class="fu">goto</span>(<span class="st">&#39;/products?category=headphones&amp;price_max=200&#39;</span>)<span class="op">;</span></span>
-<span id="cb72-117"><a href="#cb72-117" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-117"><a href="#cb72-117" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-118"><a href="#cb72-118" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Check URL parameters match displayed filters</span></span>
 <span id="cb72-119"><a href="#cb72-119" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> activeFilters <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">$</span>(<span class="st">&#39;.active-filters&#39;</span>)<span class="op">;</span></span>
 <span id="cb72-120"><a href="#cb72-120" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(activeFilters)<span class="op">.</span><span class="fu">toBeTruthy</span>()<span class="op">;</span></span>
-<span id="cb72-121"><a href="#cb72-121" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-121"><a href="#cb72-121" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-122"><a href="#cb72-122" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Check filter values are in data attributes</span></span>
 <span id="cb72-123"><a href="#cb72-123" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> categoryFilter <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">$</span>(<span class="st">&#39;[data-filter=&quot;category&quot;]&#39;</span>)<span class="op">;</span></span>
 <span id="cb72-124"><a href="#cb72-124" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(categoryFilter)<span class="op">.</span><span class="fu">toBeTruthy</span>()<span class="op">;</span></span>
@@ -2843,9 +2852,9 @@ class="sourceCode javascript"><code class="sourceCode javascript" data-role="cod
 <span id="cb72-126"><a href="#cb72-126" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-127"><a href="#cb72-127" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&#39;llms.txt exists and is valid&#39;</span><span class="op">,</span> <span class="kw">async</span> ({ page }) <span class="kw">=&gt;</span> {</span>
 <span id="cb72-128"><a href="#cb72-128" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> response <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">goto</span>(<span class="st">&#39;/llms.txt&#39;</span>)<span class="op">;</span></span>
-<span id="cb72-129"><a href="#cb72-129" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-129"><a href="#cb72-129" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-130"><a href="#cb72-130" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(response<span class="op">.</span><span class="fu">status</span>())<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">200</span>)<span class="op">;</span></span>
-<span id="cb72-131"><a href="#cb72-131" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-131"><a href="#cb72-131" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-132"><a href="#cb72-132" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> content <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">content</span>()<span class="op">;</span></span>
 <span id="cb72-133"><a href="#cb72-133" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Should start with H1 title</span></span>
 <span id="cb72-134"><a href="#cb72-134" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(content)<span class="op">.</span><span class="fu">toMatch</span>(<span class="ss">/</span><span class="sc">^</span><span class="ss">#</span><span class="sc">\s+</span><span class="ss">.</span><span class="sc">+</span><span class="ss">/m</span>)<span class="op">;</span></span>
@@ -2866,11 +2875,11 @@ class="sourceCode javascript"><code class="sourceCode javascript" data-role="cod
 <span id="cb72-149"><a href="#cb72-149" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-150"><a href="#cb72-150" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&#39;consent banner does not block content&#39;</span><span class="op">,</span> <span class="kw">async</span> ({ page }) <span class="kw">=&gt;</span> {</span>
 <span id="cb72-151"><a href="#cb72-151" aria-hidden="true" tabindex="-1"></a>  <span class="cf">await</span> page<span class="op">.</span><span class="fu">goto</span>(<span class="st">&#39;/products/wh-1000&#39;</span>)<span class="op">;</span></span>
-<span id="cb72-152"><a href="#cb72-152" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-152"><a href="#cb72-152" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-153"><a href="#cb72-153" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Even with a consent banner, product info should be accessible</span></span>
 <span id="cb72-154"><a href="#cb72-154" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> productName <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">$</span>(<span class="st">&#39;h1&#39;</span>)<span class="op">;</span></span>
 <span id="cb72-155"><a href="#cb72-155" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(productName)<span class="op">.</span><span class="fu">toBeTruthy</span>()<span class="op">;</span></span>
-<span id="cb72-156"><a href="#cb72-156" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-156"><a href="#cb72-156" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-157"><a href="#cb72-157" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> price <span class="op">=</span> <span class="cf">await</span> page<span class="op">.</span><span class="fu">$</span>(<span class="st">&#39;[data-price]&#39;</span>)<span class="op">;</span></span>
 <span id="cb72-158"><a href="#cb72-158" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(price)<span class="op">.</span><span class="fu">toBeTruthy</span>()<span class="op">;</span></span>
 <span id="cb72-159"><a href="#cb72-159" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
@@ -3016,7 +3025,7 @@ assistants can understand and work with effectively.</p>
 teaches them how to work with specific technologies. You can extend this
 pattern to your own codebase, giving AI deep understanding of your
 architecture, conventions, and transformation processes.</p>
-<h3 id="the-runtime-debugging-trap">The Runtime Debugging Trap</h3>
+<h3 id="runtime-debugging-trap">Runtime Debugging Trap</h3>
 <p>AI assistants naturally debug what they can see, not what they should
 modify. In modern development, the code AI observes at runtime often
 bears little resemblance to your source code. Templates become
@@ -3131,17 +3140,17 @@ class="sourceCode markdown"><code class="sourceCode markdown" data-role="code-co
 <span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Runtime Code Transformations</span></span>
 <span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a><span class="fu">### The Golden Rule</span></span>
+<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a><span class="fu">### Golden Rule</span></span>
 <span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a>Never debug or modify generated files directly — always trace back to source.</span>
 <span id="cb78-7"><a href="#cb78-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb78-8"><a href="#cb78-8" aria-hidden="true" tabindex="-1"></a><span class="fu">### Template-to-Code Generation</span></span>
-<span id="cb78-9"><a href="#cb78-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Source: <span class="in">`templates/component.hbs`</span> </span>
+<span id="cb78-9"><a href="#cb78-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Source: <span class="in">`templates/component.hbs`</span></span>
 <span id="cb78-10"><a href="#cb78-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Runtime: <span class="in">`build/components/UserCard.js`</span></span>
 <span id="cb78-11"><a href="#cb78-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Transformation: Handlebars → ES6 modules</span>
 <span id="cb78-12"><a href="#cb78-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>AI Pitfall: Changes to generated files get overwritten on next build</span>
 <span id="cb78-13"><a href="#cb78-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Solution: Modify template, run <span class="in">`npm run generate`</span></span>
 <span id="cb78-14"><a href="#cb78-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb78-15"><a href="#cb78-15" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dynamic Route Generation  </span></span>
+<span id="cb78-15"><a href="#cb78-15" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dynamic Route Generation</span></span>
 <span id="cb78-16"><a href="#cb78-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Source: <span class="in">`config/routes.yml`</span></span>
 <span id="cb78-17"><a href="#cb78-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Runtime: Express middleware registration</span>
 <span id="cb78-18"><a href="#cb78-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Transformation: YAML → Express route handlers</span>
@@ -3166,8 +3175,8 @@ class="sourceCode yaml"><code class="sourceCode yaml" data-role="code-content"><
 <span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">debug-endpoint</span><span class="kw">:</span><span class="at"> /debug/trace</span></span>
 <span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">logs</span><span class="kw">:</span><span class="at"> cloudwatch:auth-service</span></span>
 <span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">safe-restart</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span></span>
-<span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">service</span><span class="kw">:</span><span class="at"> payment-processing  </span></span>
+<span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">service</span><span class="kw">:</span><span class="at"> payment-processing</span></span>
 <span id="cb79-10"><a href="#cb79-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">debug-endpoint</span><span class="kw">:</span><span class="at"> /health/detailed</span></span>
 <span id="cb79-11"><a href="#cb79-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">logs</span><span class="kw">:</span><span class="at"> datadog:payments</span></span>
 <span id="cb79-12"><a href="#cb79-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">safe-restart</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">  # Critical service - never restart</span></span>
@@ -3184,11 +3193,11 @@ them:</p>
 <div class="sourceCode" id="cb80" data-role="code-container"><pre
 class="sourceCode javascript"><code class="sourceCode javascript" data-role="code-content"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
 <span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * AUTO-GENERATED FILE - DO NOT EDIT DIRECTLY</span></span>
-<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span></span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
 <span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a><span class="co"> * Source: templates/api-client.hbs</span></span>
 <span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a><span class="co"> * Generated: 2025-01-15T10:30:00Z</span></span>
 <span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a><span class="co"> * Regenerate: npm run generate:api-client</span></span>
-<span id="cb80-7"><a href="#cb80-7" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span></span>
+<span id="cb80-7"><a href="#cb80-7" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
 <span id="cb80-8"><a href="#cb80-8" aria-hidden="true" tabindex="-1"></a><span class="co"> * Changes to this file will be lost on next build.</span></span>
 <span id="cb80-9"><a href="#cb80-9" aria-hidden="true" tabindex="-1"></a><span class="co"> */</span></span></code></pre></div>
 <p>Or use file naming conventions:</p>

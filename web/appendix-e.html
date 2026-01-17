@@ -227,6 +227,46 @@ dialog</li>
 <td>Numeric</td>
 <td>Multi-step forms</td>
 </tr>
+<tr>
+<td>data-total-slides</td>
+<td>Numeric</td>
+<td>Carousels</td>
+</tr>
+<tr>
+<td>data-current-slide</td>
+<td>Numeric</td>
+<td>Carousels</td>
+</tr>
+<tr>
+<td>data-slide-index</td>
+<td>Numeric</td>
+<td>Carousel slides</td>
+</tr>
+<tr>
+<td>data-autoplay</td>
+<td>true, false</td>
+<td>Carousels</td>
+</tr>
+<tr>
+<td>data-animation-state</td>
+<td>playing, paused</td>
+<td>Animated content</td>
+</tr>
+<tr>
+<td>data-animation-duration</td>
+<td>Milliseconds</td>
+<td>Animated content</td>
+</tr>
+<tr>
+<td>data-animation-control</td>
+<td>pause, play, skip</td>
+<td>Animation buttons</td>
+</tr>
+<tr>
+<td>data-video-role</td>
+<td>decorative, informational</td>
+<td>Video elements</td>
+</tr>
 </tbody>
 </table>
 <hr />
@@ -687,6 +727,10 @@ wrap URI only - parameters go outside. Example:
 <li>Use ambiguous field names (fname, addr1)</li>
 <li>Omit currency from prices</li>
 <li>Hide form validation until submission</li>
+<li>Auto-rotate carousels without static alternatives</li>
+<li>Use typewriter/ticker-tape text without complete HTML</li>
+<li>Add informational video/GIFs without text descriptions</li>
+<li>Autoplay media without pause controls</li>
 </ul>
 <hr />
 <h2 id="always">Always</h2>
@@ -701,6 +745,11 @@ wrap URI only - parameters go outside. Example:
 <li>Show stock/availability explicitly</li>
 <li>Include Schema.org markup</li>
 <li>Make dialogs with <code>&lt;dialog&gt;</code> element</li>
+<li>Provide static list alternative for carousels</li>
+<li>Include complete text in HTML before animation</li>
+<li>Mark background video as decorative/informational</li>
+<li>Provide transcripts for informational media</li>
+<li>Add pause controls for animations &gt;5 seconds</li>
 </ul>
 </main>
 <hr>
