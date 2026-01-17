@@ -127,6 +127,46 @@ CLI agents (Claude Code, Cline) and server-based agents cannot execute JavaScrip
 
 **Recommendation:** Move all styling to external CSS files. Use semantic HTML + external stylesheets for maximum agent compatibility.
 
+**Dynamic Content Patterns (Chapter 2):**
+
+The audit detects timing-dependent content patterns that confuse AI agents by changing or revealing content over time:
+
+- `carouselsTotal`: Total number of carousels detected
+- `carouselsInformational`: Carousels displaying critical content (product showcases, testimonials, portfolios)
+- `carouselsDecorative`: Carousels for visual enhancement (hero banners, mastheads)
+- `carouselsWithAttributes`: Carousels with proper data-slide-index and aria-label attributes
+- `autoplayVideos`: Count of autoplay video/audio elements
+- `autoplayWithControls`: Autoplay media with pause controls (WCAG 2.2.2 compliant)
+- `animatedGifs`: Count of animated GIF images
+- `gifsWithAltText`: Animated GIFs with alt text descriptions
+- `hasAnimationLibraries`: Presence of animation libraries (Typed.js, TypeIt, GSAP, AOS, Animate.css)
+
+**Scoring penalties:**
+
+- **Informational carousels without attributes**: -8 per carousel (high severity, hides critical content like product showcases)
+- **Decorative carousels without attributes**: -3 per carousel (medium severity, accessibility issue)
+- **Autoplay media without controls**: -8 per video (WCAG 2.2.2 violation, agent timing instability)
+- **Animated GIFs without alt text**: -3 per GIF (accessibility and agent comprehension issue)
+- **Animation libraries detected**: -2 informational warning (risks content invisibility)
+
+**Common issues:**
+
+1. **Product carousels hide content**: Manual advance shows only first slide, auto-advance changes content mid-parse
+2. **Typewriter text invisible**: Animated text reveals gradually, served HTML may be empty
+3. **Background video without role**: Agents cannot determine if video is decorative or informational
+4. **Autoplay without controls**: Violates WCAG 2.2.2, causes agent page instability
+
+**Fixes:**
+
+1. Add data-slide-index attributes to carousel slides with aria-label="Slide N of M"
+2. Provide static "View all" alternatives for carousel content using `<details>` elements
+3. Ensure animated text is fully visible in served HTML before JavaScript enhancement
+4. Mark background media with data-video-role="decorative" or data-video-role="informational"
+5. Add pause controls for all autoplay media (required for animations >5 seconds per WCAG 2.2.2)
+6. Add alt text to all animated GIFs with aria-describedby for longer descriptions
+
+See Chapters 2 and 11 for complete patterns and implementation guidance.
+
 #### 2. robots.txt Quality Report (`robots_txt_quality.csv`)
 
 **Purpose:** Evaluates robots.txt file for AI agent readiness
@@ -656,6 +696,61 @@ See Chapter 10 for complete guidance on content type disambiguation.
 5. Keep styling separate from content for maximum agent compatibility
 
 CLI agents see the DOM but cannot process inline styles, making style-dependent content confusing or invisible.
+
+### "Carousels without proper attributes"
+
+**Meaning:** Product carousels, testimonial sliders, or portfolio galleries lack data-slide-index and aria-label attributes
+
+**Impact:** Agents see only the first slide. Manual advance requires user interaction. Auto-advance changes content mid-parse causing timing failures.
+
+**Fix:**
+
+1. Add data-total-slides="5" to carousel container
+2. Add data-slide-index="1", data-slide-index="2" to each slide
+3. Add aria-label="Slide 1 of 5" to each slide
+4. Provide static "View all" alternative using `<details>` element with data-agent-visible="true"
+5. Distinguish informational (product, testimonial) from decorative (hero, banner) carousels
+
+See Chapter 11 "Static Alternatives for Dynamic Content" for complete patterns.
+
+### "Animation libraries detected"
+
+**Meaning:** Typed.js, TypeIt, GSAP, AOS, or Animate.css libraries present on page
+
+**Impact:** Animated text may be invisible in served HTML. Content reveals gradually, causing agents to miss information. Timing-dependent content extraction failures.
+
+**Fix:**
+
+1. Ensure all text content exists in served HTML before JavaScript enhancement
+2. Use animation as progressive enhancement, not as primary content delivery
+3. Add data-animation-state="complete" after animation finishes
+4. Provide pause controls for animations >5 seconds (WCAG 2.2.2)
+
+### "Autoplay media without controls"
+
+**Meaning:** Video or audio elements with autoplay attribute but no controls attribute
+
+**Impact:** Violates WCAG 2.2.2 (Pause, Stop, Hide). Causes agent page instability as content loads unpredictably. Agents cannot pause motion that persists >5 seconds.
+
+**Fix:**
+
+1. Add controls attribute to all autoplay media: `<video autoplay controls>`
+2. Add muted attribute for autoplay compliance
+3. Mark background videos with data-video-role="decorative"
+4. Provide transcripts for informational video with data-video-role="informational"
+
+### "Animated GIFs without alt text"
+
+**Meaning:** IMG elements with .gif extension lack alt attributes
+
+**Impact:** Agents cannot interpret animated visual content. Accessibility failure. Information conveyed only through motion is lost.
+
+**Fix:**
+
+1. Add alt text to all animated GIFs describing the animation content
+2. Use aria-describedby for longer descriptions
+3. Consider replacing informational GIFs with static images + text descriptions
+4. Reserve animated GIFs for purely decorative purposes
 
 ## Getting Help
 
