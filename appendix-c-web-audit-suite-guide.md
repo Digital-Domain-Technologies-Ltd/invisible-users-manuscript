@@ -142,6 +142,7 @@ The audit detects timing-dependent content patterns that confuse AI agents by ch
 - `hasAnimationLibraries`: Presence of animation libraries (Typed.js, TypeIt, GSAP, AOS, Animate.css)
 - `visualDynamismDetected`: Visual content changes detected via screenshot comparison (typewriters, tickers, rotating text)
 - `visualDynamismUniqueStates`: Number of distinct visual states observed across 3 screenshots
+- `jsDependentPricing`: Price information only visible after JavaScript execution (invisible to CLI agents)
 
 **Scoring penalties:**
 
@@ -151,6 +152,7 @@ The audit detects timing-dependent content patterns that confuse AI agents by ch
 - **Animated GIFs without alt text**: -3 per GIF (accessibility and agent comprehension issue)
 - **Animation libraries detected**: -2 informational warning (risks content invisibility)
 - **Visual dynamism detected**: -5 points (screenshot comparison revealed changing content)
+- **JavaScript-dependent pricing**: -15 points (critical severity, blocks CLI agent purchase recommendations)
 
 **Visual Dynamism Detection:**
 
@@ -785,6 +787,85 @@ See Chapter 11 "Static Alternatives for Dynamic Content" for complete patterns.
 6. Consider showing all variations in a list format for agents: `<ul data-agent-visible="true"><li>AEM UPGRADE SPECIALISTS</li><li>AEM EXPERTS</li><li>SECURITY</li></ul>`
 
 **Detection method:** The audit takes 3 screenshots at random intervals (2-5 seconds apart) and compares visual hashes. Different hashes indicate visual content changes. This catches custom animations that don't use known libraries.
+
+### JavaScript-Dependent Pricing
+
+**Metric:** `jsDependentPricing`
+
+**Meaning:** Price information only appears after JavaScript execution, making it invisible to CLI agents (ChatGPT Shopping, Perplexity Shopping) and server-based agents that cannot execute JavaScript.
+
+**Why this matters:** E-commerce agents need pricing information to make purchase recommendations. If prices only appear client-side via JavaScript, CLI agents see product descriptions but no prices, blocking purchase decisions entirely.
+
+**Common causes:**
+
+1. **React/Vue dynamic pricing** - Price fetched from API and rendered client-side
+2. **JavaScript-based currency conversion** - Shows "Loading price..." in served HTML
+3. **Lazy-loaded pricing** - Price div exists but content added via JavaScript
+4. **Dynamic discount calculations** - Final price computed in browser
+5. **Regional pricing detection** - JavaScript determines user location and shows appropriate price
+
+**Real-world example:** Product page shows `<div class="price"></div>` in served HTML, but actual price `$99.99` only appears after JavaScript fetches it from pricing API. ChatGPT Shopping cannot recommend this product because it sees no price.
+
+**Penalty:** -15 points (critical severity - blocks purchase recommendations)
+
+**How to fix:**
+
+1. **Server-side rendering:** Render initial price in HTML using server-side templating (PHP, Django, Rails, Next.js SSR)
+2. **Schema.org structured data:** Add JSON-LD with Product schema including price property
+3. **Meta tags:** Include `<meta itemprop="price" content="99.99">` for fallback
+4. **Data attributes:** Add `data-price="99.99"` and `data-currency="USD"` to price elements
+5. **Noscript fallback:** Provide `<noscript><span class="price">$99.99</span></noscript>` alternative
+
+**Complete example:**
+
+```html
+<!-- Served HTML (visible to all agents) -->
+<div class="product" itemscope itemtype="https://schema.org/Product">
+  <h1 itemprop="name">Premium Laptop</h1>
+
+  <!-- Price visible in served HTML -->
+  <div class="price"
+       itemprop="offers"
+       itemscope
+       itemtype="https://schema.org/Offer"
+       data-price="999.99"
+       data-currency="USD">
+    <span itemprop="price" content="999.99">$999.99</span>
+    <meta itemprop="priceCurrency" content="USD">
+  </div>
+
+  <!-- JSON-LD for structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Premium Laptop",
+    "offers": {
+      "@type": "Offer",
+      "price": "999.99",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JavaScript can enhance with regional pricing, discounts -->
+  <script>
+    // Progressive enhancement only - base price already visible
+    enhancePricing();
+  </script>
+</div>
+```
+
+**Detection pattern:** Audit compares served HTML (before JavaScript) against rendered HTML (after JavaScript) using these price patterns:
+
+- Currency symbols: `$`, `£`, `€`, `¥`
+- Price formats: `$99.99`, `99.99 USD`, `£99`
+- Schema.org: `itemprop="price"`
+- Data attributes: `data-price=`
+- Class names: `class="price"`
+- JSON-LD: `"price": "99.99"`
+
+If any pattern matches rendered HTML but NOT served HTML, pricing is JavaScript-dependent.
 
 ## Getting Help
 
