@@ -44,6 +44,14 @@ AI agents aren't a future concern. They're here.
 
 People already use ChatGPT, Claude, and other AI assistants to research products and services. They ask agents to compare options, obtain information, check availability, and complete forms. Some are authorising agents to make bookings and purchases on their behalf. This traffic is growing every month.
 
+**How agents behave differently:**
+
+Consider how an eight-year-old searches. They type "I WANT A TOY PLESIOSAURS" and skip everything else. No brand consideration. No account creation. No reading promotional copy. No waiting for animations. No exploring refinement options. They have a clear goal and ignore all decoration.
+
+AI agents behave with similar directness. They skip your carefully crafted brand story. They ignore your product recommendations sidebar. They don't watch your hero video. They don't notice your animated transitions. They extract the specific information they need and move on.
+
+This simplicity-focused behaviour creates business challenges (explored in Chapter 4) and requires fundamental rethinking of how we design user journeys.
+
 And most of it is failing.
 
 Not dramatically. Not with error messages and crash reports. Failing quietly. Agents that report success when they've actually failed. Agents that miss information hidden behind pagination or tabs. Agents that make recommendations based on incomplete data. Agents that give up on tasks humans could complete easily.

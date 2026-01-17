@@ -57,7 +57,7 @@ Here's how different barriers exclude populations from agent benefits and amplif
 | Barrier Type | Access Requirement | Who's Excluded | Direct Impact | How the Gap Widens |
 | ------------ | ------------------ | -------------- | ------------- | ------------------ |
 | **Economic** | £20-100/month for subscriptions | Low-income individuals, developing countries | Cannot afford agent access | Those with agents gain 10x productivity; those without fall behind |
-| **Language** | English fluency for optimal results | Non-English speakers (75% of world population) | Inferior agent performance or forced English use | English speakers access better information faster, reinforcing linguistic dominance |
+| **Language** | English fluency for optimal results | Non-English speakers (75% of world population) | Inferior agent performance or forced English use | English speakers access better information faster (44% of training data is English, no other language exceeds 6%), reinforcing linguistic dominance |
 | **Technical Literacy** | Prompt crafting, error recognition, iteration skills | Elderly, less-educated, tech-inexperienced populations | Suboptimal results, wasted time | Skilled users get dramatically better outcomes, compounding capability gaps |
 | **Infrastructure** | Reliable high-speed internet connectivity | Rural areas, developing nations, poor urban areas | Cannot use agents reliably, frequent failures | Urban/affluent areas pull further ahead in access to services and opportunities |
 | **Device Access** | Modern smartphone or computer | Low-income individuals, elderly on old devices | Agents work poorly or not at all | Device inequality becomes productivity inequality |
@@ -88,7 +88,9 @@ The agent becomes a productivity multiplier. But multipliers amplify existing di
 
 AI agents work best in English.
 
-This isn't surprising. Most AI training data is English-language text. Most development teams work primarily in English. Most documentation and support resources are English-first.
+The root cause is measurable. Common Crawl, the primary dataset for training large language models, contains approximately 44% English content. No other language exceeds 6%. This isn't a minor statistical quirk - it's a structural bias that affects how AI agents interact with the entire web.
+
+Most development teams work primarily in English. Most documentation and support resources are English-first. But the training data imbalance creates the fundamental disparity.
 
 **Current language support quality varies:**
 
@@ -103,6 +105,20 @@ This isn't surprising. Most AI training data is English-language text. Most deve
 
 If web interaction increasingly occurs through English-optimised agents, non-English speakers face a choice: use agents in a second language (poorly) or avoid agents altogether.
 
+**Why the bias exists and compounds:**
+
+The training data imbalance isn't random. Common Crawl's architectural choices about which sites to crawl, how frequently to update them, and which content to prioritise amplify English-speaking Western voices through structural design.
+
+Reinforcement learning from human feedback (RLHF) processes overwhelmingly prioritise English. The human feedback that shapes model behaviour comes primarily from English speakers, embedding English-language norms and expectations into model responses.
+
+Models don't just translate between languages - they "think" in English linguistically, culturally, and contextually. When asked questions in other languages, they often translate to English internally, process the query, then translate back. Context gets lost in translation.
+
+System-level constraints compound the disadvantage: English system prompts, English training for instruction-following, English documentation for developers. Every layer reinforces the imbalance.
+
+Consider the institutional contrast: The United Nations publishes official documents in six languages. The European Union mandates 24 official languages. Yet AI-powered systems lack comparable multilingual equity.
+
+**The practical impact:**
+
 Content creation follows incentives. If agents struggle with Welsh, Swahili, or Tagalog, there's less reason to create agent-friendly content in those languages. The existing bias toward English-language content accelerates.
 
 Cultural expression suffers. Idioms, humour, local references, culturally-specific concepts - these translate poorly even when the words translate accurately. Agent-mediated interaction flattens cultural nuance.
@@ -110,6 +126,8 @@ Cultural expression suffers. Idioms, humour, local references, culturally-specif
 **This amounts to technological linguistic imperialism.** Not through deliberate policy, but through the accumulated effect of design decisions that treat English as default and everything else as an afterthought.
 
 The web was supposed to connect cultures. Agent-mediated web access may instead homogenise them.
+
+**For content creators:** Chapter 5 examines how this language imbalance creates a double extraction problem for non-English creators - they face full extraction threat whilst receiving minimal discovery benefit from agents trained primarily on English.
 
 ## Age Divide
 

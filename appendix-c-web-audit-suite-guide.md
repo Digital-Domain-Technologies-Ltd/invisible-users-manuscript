@@ -53,6 +53,14 @@ npm start -- -s https://example.com \
 - `rendered_score`: Score for rendered HTML (0-100) - works for browser agents
 - `overall_score`: Weighted average emphasizing served HTML
 - `issues_found`: Number of compatibility issues detected
+- `schemaDisambiguation`: Whether each JSON-LD block has exactly one `@type` value (Yes/No)
+- `totalSchemas`: Total number of Schema.org JSON-LD blocks found
+- `schemasWithMultipleTypes`: Number of schemas with multiple `@type` values (ambiguous)
+- `hasInlineStyles`: Whether page contains inline CSS (Yes/No)
+- `inlineStyleElements`: Count of elements with `style=` attributes
+- `inlineStyleScripts`: Count of inline `<style>` tags
+- `externalStylesheets`: Count of external stylesheet references
+- `inlineCSSRatio`: Percentage of elements with inline styles
 
 **Interpreting Scores:**
 
@@ -76,6 +84,48 @@ npm start -- -s https://example.com \
   - Implement inline validation
   - Add loading state indicators
   - Make dynamic content semantic
+
+**Schema Type Disambiguation (Chapter 10):**
+
+AI agents trained on entertainment scripts (films, TV shows, scripted dialogue) may confuse professional content with fictional dialogue without explicit Schema.org type markup. The audit checks that each JSON-LD block has exactly ONE `@type` value:
+
+- **Proper disambiguation** (+5 points): Each schema has single, specific type
+- **Multiple types penalty** (-3 points per violation): Schema blocks with `["Article", "NewsArticle"]` or similar arrays
+
+**Common violations:**
+
+```json
+{
+  "@type": ["Article", "NewsArticle"],  // WRONG - creates ambiguity
+  "headline": "Legal Analysis of New Legislation"
+}
+```
+
+**Correct implementation:**
+
+```json
+{
+  "@type": "AnalysisNewsArticle",  // RIGHT - single specific type
+  "headline": "Legal Analysis of New Legislation"
+}
+```
+
+Use specific types: `Legislation`, `LegalDocument`, `MedicalScholarlyArticle`, `AnalysisNewsArticle`, `TechArticle` rather than generic `Article` or multiple types.
+
+**Inline CSS Detection (Chapter 10):**
+
+CLI agents (Claude Code, Cline) and server-based agents cannot execute JavaScript or process inline styles. Inline CSS adds noise to DOM without providing semantic value:
+
+- **External-only bonus** (+8 points): No inline styles, external stylesheets present
+- **Inline CSS penalty** (-10 × ratio): Based on percentage of elements with inline styles
+
+**What counts as inline CSS:**
+
+- `style=` attributes on HTML elements
+- `<style>` tags in document head or body
+- Inline style scripts that manipulate styles
+
+**Recommendation:** Move all styling to external CSS files. Use semantic HTML + external stylesheets for maximum agent compatibility.
 
 #### 2. robots.txt Quality Report (`robots_txt_quality.csv`)
 
@@ -574,6 +624,38 @@ jobs:
 2. Include VAT status
 3. Show delivery costs
 4. Use structured data for machine-readable prices
+
+### "Multiple @type values in Schema.org blocks"
+
+**Meaning:** JSON-LD blocks contain arrays like `["Article", "NewsArticle"]`
+
+**Impact:** AI agents trained on entertainment scripts may confuse professional content with fictional dialogue. Multiple types create ambiguity.
+
+**Fix:**
+
+1. Use exactly ONE `@type` per JSON-LD block
+2. Choose the most specific type: `MedicalScholarlyArticle` over `Article`
+3. For legal content: use `Legislation` or `LegalDocument`
+4. For business analysis: use `AnalysisNewsArticle`
+5. For medical content: use `MedicalScholarlyArticle`
+
+See Chapter 10 for complete guidance on content type disambiguation.
+
+### "High inline CSS ratio"
+
+**Meaning:** Many elements have `style=` attributes or inline `<style>` tags
+
+**Impact:** CLI agents and server-based agents cannot execute inline styles. Inline CSS adds noise to DOM structure without providing semantic value.
+
+**Fix:**
+
+1. Move all styling to external CSS files
+2. Remove `style=` attributes from HTML elements
+3. Remove inline `<style>` tags from document
+4. Use semantic HTML structure (proper elements, clear hierarchy)
+5. Keep styling separate from content for maximum agent compatibility
+
+CLI agents see the DOM but cannot process inline styles, making style-dependent content confusing or invisible.
 
 ## Getting Help
 

@@ -128,6 +128,36 @@ The same structured data that makes recipes machine-readable (Schema.org Recipe 
 
 Recipe sites are a clear example, but they're not the only ones.
 
+### The Double Extraction Problem for Non-English Content Creators
+
+Whilst the extraction threat affects all content creators, non-English creators face a compound problem that magnifies their vulnerability.
+
+The extraction threat remains full. AI agents extract their content just as readily as English content. But the discovery benefit - the potential upside of agent traffic - is severely diminished. Agents trained primarily on English don't understand or value non-English content properly.
+
+The training data imbalance is substantial. Common Crawl, the primary dataset for training large language models, contains approximately 44% English content. No other language exceeds 6%. This isn't a minor statistical quirk - it's a structural bias that affects how AI agents interact with the entire web.
+
+Lars Trieloff, observing AI systems attempting to work with German content, noted that models struggle with natural German language proficiency. The models can translate, but they lack the cultural context and linguistic fluency that native speakers recognise immediately.
+
+Angelika Gust documented her workflow for working with AI-generated German text: native speakers are needed to correct "stilted German" output. The models produce grammatically correct text that doesn't sound natural. It's technically accurate but culturally wrong.
+
+This creates asymmetric extraction for non-English content creators. Their content gets extracted by agents trained on English, providing training data and context to systems that don't properly understand it. The extraction threat is unchanged, but the discovery benefit is minimal.
+
+The systemic imbalances compound:
+
+**English-centric fine-tuning:** Reinforcement learning from human feedback (RLHF) processes overwhelmingly prioritise English. The human feedback that shapes model behaviour comes primarily from English speakers, embedding English-language norms and expectations into model responses.
+
+**Architectural bias:** Common Crawl's composition isn't random. It amplifies English-speaking Western voices through structural choices about which sites to crawl, how frequently to update them, and which content to prioritise.
+
+**Cultural exclusion:** Models don't just translate between languages - they "think" in English linguistically, culturally, and contextually. When asked questions in other languages, they often translate to English internally, process the query, then translate back. Context gets lost in translation.
+
+**System-level constraints:** English system prompts, English training for instruction-following, English documentation for developers - every layer compounds the disadvantage for non-English content and users.
+
+Consider the institutional contrast: The United Nations publishes official documents in six languages. The European Union mandates 24 official languages. Yet AI-powered content management systems lack comparable multilingual equity.
+
+Non-English content creators receive minimal agent discovery benefit whilst facing full extraction threat. Their content trains systems that don't properly understand it, provides context for agents that can't properly value it, and gets extracted by systems that offer minimal discoverability in return.
+
+The solution requires representative multilingual training datasets, evaluation frameworks that account for linguistic diversity, inclusive governance structures, and global human feedback systems. Until then, non-English content creators face larger extraction vulnerability with smaller potential upside - the double extraction problem that English-language creators don't experience.
+
 **News and journalism:**
 
 Local newspapers, online magazines, investigative journalism - all funded primarily by advertising. An agent that summarises news articles without visiting the site generates no revenue for the publisher.

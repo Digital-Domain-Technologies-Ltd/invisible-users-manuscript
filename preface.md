@@ -88,6 +88,16 @@ The sequence is critical: discovery precedes commerce. Agent-mediated transactio
 
 ## Who This Book Is For
 
+**"The Invisible Users"** is written primarily for business leaders and managers who need to understand the strategic implications of AI agent commerce - including CEOs, product managers, marketing directors, and technical managers such as software architects and lead developers.
+
+**No programming knowledge required.** Technical patterns are explained conceptually first, then demonstrated with code examples that can be skipped without losing the thread of the argument. If you don't write code, you can read straight through and gain everything needed to make informed strategic decisions.
+
+**For technical readers** (developers, architects, DevOps engineers): The book can be read backwards. Start with the implementation chapters (10-13) to see the concrete patterns, then work backwards through the business justification, conceptual framework, and strategic context. You already understand the "how" - you need to understand the "why" to advocate for these changes within your organisation.
+
+The convergence principle means both audiences benefit: business leaders understand why agent compatibility creates competitive advantage, whilst technical teams understand which patterns deliver measurable business impact rather than speculative future-proofing.
+
+### Four Distinct Audiences
+
 This book is written for four distinct audiences, each of whom holds a piece of the solution:
 
 **1. The Strategic C-Suite (CTOs, CMOs, CDOs)**
@@ -128,7 +138,7 @@ His career spans technical implementation, strategic consulting, and the difficu
 
 This book grew from patterns he noticed across projects: the same accessibility problems appearing in different contexts, the same design assumptions failing for unexpected user types, the same commercial pressures shaping what gets fixed and what gets ignored.
 
-Tom writes for allabout.network and is on LinkedIn. He's based in the UK and works with organisations internationally.
+Tom is a regular contributor to CMS Critic (<https://cmscritic.com/>) and writes for allabout.network. He's on LinkedIn, based in the UK, and works with organisations internationally.
 
 The website name is deliberately ambitious. When you claim to be "all about" something, you'd better back it up. This book contains ideas you'll recognise and ideas that might challenge your current thinking. My hope is to bring fresh perspectives and help you think about web design and digital ownership in ways you hadn't considered before.
 
@@ -139,6 +149,20 @@ He remains convinced that the web we've built is less accessible than it should 
 Q1 2026
 
 York, England
+
+---
+
+## Historical Context
+
+This isn't a new problem - we've known about it for decades.
+
+My colleague and CMS Experts host friend Janus Boye wrote about machine-readable metadata in May 1998, nearly 27 years ago. His article "RDF - What's in it for us?" explored the Resource Description Framework and the vision of making web content understandable to machines through structured metadata. The principles he described - explicit semantics, machine-readable relationships, standardised vocabularies - directly underpin today's Schema.org structured data that helps AI agents parse content accurately. It's taken a long time for this to become commercially urgent. Why did we not listen the first time?
+
+His original article is here: <https://www.irt.org/articles/js086/>
+
+My first post about AI agents and web compatibility was in January 2024, two years ago, following CMS Kickoff 2024: <https://cmscritic.com/a-cms-consultants-takeaways-from-cms-kickoff-2024>
+
+The patterns have been visible for decades. The commercial pressure finally arrived.
 
 ---
 

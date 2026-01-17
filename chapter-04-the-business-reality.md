@@ -47,6 +47,26 @@ The invisible failures discussed in Chapter 2 have tangible business consequence
 
 **Key insight:** These failures are invisible in traditional analytics. They appear as bounces, short sessions, or abandoned forms - nothing that indicates AI agent failures. Meanwhile, competitors with agent-friendly patterns capture the business without your knowledge.
 
+### AI as Content Consumer, Not Creator
+
+The revenue model collision reflects a fundamental shift in how AI interacts with the web. We've spent years discussing AI as a content creator - writing articles, generating copy, producing marketing materials. That conversation misses the more immediate reality: AI is better suited for consuming content.
+
+**Seven problems with AI-generated content:**
+
+1. **Style guide enforcement:** Maintaining consistent voice across AI-generated content requires constant supervision
+2. **Brand voice consistency:** AI-generated text often lacks the authentic voice that distinguishes brands
+3. **Demographic bias avoidance:** Training data biases leak into generated content without careful filtering
+4. **Cultural nuance handling:** Context-dependent appropriateness requires human judgment AI lacks
+5. **Training data limitations:** Models cannot create truly novel insights beyond their training data
+6. **Incomplete responses:** AI confidently provides partial answers as if they were complete
+7. **AI regulation navigation:** Evolving legal requirements for AI-generated content disclosure and liability
+
+**The business impact is visible now.** Stack Overflow reduced its workforce by 28% in 2024, coinciding with ChatGPT's rise. Developers who previously visited Stack Overflow for answers now ask AI assistants directly. Traffic-dependent business models face immediate pressure.
+
+Traditional web analytics break when agents arrive. Visits, unique visitors, dwell time, bounce rates - all these metrics assume human behaviour patterns. Agents visit for 0.3 seconds and extract exactly what they need. These visits look like failures in traditional analytics whilst representing successful information retrieval.
+
+The strategic implication: organisations must adapt to AI consuming their content rather than focusing solely on AI generating content. This shift requires rethinking how value is captured, how content is structured, and how success is measured.
+
 ---
 
 ## Recipe Sites - A Case Study in Destruction
@@ -508,6 +528,10 @@ An agent choosing between ten hotels with the same criteria:
 
 Given identical criteria, the agent makes similar choices. The hotel ranked first by the algorithm receives the booking every time. Second place gets nothing.
 
+**The first-mover citation advantage:**
+
+When users ask AI assistants for recommendations, agents cite businesses they've successfully transacted with previously. The first business in each sector to implement agent-friendly patterns establishes preference in agent recommendation systems. Second place often becomes invisible - agents cite whoever they found first and worked reliably.
+
 **The network effects:**
 
 If agents across multiple platforms learn that Hotel A is reliable while Hotel B has checkout issues, they'll prefer Hotel A. This creates compound advantages:
@@ -559,6 +583,33 @@ Job: Agent Intelligence Optimisation Manager
 ```
 
 The skills that matter for search visibility may become less important than skills that matter for agent usability.
+
+### The AI Evangelist Role
+
+Beyond AIO specialists focused on technical optimisation, organisations face a broader strategic challenge: coordinating AI adoption across departments and business functions.
+
+Some organisations are creating "AI Evangelist" roles to address this coordination need:
+
+**Responsibilities:**
+
+- Champion AI adoption across departments (marketing, product, engineering, support)
+- Develop AI-centric content strategies that work for both human and agent audiences
+- Facilitate cross-team integration of agent-friendly patterns
+- Monitor emerging trends in agent behaviour and platform capabilities
+- Bridge technical implementation and business strategy
+
+**Skills required:**
+
+- Technical literacy to understand implementation challenges
+- Strategic thinking to identify business opportunities
+- Communication skills to advocate for change across diverse stakeholders
+- Understanding of how agents interact with content and interfaces
+
+This role coordinates between designers, developers, and content creators to ensure consistent agent compatibility across touchpoints. The AI Evangelist isn't implementing solutions directly - they're ensuring the organisation moves cohesively toward agent-friendly practices.
+
+**The strategic shift:** Designing for four device types - mobile, tablet, desktop, and machine. The machine "device" requires structured data, explicit state management, and semantic HTML. The AI Evangelist ensures this fourth device type receives equal consideration in design and development processes.
+
+Whether organisations formalise this role or distribute these responsibilities across existing teams, the coordination function matters. Agent compatibility isn't a single-team problem - it requires organisation-wide alignment.
 
 ---
 
@@ -717,6 +768,7 @@ Answer these questions about your business:
 - Do you use the five failure patterns identified in Chapter 2? (Toast notifications, pagination, SPA without state, visual-only indicators, hidden pricing)
 - Can you currently distinguish agent traffic from human traffic in your analytics?
 - Have you seen unexplained declines in conversion rates or engagement metrics?
+- **Quick diagnostic:** Compare bounce rates for sessions under 10 seconds against your industry baseline. Unusually high short-session bounces combined with declining conversion despite stable traffic often indicate agent extraction without attribution.
 - Do you have forms or checkout flows that might fail silently for agents?
 
 ### Exposure Risk Matrix
@@ -833,7 +885,7 @@ Three major approaches emerged:
 
 The question isn't "will agent commerce happen?" The question is "which protocol will dominate?" - and you must decide before that question is answered.
 
-### Decision Framework
+### Protocol Integration Decision Framework
 
 Your integration decision depends on three factors: exposure level, resources, and risk tolerance.
 
@@ -1131,7 +1183,7 @@ Before investing in AI agent optimization, assess the specific value dimensions 
 - Add delegation token system for purchases
 - Develop identity layer integration
 
-### Decision Framework
+### Priority Implementation Decision Framework
 
 **Start with Priority 1 if:**
 

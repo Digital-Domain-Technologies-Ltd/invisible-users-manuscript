@@ -1499,7 +1499,8 @@ As predicted in Chapter 9, major platforms are building closed identity systems 
 
 - **Microsoft Copilot Checkout** uses Microsoft's proprietary identity delegation (payment details, shipping addresses, order history stored in Microsoft's ecosystem)
 - **Amazon Alexa+** controls shopping behaviour through Amazon's platform (3x purchase increase validates transaction control)
-- **Google and Apple** expected to build their own walled gardens
+- **Google Business Agent** launched with Universal Commerce Protocol (January 2026, 20+ major retailers)
+- **Apple** expected to build their own walled garden
 - **Result:** User lock-in, agent fragmentation, business dependency on multiple proprietary systems
 
 **What this means for testing:**

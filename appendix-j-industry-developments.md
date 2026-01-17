@@ -1287,7 +1287,7 @@ Chapter 12 predicted: "every major platform is building closed identity systems 
 
 Microsoft's implementation validates this prediction exactly. Copilot Checkout uses Microsoft's proprietary identity delegation system - not an open standard. Users who authorise Copilot for purchases store payment details, shipping addresses, and order history within Microsoft's ecosystem. Retailers who integrate with Microsoft's system create platform dependency. Competing agents face a cold-start problem rebuilding these authorisations.
 
-**Critical implication:** Multiple proprietary systems are emerging simultaneously (Microsoft Copilot verified, Amazon Alexa+ verified, Google/Apple expected to follow). Businesses must decide which platforms to support, knowing each integration creates lock-in for their customers and dependency for themselves. The book advocates for open standards whilst correctly predicting platforms will pursue proprietary first-mover advantages.
+**Critical implication:** Multiple proprietary systems are emerging simultaneously (Microsoft Copilot, Amazon Alexa+, Google Business Agent all launched January 2026; Apple expected to follow). Businesses must decide which platforms to support, knowing each integration creates lock-in for their customers and dependency for themselves. The book advocates for open standards whilst correctly predicting platforms will pursue proprietary first-mover advantages.
 
 **Chapter 4 correlation - Identity Delegation:**
 

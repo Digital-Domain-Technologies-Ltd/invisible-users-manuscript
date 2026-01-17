@@ -91,8 +91,9 @@ Three reasons:
 
 - **Amazon Alexa+** (5 January 2026): Browser-based shopping agent with 3x purchase increase
 - **Microsoft Copilot Checkout** (8 January 2026): Complete transactions with partner retailers
+- **Google Business Agent** (11 January 2026): Universal Commerce Protocol with Target, Walmart, and 20+ major retailers
 - **Claude for Chrome** (August-December 2025): Browser automation available to millions of paid subscribers
-- **Google and Apple** expected to build their own walled gardens
+- **Apple** expected to build their own walled garden
 
 **The data validates the acceleration:** Adobe Analytics reported extraordinary growth in AI-driven traffic through analysis of over 1 trillion visits to U.S. websites during the 2025 holiday season:
 

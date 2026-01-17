@@ -178,6 +178,22 @@ Once a crawler or agent reaches a specific page, metadata explains what that pag
 
 You're not duplicating work. You're extending existing SEO practices to benefit a new discovery channel.
 
+### Historical Perspective: The 27-Year Pattern
+
+The need for machine-readable content isn't new. In May 1998, nearly 27 years ago, Janus Boye wrote "RDF - What's in it for us?" exploring the Resource Description Framework and the vision of making web content understandable to machines through structured metadata.
+
+RDF introduced principles that directly underpin today's Schema.org structured data:
+
+- **Explicit semantics:** Machine-readable relationships between entities
+- **Standardised vocabularies:** Shared terms that different systems can understand
+- **Structured metadata:** Information about information, making content self-describing
+
+JSON-LD and Schema.org are modern implementations of these foundational RDF principles. The "@context" in JSON-LD serves the same purpose as RDF namespaces. The "@type" declarations map to RDF classes. The property-value pairs implement RDF triples in a syntax that's easier for web developers to adopt.
+
+We've had the solution since 1998. The technology existed. The standards evolved. But commercial pressure to implement these patterns didn't arrive until AI agents made machine-readable content commercially urgent.
+
+This isn't the first time we've needed structured, machine-readable metadata. It's the first time there's widespread commercial incentive to implement it properly. AI agents finally provide the pressure that decades of accessibility advocacy and search engine recommendations couldn't create alone.
+
 ### Layer 3 - Content Structure
 
 The deepest layer is how you structure the content itself. This is where semantic HTML and clear information architecture become critical.
@@ -957,7 +973,7 @@ https://example.com/ja/llms.txt (Japanese)
 **German llms.txt at /de/llms.txt:**
 
 ```markdown
-# Example Company (Deutsch)
+# Example Company (Deutsche)
 
 > Internationales Softwareunternehmen mit Schwerpunkt Barrierefreiheit
 
@@ -1371,12 +1387,14 @@ Recommended:
 
 Optional:
 
-- `sku`
-- `gtin`
-- `mpn`
+- `sku` - Stock Keeping Unit (your internal product code)
+- `gtin` - Global Trade Item Number (international barcode: UPC, EAN, ISBN)
+- `mpn` - Manufacturer Part Number (maker's product identifier)
 - `category`
 - `color`
 - `material`
+
+**Why product identifiers matter:** GTIN, SKU, and MPN help agents uniquely identify products across retailers. If you sell books, the ISBN (a type of GTIN) ensures agents don't confuse your edition with others. If you sell electronics, the manufacturer part number prevents mixups between similar models.
 
 **Strategy:** Get required fields correct first. Add recommended fields next. Add optional fields only if they provide meaningful information that agents might cite.
 

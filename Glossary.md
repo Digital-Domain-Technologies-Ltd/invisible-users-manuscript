@@ -44,6 +44,9 @@ Software that adds functionality to web browsers. AI-powered browser extensions 
 **CAPTCHA (Completely Automated Public Turing test to tell Computers and Humans Apart)**
 A challenge-response test designed to determine whether a user is human. Common examples include selecting images with traffic lights or solving puzzles. Blocks many AI agents from accessing sites.
 
+**Citation**
+In the context of Generative Engine Optimization (GEO), a citation occurs when an AI agent references your website as a source in its response to a user query. Unlike traditional SEO where success is measured by clicks and page views, GEO success is measured by how often agents cite your content. Citations typically include attribution with a link back to the source. See Chapter 10 for the fundamental distinction between citation-based and click-based metrics.
+
 **Client-Side**
 Code that runs in the user's web browser rather than on the server. Client-side validation happens in the browser before data is sent to the server.
 
@@ -91,8 +94,14 @@ The process of validating whether form inputs meet requirements (correct format,
 **GDPR (General Data Protection Regulation)**
 European privacy law regulates how personal data is collected and processed. Affects how AI agents can access and use personal information.
 
+**GEO (Generative Engine Optimization)**
+The practice of optimizing websites to be cited by AI agents in their responses to user queries. Unlike traditional SEO (Search Engine Optimization) which optimizes for clicks and page views, GEO optimizes for citations and attribution. Key techniques include structured data (Schema.org), semantic HTML, llms.txt files, and clear content organization. See Chapter 10 for comprehensive guidance on implementing GEO strategies.
+
 **Global Privacy Control (GPC)**
 A browser signal indicating the user wants minimal tracking. If agents set this header and sites respect it, cookie consent banners become unnecessary.
+
+**GTIN (Global Trade Item Number)**
+International product identifier used in barcodes and structured data. Includes formats like UPC (12 digits, primarily North America), EAN-13 (13 digits, global), and ISBN (books). Including GTIN in Schema.org Product markup helps AI agents uniquely identify products across different retailers and prevent confusion between similar items.
 
 ## H
 
@@ -136,6 +145,9 @@ A specification for embedding machine-readable data in HTML. Similar to JSON-LD 
 **Missing Identity Layer**
 The problem identified in Chapter 4 is that when AI agents make purchases on behalf of customers, businesses lose direct contact with the customer. Prevents loyalty programmes, warranty registration, and customer relationship management from functioning. Various solutions are being developed, including retailer-specific tokens, centralised repositories, blockchain attestations, and browser-native delegation.
 
+**MPN (Manufacturer Part Number)**
+A unique identifier assigned by the manufacturer to distinguish a specific product. Including MPN in Schema.org Product markup helps AI agents identify the exact product model across different retailers, preventing confusion between similar items from the same manufacturer. Particularly useful for electronics, appliances, and industrial products.
+
 ## O
 
 **OAuth2 (Open Authorisation 2.0)**
@@ -167,6 +179,12 @@ A collaborative project creating vocabularies for structured data on web pages. 
 
 **Screen Reader**
 Assistive technology that reads web content aloud for visually impaired users. Requires semantic HTML and proper structure - the same things AI agents need.
+
+**SEO (Search Engine Optimization)**
+The practice of optimizing websites to rank higher in search engine results pages (SERPs). Traditional SEO measures success by clicks and page views. Increasingly converging with GEO (Generative Engine Optimization) as search engines integrate AI-generated answers that cite sources rather than just listing links. See Chapter 10 for analysis of GEO vs SEO convergence.
+
+**SKU (Stock Keeping Unit)**
+An internal product code assigned by retailers to track inventory. Unlike GTIN or MPN which are standardized across retailers, each retailer creates its own SKUs. Including SKU in Schema.org Product markup helps with inventory management but provides less value for cross-retailer product identification.
 
 **Semantic HTML**
 HTML that conveys the meaning of content, not just its appearance. Uses elements like `<article>`, `<nav>`, `<main>` instead of generic `<div>` tags. Essential for both accessibility and agent comprehension.
