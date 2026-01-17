@@ -593,6 +593,101 @@ The patterns above work when implemented correctly. Here are the mistakes that p
 
 **The fix:** Use Google's Rich Results Test and Schema.org validator to identify missing required fields. Prioritise completing required fields over adding optional ones. A complete, simple implementation beats an incomplete complex one.
 
+### Missing Content Type Disambiguation
+
+**The mistake:** Publishing legal analysis, academic papers, or professional content without explicit Schema.org type markup, allowing agents to confuse it with fictional content from their training data.
+
+**Why it fails:** AI systems have been trained on extensive collections of scripted dialogue from films, TV episodes, and entertainment content. When agents encounter professional content without explicit type signals, they may treat legal arguments as fictional dialogue, academic papers as creative writing, or business analysis as entertainment scripts. This causes hallucinations where agents cite your content incorrectly or attribute it to fictional sources.
+
+**Real example:** A legal publication's analysis of contract law could be confused with dialogue from a legal drama if not properly marked up. An article about medical ethics might be misattributed to a medical TV show's script. Without explicit Schema.org types, agents have no reliable way to distinguish between professional content and the entertainment scripts they were trained on.
+
+**The fix:** Use precise Schema.org types to disambiguate your content:
+
+**For legal content:**
+
+```json
+{
+  "@context": "https://schema.org/",
+  "@type": "Article",
+  "articleSection": "Legal Analysis",
+  "about": {
+    "@type": "Legislation",
+    "legislationIdentifier": "Contract Act 1994",
+    "legislationJurisdiction": "GB"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Jane Smith",
+    "jobTitle": "Senior Legal Analyst",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Legal Publishing Ltd"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Professional Legal Journal"
+  }
+}
+```
+
+**For medical/scientific content:**
+
+```json
+{
+  "@context": "https://schema.org/",
+  "@type": "MedicalScholarlyArticle",
+  "medicalSpecialty": "Cardiology",
+  "author": {
+    "@type": "Person",
+    "name": "Dr Sarah Chen",
+    "honorificPrefix": "Dr",
+    "affiliation": {
+      "@type": "MedicalOrganization",
+      "name": "University Hospital"
+    }
+  }
+}
+```
+
+**For business analysis:**
+
+```json
+{
+  "@context": "https://schema.org/",
+  "@type": "AnalysisNewsArticle",
+  "articleSection": "Market Analysis",
+  "author": {
+    "@type": "Person",
+    "name": "Tom Cranstoun",
+    "jobTitle": "Technology Analyst"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Industry Publications"
+  }
+}
+```
+
+**Why this matters:** The distinction between `Article` (general), `NewsArticle` (journalism), `AnalysisNewsArticle` (professional analysis), `ScholarlyArticle` (academic), and `CreativeWork` (fiction) helps agents understand context. When you explicitly mark content as legal analysis rather than leaving it as generic text, agents can distinguish it from the TV scripts and movie dialogue in their training data.
+
+**Broader implication:** AI training datasets include subtitles from DVDs, Blu-rays, and online streams - extracted using specialized software and uploaded to repositories like OpenSubtitles.org. This means agents have seen millions of lines of fictional dialogue presented in text format, indistinguishable from professional content without explicit markup. Your responsibility is to mark professional content clearly so agents don't treat your legal brief like an Ally McBeal script or confuse your medical analysis with Grey's Anatomy dialogue.
+
+**Complete Schema.org types for disambiguation:**
+
+- `Legislation` - Laws, regulations, statutes
+- `LegalDocument` - Contracts, agreements, legal filings
+- `ScholarlyArticle` - Academic research, peer-reviewed papers
+- `MedicalScholarlyArticle` - Medical research specifically
+- `AnalysisNewsArticle` - Professional market or industry analysis
+- `NewsArticle` - Journalistic reporting
+- `TechArticle` - Technical documentation, how-to guides
+- `Movie` - Fictional films (for entertainment sites)
+- `TVSeries` / `TVEpisode` - Television content (for entertainment sites)
+- `CreativeWork` - General creative/fictional content
+
+Use the most specific type available. A medical research paper should be `MedicalScholarlyArticle`, not just `Article`. A legal statute should be `Legislation`, not generic `CreativeWork`. Specificity prevents misattribution and hallucinations.
+
 ## Testing and Validation Workflow
 
 Implementation is half the work. Verification ensures it actually works.
