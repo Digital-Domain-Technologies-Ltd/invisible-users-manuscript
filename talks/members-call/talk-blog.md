@@ -198,6 +198,7 @@ The book explores how modern web design optimised for human users fails for AI a
 **LinkedIn:** <https://www.linkedin.com/in/tom-cranstoun/>
 
 **Project Pages:**
+
 - Book: <https://allabout.network/invisible-users>
 - Latest news: <https://allabout.network/invisible-users/news.html>
 
