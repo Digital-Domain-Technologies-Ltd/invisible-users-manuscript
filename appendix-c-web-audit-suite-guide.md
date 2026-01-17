@@ -140,6 +140,8 @@ The audit detects timing-dependent content patterns that confuse AI agents by ch
 - `animatedGifs`: Count of animated GIF images
 - `gifsWithAltText`: Animated GIFs with alt text descriptions
 - `hasAnimationLibraries`: Presence of animation libraries (Typed.js, TypeIt, GSAP, AOS, Animate.css)
+- `visualDynamismDetected`: Visual content changes detected via screenshot comparison (typewriters, tickers, rotating text)
+- `visualDynamismUniqueStates`: Number of distinct visual states observed across 3 screenshots
 
 **Scoring penalties:**
 
@@ -148,13 +150,26 @@ The audit detects timing-dependent content patterns that confuse AI agents by ch
 - **Autoplay media without controls**: -8 per video (WCAG 2.2.2 violation, agent timing instability)
 - **Animated GIFs without alt text**: -3 per GIF (accessibility and agent comprehension issue)
 - **Animation libraries detected**: -2 informational warning (risks content invisibility)
+- **Visual dynamism detected**: -5 points (screenshot comparison revealed changing content)
+
+**Visual Dynamism Detection:**
+
+The audit takes 3 screenshots at random 2-5 second intervals and compares their visual hash. If screenshots differ, visual content changes are occurring:
+
+- **Typewriter animations**: Text that types character-by-character ("AEM UPGRADE SPECIALISTS" → "AEM EXPERTS" → "SECURITY")
+- **Rotating headlines**: Headlines that cycle through different messages
+- **Ticker tapes**: Scrolling text that moves continuously
+- **Fade-in sequences**: Content that appears or disappears over time
+
+This complements library detection by catching animations implemented with custom JavaScript or CSS that don't use known libraries.
 
 **Common issues:**
 
 1. **Product carousels hide content**: Manual advance shows only first slide, auto-advance changes content mid-parse
-2. **Typewriter text invisible**: Animated text reveals gradually, served HTML may be empty
+2. **Typewriter text invisible**: Animated text reveals gradually, served HTML may be empty (detected via screenshot comparison)
 3. **Background video without role**: Agents cannot determine if video is decorative or informational
 4. **Autoplay without controls**: Violates WCAG 2.2.2, causes agent page instability
+5. **Visual dynamism detected**: Content changes over time (rotating text, tickers) causing agents to miss information depending on snapshot timing
 
 **Fixes:**
 
@@ -751,6 +766,25 @@ See Chapter 11 "Static Alternatives for Dynamic Content" for complete patterns.
 2. Use aria-describedby for longer descriptions
 3. Consider replacing informational GIFs with static images + text descriptions
 4. Reserve animated GIFs for purely decorative purposes
+
+### "Visual content changes detected"
+
+**Meaning:** Screenshot comparison revealed page content changing over time (typewriter animations, rotating text, tickers)
+
+**Impact:** Agents snapshot page at random moments, missing content that hasn't appeared yet or has already cycled away. Timing-dependent failures.
+
+**Example:** Arbory Digital homepage cycles "AEM UPGRADE SPECIALISTS" → "AEM EXPERTS" → "SECURITY" - agents only see one variant.
+
+**Fix:**
+
+1. Ensure ALL text variations exist in served HTML before JavaScript enhancement
+2. Add data-content-variations="AEM UPGRADE SPECIALISTS|AEM EXPERTS|SECURITY" attribute
+3. Add data-content-complete="true" after animation cycle completes
+4. Provide static `<noscript>` alternative showing all content
+5. Mark animated containers with data-animation-type="typewriter" or data-animation-type="ticker"
+6. Consider showing all variations in a list format for agents: `<ul data-agent-visible="true"><li>AEM UPGRADE SPECIALISTS</li><li>AEM EXPERTS</li><li>SECURITY</li></ul>`
+
+**Detection method:** The audit takes 3 screenshots at random intervals (2-5 seconds apart) and compares visual hashes. Different hashes indicate visual content changes. This catches custom animations that don't use known libraries.
 
 ## Getting Help
 
