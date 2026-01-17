@@ -115,6 +115,24 @@ These patterns break agents and users with disabilities: those who navigate with
 
 **The convergence principle:** Patterns that break AI agents also break humans. Skip links that help keyboard users bypass navigation also help AI agents identify main content. Semantic HTML benefits screen readers and AI parsing simultaneously.
 
+### This Isn't New: 27 Years of the Same Problem
+
+Here's what makes this striking: **This problem is 27 years old.**
+
+In 1999, Janus Boye published "Constructing the Web for the Non-Visual User" at <https://www.irt.org/articles/js086/>. His core insight? Websites optimised for visual users fail completely for non-visual interaction.
+
+I started writing this book 25 years after Janus published that article - in 2024.
+
+**The same patterns:**
+
+- Toast notifications broke screen readers then, break AI agents now
+- Hidden state confused keyboard users then, confuses agents now
+- JavaScript-dependent navigation failed for accessibility then, fails for agents now
+
+**The difference:** Commercial pressure finally matches moral obligation. Businesses have financial incentives to fix these issues, not just accessibility compliance requirements. Agent-assisted commerce is creating market forces that finally prioritise universal design patterns.
+
+We're finally fixing issues we should have fixed decades ago.
+
 ### Two HTML States: The Gap
 
 **Critical Distinction:**

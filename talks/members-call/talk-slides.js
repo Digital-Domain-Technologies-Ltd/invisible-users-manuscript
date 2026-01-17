@@ -43,7 +43,7 @@ function createInvisibleUsersDeck() {
       ],
       footer: "Tom Cranstoun | Due Q1 2026"
     },
-    
+
     // 2. Adobe Insights: Holiday 2025
     {
       type: 'standard',
@@ -179,6 +179,21 @@ function createInvisibleUsersDeck() {
         "JavaScript-dependent navigation",
         "These patterns break agents and users with disabilities.",
         "Convergence principle: patterns that break agents also break humans."
+      ]
+    },
+
+    // 9a. This Isn't New
+    {
+      type: 'standard',
+      title: "This Isn't New: 27 Years of the Same Problem",
+      subtitle: "1999 → 2024 → Same patterns, new pressure",
+      body: [
+        "1999: Janus Boye wrote 'Constructing the Web for the Non-Visual User'",
+        "https://www.irt.org/articles/js086/",
+        "Toast notifications broke screen readers then, break AI agents now",
+        "Hidden state confused keyboard users then, confuses agents now",
+        "I started this book 25 years after Janus (2024)",
+        "The difference: Commercial pressure finally matches moral obligation"
       ]
     },
 

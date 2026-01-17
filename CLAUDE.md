@@ -37,17 +37,21 @@ This is a git submodule integrated at `packages/manuscript/manuscript/` in the p
 - `preface.md` - Author's journey and book introduction
 - `executive-summary.md` - Condensed overview with decision tree
 
-**Chapters (Sequential, ~57,000 words):**
+**Chapters (Sequential, ~78,000 words core manuscript):**
 
-- `chapter-01-what-you-will-learn.md` - Introduction and accessibility connection (~3,200 words)
-- `chapter-02-the-invisible-failure.md` - Problem identification (~4,500 words)
-- `chapter-03-the-architectural-conflict.md` - Technical analysis (~4,150 words)
-- `chapter-04-the-business-reality.md` - Business implications with ROI framework (~7,350 words)
-- `chapter-05-the-content-creators-dilemma.md` - Creator perspective (~5,600 words)
-- `chapter-06-the-security-maze.md` - Security considerations (~4,000 words)
-- `chapter-07-the-legal-landscape.md` - Legal implications (~4,400 words)
-- `chapter-08-the-human-cost.md` - Human impact (~3,650 words)
-- `chapter-09-designing-for-both.md` - Solution principles (~4,400 words)
+- `chapter-01-what-you-will-learn.md` - Introduction and accessibility connection (~2,894 words)
+- `chapter-02-the-invisible-failure.md` - Problem identification (~5,760 words)
+- `chapter-03-the-architectural-conflict.md` - Technical analysis (~4,192 words)
+- `chapter-04-the-business-reality.md` - Business implications with ROI framework (~10,009 words)
+- `chapter-05-the-content-creators-dilemma.md` - Creator perspective (~6,129 words)
+- `chapter-06-the-security-maze.md` - Security considerations (~4,385 words)
+- `chapter-07-the-legal-landscape.md` - Legal implications (~4,395 words)
+- `chapter-08-the-human-cost.md` - Human impact (~4,153 words)
+- `chapter-09-the-platform-race.md` - Platform competition and urgency (~5,377 words)
+- `chapter-10-generative-engine-optimization.md` - Discovery patterns for SEO and GEO (~13,076 words)
+- `chapter-11-designing-for-both.md` - Solution principles (~6,773 words)
+- `chapter-12-technical-advice.md` - Implementation code and patterns (~11,468 words)
+- `chapter-13-what-agent-creators-must-build.md` - Validation frameworks and guardrails (~9,440 words)
 - `chapter-10-technical-advice.md` - Technical implementation (~9,650 words)
 - `chapter-11-what-agent-creators-must-build.md` - Agent creator requirements (~5,000 words)
 

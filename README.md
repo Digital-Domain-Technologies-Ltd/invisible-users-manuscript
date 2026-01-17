@@ -10,7 +10,7 @@ This is the manuscript repository for "The Invisible Users" by Tom Cranstoun. Th
 
 **Main Repository:** <https://github.com/ddttom/invisible-users>
 
-**Status:** Complete manuscript (11 chapters, 9 appendices, ~57,000 words)
+**Status:** Complete manuscript (13 chapters, 12 appendices, ~140,000 words total)
 
 ## Repository Structure
 
@@ -24,9 +24,9 @@ This is the manuscript repository for "The Invisible Users" by Tom Cranstoun. Th
 │   └── skills/                 # AI agent skills
 ├── preface.md                  # Author's journey
 ├── executive-summary.md        # Condensed overview
-├── chapter-01-*.md through chapter-11-*.md  # 11 chapters
+├── chapter-01-*.md through chapter-13-*.md  # 13 chapters
 ├── Glossary.md                 # 60+ technical terms
-├── appendix-*.md               # 9 appendices (A-I)
+├── appendix-*.md               # 12 appendices (A-L)
 ├── agent-friendly-starter-kit/ # Code examples (good vs bad patterns)
 ├── code-examples/              # Production-ready implementations
 │   ├── apache/                 # Apache configuration
@@ -51,12 +51,22 @@ This is the manuscript repository for "The Invisible Users" by Tom Cranstoun. Th
 
 ## Content Overview
 
-### Core Manuscript (~57,000 words)
+### Core Manuscript (~78,000 words)
 
-- **Preface** (~1,700 words): Author's discovery of the problem
-- **11 Chapters** (~54,850 words): Complete narrative from problem to solutions
-- **9 Appendices** (~22,000 words): Implementation guides and references
-- **Glossary**: 60+ technical terms with cross-references
+- **Preface** (~2,678 words): Author's discovery of the problem
+- **13 Chapters** (~72,498 words): Complete narrative from problem to solutions
+- **The End** (~570 words): Directing readers to online appendices
+- **Glossary** (~2,350 words): 60+ technical terms with cross-references
+
+### Web Appendices (~58,600 words)
+
+- **12 Appendices** (A-L): Implementation guides, pattern references, case studies (published separately at <https://allabout.network/invisible-users/web/>)
+
+### Supporting Materials (~3,550 words)
+
+- **Executive Summary** (~1,815 words): Condensed overview
+- **Reading Guide** (~1,151 words): Navigation for different audiences
+- **Rear Cover** (~598 words): Book description
 
 ### Code Examples
 
