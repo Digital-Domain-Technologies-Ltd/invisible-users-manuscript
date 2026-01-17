@@ -1392,7 +1392,7 @@ Since llms.txt is an emerging standard, tracking its adoption and effectiveness 
 
 Check your web server logs for requests to `/llms.txt`. Look for user agents indicating AI platforms:
 
-```
+```text
 "Mozilla/5.0 (compatible; Claude/1.0; +https://anthropic.com)"
 "GPTBot/1.0"
 "PerplexityBot/1.0"
@@ -1883,7 +1883,7 @@ If your business serves CLI agents, prioritise llms.txt, semantic HTML, and clea
 
 **Platform-specific quirks as of early 2026:**
 
-**Issue: Nested JSON-LD confusion**
+#### Issue: Nested JSON-LD confusion
 
 Some agents struggle with deeply nested JSON-LD structures. Keep nesting to 3 levels maximum where possible.
 
@@ -1927,11 +1927,11 @@ Some agents struggle with deeply nested JSON-LD structures. Keep nesting to 3 le
 }
 ```
 
-**Issue: Currency symbol interpretation**
+#### Issue: Currency symbol interpretation
 
 Some agents parse "£24.99" correctly. Others interpret the £ symbol incorrectly. Always use `priceCurrency: "GBP"` alongside numeric price values.
 
-**Issue: Date format inconsistency**
+#### Issue: Date format inconsistency
 
 ISO 8601 format (`2026-01-17T14:30:00Z`) is universally understood. Other date formats may be parsed inconsistently. Use ISO 8601 everywhere.
 
