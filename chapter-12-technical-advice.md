@@ -248,6 +248,26 @@ npm start -- -s https://example.com \
 
 Use these scores to prioritize improvements. The remainder of this chapter explains how to fix what the audit identifies.
 
+### Performance Optimization
+
+The Web Audit Suite includes production-tested optimizations that reduce analysis time by 3-5x. For large sites with hundreds or thousands of pages, these features significantly improve practicality:
+
+**Browser pooling** maintains reusable browser instances, eliminating the 2-5 second launch overhead per URL. A pool of 3 browsers reduces launches by 97%.
+
+**Concurrent URL processing** analyzes multiple pages simultaneously, with adaptive rate limiting that monitors server responses and adjusts dynamically. This prevents overwhelming servers whilst maximising throughput.
+
+**Cache staleness checking** validates data freshness automatically, using HTTP HEAD requests to detect source modifications without full re-analysis.
+
+For a 100-URL site, these optimisations reduce analysis time from ~45 minutes to ~10 minutes. The performance gain increases with site size.
+
+Configure via CLI options:
+
+```bash
+npm start -- -s https://example.com --browser-pool-size 5 --url-concurrency 5
+```
+
+Chapter 13 discusses the broader implications of performance requirements for agent creators.
+
 ## Starting Simple
 
 The quickest improvement costs nothing and requires no code. Review your site with these questions:

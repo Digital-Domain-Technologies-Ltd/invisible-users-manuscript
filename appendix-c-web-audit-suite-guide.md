@@ -38,6 +38,104 @@ npm start -- -s https://example.com \
   --generate-executive-summary
 ```
 
+### Performance-Optimized Audits
+
+The Web Audit Suite includes production-tested performance optimizations for large sites:
+
+```bash
+# Custom browser pool and concurrency for large sites
+npm start -- -s https://example.com --browser-pool-size 5 --url-concurrency 5
+
+# Expected performance: 100 URLs in ~10 minutes
+```
+
+**Performance Features:**
+
+- **Browser pooling**: 97% reduction in browser launch overhead
+- **Concurrent processing**: Multiple URLs analyzed simultaneously
+- **Adaptive rate limiting**: Server-friendly dynamic concurrency
+- **Cache validation**: Automatic staleness checking
+
+### Pattern Extraction
+
+Learn from your high-scoring pages to replicate success:
+
+```bash
+npm start -- -s https://example.com --extract-patterns
+```
+
+**What it does:**
+
+- Analyzes pages with ≥70 served/rendered score
+- Extracts 6 pattern categories with real examples:
+  - Structured Data (JSON-LD)
+  - Semantic HTML Structure
+  - Standard Form Field Naming
+  - Persistent Error Messages
+  - Explicit State Attributes
+  - llms.txt Implementation
+- Provides priority (Critical/High) and effort (Low/Moderate) ratings
+- Generates pattern_library.md with up to 5 examples per pattern
+
+**Use case:** Identify what works on your best pages and apply it site-wide.
+
+### Regression Detection
+
+Track changes over time with CI/CD-ready regression detection:
+
+```bash
+npm start -- -s https://example.com --enable-history
+```
+
+**What it does:**
+
+- Compares current run with baseline (establishes if missing)
+- Detects regressions in 5 categories:
+  - Performance (Critical: >30% increase, Warning: >15%)
+  - Accessibility (Critical: any error increase)
+  - SEO (Critical: >10% decrease, Warning: >5%)
+  - LLM suitability (Served score critical, Rendered score warning)
+  - URL count (Warning: significant change)
+- Generates regression_report.md with severity classifications
+- Returns non-zero exit code for critical regressions (CI/CD integration)
+
+**Use case:** Catch breaking changes before deployment.
+
+### Ethical Scraping
+
+The tool respects robots.txt by default:
+
+```bash
+# Normal audit (respects robots.txt)
+npm start -- -s https://example.com
+
+# Force scraping (bypass robots.txt - use with caution)
+npm start -- -s https://example.com --force-scrape
+```
+
+**robots.txt Compliance:**
+
+- Fetches robots.txt before any crawling begins
+- Interactive prompts if URLs are blocked
+- Runtime force-scrape toggle available
+- 100-point quality scoring for robots.txt files
+
+**What's checked:**
+
+- AI-specific user agents (GPTBot, ClaudeBot) - 30 pts
+- Sitemap references - 20 pts
+- Sensitive path protection (admin, cart, account) - 25 pts
+- llms.txt references - 15 pts
+- Helpful comments - 10 pts
+- Completeness - 10 pts
+
+**Quality levels:**
+
+- **Excellent (80+)**: Professional-grade AI agent guidance
+- **Good (60-79)**: Solid foundation, minor improvements needed
+- **Fair (40-59)**: Basic compliance, significant gaps
+- **Poor (<40)**: Critical issues, immediate action needed
+
 ## Understanding Your Reports
 
 ### Core Reports (15 files)
@@ -319,6 +417,124 @@ SEO best practices match agent needs:
 
 **Use for:** Regular monitoring, team reviews, progress tracking
 
+#### 16. robots.txt Quality Report (`robots_quality_report.md`)
+
+**Purpose:** Evaluate your robots.txt file for AI agent compatibility
+
+**Key Sections:**
+
+- **Overall Score** (0-100): Quality level (Excellent/Good/Fair/Poor)
+- **Quality Criteria Breakdown**: 6 scored categories
+- **Issues Found**: Specific problems detected
+- **Recommendations**: Actionable improvements
+- **Example robots.txt**: Suggested implementation
+
+**Interpreting Score:**
+
+| Score | Quality Level | Meaning |
+| ----- | ------------- | ------- |
+| 80+ | Excellent | Professional-grade AI agent guidance |
+| 60-79 | Good | Solid foundation, minor improvements |
+| 40-59 | Fair | Basic compliance, significant gaps |
+| <40 | Poor | Critical issues, immediate action needed |
+
+**Priority Fixes:**
+
+1. **Missing AI-specific user agents** (30 pts): Add GPTBot, ClaudeBot, etc.
+2. **No sitemap references** (20 pts): Add Sitemap: directives
+3. **Unprotected sensitive paths** (25 pts): Block /admin, /cart, /account
+4. **No llms.txt references** (15 pts): Add comments referencing llms.txt
+5. **No helpful comments** (10 pts): Explain rules for maintainability
+
+**Chapter References:**
+
+- Chapter 5: The Content Creator's Dilemma (robots.txt best practices)
+- Chapter 10: Generative Engine Optimization (AI-specific directives)
+- Appendix G: Resource Directory (robots.txt examples)
+
+#### 17. Pattern Library Report (`pattern_library.md`)
+
+**Purpose:** Learn from your high-scoring pages
+
+**Generated when:** `--extract-patterns` flag used
+
+**Key Sections:**
+
+- **Methodology**: How patterns were extracted
+- **6 Pattern Categories**: Structured Data, Semantic HTML, Form Patterns, Error Handling, State Management, llms.txt
+- **Real Examples**: Up to 5 examples per pattern from your site
+- **Implementation Guide**: How to apply patterns site-wide
+- **Validation Tools**: Links to validators
+
+**Pattern Priority Ratings:**
+
+- **Critical** + **Low effort**: Implement immediately
+- **High** + **Moderate effort**: Plan for next sprint
+- **Critical** + **Moderate effort**: Prioritize over High/Low
+
+**Use Cases:**
+
+1. **Replicate success**: See what works on your best pages
+2. **Training material**: Show developers real examples
+3. **Quality baseline**: Establish consistency standards
+4. **Onboarding**: Help new team members understand patterns
+
+**Chapter References:**
+
+- Chapter 10: Generative Engine Optimization (pattern implementation)
+- Chapter 11: Designing for Both (universal patterns)
+- Appendix E: AI Patterns Quick Reference (pattern catalog)
+
+#### 18. Regression Report (`regression_report.md`)
+
+**Purpose:** Detect breaking changes before deployment
+
+**Generated when:** `--enable-history` flag used
+
+**Key Sections:**
+
+- **Executive Summary**: Critical/warning/info counts
+- **Critical Regressions**: Issues requiring immediate attention
+- **Warning Regressions**: Issues to monitor
+- **Informational Changes**: Non-critical updates
+- **Recommendations**: Specific actions to take
+
+**Regression Severity:**
+
+**Critical** (Exit code 1 - CI/CD fails):
+
+- Performance: >30% increase in load time/LCP/FCP/CLS
+- Accessibility: Any error count increase
+- SEO: >10% score decrease
+- LLM Suitability (Served): >10% score decrease
+
+**Warning** (Exit code 0 - CI/CD passes with warnings):
+
+- Performance: >15% increase
+- SEO: >5% score decrease
+- LLM Suitability (Rendered): >10% score decrease
+- URL count: Significant change
+
+**Informational**:
+
+- Minor improvements or degradations
+- Non-critical metric changes
+
+**CI/CD Integration:**
+
+```bash
+# In your CI/CD pipeline
+npm start -- -s https://staging.example.com --enable-history
+
+# Returns exit code 1 if critical regressions found
+# Pipeline fails, preventing deployment
+```
+
+**Chapter References:**
+
+- Chapter 12: Technical Advice (testing and validation)
+- Appendix B: Battle-Tested Lessons (regression prevention)
+
 ## Prioritizing Improvements
 
 ### Step 1: Run Initial Audit
@@ -555,6 +771,142 @@ Annually:
 - Stay current with standards
 
 ## Advanced Usage
+
+### Performance Optimization Guide
+
+#### Understanding Performance Features
+
+The Web Audit Suite includes production-tested optimizations that reduce analysis time by 3-5x:
+
+**Before optimization**: 100 URLs in ~45 minutes
+**After optimization**: 100 URLs in ~10 minutes
+
+#### Browser Pooling
+
+**What it does:** Maintains 3 reusable Puppeteer browser instances
+
+**Benefits:**
+
+- 97% reduction in browser launch overhead
+- Eliminates 2-5 second delay per URL
+- Automatic restart after 50 pages to prevent memory leaks
+
+**Configuration:**
+
+```bash
+# Default (3 browsers)
+npm start -- -s https://example.com
+
+# Larger pool for faster analysis
+npm start -- -s https://example.com --browser-pool-size 5
+
+# Disable pooling
+npm start -- -s https://example.com --browser-pool-size 0
+```
+
+**When to adjust:**
+
+- **Increase (5-7)**: Large sites (1000+ URLs), powerful hardware
+- **Decrease (1-2)**: Limited memory, unstable sites, debugging
+- **Disable (0)**: Troubleshooting browser issues
+
+#### Concurrent URL Processing
+
+**What it does:** Processes multiple URLs simultaneously
+
+**Benefits:**
+
+- 3-5x speedup for URL processing phase
+- Efficient use of browser pool
+- Integrates with adaptive rate limiting
+
+**Configuration:**
+
+```bash
+# Default (3 concurrent)
+npm start -- -s https://example.com
+
+# Higher concurrency for large sites
+npm start -- -s https://example.com --url-concurrency 5
+
+# Sequential processing
+npm start -- -s https://example.com --url-concurrency 1
+```
+
+**When to adjust:**
+
+- **Increase (5-10)**: Fast servers, large sites, powerful hardware
+- **Decrease (1-2)**: Slow servers, rate limiting issues, debugging
+
+#### Adaptive Rate Limiting
+
+**What it does:** Monitors server responses and adjusts concurrency
+
+**Benefits:**
+
+- Server-friendly (avoids overwhelming servers)
+- Automatic backoff on 429/503 responses
+- Gradual recovery when server stabilizes
+
+**How it works:**
+
+- Starts with configured concurrency (default: 3)
+- Monitors for 429 (Too Many Requests) or 503 (Service Unavailable)
+- Reduces concurrency on errors (exponential backoff)
+- Gradually increases when server recovers
+- No configuration needed - works automatically
+
+#### Cache Staleness Checking
+
+**What it does:** Validates cache freshness with HTTP HEAD requests
+
+**Benefits:**
+
+- Ensures data accuracy without re-analysis
+- Automatic invalidation when source changes
+- Minimal overhead (HEAD requests only)
+
+**How it works:**
+
+- Checks Last-Modified header on cached pages
+- Compares with cache creation time
+- Invalidates cache if source is newer
+- Falls back to cache if HEAD request fails
+- No configuration needed - works automatically
+
+#### Recommended Configurations
+
+**Small sites (<100 URLs):**
+
+```bash
+npm start -- -s https://example.com
+# Defaults work well
+```
+
+**Medium sites (100-500 URLs):**
+
+```bash
+npm start -- -s https://example.com --browser-pool-size 5 --url-concurrency 5
+```
+
+**Large sites (500-5000 URLs):**
+
+```bash
+npm start -- -s https://example.com --browser-pool-size 7 --url-concurrency 7
+```
+
+**Very large sites (5000+ URLs):**
+
+```bash
+# Process in batches
+npm start -- -s https://example.com -c 1000 --browser-pool-size 7 --url-concurrency 7
+```
+
+**Slow or rate-limited servers:**
+
+```bash
+npm start -- -s https://example.com --browser-pool-size 2 --url-concurrency 2
+```
 
 ### Custom Configuration
 

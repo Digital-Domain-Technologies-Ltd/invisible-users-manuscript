@@ -196,6 +196,53 @@ Curated resources referenced in *The Invisible Users: Designing the Web for AI A
 - Documentation: <https://pptr.dev>
 - Node.js library for Chrome/Chromium automation
 
+### Web Audit Suite Performance Tools
+
+### Browser Pooling
+
+- Implementation: `packages/web-audit-suite/src/utils/browserPool.js`
+- Pool of reusable Puppeteer browsers
+- 97% reduction in browser launches
+- Configure via `--browser-pool-size` option
+
+### Adaptive Rate Limiting
+
+- Implementation: `packages/web-audit-suite/src/utils/rateLimiter.js`
+- Dynamic concurrency adjustment
+- Monitors 429/503 responses
+- Exponential backoff with recovery
+
+### Cache Staleness Checking
+
+- Implementation: `packages/web-audit-suite/src/utils/caching.js`
+- HTTP HEAD request validation
+- Automatic invalidation
+- Conservative error handling
+
+### robots.txt Tools
+
+### robots.txt Compliance
+
+- Implementation: `packages/web-audit-suite/src/utils/robotsCompliance.js`
+- Pattern matching with wildcards
+- Interactive prompts for blocked URLs
+- Runtime force-scrape toggle
+
+### robots.txt Quality Analysis
+
+- Implementation: `packages/web-audit-suite/src/utils/robotsTxtParser.js`
+- 100-point scoring system
+- 6 quality criteria evaluation
+- Actionable recommendations
+- Based on Chapter 10 guidance
+
+### robots.txt Fetching
+
+- Implementation: `packages/web-audit-suite/src/utils/robotsFetcher.js`
+- HTTP fetch with Puppeteer fallback
+- Cloudflare protection handling
+- Browser pool integration
+
 ### Agent-Specific Testing
 
 ### Agent Protocol

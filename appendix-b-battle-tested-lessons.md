@@ -608,6 +608,74 @@ app.get('/api/customer/products/:id', requireAuth, (req, res) => {
 
 **Lesson:** Public data should remain public. Don't add authentication to publicly-browsable content.
 
+## 18. Performance Optimization Lessons
+
+### Browser Pooling
+
+**Context:** Early versions launched a new Puppeteer browser for every URL, adding 2-5 seconds per page.
+
+**Problem:** 100-URL sites took 45+ minutes to analyze, making the tool impractical for large sites.
+
+**Solution:** Maintain a pool of 3 reusable browsers, restart after 50 pages to prevent memory leaks.
+
+**Impact:** 97% reduction in browser launches, 3-5x overall speedup.
+
+**Key insight:** Resource pooling eliminates repetitive initialization overhead. The tradeoff is memory usage, but automatic restarts prevent leaks.
+
+### Adaptive Rate Limiting
+
+**Context:** Fixed-rate limiting either overwhelmed servers (too fast) or wasted time (too slow).
+
+**Problem:** No single rate works for all servers. Some handle 10 concurrent requests, others struggle with 2.
+
+**Solution:** Monitor 429/503 responses, dynamically adjust concurrency with exponential backoff and gradual recovery.
+
+**Impact:** Server-friendly analysis without manual rate tuning.
+
+**Key insight:** Reactive systems adapt to actual conditions better than fixed configuration. Let the server tell you when to slow down.
+
+### Cache Staleness Detection
+
+**Context:** Cached data could become outdated if source pages changed between analysis runs.
+
+**Problem:** Stale cache served incorrect data, undermining report accuracy.
+
+**Solution:** HTTP HEAD requests check Last-Modified headers, automatic invalidation when source is newer.
+
+**Impact:** Data freshness guaranteed without full re-analysis.
+
+**Key insight:** Validation metadata (Last-Modified, ETags) enables lightweight freshness checks. Conservative error handling (assume fresh on failure) prevents false positives.
+
+## 19. Ethical Scraping Lessons
+
+### robots.txt Compliance
+
+**Context:** The Web Audit Suite needed to respect website policies whilst providing useful analysis.
+
+**Problem:** Some sites block automated tools via robots.txt, creating tension between functionality and ethics.
+
+**Solution:** Phase 0 fetches robots.txt before crawling, with interactive prompts for blocked URLs and runtime force-scrape toggle.
+
+**Impact:** Ethical scraping by default, with user control for legitimate use cases.
+
+**Key insight:** Tools must respect website policies whilst enabling legitimate analysis. Interactive prompts give users agency without sacrificing ethics.
+
+**Book reference:** Chapter 5 discusses content creator concerns about automated access.
+
+### robots.txt Quality Analysis
+
+**Context:** Many robots.txt files provide minimal guidance for AI agents.
+
+**Problem:** Website owners want to control agent access but don't know what to include in robots.txt.
+
+**Solution:** 100-point scoring system evaluates 6 criteria (AI-specific user agents, sitemap references, sensitive path protection, llms.txt references, comments, completeness).
+
+**Impact:** Actionable feedback helps sites improve agent guidance.
+
+**Key insight:** Educational tools that explain "why" drive adoption better than binary pass/fail judgments.
+
+**Book reference:** Chapter 10 covers robots.txt best practices for AI agents.
+
 ## Key Takeaways
 
 1. **Progressive enhancement requires discipline:** JavaScript must enhance, never replace server-rendered content
