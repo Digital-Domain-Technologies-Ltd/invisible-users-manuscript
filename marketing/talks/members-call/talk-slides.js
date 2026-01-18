@@ -1,6 +1,6 @@
 function createInvisibleUsersDeck() {
   var deck = SlidesApp.create('The Invisible Users Presentation - 20 Minutes (Themed)');
-  
+
   // -------------------------------------------------------------------------
   // THEME CONFIGURATION
   // -------------------------------------------------------------------------
@@ -20,7 +20,7 @@ function createInvisibleUsersDeck() {
   // -------------------------------------------------------------------------
   // SLIDE DATA (Structured for specific layouts)
   // -------------------------------------------------------------------------
-  // Structure: 
+  // Structure:
   // {
   //   type: 'standard' | 'highlight' | 'title',
   //   title: "String",
@@ -28,23 +28,39 @@ function createInvisibleUsersDeck() {
   //   body: ["String", "String"] (array of bullets),
   //   highlightBox: { title: "String", text: "String" } (only for 'highlight' type)
   // }
-  
+
   var slideData = [
     // 1. Title Slide
     {
       type: 'title',
       title: "The Invisible Users",
-      subtitle: "Designing the Web for AI Agents and Everyone Else",
+      subtitle: "Designing Websites That Machines Can Read",
       body: [
         "Tom Cranstoun: Many years in Adobe CMS & AI innovation.",
         "Consultant at Digital Domain Technologies Ltd.",
-        "Philosophy: \"AI should amplify, not replace, human expertise.\"",
-        "Focus: Building zero-dependency, agent-friendly web architectures."
+        "Philosophy: \"What AI agents need is what everyone needs.\"",
+        "Focus: Building machine-readable web architectures that serve all users."
       ],
       footer: "Tom Cranstoun | Due Q1 2026"
     },
 
-    // 2. Adobe Insights: Holiday 2025
+    // 2. What Are AI Agents?
+    {
+      type: 'standard',
+      title: "What Are AI Agents? They're Machines",
+      subtitle: "AI assistants that read your website to find out what you do:",
+      body: [
+        "Server-side: OpenAI ChatGPT (no JavaScript execution, text-only parsing)",
+        "In-browser: Microsoft Copilot (executes JavaScript, sees rendered HTML)",
+        "Browser automation: Perplexity (full browser, can screenshot)",
+        "Local agents: Ollama (runs on user's machine, limited resources)",
+        "They have disabilities: Some are blind (no screenshots), some can't run JS",
+        "Let's call them what they are: Machines with different capabilities",
+        "Just like users with disabilities, they need semantic structure"
+      ]
+    },
+
+    // 2b. Adobe Insights: Holiday 2025
     {
       type: 'standard',
       title: "Adobe Insights: Holiday 2025",
@@ -58,32 +74,17 @@ function createInvisibleUsersDeck() {
       ]
     },
 
-    // 2. Opening Hook
-    {
-      type: 'standard',
-      title: "Real Example from Claude For Chrome",
-      subtitle: "January 2025: Testing Claude for Chrome whilst writing the book.",
-      body: [
-        "Multiple Danube cruises ending in Budapest (May 2026):",
-        "'Scenic Gems of the Danube 2026' - Vienna to Budapest (7 nights)",
-        "'Delightful Danube' - Various starting points to Budapest",
-        "'Romantic Danube' - Multiple options ending in Budapest",
-        "One cruise showed: 'From £203,000-£402,000'",
-        "Actual price: £2,030-£4,020",
-        "100x multiplication error from European formatting (€2.030,00)."
-      ]
-    },
-
-    // 3. The Highlight Slide (Matches the user image)
+    // 2. The £203,000 Cruise - Combined Example
     {
       type: 'highlight',
       title: "The £203,000 Cruise",
-      subtitle: "Real example: January 2025",
+      subtitle: "Real example: January 2025, Testing Claude for Chrome",
       body: [
-        "AI assistant researching Danube cruises",
-        "Returned: £203,000-£402,000 per person",
-        "Actual price: £2,030-£4,020 per person",
-        "100x multiplication error (using a European site with €2.030,00)"
+        "Multiple Danube cruises ending in Budapest (May 2026)",
+        "One cruise showed: 'From £203,000-£402,000'",
+        "Actual price: £2,030-£4,020",
+        "100x multiplication error from European formatting (€2.030,00)",
+        "Without clear structured data, agents misrepresent your pricing"
       ],
       highlightBox: {
         title: "£201,000",
@@ -92,7 +93,7 @@ function createInvisibleUsersDeck() {
       footer: "For Agent Creators, validation layers are essential, not optional."
     },
 
-    // 4. What Caused This
+    // 3. What Caused This
     {
       type: 'standard',
       title: "What Caused This?",
@@ -104,38 +105,75 @@ function createInvisibleUsersDeck() {
         "No cross-referencing against structured data",
         "No confidence scoring",
         "Professional formatting masked the problem.",
-        "Error presented with same confidence as verified data."
+        "Error presented with same confidence as verified data.",
+        "This isn't an isolated incident - it's systematic across the web"
       ]
     },
 
-
-
-    // 5. The Problem (Swapped order as requested)
+    // 4. The Problem: Designing for Eyes, Not Machines
     {
       type: 'standard',
-      title: "The Problem: Invisible Failures",
-      subtitle: "Websites fail quietly for AI agents:",
+      title: "The Problem: Designing for Eyes, Not Machines",
+      subtitle: "Why this happens everywhere:",
       body: [
-        "Not theoretical futures - happening today",
-        "Agents browsing, comparing, transacting now",
-        "Sites that work get preferred",
-        "Sites that don't get quietly avoided",
-        "First-mover advantage that's hard to claw back.",
-        "Two real production mistakes..."
+        "The £203k cruise isn't unique - most sites have similar issues",
+        "Sites designed for human eyes, not machine parsers",
+        "AI agents read HTML structure, not CSS styling",
+        "Beautiful designs with nested divs = invisible to machines",
+        "Semantic HTML with clear structure = readable by all",
+        "Sites that machines can parse get recommended",
+        "Sites that machines can't read get quietly avoided"
       ]
     },
 
-    // 6. Understanding Invisible Failures
+    // 6. The Agent Journey Through Your Website
     {
       type: 'standard',
-      title: "Understanding Invisible Failures",
-      subtitle: "What Makes Users \"Invisible\"?",
+      title: "The Agent Journey Through Your Website",
+      subtitle: "Every stage requires the right format, clarity, and precision:",
       body: [
-        "AI agents are called \"invisible users\" for two reasons:",
-        "1. Invisible to site owners — Unless tracking agent traffic, you have no idea they are there. They blend into analytics.",
-        "2. Interface is invisible to them — They can't see animations, color changes, toast notifications, or loading spinners.",
-        "The Five Types of Invisible Failure: Let's explore the patterns."
+        "1. LLM Training: Agents read websites to build knowledge - need clear content",
+        "2. Citation: Agents need to know what you do to cite you accurately",
+        "3. Search & Compare: Agents build lists, compare options, sort by features",
+        "4. Price Comparison: Without clear pricing, they cannot compare (£203k cruise!)",
+        "5. Understanding Offers: If formatting unclear, they misrepresent your pricing",
+        "6. Purchase: If they can't see what buttons do, they cannot buy",
+        "JavaScript-rendered content: Invisible to LLM training data",
+        "At every point, your structure determines success or failure"
       ]
+    },
+
+    // 6b. Understanding Invisible Failures
+    {
+      type: 'standard',
+      title: "How Machines AND Screen Readers Read Your Website",
+      subtitle: "The fundamental difference between sighted and non-visual readers:",
+      body: [
+        "Sighted humans see: Visual hierarchy, colours, animations, styled buttons",
+        "Machines AND screen readers read: HTML structure, semantic elements, metadata",
+        "Visual design is invisible to AI agents AND blind users",
+        "Code structure is everything for accessibility AND AI",
+        "Example: <div class='btn'> looks like a button, but is a meaningless container",
+        "Example: <button> is semantically clear to screen readers AND machines"
+      ]
+    },
+
+    // 6c. The Core Message
+    {
+      type: 'highlight',
+      title: "Design for Both",
+      subtitle: "The convergence principle:",
+      body: [
+        "Machines can't see visual design",
+        "Screen readers can't see visual design",
+        "Both need semantic structure and explicit meaning",
+        "What machines need is what disabled users need"
+      ],
+      highlightBox: {
+        title: "Design",
+        text: "For\nBoth"
+      },
+      footer: "Design for structure - benefit humans, machines, and accessibility"
     },
 
     // 7. Mistake #1
@@ -156,7 +194,23 @@ function createInvisibleUsersDeck() {
     // 8. Mistake #2
     {
       type: 'standard',
-      title: "Mistake #2: Hidden Checkout State",
+      title: "Mistake #2: Vague Button Text",
+      subtitle: "Generic labels confuse machines AND screen readers:",
+      body: [
+        "Your page has three buttons that say 'More' - which does what?",
+        "Screen readers announce: 'More button' - more what?",
+        "Machines see: <button>More</button> - no context",
+        "Bad: 'More', 'Click here', 'Learn more', 'Read more'",
+        "Good: 'More about pricing', 'View product details', 'Read customer reviews'",
+        "Be specific in the button text - both audiences need context",
+        "Solution: Descriptive button labels that work without surrounding content"
+      ]
+    },
+
+    // 9. Mistake #3
+    {
+      type: 'standard',
+      title: "Mistake #3: Hidden Checkout State",
       subtitle: "State Invisible to Agents:",
       body: [
         "JavaScript-only state (let currentStep = 1)",
@@ -169,16 +223,16 @@ function createInvisibleUsersDeck() {
     // 9. Why This Happens
     {
       type: 'standard',
-      title: "Why This Happens",
-      subtitle: "Modern web design optimised for visual feedback:",
+      title: "Why Machines AND Screen Readers Struggle",
+      subtitle: "Visual-first design patterns break accessibility AND AI:",
       body: [
-        "Single-page applications",
-        "Client-side state management",
-        "Toast notifications and modals",
-        "Loading spinners without context",
-        "JavaScript-dependent navigation",
-        "These patterns break agents and users with disabilities.",
-        "Convergence principle: patterns that break agents also break humans."
+        "JavaScript-rendered content (invisible to parsers AND screen readers)",
+        "Generic class names (no semantic meaning for assistive tech OR machines)",
+        "CSS-based information (colour, size - invisible to blind users AND AI)",
+        "Toast notifications (vanish before screen readers AND machines read)",
+        "Complex client-side state (confuses keyboard users AND agents)",
+        "Solution: Semantic HTML + ARIA + CSS works for everyone",
+        "Structure first benefits accessibility AND AI simultaneously"
       ]
     },
 
@@ -186,13 +240,13 @@ function createInvisibleUsersDeck() {
     {
       type: 'standard',
       title: "This Isn't New: 27 Years of the Same Problem",
-      subtitle: "1999 → 2024 → Same patterns, new pressure",
+      subtitle: "Same accessibility problems, same solutions, new commercial urgency",
       body: [
         "1999: Janus Boye wrote 'Constructing the Web for the Non-Visual User'",
-        "https://www.irt.org/articles/js086/",
         "Toast notifications broke screen readers then, break AI agents now",
         "Hidden state confused keyboard users then, confuses agents now",
-        "I started this book 25 years after Janus (2024)",
+        "Same problems affecting blind users AND machine readers",
+        "Same solutions work for accessibility AND AI",
         "The difference: Commercial pressure finally matches moral obligation"
       ]
     },
@@ -201,96 +255,123 @@ function createInvisibleUsersDeck() {
     {
       type: 'standard',
       title: "The Citation Problem",
-      subtitle: "Agents need metadata to cite accurately:",
+      subtitle: "First-mover advantage available:",
       body: [
         "When ChatGPT recommends products, it needs exact pricing",
         "Without Schema.org JSON-LD markup, agents hallucinate details",
-        "Agents cite competitors who provided explicit signals",
+        "When agents find sites that don't work, they move on quickly",
+        "When agents find sites that work, they come back",
+        "First-mover advantage: Sites that work early get preferred",
+        "Agents cite competitors who provided explicit signals first",
         "Same structured data helps Google show rich snippets",
-        "Same structured data helps AI agents cite you correctly",
-        "One improvement serves both discovery channels."
+        "One improvement serves all discovery channels."
       ]
     },
 
     // 10. The Gap
     {
       type: 'standard',
-      title: "Two HTML States: The Gap",
-      subtitle: "Critical Distinction:",
+      title: "Two HTML States: What Machines Actually See",
+      subtitle: "The critical distinction between human and machine perception:",
       body: [
-        "1. Served HTML (static) - What server sends before JS. Most agents see only this.",
-        "2. Rendered HTML (dynamic) - After JS execution. Only browser-based agents see this.",
-        "Example: <div id='products'></div> then fetch().",
-        "Your product catalogue is invisible to most agents."
+        "1. Served HTML (static) - Raw HTML before JavaScript runs",
+        "2. Rendered HTML (dynamic) - After JavaScript transforms the page",
+        "Most AI agents only see served HTML (the raw code)",
+        "Browser-based agents see rendered HTML (after transformation)",
+        "Example: <div id='products'></div> then fetch() = invisible to most machines",
+        "Solution: Server-side render content or use semantic HTML from the start"
       ]
     },
 
     // 11. The Solution
     {
       type: 'standard',
-      title: "The Solution",
-      subtitle: "Universal Design Patterns",
+      title: "The Solution: Semantic Structure for All",
+      subtitle: "What accessibility needs is what AI needs:",
       body: [
-        "No rebuilding interfaces",
-        "No special agent-only experiences",
-        "Small, well-understood changes",
-        "Benefits: keyboard users, screen readers, voice control, agents",
-        "Skip links, semantic HTML, explicit state",
-        "Three concrete patterns with business value."
+        "Use semantic HTML (screen readers AND machines understand it)",
+        "Screen readers announce <button>, machines parse <button>",
+        "Add structured data (helps voice assistants AND AI agents)",
+        "Schema.org serves blind users' voice assistants AND AI parsers",
+        "Clear heading hierarchy (screen reader navigation AND machine parsing)",
+        "One solution serves accessibility, SEO, and AI simultaneously"
       ]
     },
 
     // 12. Pattern 1
     {
       type: 'standard',
-      title: "Pattern #1: Skip Links",
-      subtitle: "Navigation aid for keyboard users and agents:",
+      title: "Pattern #1: Semantic HTML Structure",
+      subtitle: "Mark up what something IS for screen readers AND machines:",
       body: [
-        "<a href='#main' class='skip'>Skip to main content</a>",
-        "Hidden visually, available to keyboard users",
-        "Helps agents identify main content area",
-        "Business value: Benefits keyboard users, screen readers, agents simultaneously."
+        "<button> - Screen readers announce 'button', machines parse as clickable",
+        "<main> - Screen readers jump to content, machines identify key content",
+        "<nav> - Screen readers list navigation, machines understand site structure",
+        "<article> - Screen readers group content, machines extract articles",
+        "Semantic elements work immediately for accessibility AND AI",
+        "Style with CSS - assistive tech AND machines read the HTML"
       ]
     },
 
     // 13. Pattern 2
     {
       type: 'standard',
-      title: "Pattern #2: Persistent Errors",
-      subtitle: "Instead of vanishing toast notifications:",
+      title: "Pattern #2: Explicit Metadata (Schema.org)",
+      subtitle: "Structured data serves voice assistants AND AI agents:",
       body: [
-        "<form data-state='incomplete'> with <div role='alert'>",
-        "Use aria-invalid and aria-describedby",
-        "Benefits distracted humans, screen readers, agents",
-        "Business value: Conversion rates improve for everyone."
+        "Schema.org provides shared vocabulary for all machine readers",
+        "Voice assistants for blind users read the same metadata as AI agents",
+        "Example: Price, currency, availability - voice assistants announce it",
+        "Same metadata helps Google, Alexa, ChatGPT, Claude",
+        "One implementation serves accessibility tech AND AI simultaneously",
+        "Blind users' voice assistants benefit from the same structured data"
+      ]
+    },
+
+    // 13a. The Ally McBeal Problem
+    {
+      type: 'standard',
+      title: "The Ally McBeal Problem",
+      subtitle: "Without explicit markup, agents can't distinguish fiction from professional content:",
+      body: [
+        "AI training data includes millions of TV subtitle files (DVDs, streaming)",
+        "Without Schema.org markup, agents cannot tell the difference:",
+        "Your legal brief might be treated like an Ally McBeal script",
+        "OR: Ally McBeal dialogue might be cited as legal precedent (lawyer's nightmare!)",
+        "Medical analysis confused with Grey's Anatomy dialogue",
+        "Financial advice treated like fictional business drama",
+        "Use Schema.org types: LegalDocument, ScholarlyArticle, MedicalScholarlyArticle",
+        "Mark fiction as CreativeWork - prevent both under/over-valuing content"
       ]
     },
 
     // 14. Pattern 3
     {
       type: 'standard',
-      title: "Pattern #3: Semantic HTML",
-      subtitle: "Use proper HTML5 elements:",
+      title: "Pattern #3: Clear Document Structure",
+      subtitle: "Heading hierarchy for screen reader navigation AND machine parsing:",
       body: [
-        "<main>, <nav>, <article>, <header>, <footer>",
-        "Helps search engines rank better",
-        "Screen readers navigate more effectively",
-        "Agents parse structure accurately",
-        "Business value: One improvement, multiple audiences benefit."
+        "Screen reader users navigate by headings (h1 → h2 → h3)",
+        "AI agents parse the same heading structure for document meaning",
+        "Screen readers: Jump between h2 headings to scan sections",
+        "Machines: Parse h2 headings to understand topic structure",
+        "Jumbled hierarchy confuses blind users AND AI agents equally",
+        "One logical structure serves accessibility AND AI simultaneously"
       ]
     },
 
     // 15. Small Business Case
     {
       type: 'standard',
-      title: "Small Business Case",
-      subtitle: "You don't need complex infrastructure.",
+      title: "The Morning-After Test",
+      subtitle: "Test your site's machine-readability in 30 seconds:",
       body: [
-        "Simple restaurant site example",
-        "Semantic HTML (<nav>, <main>, <article>)",
-        "Schema.org markup (Restaurant, Menu, MenuItem)",
-        "Minimal effort",
-        "Completely agent-friendly"
+        "1. View source on your most important page",
+        "2. Copy the raw HTML (not rendered, the actual source)",
+        "3. Paste into ChatGPT or Claude",
+        "4. Ask: 'What is this page about? What can I do here?'",
+        "If AI can't understand it, neither can real agents",
+        "Immediate feedback on structural problems"
       ]
     },
 
@@ -298,14 +379,14 @@ function createInvisibleUsersDeck() {
     {
       type: 'standard',
       title: "Quick Wins: Start Here",
-      subtitle: "Critical Priority 1 Changes:",
+      subtitle: "Improve accessibility AND machine-readability simultaneously:",
       body: [
-        "Add skip links (benefits keyboard users and agents)",
-        "Add persistent error messages (helps everyone)",
-        "Use semantic HTML (<main>, <nav>, <article>)",
-        "Display complete pricing (no hidden fees)",
-        "Add basic Schema.org structured data",
-        "Each change benefits multiple audiences."
+        "1. Semantic HTML (screen readers announce it, machines parse it)",
+        "2. Schema.org JSON-LD (voice assistants AND AI agents read it)",
+        "3. Heading hierarchy (screen reader navigation AND machine structure)",
+        "4. Descriptive link text (screen readers read context, machines too)",
+        "5. Alt text on images (blind users AND machines need descriptions)",
+        "Each change serves accessibility AND AI with one implementation"
       ]
     },
 
@@ -336,7 +417,7 @@ function createInvisibleUsersDeck() {
         "Sites that adapt early gain advantage."
       ]
     },
-    
+
     // 19. Major Developments
     {
       type: 'standard',
@@ -377,17 +458,18 @@ function createInvisibleUsersDeck() {
       ]
     },
 
-    // 22. Responsibility
+    // 22. Design for Both
     {
       type: 'standard',
-      title: "Our Responsibility",
-      subtitle: "Clear professional obligation:",
+      title: "Design for Both",
+      subtitle: "The convergence principle in action:",
       body: [
-        "Designers/Devs must ensure agents navigate successfully",
-        "When agents fail, that's a design gap affecting everyone",
-        "Agent failures expose problems that affect humans too",
-        "Universal design patterns benefit keyboard users, screen readers, agents",
-        "Accessibility work now has commercial pressure behind it."
+        "What machines need is what disabled users need",
+        "Blind users: Screen readers parse semantic HTML, AI agents parse same structure",
+        "Motor-impaired users: Keyboard navigation needs semantic buttons, machines too",
+        "Cognitive disabilities: Clear structure helps humans AND machines understand",
+        "One semantic solution serves accessibility, SEO, and AI simultaneously",
+        "Commercial pressure for AI finally matches moral obligation for accessibility"
       ]
     },
 
@@ -408,13 +490,14 @@ function createInvisibleUsersDeck() {
     {
       type: 'standard',
       title: "Key Takeaways",
-      subtitle: "Five Essential Messages:",
+      subtitle: "Six Essential Messages:",
       body: [
-        "1. This is happening now",
-        "2. Commercial pressure exists",
-        "3. Solutions are accessible",
-        "4. Universal benefit",
-        "5. Start with quick wins"
+        "1. Screen readers AND machines both read structure, not visual design",
+        "2. Same patterns serve blind users AND AI agents",
+        "3. Semantic HTML works for accessibility AND machine parsing",
+        "4. Schema.org helps voice assistants AND AI recommendations",
+        "5. One solution serves disability access AND AI commerce",
+        "6. Commercial pressure for AI matches moral obligation for accessibility"
       ]
     },
 
@@ -446,10 +529,10 @@ function createInvisibleUsersDeck() {
   if (slides.length > 0) {
     slides[0].remove();
   }
-  
+
   // Set Master Master Background
   deck.getMasters()[0].getBackground().setSolidFill(THEME.colors.background);
-  
+
   var pageWidth = deck.getPageWidth();
   var pageHeight = deck.getPageHeight();
 
@@ -469,12 +552,12 @@ function createInvisibleUsersDeck() {
     // -------------------------------------------------
     var titleBox = slide.insertShape(SlidesApp.ShapeType.TEXT_BOX, 20, 10, pageWidth - 40, 60);
     var titleText = titleBox.getText();
-    
+
     // Automatic Font Scaling for Long Titles
     // If title is > 32 chars, shrink font to avoid wrapping
     var fontSize = 36;
     if (item.title.length > 32) {
-      fontSize = 28; 
+      fontSize = 28;
     }
     // If title is > 45 chars, shrink even more
     if (item.title.length > 45) {
@@ -520,17 +603,17 @@ function createInvisibleUsersDeck() {
       // Create a single text box for bullets
       var bodyBox = slide.insertShape(SlidesApp.ShapeType.TEXT_BOX, contentLeft, contentTop, contentWidth, 300);
       var bodyText = bodyBox.getText();
-      
+
       // Add bullets with custom "compass" look (simulated with unicode)
       var bulletString = "";
       var isHighlight = (item.type === 'highlight' && item.highlightBox);
-      
+
       item.body.forEach(function(line) {
         // Use single spacing for highlight slides to save space, double for others
-        var separator = isHighlight ? "\n" : "\n\n"; 
-        bulletString += line + separator; 
+        var separator = isHighlight ? "\n" : "\n\n";
+        bulletString += line + separator;
       });
-      
+
       bodyText.setText(bulletString);
 
       // Adjust Font Size for Highlight slides (dense content)
@@ -555,7 +638,7 @@ function createInvisibleUsersDeck() {
       box.getFill().setSolidFill('#000000'); // Blacker background for contrast
       box.getBorder().setWeight(3);
       box.getBorder().getLineFill().setSolidFill(THEME.colors.highlightBorder);
-      
+
       // Highlight Title (The Big Number)
       var boxTitle = slide.insertShape(SlidesApp.ShapeType.TEXT_BOX, highlightLeft, highlightTop + 10, highlightWidth, 60);
       var btRange = boxTitle.getText();
@@ -578,16 +661,16 @@ function createInvisibleUsersDeck() {
              .setForegroundColor(THEME.colors.textMain);
       btxtRange.getParagraphStyle().setParagraphAlignment(SlidesApp.ParagraphAlignment.CENTER);
     }
-    
+
     // 6. FOOTER (No Bar)
     // -------------------------------------------------
     if (item.footer) {
-      var footerMargin = 50; 
+      var footerMargin = 50;
       // If highlight slide, push it even lower (25px from bottom)
       if (item.type === 'highlight') { footerMargin = 25; }
-      
+
       var lineY = pageHeight - footerMargin - 20;
-      
+
       var footerBox = slide.insertShape(SlidesApp.ShapeType.TEXT_BOX, 50, lineY + 10, 620, 50);
       var fText = footerBox.getText();
       fText.setText(item.footer);
