@@ -22,28 +22,34 @@ This is the manuscript repository for "The Invisible Users" by Tom Cranstoun. Th
 │   ├── hooks/                  # Git hooks for workflow automation
 │   ├── commands/               # Custom commands (step-commit, md-fix)
 │   └── skills/                 # AI agent skills
-├── preface.md                  # Author's journey
-├── executive-summary.md        # Condensed overview
-├── chapter-01-*.md through chapter-13-*.md  # 13 chapters
-├── Glossary.md                 # 60+ technical terms
-├── appendix-*.md               # 12 appendices (A-L)
-├── agent-friendly-starter-kit/ # Code examples (good vs bad patterns)
-├── code-examples/              # Production-ready implementations
-│   ├── apache/                 # Apache configuration
-│   ├── nginx/                  # Nginx configuration
-│   ├── nextjs/                 # Next.js examples
-│   ├── wordpress/              # WordPress integration
-│   ├── eds/                    # Adobe EDS examples
-│   ├── static-site/            # Static site generators
-│   ├── monitoring/             # Analytics and logging
-│   └── validation/             # Verification scripts
-├── blog/                       # Blog and promotional materials
-│   ├── blog.md                 # Promotional blog post
-│   ├── blog.svg                # Blog illustration
-│   └── AI-Native.blog          # AI-native website guide
-├── talks/                      # Presentation materials
-│   └── members-call/           # Members call presentations
-├── illustrations/              # Chapter illustrations (SVG + PNG)
+├── manuscripts/                # Multiple book variants
+│   ├── bible/                  # The Bible (full comprehensive guide)
+│   │   ├── chapter-01-*.md through chapter-13-*.md
+│   │   ├── preface.md
+│   │   ├── Glossary.md
+│   │   ├── web/                # Generated HTML pages
+│   │   └── illustrations/      # SVG + PNG illustrations
+│   ├── dont-make-ai-think/     # Don't Make AI Think (slim practical guide)
+│   │   ├── chapter-01-*.md through chapter-10-*.md
+│   │   └── README.md
+│   └── shared-appendices/      # Shared appendices (A-L) for all books
+│       ├── appendix-a-*.md through appendix-l-*.md  # 12 appendices
+│       ├── appendix-d-ai-friendly-html-guide.txt    # Appendix D source
+│       └── appendix-h-live-llms.txt                 # Appendix H source
+├── code/                       # All code examples
+│   ├── agent-friendly-starter-kit/  # Good vs bad patterns
+│   └── examples/               # Production-ready implementations
+│       ├── apache/             # Apache configuration
+│       ├── nginx/              # Nginx configuration
+│       ├── nextjs/             # Next.js examples
+│       ├── wordpress/          # WordPress integration
+│       ├── eds/                # Adobe EDS examples
+│       ├── static-site/        # Static site generators
+│       ├── monitoring/         # Analytics and logging
+│       └── validation/         # Verification scripts
+├── marketing/                  # All promotional content
+│   ├── blog/                   # Blog and promotional materials
+│   └── talks/                  # Presentation materials
 ├── metadata.yaml               # Pandoc metadata for PDF
 ├── metadata-kindle.yaml        # Metadata for Kindle/EPUB
 └── cover-page.tex              # LaTeX cover template
