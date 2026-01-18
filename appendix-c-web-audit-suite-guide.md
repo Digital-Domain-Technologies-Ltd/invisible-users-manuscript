@@ -164,10 +164,10 @@ npm start -- -s https://example.com --force-scrape
 
 | Score Range | Category | Meaning | Action Required |
 | ----------- | -------- | ------- | --------------- |
-| 0-40 | Low | Critical issues, agents fail frequently | Immediate action needed |
-| 41-60 | Moderate-low | Basic functionality, many problems | Systematic improvements required |
-| 61-80 | Moderate-high | Good implementation, minor gaps | Refinement and optimisation |
-| 81-100 | High | Excellent, professional-grade | Maintain and monitor |
+| 0-39 | Poor | Major issues preventing AI agent compatibility | Immediate action needed |
+| 40-59 | Fair | Several essential issues to fix | Systematic improvements required |
+| 60-79 | Good | Minor improvements needed | Refinement and optimization |
+| 80-100 | Excellent | Works well for all AI agents | Maintain and monitor |
 
 **Priority Fixes Based on Score:**
 
@@ -388,6 +388,97 @@ SEO best practices match agent needs:
 - Semantic structure aids parsing
 - Form associations clarify relationships
 - Role attributes indicate purpose
+
+#### 6. Image Optimization Report (`image_optimization.csv`)
+
+**Purpose:** Image metrics, alt text quality, and compression analysis
+
+**Key Fields:**
+
+- Page URL
+- Image URL
+- File Size (KB)
+- Dimensions
+- Format
+- Alt Text
+- Alt Text Quality Score
+- Is Responsive
+- Lazy Loaded
+- Compression Level
+- Optimization Score
+- Recommendations
+
+**Agent Benefits:**
+
+- Alt text makes images interpretable for agents
+- Responsive images indicate mobile-friendly content
+- Optimization recommendations improve performance for all users
+
+#### 7. Link Analysis Report (`link_analysis.csv`)
+
+**Purpose:** Internal/external link structure and navigation analysis
+
+**Key Fields:**
+
+- Source URL
+- Target URL
+- Link Text
+- Link Type (internal/external)
+- Follow Type (follow/nofollow)
+- HTTP Status
+- Redirect Chain
+- Content Type
+- In Navigation
+- Link Depth
+- Link Quality Score
+
+**Agent Benefits:**
+
+- Clear link structure aids navigation
+- Descriptive link text improves context
+- Navigation links help agents understand site structure
+
+#### 8. Content Quality Report (`content_quality.csv`)
+
+**Purpose:** Content analysis including freshness, uniqueness, and media richness
+
+**Key Fields:**
+
+- URL
+- Word Count
+- Content Freshness Score
+- Content Uniqueness Score
+- Grammar Score
+- Media Richness Score
+- Top Keywords
+- Overall Content Score
+
+**Agent Benefits:**
+
+- Fresh content indicates current information
+- Unique content reduces confusion with duplicate pages
+- Rich media provides additional context when properly marked up
+
+#### 9. Security Report (`security_report.csv`)
+
+**Purpose:** Security headers analysis and HTTPS configuration
+
+**Key Fields:**
+
+- URL
+- HTTPS Status
+- HSTS Header
+- CSP Header
+- X-Frame-Options
+- X-Content-Type-Options
+- Security Score
+- Recommendations
+
+**Agent Benefits:**
+
+- Secure sites build trust with agents
+- Security headers indicate professional implementation
+- HTTPS required for many agent interactions
 
 ### Enhanced Reports (Optional)
 
@@ -772,6 +863,141 @@ Annually:
 
 ## Advanced Usage
 
+### Agency & Partner Features
+
+The Web Audit Suite includes features specifically for agencies and partners managing multiple client sites.
+
+**Bulk Auditing:**
+
+```bash
+# Audit multiple domains from CSV file
+npm start -- --bulk prospects.csv \
+  --agency-name "TechAudit Agency" \
+  --agency-logo "https://techaudit.com/logo.png" \
+  --output ./client-audits
+```
+
+**Features:**
+
+- `--bulk <file>`: Run audit on multiple domains from a CSV file
+  - Input: CSV with `domain` column (e.g., `domain\nexample.com\nclient2.com`)
+  - Output: `bulk_audit_summary.csv` master report
+- `--agency-name <string>`: Agency name for white-labeling reports
+  - Replaces "Web Audit Suite" in Dashboard footer/title
+- `--agency-logo <path>`: Path or URL to agency logo
+  - Adds logo to Dashboard header
+
+**Use Cases:**
+
+- White-label reports for client delivery
+- Prospect analysis for sales pipeline
+- Portfolio-wide monitoring for existing clients
+- Competitive analysis for market research
+
+### Cache Management
+
+The tool maintains a cache to improve performance on repeated audits.
+
+**Cache Location:** `.cache` directory (automatically created)
+
+**Cache Format:** JSON files
+
+**Cache Naming:** MD5 hash of URLs
+
+**Cache Control Options:**
+
+```bash
+# Use only cached data (skip fetching)
+npm start -- --cache-only -o reports-from-cache
+
+# Disable caching entirely
+npm start -- --no-cache -s https://example.com
+
+# Clear cache before starting
+npm start -- --force-delete-cache -s https://example.com
+```
+
+**Cache Staleness Checking:**
+
+The tool automatically validates cache freshness using HTTP HEAD requests:
+
+- Checks Last-Modified header on cached pages
+- Compares with cache creation time
+- Invalidates cache if source is newer
+- Falls back to cache if HEAD request fails
+
+**Best Practices:**
+
+- Clear cache periodically for fresh data
+- Use `--cache-only` for report regeneration without re-crawling
+- Use `--force-delete-cache` when site structure changes significantly
+
+### Network Error Handling
+
+The tool includes robust network error handling with automatic retry mechanisms.
+
+**Network Error Types Detected:**
+
+- DNS failures
+- Connection timeouts
+- Host unreachable errors
+- Browser network errors
+- SSL/TLS handshake failures
+- Rate limiting errors
+- Cloudflare challenges (automatic bypass attempt)
+
+**Retry Mechanism:**
+
+When a network error occurs:
+
+1. The tool pauses and displays error details
+2. You're prompted to retry after fixing the issue
+3. Automatic retry up to 3 times
+4. You can cancel the operation if needed
+
+**Example Network Error Flow:**
+
+```text
+[ERROR] Network error: Could not connect to example.com
+Reason: ETIMEDOUT
+Would you like to retry? (yes/no): yes
+Retrying connection... (attempt 1/3)
+```
+
+**Handling Network Issues:**
+
+- Check internet connection before starting
+- Use retry mechanism when network errors occur
+- Monitor network stability during long runs
+- Consider rate limiting for large sites
+
+### Language Variant Filtering
+
+By default, the tool skips non-English language variants to avoid duplicate content analysis.
+
+**Default Behavior:**
+
+- **Processed by default**: `/en`, `/us`
+- **Skipped by default**: `/fr`, `/es`, `/de`, etc.
+
+**Override:**
+
+```bash
+# Include all language variants
+npm start -- -s https://example.com --include-all-languages
+```
+
+**Filtering Applies To:**
+
+- URL extraction from sitemaps
+- Report generation
+- Content analysis
+
+**Use Cases:**
+
+- **Skip filtering** (default): Faster audits, focus on primary content
+- **Include all languages**: Multilingual site audits, comprehensive analysis
+
 ### Performance Optimization Guide
 
 #### Understanding Performance Features
@@ -952,7 +1178,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '20'
 
       - name: Install Web Audit Suite
         run: |
