@@ -257,6 +257,7 @@ function addToCart(productId) {
 **Exception - When inline is acceptable:**
 
 Inline styles may be acceptable for:
+
 - Single-file email templates (no external resource loading)
 - Print-specific styles that must be embedded
 - Critical above-the-fold CSS (minimal, for render performance)
@@ -601,6 +602,389 @@ This pattern applies whenever:
 - Multiple elements serve related but distinct functions
 
 **Real-world example:** The HTML appendices in this book use this pattern. View the source of any appendix page to see `data-role` attributes clarifying the three-level code block structure.
+
+### DOM Order Determines Reading Order
+
+AI agents read HTML in document order (top-to-bottom), not visual order. CSS can reposition elements visually without changing DOM order, causing agents to encounter content in unexpected sequences.
+
+**Bad — Sidebar before main content in DOM:**
+
+```html
+<body>
+  <aside class="sidebar">
+    <!-- Ads, navigation, promotional content -->
+  </aside>
+
+  <main class="content">
+    <article>
+      <h1>Product Review: Wireless Headphones</h1>
+      <p>Comprehensive analysis of sound quality...</p>
+    </article>
+  </main>
+</body>
+
+<style>
+  .sidebar { float: right; width: 30%; }
+  .content { float: left; width: 70%; }
+</style>
+```
+
+Agents process sidebar advertisements before reaching the article content. Token budget is wasted on peripheral information.
+
+**Good — Main content first in DOM, positioned with CSS:**
+
+```html
+<body>
+  <main class="content">
+    <article>
+      <h1>Product Review: Wireless Headphones</h1>
+      <p>Comprehensive analysis of sound quality...</p>
+    </article>
+  </main>
+
+  <aside class="sidebar">
+    <!-- Ads, navigation, promotional content -->
+  </aside>
+</body>
+
+<style>
+  .content { float: left; width: 70%; }
+  .sidebar { float: right; width: 30%; }
+</style>
+```
+
+Agents encounter primary content immediately. CSS positions sidebar visually without affecting reading order.
+
+**Key principle:** DOM order is reading order. Put important content first in HTML, use CSS for visual layout.
+
+### Skeleton Content for Loading States
+
+When content loads dynamically, provide meaningful placeholder structure that explains what's loading:
+
+**Bad — Empty container:**
+
+```html
+<div id="product-list"></div>
+<script>
+  fetch('/api/products').then(data => {
+    document.getElementById('product-list').innerHTML = renderProducts(data);
+  });
+</script>
+```
+
+Agents see empty container. No indication of content or purpose.
+
+**Good — Skeleton with structure:**
+
+```html
+<section class="products" data-state="loading" aria-busy="true">
+  <h2>Featured Products</h2>
+  <p>Loading product information (estimated 2 seconds)...</p>
+
+  <div class="product-skeleton">
+    <div class="skeleton-image" aria-label="Product image loading"></div>
+    <div class="skeleton-title">Loading product title...</div>
+    <div class="skeleton-price">Fetching price...</div>
+  </div>
+</section>
+
+<script>
+  fetch('/api/products').then(data => {
+    const section = document.querySelector('.products');
+    section.setAttribute('data-state', 'loaded');
+    section.setAttribute('aria-busy', 'false');
+    section.innerHTML = renderProducts(data);
+  });
+</script>
+```
+
+Agents see section structure, heading, and purpose even during loading. After JavaScript executes, skeleton is replaced with real content.
+
+**Source:** Chapter 7 (The JavaScript Challenge)
+
+### AJAX Navigation with Progressive Enhancement
+
+Provide real URLs with JavaScript enhancement, not hash-based routing:
+
+**Bad — Hash-based routing:**
+
+```html
+<nav>
+  <a href="#/products">Products</a>
+  <a href="#/services">Services</a>
+  <a href="#/contact">Contact</a>
+</nav>
+
+<script>
+  // JavaScript handles all navigation
+  window.addEventListener('hashchange', loadPage);
+</script>
+```
+
+All URLs return identical HTML. Agents cannot discover pages through links.
+
+**Good — Real URLs with AJAX enhancement:**
+
+```html
+<nav>
+  <a href="/products" data-ajax="true">Products</a>
+  <a href="/services" data-ajax="true">Services</a>
+  <a href="/contact" data-ajax="true">Contact</a>
+</nav>
+
+<script>
+  // JavaScript enhances navigation, links work without it
+  document.querySelectorAll('[data-ajax="true"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      fetch(this.href)
+        .then(response => response.text())
+        .then(html => updateContent(html));
+      history.pushState(null, '', this.href);
+    });
+  });
+</script>
+```
+
+Each link has real URL. Navigation works without JavaScript. AJAX adds smooth transitions for capable browsers.
+
+**Server response for AJAX requests:**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Products - TechStore</title>
+</head>
+<body>
+  <main>
+    <h1>Products</h1>
+    <!-- Complete page content -->
+  </main>
+</body>
+</html>
+```
+
+Server returns full HTML page, not just fragments. Agents can fetch any URL directly.
+
+**Source:** Chapter 7 (The JavaScript Challenge)
+
+### Progressive Enhancement Accordion
+
+Use native HTML disclosure widgets enhanced by JavaScript:
+
+**Good — Details/summary pattern:**
+
+```html
+<details>
+  <summary>Shipping Information</summary>
+  <div class="accordion-content">
+    <p>We ship worldwide with tracking.</p>
+    <ul>
+      <li>UK: 2-3 working days</li>
+      <li>Europe: 5-7 working days</li>
+      <li>International: 10-14 working days</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary>Returns Policy</summary>
+  <div class="accordion-content">
+    <p>30-day returns on all items.</p>
+    <p>Items must be unused and in original packaging.</p>
+  </div>
+</details>
+
+<script>
+  // Optional: JavaScript adds smooth animations
+  document.querySelectorAll('details').forEach(detail => {
+    detail.addEventListener('toggle', function() {
+      if (this.open) {
+        this.querySelector('.accordion-content').classList.add('animate-expand');
+      }
+    });
+  });
+</script>
+```
+
+All content visible in HTML. `<details>` element provides native collapse/expand. JavaScript adds visual polish without changing accessibility.
+
+**Alternative — Div-based with progressive enhancement:**
+
+```html
+<div class="accordion">
+  <h3 id="shipping-heading">Shipping Information</h3>
+  <div class="accordion-content"
+       role="region"
+       aria-labelledby="shipping-heading">
+    <p>We ship worldwide with tracking.</p>
+    <!-- Content visible by default -->
+  </div>
+
+  <h3 id="returns-heading">Returns Policy</h3>
+  <div class="accordion-content"
+       role="region"
+       aria-labelledby="returns-heading">
+    <p>30-day returns on all items.</p>
+    <!-- Content visible by default -->
+  </div>
+</div>
+
+<script>
+  // JavaScript adds interactivity
+  enhanceAccordion('.accordion'); // Adds aria-expanded, click handlers
+</script>
+```
+
+Content visible by default. JavaScript adds collapse functionality for capable browsers.
+
+**Source:** Chapter 10 (Implementation Roadmap)
+
+### PDF and Document Alternatives
+
+Never provide content exclusively as PDF. Always offer HTML alternative:
+
+**Bad — PDF only:**
+
+```html
+<main>
+  <h1>Product Documentation</h1>
+  <p>Download our comprehensive guide:</p>
+  <a href="/docs/product-guide.pdf">Product Guide (PDF, 2.3 MB)</a>
+</main>
+```
+
+Content locked in PDF format. Agents cannot extract information without PDF parsing capabilities.
+
+**Good — HTML primary, PDF as supplement:**
+
+```html
+<main>
+  <h1>Product Documentation</h1>
+
+  <article>
+    <section id="setup">
+      <h2>Setup Instructions</h2>
+      <ol>
+        <li>Remove product from packaging</li>
+        <li>Connect power cable to rear panel</li>
+        <li>Press power button on front</li>
+        <li>Wait for LED to turn green (approximately 30 seconds)</li>
+      </ol>
+    </section>
+
+    <section id="troubleshooting">
+      <h2>Troubleshooting</h2>
+      <dl>
+        <dt>LED not turning on</dt>
+        <dd>Check power cable connection. Ensure wall socket is active.</dd>
+
+        <dt>No sound output</dt>
+        <dd>Verify volume level. Check audio cable connections.</dd>
+      </dl>
+    </section>
+  </article>
+
+  <aside>
+    <h2>Download Options</h2>
+    <ul>
+      <li><a href="/docs/product-guide.pdf">PDF version (2.3 MB)</a></li>
+      <li><a href="/docs/product-guide.epub">EPUB version (1.1 MB)</a></li>
+      <li><a href="?print=1">Printer-friendly version</a></li>
+    </ul>
+  </aside>
+</main>
+```
+
+Complete content available in HTML. PDF offered as additional download option for offline use.
+
+**Source:** Chapter 9 (Anti-patterns)
+
+### Iframe Content with Text Alternatives
+
+When using iframes, provide text alternative for content iframes:
+
+**Bad — Content locked in iframe:**
+
+```html
+<main>
+  <h1>Latest News</h1>
+  <iframe src="https://news-service.example.com/feed"
+          width="100%"
+          height="400">
+  </iframe>
+</main>
+```
+
+News content inaccessible to agents. No alternative provided.
+
+**Good — Iframe with fallback:**
+
+```html
+<main>
+  <h1>Latest News</h1>
+
+  <!-- Text alternative visible to agents -->
+  <div class="news-articles" data-agent-visible="true">
+    <article>
+      <h2><a href="/news/article-1">AI Development Advances</a></h2>
+      <p>Published: 2026-01-15</p>
+      <p>Summary of AI development news...</p>
+    </article>
+
+    <article>
+      <h2><a href="/news/article-2">Web Standards Update</a></h2>
+      <p>Published: 2026-01-14</p>
+      <p>Summary of web standards news...</p>
+    </article>
+  </div>
+
+  <!-- Visual iframe for humans -->
+  <iframe src="https://news-service.example.com/feed"
+          width="100%"
+          height="400"
+          title="Latest news feed"
+          data-content-role="supplementary">
+  </iframe>
+</main>
+```
+
+News articles accessible in HTML. Iframe provides enhanced visual presentation.
+
+**Good example — Map with address:**
+
+```html
+<section id="location">
+  <h2>Visit Us</h2>
+
+  <!-- Address information (always accessible) -->
+  <address>
+    Luigi's Pizza<br>
+    123 Main Street<br>
+    Manchester M1 1AA<br>
+    Phone: <a href="tel:+441611234567">0161 123 4567</a>
+  </address>
+
+  <!-- Map as enhancement -->
+  <iframe src="https://maps.google.com/maps?q=Luigi's+Pizza+Manchester"
+          width="600"
+          height="450"
+          style="border:0"
+          loading="lazy"
+          title="Map showing Luigi's Pizza location"
+          data-content-role="decorative">
+  </iframe>
+
+  <p><a href="https://maps.google.com/?q=Luigi's+Pizza+Manchester">Open in Google Maps</a></p>
+</section>
+```
+
+Address information complete in HTML. Map iframe enhances visual experience but isn't required for location information.
+
+**Key principle:** Iframes for enhancement, not essential content. Always provide HTML alternative.
+
+**Source:** Chapter 9 (Anti-patterns)
 
 ---
 
@@ -1398,6 +1782,191 @@ When something fails mid-transaction, show clear recovery paths:
 
 Clear error message. Explicit recovery paths. Technical details are available but not obstructing.
 
+### Pricing Tables with Schema.org
+
+When displaying pricing tiers or plans, use semantic HTML with Schema.org Product markup:
+
+**Bad — Div-based pricing grid:**
+
+```html
+<div class="pricing-grid">
+  <div class="plan">
+    <div class="plan-name">Basic</div>
+    <div class="plan-price">£9.99</div>
+    <div class="plan-features">
+      <div>10 GB storage</div>
+      <div>Email support</div>
+    </div>
+  </div>
+
+  <div class="plan featured">
+    <div class="plan-name">Pro</div>
+    <div class="plan-price">£29.99</div>
+    <div class="plan-features">
+      <div>100 GB storage</div>
+      <div>Priority support</div>
+      <div>Advanced analytics</div>
+    </div>
+  </div>
+</div>
+```
+
+Price information not marked semantically. No indication which plan is featured. No Schema.org data for machines.
+
+**Good — Semantic HTML with Schema.org:**
+
+```html
+<section class="pricing-plans">
+  <h2>Choose Your Plan</h2>
+
+  <article itemscope itemtype="https://schema.org/Product">
+    <h3 itemprop="name">Basic Plan</h3>
+    <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+      <data itemprop="price" value="9.99">£9.99</data>
+      <meta itemprop="priceCurrency" content="GBP">
+      <meta itemprop="availability" content="https://schema.org/InStock">
+    </div>
+    <ul itemprop="description">
+      <li>10 GB storage</li>
+      <li>Email support</li>
+    </ul>
+  </article>
+
+  <article itemscope itemtype="https://schema.org/Product" class="featured" aria-label="Most popular plan">
+    <h3 itemprop="name">Pro Plan</h3>
+    <span class="badge">Most Popular</span>
+    <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+      <data itemprop="price" value="29.99">£29.99</data>
+      <meta itemprop="priceCurrency" content="GBP">
+      <meta itemprop="availability" content="https://schema.org/InStock">
+    </div>
+    <ul itemprop="description">
+      <li>100 GB storage</li>
+      <li>Priority support</li>
+      <li>Advanced analytics</li>
+    </ul>
+  </article>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {
+      "@type": "Product",
+      "name": "Basic Plan",
+      "offers": {
+        "@type": "Offer",
+        "price": "9.99",
+        "priceCurrency": "GBP"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Pro Plan",
+      "offers": {
+        "@type": "Offer",
+        "price": "29.99",
+        "priceCurrency": "GBP"
+      }
+    }
+  ]
+}
+</script>
+```
+
+Each plan is semantic `<article>` with Schema.org Product markup. Featured plan explicitly marked with text "Most Popular". Price data machine-readable.
+
+**Source:** Chapter 3 (Guiding Principles)
+
+### Data Tables vs Layout Tables
+
+Tables should be used for tabular data, not page layout. Always use proper semantic structure:
+
+**Bad — Table used for layout:**
+
+```html
+<table>
+  <tr>
+    <td>
+      <img src="logo.png" alt="Company Logo">
+    </td>
+    <td>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+      </nav>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <main>Page content</main>
+    </td>
+  </tr>
+</table>
+```
+
+Table used for page layout. Outdated practice. Agents interpret as data table when it's structural.
+
+**Bad — Data table without structure:**
+
+```html
+<table>
+  <tr>
+    <td>Product</td>
+    <td>Price</td>
+    <td>Stock</td>
+  </tr>
+  <tr>
+    <td>Headphones</td>
+    <td>£149.99</td>
+    <td>In stock</td>
+  </tr>
+</table>
+```
+
+All cells marked as `<td>`. No distinction between headers and data. No `<thead>` or `<tbody>`.
+
+**Good — Proper data table:**
+
+```html
+<table>
+  <caption>Product Availability — Wireless Audio Equipment</caption>
+  <thead>
+    <tr>
+      <th scope="col">Product</th>
+      <th scope="col">Price</th>
+      <th scope="col">Stock Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr data-product-id="WH-1000">
+      <td>Wireless Headphones WH-1000</td>
+      <td data-price="149.99" data-currency="GBP">£149.99</td>
+      <td data-in-stock="true" data-quantity="23">In stock (23 available)</td>
+    </tr>
+    <tr data-product-id="SP-500">
+      <td>Portable Speaker SP-500</td>
+      <td data-price="89.99" data-currency="GBP">£89.99</td>
+      <td data-in-stock="false">Out of stock</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+Complete table semantics:
+
+- `<caption>` describes table purpose
+- `<thead>` and `<tbody>` separate headers from data
+- `<th>` elements with `scope` attribute define headers
+- Data attributes provide machine-readable values
+- Each row has product identifier
+
+**Key principle:** Tables for data, not layout. Always use proper semantic structure.
+
+**Source:** Chapter 9 (Anti-patterns)
+
 ---
 
 ## Part 5 — Structured Data
@@ -1431,6 +2000,69 @@ The most useful schema types for different businesses:
   }
 }
 ```
+
+**Product with Variants (Sizes, Colors):**
+
+For products with multiple variants, use an offers array:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Classic T-Shirt",
+  "description": "100% cotton crew neck t-shirt",
+  "brand": {
+    "@type": "Brand",
+    "name": "FashionCo"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "sku": "TS-RED-S",
+      "name": "Red, Small",
+      "price": "19.99",
+      "priceCurrency": "GBP",
+      "availability": "https://schema.org/InStock",
+      "color": "Red",
+      "size": "Small"
+    },
+    {
+      "@type": "Offer",
+      "sku": "TS-RED-M",
+      "name": "Red, Medium",
+      "price": "19.99",
+      "priceCurrency": "GBP",
+      "availability": "https://schema.org/InStock",
+      "color": "Red",
+      "size": "Medium"
+    },
+    {
+      "@type": "Offer",
+      "sku": "TS-BLUE-S",
+      "name": "Blue, Small",
+      "price": "19.99",
+      "priceCurrency": "GBP",
+      "availability": "https://schema.org/OutOfStock",
+      "color": "Blue",
+      "size": "Small"
+    },
+    {
+      "@type": "Offer",
+      "sku": "TS-BLUE-M",
+      "name": "Blue, Medium",
+      "price": "19.99",
+      "priceCurrency": "GBP",
+      "availability": "https://schema.org/InStock",
+      "color": "Blue",
+      "size": "Medium"
+    }
+  ]
+}
+```
+
+Each variant has unique SKU, availability status, and variant attributes (color, size). Agents can determine which specific combinations are in stock.
+
+**Source:** Chapter 5 (Metadata That Works)
 
 **Local Business (Shops, Restaurants):**
 
@@ -1499,6 +2131,49 @@ The most useful schema types for different businesses:
   }
 }
 ```
+
+**Article with Multiple Authors:**
+
+For collaborative articles, use an author array:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI Agent Web Design: A Comprehensive Guide",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Jane Developer",
+      "url": "https://example.com/authors/jane"
+    },
+    {
+      "@type": "Person",
+      "name": "John Designer",
+      "url": "https://example.com/authors/john"
+    },
+    {
+      "@type": "Person",
+      "name": "Sarah Engineer",
+      "url": "https://example.com/authors/sarah"
+    }
+  ],
+  "datePublished": "2025-01-15",
+  "dateModified": "2025-01-20",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tech Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://example.com/logo.png"
+    }
+  }
+}
+```
+
+Each author object can include optional properties: `url`, `email`, `affiliation`, `sameAs` (social media profiles).
+
+**Source:** Chapter 5 (Metadata That Works)
 
 **FAQPage (Support Documentation and Q&A Content):**
 
@@ -2102,6 +2777,249 @@ Document these endpoints in your llms.txt file:
 - Rate limit: 60 requests per hour
 - Authentication: API key required
 ```
+
+### Separating Public and Private Content
+
+Serve public product information in HTML, add user-specific context via JavaScript:
+
+**Pattern:**
+
+```html
+<!-- Static product information (always in HTML) -->
+<main itemscope itemtype="https://schema.org/Product">
+  <h1 itemprop="name">Wireless Headphones WH-1000</h1>
+
+  <div class="product-details">
+    <p itemprop="description">Over-ear wireless headphones with active noise cancellation</p>
+
+    <div class="pricing" data-price="149.99" data-currency="GBP">
+      <span class="amount">£149.99</span>
+      <span class="vat-status">inc. VAT</span>
+    </div>
+
+    <div class="stock-info" data-in-stock="true" data-quantity="23">
+      <p>In stock: 23 available</p>
+      <p>Free delivery</p>
+    </div>
+  </div>
+
+  <!-- User-specific section (populated by JavaScript) -->
+  <div id="user-context" data-requires-auth="false">
+    <div class="wishlist-status" data-state="loading">
+      <!-- JavaScript will check if user has wishlisted this item -->
+    </div>
+
+    <div class="purchase-history" data-state="loading">
+      <!-- JavaScript will check if user previously purchased -->
+    </div>
+  </div>
+
+  <form action="/cart/add" method="POST">
+    <input type="hidden" name="product_id" value="WH-1000">
+    <input type="number" name="quantity" value="1" min="1" max="23">
+    <button type="submit">Add to basket</button>
+  </form>
+</main>
+
+<script>
+  // Enhance with user-specific context after page loads
+  fetch('/api/user/product-context?id=WH-1000')
+    .then(response => response.json())
+    .then(data => {
+      document.querySelector('.wishlist-status').innerHTML =
+        data.wishlisted ? 'In your wishlist' : '<button>Add to wishlist</button>';
+      document.querySelector('.purchase-history').innerHTML =
+        data.purchased ? 'You purchased this on ' + data.purchaseDate : '';
+    });
+</script>
+```
+
+**Why this works:**
+
+- Product information discoverable without JavaScript
+- SEO engines and AI agents see complete product data
+- User-specific features load asynchronously for authenticated users
+- Form works without JavaScript (progressive enhancement)
+
+**Source:** Chapter 7 (The JavaScript Challenge)
+
+### Pre-rendering for Single Page Applications
+
+Convert SPA to static HTML for agent compatibility:
+
+**Problem — Empty SPA root:**
+
+```html
+<html>
+<body>
+  <div id="root"></div>
+  <script src="app.bundle.js"></script>
+</body>
+</html>
+```
+
+Agents see empty container. JavaScript never executes.
+
+**Solution — Pre-render static snapshots:**
+
+```javascript
+// Using react-snap for React applications
+// package.json
+{
+  "scripts": {
+    "build": "react-scripts build",
+    "postbuild": "react-snap"
+  },
+  "reactSnap": {
+    "inlineCss": true,
+    "skipThirdPartyRequests": true,
+    "crawl": true,
+    "include": [
+      "/",
+      "/products",
+      "/about",
+      "/contact"
+    ]
+  }
+}
+```
+
+**Result after pre-rendering:**
+
+```html
+<html>
+<body>
+  <div id="root">
+    <main>
+      <h1>Products</h1>
+      <article>
+        <h2>Wireless Headphones</h2>
+        <p>£149.99</p>
+        <!-- Complete rendered content in HTML -->
+      </article>
+    </main>
+  </div>
+  <script src="app.bundle.js"></script>
+</body>
+</html>
+```
+
+**Alternative tools:**
+
+- **prerender.io** - Cloud-based pre-rendering service
+- **Rendertron** - Headless Chrome rendering service
+- **Puppeteer** - Custom pre-render scripts
+
+**Detection by agents:**
+
+```html
+<head>
+  <meta name="prerender-status-code" content="200">
+  <meta name="fragment" content="!">
+</head>
+```
+
+Agents can detect pre-rendered content via meta tags.
+
+**Source:** Chapter 7 (The JavaScript Challenge)
+
+### SSR Migration Example (React → Next.js)
+
+Concrete before/after example of migrating client-side rendering to server-side:
+
+**Before — Client-side only (React):**
+
+```javascript
+// ProductPage.jsx
+import React, { useState, useEffect } from 'react';
+
+function ProductPage({ productId }) {
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`/api/products/${productId}`)
+      .then(res => res.json())
+      .then(data => {
+        setProduct(data);
+        setLoading(false);
+      });
+  }, [productId]);
+
+  if (loading) return <div>Loading...</div>;
+
+  return (
+    <main>
+      <h1>{product.name}</h1>
+      <p>{product.description}</p>
+      <p>£{product.price}</p>
+    </main>
+  );
+}
+
+export default ProductPage;
+```
+
+Agents see "Loading..." or empty div. Product data never appears.
+
+**After — Server-side rendering (Next.js):**
+
+```javascript
+// pages/products/[id].jsx
+import React from 'react';
+
+export async function getServerSideProps(context) {
+  const { id } = context.params;
+
+  // Fetch data on server
+  const res = await fetch(`http://localhost:3000/api/products/${id}`);
+  const product = await res.json();
+
+  return {
+    props: { product }
+  };
+}
+
+function ProductPage({ product }) {
+  return (
+    <main itemScope itemType="https://schema.org/Product">
+      <h1 itemProp="name">{product.name}</h1>
+      <p itemProp="description">{product.description}</p>
+      <div itemProp="offers" itemScope itemType="https://schema.org/Offer">
+        <span itemProp="priceCurrency" content="GBP">£</span>
+        <span itemProp="price" content={product.price}>{product.price}</span>
+      </div>
+
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": product.name,
+          "description": product.description,
+          "offers": {
+            "@type": "Offer",
+            "price": product.price,
+            "priceCurrency": "GBP"
+          }
+        })}
+      </script>
+    </main>
+  );
+}
+
+export default ProductPage;
+```
+
+**Key changes:**
+
+- Data fetched on server via `getServerSideProps`
+- HTML includes complete product information
+- Schema.org structured data added
+- No loading states needed
+
+**Result:** Agents receive fully-rendered HTML with all product data.
+
+**Source:** Chapter 10 (Implementation Roadmap)
 
 ---
 

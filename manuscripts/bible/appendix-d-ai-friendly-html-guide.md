@@ -14,11 +14,11 @@ A prescriptive guide for developers creating web interfaces that work for both h
 The guide covers 13 major parts:
 
 1. **Quick Reference Tables** - HTTP status codes, form field names, date formats, common data attributes
-2. **Simple HTML Patterns** - Visual design vs AI parsing, separating CSS/JavaScript from HTML, preserving rich HTML vs markdown conversion, extending llms.txt with metadata (proposed pattern), authentication state, explicit state attributes, persistent errors
+2. **Simple HTML Patterns** - Visual design vs AI parsing, authentication state, explicit state attributes, persistent errors, DOM order and reading sequence, skeleton content for loading states, AJAX navigation with progressive enhancement, progressive enhancement accordion, PDF and document alternatives, iframe content with text alternatives
 3. **Form Patterns** - Disabled button explanations, synchronous validation, multi-step wizards, modal dialogs
-4. **Page Structure Patterns** - Understanding assistive technology users, skip links, navigation, breadcrumbs, search results, filtering, pagination, cart state, success confirmation
-5. **Structured Data** - Schema.org quick reference (Product, LocalBusiness, Event, Article, FAQPage, BreadcrumbList, Book)
-6. **Why Modern Architecture Confuses AI** - JavaScript execution problem, context separation, dual-channel solution, SSR patterns
+4. **Page Structure Patterns** - Navigation, breadcrumbs, search results, filtering, pagination, cart state, success confirmation, pricing tables with Schema.org, data tables vs layout tables
+5. **Structured Data** - Schema.org quick reference (Product, Product with Variants, LocalBusiness, Event, Article, Article with Multiple Authors, FAQPage, BreadcrumbList, Book)
+6. **Why Modern Architecture Confuses AI** - JavaScript execution problem, context separation, dual-channel solution, SSR patterns, separating public and private content, pre-rendering for SPAs, SSR migration examples (React → Next.js)
 7. **Server-Side Patterns** - Agent detection, cookie consent, captcha handling, rate limiting, error handling
 8. **Complete Examples** - Small business template, e-commerce product page
 9. **Testing and Validation** - Automated Playwright tests, common validation pitfalls, parser auto-correction behavior, manual validation tools
@@ -153,7 +153,7 @@ For date inputs, show the expected format:
 </div>
 ```
 
-### Common Data Attributes
+## Common Data Attributes
 
 Use these consistently across your site:
 
@@ -3061,4 +3061,5 @@ This isn't accommodation. This is good design that serves everyone.
 
 For business implications, security considerations, and legal frameworks, see *The Invisible Users: Designing the Web for AI Agents and Everyone Else*.
 
+```text
 ```
