@@ -6,7 +6,7 @@
 
 All chapters are available as separate downloadable files. Each chapter is self-contained and can be read independently, though they build on each other.
 
-**Chapter 1: The Invisible Users** (`chapter-01-the-invisible-users.md`)
+**Chapter 1: Don't Make AI Think** (`chapter-01-dont-make-ai-think.md`)
 
 - Who AI agents are and why they matter
 - The economic impact of AI visibility

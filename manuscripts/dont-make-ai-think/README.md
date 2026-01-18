@@ -8,7 +8,7 @@ This folder contains the complete book "Don't Make AI Think: A Common Sense Appr
 
 #### Individual Chapters
 
-1. `chapter-01-the-invisible-users.md` - Introduction to AI agents and why they matter
+1. `chapter-01-dont-make-ai-think.md` - Introduction to AI agents and why they matter
 2. `chapter-02-how-ai-reads.md` - How AI reads web pages differently from humans
 3. `chapter-03-guiding-principles.md` - Core principles for AI-friendly design
 4. `chapter-04-content-architecture.md` - Structural patterns for common page types
