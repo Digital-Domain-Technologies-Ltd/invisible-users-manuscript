@@ -29,6 +29,7 @@ Thumbs.db
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+*.zip
 
 # Images
 *.png
@@ -54,6 +55,3 @@ notes/
 drafts/
 .private/
 
-# External FAQ wrappers (not part of this project)
-web/allabout-faq.html
-web/allabout-faq-wrapped.html
