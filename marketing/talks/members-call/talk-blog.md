@@ -41,6 +41,12 @@ AI agents are called "invisible users" for two reasons:
 
 2. **Your interface is invisible to them** — They can't see animations, don't notice colour changes, miss three-second toast notifications that vanish after 2 seconds, and don't understand that a loading spinner means "wait."
 
+### How Machines Think
+
+These machines operate through statistical pattern-matching - next-token prediction using probability distributions calculated from training data. When agents process your website, they're performing weighted averaging and probability calculations, not "understanding" content the way humans do.
+
+**This explains their failures:** Without clear structured data (Schema.org, semantic HTML), they fabricate details that seem plausible but are incorrect. Without explicit structure, they convert your HTML into mathematical representations where visual-only distinctions disappear. Understanding these statistical constraints - not marketing narratives about "intelligence" - informs practical website design decisions.
+
 ### Two Production Mistakes
 
 #### Mistake 1: The Vanishing Confirmation
@@ -72,6 +78,12 @@ These patterns break agents **and users with disabilities**. Those who navigate 
 **The convergence principle:** Patterns that break AI agents also break humans. Skip links that help keyboard users bypass navigation also help agents identify main content. Persistent error messages benefit distracted humans and agents simultaneously. Semantic HTML benefits screen readers and AI parsing at the same time.
 
 One improvement, multiple audiences benefit.
+
+### Real-World Impact: Adobe Experience Manager
+
+Adobe Experience Manager's Generate Variations feature demonstrates this principle in production. Design work that previously required 75 days was completed in 5 days, with human creators maintaining control over messaging and brand alignment whilst AI handled repetitive pattern generation.
+
+The result: 60+ variations achieving 30% higher click-through rates than manually created alternatives. The system worked because it followed agent-friendly patterns - semantic structure, explicit state, and machine-readable metadata - allowing AI to generate variations whilst humans retained strategic oversight.
 
 ## This Isn't New: 27 Years of the Same Problem
 
@@ -144,6 +156,8 @@ Five changes that deliver immediate value:
 5. **Add basic structured data** - Helps search engines and agents cite you correctly
 
 Each change benefits multiple audiences simultaneously.
+
+**First-mover advantage exists:** Sites that work early become trusted sources that agents return to repeatedly. When agents cannot cite you accurately, they recommend competitors instead. When agents cannot compare your pricing, they skip your products. When agents cannot complete checkout, they abandon the cart.
 
 Start with the highest-impact, lowest-effort pattern for your site. Implement it. Measure the improvement. Tackle the next one. Sites that adapt early gain advantage. Sites that don't get quietly bypassed.
 

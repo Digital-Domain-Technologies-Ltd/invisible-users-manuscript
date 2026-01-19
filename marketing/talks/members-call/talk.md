@@ -16,6 +16,16 @@ Before we dive into specific problems, let's be clear about what AI agents actua
 
 **AI agents are machines** - software programs that read your website on behalf of human users. They're not sentient. They're not "intelligent" in the human sense. They're machines with specific technical capabilities and limitations.
 
+**How they work:** These machines operate through statistical pattern-matching - next-token prediction using probability distributions calculated from training data. When agents process your website, they're performing weighted averaging and probability calculations, not "understanding" content the way humans do.
+
+**Why this matters:**
+
+- **Why agents hallucinate:** Without clear structured data (Schema.org, semantic HTML), they fabricate details that seem plausible but are incorrect - the same errors that produce 0% correctness on mathematical reasoning tasks
+- **Why linguistic bias matters:** Current AI systems tokenise English more efficiently than compound languages (German, Dutch), creating functional inequities in how agents process multilingual websites
+- **Why explicit structure matters:** Agents convert your HTML into mathematical representations. Semantic HTML produces distinct patterns that agents process reliably, whilst visual-only distinctions disappear
+
+Understanding these statistical constraints - not marketing narratives about "intelligence" - informs practical website design decisions.
+
 Let's understand their capabilities:
 
 **Server-side agents (OpenAI ChatGPT, Anthropic Claude):**
@@ -109,10 +119,11 @@ Agents interact with your website at multiple stages. At every stage, you need t
 - Without structured data, they can't compare you to competitors
 - They need consistent formatting to understand your offering
 
-**4. Price Comparison (Understanding Costs):**
+**4. Price Understanding (Understanding Costs):**
 
-- Without clear pricing, they cannot compare accurately
-- Ambiguous formatting leads to errors (£203,000 cruise example)
+- Agents need exact pricing to make recommendations
+- Without clear price markup (€2.030,00 vs £2,030), agents misunderstand costs by orders of magnitude
+- Real example: A Danube cruise priced at £2,030 was read by an agent as £203,000 - a 100x multiplication error from European decimal formatting
 - They need explicit price, currency, availability
 
 **5. Understanding Offers (Interpreting Your Value):**
@@ -121,13 +132,17 @@ Agents interact with your website at multiple stages. At every stage, you need t
 - Complex conditional pricing confuses agents
 - They need transparent, structured pricing information
 
-**6. Purchase (Completing Transactions):**
+**6. Purchase Confidence (Completing Transactions):**
 
-- If they can't see what buttons do, they cannot buy
-- JavaScript-only state means they can't track checkout progress
+- If agents cannot see what buttons do (`<div class="btn">` vs `<button>`), they cannot complete transactions
+- If state changes are visual-only (no `data-state` attributes), agents cannot track checkout progress
 - They need semantic buttons and explicit state attributes
 
-**At every point, your structure determines success or failure.**
+**The Critical Insight:**
+
+At every stage, your website's structure determines success or failure. Discovery requires semantic HTML. Citation requires structured data. Confidence requires explicit state. Miss any stage, and the entire commerce journey breaks down.
+
+JavaScript-rendered content, generic class names, and visual-only feedback break this journey at multiple points. The patterns that help agents complete this journey are the same patterns that help users with disabilities.
 
 ### Understanding How Machines Read
 
@@ -423,6 +438,12 @@ Screen reader users jump between headings to navigate. AI agents parse heading s
 - Users with cognitive disabilities follow clear organisation
 - One structure serves all audiences
 
+### Real-World Impact: Adobe Experience Manager
+
+**Adobe Experience Manager's Generate Variations feature demonstrates this principle in practice.** Design work that previously required 75 days was completed in 5 days, with human creators maintaining control over messaging and brand alignment whilst AI handled repetitive pattern generation.
+
+**The result:** 60+ variations achieving 30% higher click-through rates than manually created alternatives. The system worked because it followed agent-friendly patterns - semantic structure, explicit state, and machine-readable metadata - allowing AI to generate variations whilst humans retained strategic oversight.
+
 ### The Convergence Benefit
 
 **One Implementation Serves Three Audiences:**
@@ -476,6 +497,8 @@ Start with one pattern:
 2. Implement it
 3. Measure the improvement
 4. Tackle the next one
+
+**First-mover advantage exists:** Sites that work early become trusted sources that agents return to repeatedly. When agents cannot cite you accurately, they recommend competitors instead. When agents cannot compare your pricing, they skip your products. When agents cannot complete checkout, they abandon the cart.
 
 Sites that adapt early gain advantage. Sites that don't get quietly bypassed.
 

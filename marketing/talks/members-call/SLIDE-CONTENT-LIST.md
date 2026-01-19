@@ -1,7 +1,8 @@
 # THE INVISIBLE USERS - PRESENTATION SLIDES
+
 ## Complete Slide Content List
 
-**Total Slides:** 32 (26 standard, 4 highlight, 2 title)
+**Total Slides:** 33 (27 standard, 4 highlight, 2 title)
 
 ---
 
@@ -11,6 +12,7 @@
 **Type:** title
 
 **Content:**
+
 - Tom Cranstoun: Many years in Adobe CMS & AI innovation
 - Consultant at Digital Domain Technologies Ltd
 - Philosophy: "What AI agents need is what everyone needs"
@@ -26,10 +28,13 @@
 **Type:** standard
 
 **Content:**
+
+- Statistical pattern-matching: Next-token prediction using probability distributions
 - Server-side: OpenAI ChatGPT (no JavaScript execution, text-only parsing)
 - In-browser: Microsoft Copilot (executes JavaScript, sees rendered HTML)
 - Browser automation: Perplexity (full browser, can screenshot)
 - Local agents: Ollama (runs on user's machine, limited resources)
+- Why they hallucinate: Without structured data, they fabricate plausible but incorrect details
 - They have disabilities: Some are blind (no screenshots), some can't run JS
 - Let's call them what they are: Machines with different capabilities
 - Just like users with disabilities, they need semantic structure
@@ -42,6 +47,7 @@
 **Type:** standard
 
 **Content:**
+
 - Triple-Digit Growth: AI referrals surged (Retail +693%, Travel +539%)
 - Conversion Flip: AI referrals moved from lagging to leading (+31% vs non-AI)
 - Engagement: AI users spend 45% longer on site, view 13% more pages
@@ -56,6 +62,7 @@
 **Type:** highlight
 
 **Content:**
+
 - Multiple Danube cruises ending in Budapest (May 2026)
 - One cruise showed: 'From £203,000-£402,000'
 - Actual price: £2,030-£4,020
@@ -77,6 +84,7 @@
 **Type:** standard
 
 **Content:**
+
 - Decimal separator confusion (€2.030,00 vs £2,030)
 - No range validation (£203k > £15k maximum)
 - No comparative checks (58x higher than peers)
@@ -102,6 +110,7 @@
 - Semantic HTML with clear structure = readable by all
 - Sites that machines can parse get recommended
 - Sites that machines can't read get quietly avoided
+- First-mover advantage: Sites that work early become trusted sources agents return to repeatedly
 
 ---
 
@@ -115,9 +124,9 @@
 1. LLM Training: Agents read websites to build knowledge - need clear content
 2. Citation: Agents need to know what you do to cite you accurately
 3. Search & Compare: Agents build lists, compare options, sort by features
-4. Price Comparison: Without clear pricing, they cannot compare (£203k cruise!)
+4. Price Understanding: Without clear markup (€2.030,00 vs £2,030), agents misunderstand by 100x - £2,030 cruise became £203,000
 5. Understanding Offers: If formatting unclear, they misrepresent your pricing
-6. Purchase: If they can't see what buttons do, they cannot buy
+6. Purchase Confidence: If they can't see what buttons do, they cannot buy
 
 Additional points:
 
@@ -132,6 +141,7 @@ Additional points:
 **Type:** standard
 
 **Content:**
+
 - Sighted humans see: Visual hierarchy, colours, animations, styled buttons
 - Machines AND screen readers read: HTML structure, semantic elements, metadata
 - Visual design is invisible to AI agents AND blind users
@@ -284,7 +294,7 @@ Additional points:
 **Content:**
 
 - 1. Served HTML (static) - Raw HTML before JavaScript runs
-- 2. Rendered HTML (dynamic) - After JavaScript transforms the page
+- 1. Rendered HTML (dynamic) - After JavaScript transforms the page
 - Most AI agents only see served HTML (the raw code)
 - Browser-based agents see rendered HTML (after transformation)
 - Example: `<div id='products'></div>` then `fetch()` = invisible to most machines
@@ -364,9 +374,9 @@ Additional points:
 **Content:**
 
 - 1. View source on your most important page
-- 2. Copy the raw HTML (not rendered, the actual source)
-- 3. Paste into ChatGPT or Claude
-- 4. Ask: 'What is this page about? What can I do here?'
+- 1. Copy the raw HTML (not rendered, the actual source)
+- 1. Paste into ChatGPT or Claude
+- 1. Ask: 'What is this page about? What can I do here?'
 - If AI can't understand it, neither can real agents
 - Immediate feedback on structural problems
 
@@ -380,15 +390,33 @@ Additional points:
 **Content:**
 
 - 1. Semantic HTML (screen readers announce it, machines parse it)
-- 2. Schema.org JSON-LD (voice assistants AND AI agents read it)
-- 3. Heading hierarchy (screen reader navigation AND machine structure)
-- 4. Descriptive link text (screen readers read context, machines too)
-- 5. Alt text on images (blind users AND machines need descriptions)
+- 1. Schema.org JSON-LD (voice assistants AND AI agents read it)
+- 1. Heading hierarchy (screen reader navigation AND machine structure)
+- 1. Descriptive link text (screen readers read context, machines too)
+- 1. Alt text on images (blind users AND machines need descriptions)
 - Each change serves accessibility AND AI with one implementation
 
 ---
 
-## SLIDE 24: Web Audit Suite
+## SLIDE 24: Real-World Impact - Adobe Experience Manager
+
+**Subtitle:** AI-friendly patterns in production
+**Type:** standard
+
+**Content:**
+
+- Adobe Experience Manager's Generate Variations feature
+- Design work: 75 days → 5 days (with AI handling repetitive patterns)
+- Human creators maintained control over messaging and brand alignment
+- Result: 60+ variations achieving 30% higher click-through rates
+- System worked because it followed agent-friendly patterns:
+- Semantic structure, explicit state, machine-readable metadata
+- AI generated variations whilst humans retained strategic oversight
+- Demonstrates real commercial value of agent-friendly design
+
+---
+
+## SLIDE 25: Web Audit Suite
 
 **Subtitle:** Professional audit service
 **Type:** standard
@@ -403,7 +431,7 @@ Additional points:
 
 ---
 
-## SLIDE 25: Call to Action
+## SLIDE 26: Call to Action
 
 **Subtitle:** Start with one pattern
 **Type:** standard
@@ -411,14 +439,14 @@ Additional points:
 **Content:**
 
 - 1. Pick highest-impact, lowest-effort change
-- 2. Implement it
-- 3. Measure the improvement
-- 4. Tackle the next one
+- 1. Implement it
+- 1. Measure the improvement
+- 1. Tackle the next one
 - Sites that adapt early gain advantage
 
 ---
 
-## SLIDE 26: The Seven-Day Platform Race (Jan 2026)
+## SLIDE 27: The Seven-Day Platform Race (Jan 2026)
 
 **Subtitle:** Three major platforms in one week
 **Type:** standard
@@ -432,7 +460,7 @@ Additional points:
 
 ---
 
-## SLIDE 27: VPNs and Hidden Guardrails
+## SLIDE 28: VPNs and Hidden Guardrails
 
 **Subtitle:** Two realities affecting every agent
 **Type:** standard
@@ -446,7 +474,7 @@ Additional points:
 
 ---
 
-## SLIDE 28: Why This Matters Now
+## SLIDE 29: Why This Matters Now
 
 **Subtitle:** Timeline acceleration is dramatic
 **Type:** standard
@@ -461,7 +489,7 @@ Additional points:
 
 ---
 
-## SLIDE 29: Design for Both
+## SLIDE 30: Design for Both
 
 **Subtitle:** The convergence principle in action
 **Type:** standard
@@ -477,7 +505,7 @@ Additional points:
 
 ---
 
-## SLIDE 30: What Comes Next
+## SLIDE 31: What Comes Next
 
 **Subtitle:** Protocol Convergence vs Fragmentation
 **Type:** standard
@@ -491,7 +519,7 @@ Additional points:
 
 ---
 
-## SLIDE 31: Key Takeaways
+## SLIDE 32: Key Takeaways
 
 **Subtitle:** Six Essential Messages
 **Type:** standard
@@ -499,15 +527,15 @@ Additional points:
 **Content:**
 
 - 1. Screen readers AND machines both read structure, not visual design
-- 2. Same patterns serve blind users AND AI agents
-- 3. Semantic HTML works for accessibility AND machine parsing
-- 4. Schema.org helps voice assistants AND AI recommendations
-- 5. One solution serves disability access AND AI commerce
-- 6. Commercial pressure for AI matches moral obligation for accessibility
+- 1. Same patterns serve blind users AND AI agents
+- 1. Semantic HTML works for accessibility AND machine parsing
+- 1. Schema.org helps voice assistants AND AI recommendations
+- 1. One solution serves disability access AND AI commerce
+- 1. Commercial pressure for AI matches moral obligation for accessibility
 
 ---
 
-## SLIDE 32: Book & Contact *(TITLE SLIDE)*
+## SLIDE 33: Book & Contact *(TITLE SLIDE)*
 
 **Subtitle:** The Invisible Users
 **Type:** title
@@ -515,7 +543,7 @@ Additional points:
 **Content:**
 
 - Tom Cranstoun
-- tom.cranstoun@gmail.com | <https://allabout.network>
+- <tom.cranstoun@gmail.com> | <https://allabout.network>
 - LinkedIn: <https://www.linkedin.com/in/tom-cranstoun/>
 -
 - Project Pages:
@@ -529,6 +557,7 @@ Additional points:
 ## Summary
 
 **Key Themes Throughout:**
+
 1. **Convergence Principle:** What machines need = what disabled users need
 2. **Accessibility AND AI:** Every pattern serves both audiences
 3. **Screen readers AND machines:** Consistent pairing throughout
@@ -547,11 +576,12 @@ Additional points:
 - Solutions (Slides 18-21): Semantic structure and three patterns
 - Testing (Slide 22): Morning-After Test
 - Quick Wins (Slide 23): Five immediate actions
-- Tools (Slide 24): Web Audit Suite
-- Action (Slide 25): Call to action
-- Urgency (Slides 26-28): Platform race, VPNs, timeline
-- Principles (Slide 29): Design for Both
-- Future (Slide 30): What comes next
-- Closing (Slides 31-32): Takeaways and contact
+- Real-World Impact (Slide 24): Adobe Experience Manager case study
+- Tools (Slide 25): Web Audit Suite
+- Action (Slide 26): Call to action
+- Urgency (Slides 27-29): Platform race, VPNs, timeline
+- Principles (Slide 30): Design for Both
+- Future (Slide 31): What comes next
+- Closing (Slides 32-33): Takeaways and contact
 
 **Duration:** 20 minutes presentation + Q&A

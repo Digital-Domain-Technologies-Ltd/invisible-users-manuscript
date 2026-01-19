@@ -67,6 +67,8 @@ This is why designing for both matters. Keep the clean semantic HTML structure. 
 
 The three layers of discovery described below represent what markdown converters remove. Implementing these layers means agents can extract accurate information whether they process full HTML or need to convert to simpler formats.
 
+**Alternative approach:** Instead of converting HTML to markdown and losing metadata, write markdown with embedded metadata from the start using metadata tables. See Appendix L, Pattern 4 for the EDS markdown metadata table pattern, which preserves structured metadata within markdown files for both agent parsing and human readability.
+
 ## Three Layers of Discovery
 
 Both traditional search engines and AI agents need three types of information to understand and cite your site accurately. Think of these as concentric circles of detail, from broad site-level guidance to specific content structure.
@@ -131,6 +133,15 @@ https://allabout.network/docs/agent-patterns
 ```
 
 This approach compensates for metadata loss when agents read llms.txt instead of parsing full HTML pages. The markdown format provides human-readable context whilst remaining machine-parseable. Standard llms.txt parsers that expect only URLs will skip the markdown header and process the URL sections normally.
+
+**Placement strategy - choose based on use case:**
+
+This example shows metadata at the top of the file, where agents find it immediately (frontmatter convention). However, you can also place metadata at the bottom (like a footnote). Choose based on your expected use:
+
+- **Top placement:** When AI agents or build tools are the primary consumers (standard frontmatter)
+- **Bottom placement:** When humans read raw markdown directly (doesn't interrupt content)
+
+The choice depends on whether your markdown is processed programmatically (top) or read by humans in markdown viewers (bottom). Avoid both placements - maintaining duplicate metadata creates unnecessary redundancy.
 
 **Status:** This is a proposed enhancement, not part of the current llms.txt specification. The standard format (URL-only) remains valid, but extended metadata improves agent citation accuracy when HTML metadata is unavailable.
 

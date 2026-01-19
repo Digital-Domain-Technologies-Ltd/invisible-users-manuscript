@@ -8,7 +8,7 @@ A formal proposal document for experimental AI metadata patterns that extend exi
 
 **Document Status:** Experimental Proposal — Not Yet Standardised
 
-**Last Updated:** 12 January 2026
+**Last Updated:** 19 January 2026
 
 **Maturity Level:** Forward-compatible proposals that won't break if agents don't recognise them
 
@@ -27,6 +27,7 @@ These proposals complement, not replace, established standards:
 - **AI meta tags** (proposed) — Extend existing meta tag patterns
 - **data-agent-visible** (proposed) — New semantic marker for hidden metadata
 - **Common data attributes** (proposed) — Explicit state management patterns
+- **EDS markdown metadata tables** (emerging) — Adobe EDS convention, applicable to static site generators
 
 See Appendix D for comprehensive guide to all patterns (established + proposed).
 
@@ -612,6 +613,233 @@ These data attributes extend established conventions:
 
 ---
 
+## Pattern 4: EDS Markdown Metadata Tables
+
+### Status (EDS Markdown Metadata)
+
+**Proposed Pattern** — Established in Adobe EDS ecosystem, emerging for general use
+
+### Rationale (EDS Markdown Metadata)
+
+Markdown converters (like converturltomd.com) strip critical metadata when converting HTML to markdown. Agents lose JSON-LD structured data, HTML meta tags, and Schema.org markup - exactly the signals they need for accurate citation and source attribution.
+
+The EDS (Adobe Edge Delivery Services) approach solves this by embedding metadata directly in markdown files using a table structure with a `metadata` title row. Instead of converting HTML→markdown and losing metadata, you write markdown WITH metadata from the start.
+
+**Why markdown metadata tables?**
+
+- Preserves metadata that would be lost in HTML-to-markdown conversion
+- Machine-readable (agents can parse table structure)
+- Human-readable (renders as visible table in markdown viewers)
+- Platform-agnostic (works in any markdown system, not just EDS)
+- Forward-compatible (tables render normally even if not processed)
+
+### Use Cases (EDS Markdown Metadata)
+
+1. **Static Site Generators** — Markdown-based blogs and documentation (Hugo, Jekyll, Gatsby)
+2. **Content Management Systems** — Systems that convert HTML to markdown for editing
+3. **AI Agent Content Ingestion** — Preserving metadata when agents read markdown directly
+4. **Multi-format Publishing** — Single source for HTML, PDF, and agent consumption
+
+### Implementation Pattern (EDS Markdown Metadata)
+
+**Three placement strategies - design for both audiences:**
+
+#### 1. Top Placement (Frontmatter) - For AI Agents
+
+```markdown
+| metadata |  |
+| -------- | ------- |
+| title | Your Website Has Invisible Customers |
+| author | Tom Cranstoun |
+| publication-date | 17/Jan/2026 |
+| jsonld | article |
+| description | AI agents are visiting your website right now |
+
+# Your Website Has Invisible Customers
+
+[Article content begins...]
+```
+
+**Advantages:**
+
+- Agents find metadata immediately (no content parsing required)
+- Standard frontmatter convention (Hugo, Jekyll, Gatsby)
+- Machine-readable before content processing
+
+#### 2. Bottom Placement (Footnote-Style) - For Humans
+
+```markdown
+# Your Website Has Invisible Customers
+
+[Article content...]
+
+---
+
+| metadata |  |
+| -------- | ------- |
+| title | Your Website Has Invisible Customers |
+| author | Tom Cranstoun |
+| publication-date | 17/Jan/2026 |
+| jsonld | article |
+```
+
+**Advantages:**
+
+- Doesn't clutter article start for human readers
+- Renders like a footnote in markdown viewers
+- Metadata available after reading content
+
+#### Decision Guide - Choose Based on Use Case
+
+**Choose top placement if:**
+
+- Primary consumers are AI agents or automated systems
+- Using static site generators that expect frontmatter (Hugo, Jekyll, Gatsby)
+- Markdown will be processed programmatically (build tools, scripts)
+- Human readers will consume the generated HTML, not raw markdown
+
+**Choose bottom placement if:**
+
+- Primary consumers are humans reading markdown directly (GitHub, markdown viewers)
+- Want clean article start without metadata clutter
+- Metadata serves as reference/citation information
+- Content flow matters more than machine parsing speed
+
+**Note on both placements:** Having metadata in both locations creates redundancy. Whilst this doesn't break anything, it requires maintaining two copies of the same information. Choose the placement that matches your primary use case rather than duplicating metadata.
+
+### Why This Works (EDS Markdown Metadata)
+
+**For humans:**
+
+- Top placement: Markdown viewers render tables, provides context upfront
+- Bottom placement: Doesn't interrupt reading flow, appears as footnote
+- Either placement works - choose based on whether humans read raw markdown or generated HTML
+
+**For CLI agents:**
+
+- Visible in markdown before any processing
+- Standard key-value pairs easy to parse
+- No HTML-to-markdown conversion loss
+
+**For browser agents:**
+
+- EDS converts markdown tables to HTML meta tags automatically
+- Agents can parse either markdown or generated HTML
+- Best of both worlds (structured markdown + semantic HTML)
+
+**For server-based agents:**
+
+- Standard markdown table format (widely supported)
+- Preserves metadata when fetching markdown directly
+- No dependency on HTML generation
+
+### Relationship to Chapter 10 Markdown Problem
+
+**The problem (Chapter 10, lines 51-68):**
+
+Markdown converters strip critical metadata when converting HTML to markdown:
+
+- JSON-LD structured data (product details, pricing, reviews)
+- HTML meta tags (publication dates, author information)
+- Schema.org markup (content type signals)
+- Semantic HTML attributes (data-price, data-isbn)
+
+Result: Agents can read content but cannot cite accurately or prove authoritative source.
+
+**EDS markdown metadata tables solve this:**
+
+Instead of converting HTML→markdown and losing metadata, you write markdown WITH metadata embedded from the start. The metadata table preserves:
+
+- Author attribution (for accurate citation)
+- Publication dates (for content freshness)
+- Schema.org type (article, product, etc.)
+- Contact information
+- Long descriptions for AI context
+
+**When EDS generates HTML from markdown:**
+
+- Metadata table → HTML meta tags automatically
+- Metadata table → JSON-LD structured data (if configured)
+- Both agents (reading markdown) and search engines (reading HTML) get metadata
+
+**This complements Chapter 10's llms.txt proposal:**
+
+- llms.txt: Site-wide metadata at the top
+- EDS markdown tables: Per-page metadata at the top (and optionally bottom)
+- Both: Machine-readable markdown that preserves metadata
+
+### Common Metadata Fields
+
+| Field | Purpose | Example Values |
+| ----- | ------- | -------------- |
+| title | Page title | Your Website Has Invisible Customers |
+| author | Content creator | Tom Cranstoun |
+| creation-date | When originally created | 15/Dec/2024 |
+| publication-date | When published | 17/Jan/2026 |
+| description | Short summary | Introducing "The Invisible Users" book |
+| longdescription | Extended context | AI agents are visiting your website right now... |
+| jsonld | Schema.org type | article, book, product, person |
+| image | Featured image | ![][image1] or URL |
+| LinkedIn | Author profile | <https://www.linkedin.com/in/tom-cranstoun/> |
+
+### Forward Compatibility (EDS Markdown Metadata)
+
+**If markdown parsers don't recognise the pattern:**
+
+- Tables render normally in markdown viewers
+- Content remains readable for humans
+- No breakage in non-EDS systems
+
+**If static site generators don't process metadata tables:**
+
+- Table displays as visible metadata (human-readable fallback)
+- Agents can still parse table structure
+- Manual conversion to HTML meta tags possible
+
+**If agents don't recognise metadata tables:**
+
+- Standard markdown tables are well-supported
+- Agents can parse table structure even without specific metadata handling
+- Degrades to visible structured information
+
+**Progressive enhancement:**
+
+- Works best in EDS (automatic HTML meta tag generation)
+- Works well in static site generators (can be processed by build tools)
+- Works acceptably in plain markdown (human and agent readable)
+
+### Adoption Considerations (EDS Markdown Metadata)
+
+**Adopt now if:**
+
+- Using Adobe Edge Delivery Services
+- Using markdown-based static site generators (Hugo, Jekyll, Gatsby)
+- Publishing content that needs to be citable by AI agents
+- Converting HTML to markdown and losing metadata
+
+**Wait if:**
+
+- Using traditional CMS (WordPress, Drupal) - use HTML meta tags instead
+- Publishing only in HTML format - use Pattern 1 (AI meta tags)
+- Content doesn't need AI citation (internal docs, drafts)
+
+**Decision guide:**
+
+- **Markdown-native publishing?** → Use EDS metadata tables
+- **HTML-native publishing?** → Use Pattern 1 (AI meta tags)
+- **Both formats?** → Use both patterns (metadata table in markdown, meta tags in HTML)
+
+### Cross-References (EDS Markdown Metadata)
+
+- **Mentioned in:** Chapter 10 (markdown converter problem, lines 51-68)
+- **Mentioned in:** Chapter 10 (extended llms.txt metadata, line 112 - "at the top of the file")
+- **Mentioned in:** Chapter 12 (Adobe Edge Delivery Services, line 2019)
+- **Implemented in:** code-examples/eds/helix-query.yaml
+- **Related to:** Pattern 1 (AI meta tags provide similar metadata in HTML)
+- **Complements:** llms.txt extended metadata (Appendix H)
+
+---
+
 ## Adoption Decision Framework
 
 ### Should You Adopt These Patterns Now?
@@ -654,6 +882,7 @@ Use this framework to decide:
 
 1. data-agent-visible (if you have transactions)
 2. llms.txt file (emerging convention, gaining traction)
+3. EDS markdown metadata tables (if using markdown-based publishing)
 
 **Priority 3 (experiment):**
 
@@ -742,6 +971,7 @@ If you implement these patterns:
 1. **AI Meta Tag Namespace** (6 tags) — Page-level agent guidance
 2. **data-agent-visible Attribute** — Hidden machine-readable instructions
 3. **Common Data Attributes** (25+ attributes) — Explicit state management and e-commerce data
+4. **EDS Markdown Metadata Tables** — Preserve metadata in markdown-based publishing
 
 ### Key Principles
 
