@@ -924,7 +924,7 @@ Focus on patterns with highest score impact and lowest implementation effort fir
 - Twitter: <https://cards-dev.twitter.com/validator>
 - Schema.org: <https://validator.schema.org/>
 
-**Reference:** See [web/META-TAG-ENHANCEMENTS.md](web/META-TAG-ENHANCEMENTS.md) for per-page customization guidance.
+**Reference:** See [web/META-TAG-ENHANCEMENTS.md](web/META-TAG-ENHANCEMENTS.md) ("Meta Tag Enhancements" at <https://github.com/Digital-Domain-Technologies-Ltd/invisible-users-manuscript/blob/main/web/META-TAG-ENHANCEMENTS.md>) for per-page customization guidance.
 
 ---
 

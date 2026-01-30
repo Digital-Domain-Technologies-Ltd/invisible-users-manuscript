@@ -595,8 +595,8 @@ Curated resources referenced in *The Invisible Users: Designing the Web for AI A
 
 See also:
 
-- [Implementation Checklist](implementation-checklist.md) - Step-by-step guide (**Repository file**)
-- [Glossary](Glossary.md) - Terms and definitions (includes OAuth2, JWT, DPoP, PKCE) (**Repository file**)
+- [Implementation Checklist](implementation-checklist.md) ("Implementation Checklist" at <https://github.com/Digital-Domain-Technologies-Ltd/invisible-users-manuscript/blob/main/implementation-checklist.md>) - Step-by-step guide (**Repository file**)
+- [Glossary](Glossary.md) ("Glossary" at <https://github.com/Digital-Domain-Technologies-Ltd/invisible-users-manuscript/blob/main/Glossary.md>) - Terms and definitions (includes OAuth2, JWT, DPoP, PKCE) (**Repository file**)
 - [Agent-Friendly Starter Kit](agent-friendly-starter-kit/) - Good vs Bad implementation examples (**Repository directory**)
 
 ---
