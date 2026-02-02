@@ -1,0 +1,99 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Georgia, serif; font-size: 24px; font-weight: bold; fill: #1a1a1a; }
+      .subtitle { font-family: system-ui, sans-serif; font-size: 16px; font-weight: 600; fill: #2c3e50; }
+      .node-title { font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; }
+      .node-type { font-family: system-ui, sans-serif; font-size: 11px; font-style: italic; }
+      .node-metadata { font-family: system-ui, sans-serif; font-size: 10px; }
+      .edge-label { font-family: system-ui, sans-serif; font-size: 11px; font-weight: 600; fill: #3498db; }
+      .node-box { fill: #ffffff; stroke: #3498db; stroke-width: 2; }
+      .node-article { stroke: #3498db; fill: #ffffff; }
+      .node-image { stroke: #9b59b6; fill: #ffffff; }
+      .node-product { stroke: #e67e22; fill: #ffffff; }
+      .node-review { stroke: #27ae60; fill: #ffffff; }
+      .node-rule { stroke: #e74c3c; fill: #ffffff; }
+      .text-article { fill: #3498db; }
+      .text-image { fill: #9b59b6; }
+      .text-product { fill: #e67e22; }
+      .text-review { fill: #27ae60; }
+      .text-rule { fill: #e74c3c; }
+      .arrow { stroke: #3498db; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#3498db" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" class="title">Asset Relationship Graph</text>
+  <text x="450" y="58" text-anchor="middle" class="subtitle">Typed edges connect assets with explicit semantics</text>
+
+  <!-- Node 1: Article -->
+  <rect x="320" y="90" width="260" height="90" rx="8" class="node-box node-article"/>
+  <text x="450" y="115" text-anchor="middle" class="node-title text-article">Article: Installation Guide</text>
+  <text x="450" y="132" text-anchor="middle" class="node-type text-article">(web_page asset)</text>
+  <text x="330" y="150" class="node-metadata text-article">id: article-installation-widget-pro-001</text>
+  <text x="330" y="165" class="node-metadata text-article">intent: consideration</text>
+
+  <!-- Node 2: Image -->
+  <rect x="40" y="250" width="260" height="100" rx="8" class="node-box node-image"/>
+  <text x="170" y="275" text-anchor="middle" class="node-title text-image">Image: Hero Photo</text>
+  <text x="170" y="292" text-anchor="middle" class="node-type text-image">(image asset)</text>
+  <text x="50" y="310" class="node-metadata text-image">id: image-widget-hero-001</text>
+  <text x="50" y="325" class="node-metadata text-image">license: rights-managed</text>
+  <text x="50" y="340" class="node-metadata text-image">jurisdictions: [UK, EU]</text>
+
+  <!-- Node 3: Product -->
+  <rect x="320" y="250" width="260" height="90" rx="8" class="node-box node-product"/>
+  <text x="450" y="275" text-anchor="middle" class="node-title text-product">Product: Widget Pro</text>
+  <text x="450" y="292" text-anchor="middle" class="node-type text-product">(product asset)</text>
+  <text x="330" y="310" class="node-metadata text-product">id: product-widget-pro</text>
+  <text x="330" y="325" class="node-metadata text-product">topics: [widget-pro, electrical]</text>
+
+  <!-- Node 4: Review -->
+  <rect x="600" y="250" width="260" height="100" rx="8" class="node-box node-review"/>
+  <text x="730" y="275" text-anchor="middle" class="node-title text-review">Review: 5-Star Rating</text>
+  <text x="730" y="292" text-anchor="middle" class="node-type text-review">(review asset)</text>
+  <text x="610" y="310" class="node-metadata text-review">id: review-installer-774</text>
+  <text x="610" y="325" class="node-metadata text-review">provenance: user_generated</text>
+  <text x="610" y="340" class="node-metadata text-review">status: verified</text>
+
+  <!-- Node 5: Rule -->
+  <rect x="600" y="420" width="260" height="110" rx="8" class="node-box node-rule"/>
+  <text x="730" y="445" text-anchor="middle" class="node-title text-rule">Rule: Print Licensing</text>
+  <text x="730" y="462" text-anchor="middle" class="node-type text-rule">(governance rule)</text>
+  <text x="610" y="480" class="node-metadata text-rule">id: rule-print-licensing-01</text>
+  <text x="610" y="495" class="node-metadata text-rule">when: channel=print AND</text>
+  <text x="610" y="510" class="node-metadata text-rule">      provenance=user_generated</text>
+  <text x="610" y="525" class="node-metadata text-rule">require: status=verified</text>
+
+  <!-- Edge 1: Article → Image -->
+  <path d="M 385 180 L 230 250" class="arrow"/>
+  <rect x="275" y="200" width="130" height="20" rx="4" fill="#e8f4f8"/>
+  <text x="340" y="213" text-anchor="middle" class="edge-label">HAS_HERO_IMAGE</text>
+
+  <!-- Edge 2: Article → Product -->
+  <path d="M 450 180 L 450 250" class="arrow"/>
+  <rect x="385" y="205" width="130" height="20" rx="4" fill="#e8f4f8"/>
+  <text x="450" y="218" text-anchor="middle" class="edge-label">DESCRIBES_PRODUCT</text>
+
+  <!-- Edge 3: Product → Review -->
+  <path d="M 580 295 L 600 295" class="arrow"/>
+  <rect x="590" y="275" width="160" height="20" rx="4" fill="#fef5e7"/>
+  <text x="670" y="288" text-anchor="middle" class="edge-label">SUPPORTED_BY_REVIEW</text>
+
+  <!-- Edge 4: Review → Rule -->
+  <path d="M 730 350 L 730 420" class="arrow"/>
+  <rect x="660" y="370" width="140" height="20" rx="4" fill="#eafaf1"/>
+  <text x="730" y="383" text-anchor="middle" class="edge-label">CONSTRAINED_BY_RULE</text>
+
+  <!-- Bottom explanation box -->
+  <rect x="50" y="550" width="800" height="40" rx="6" fill="#ffffff" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="60" y="570" class="node-metadata">Reconstruction query: "Give me consideration-intent content for UK audience about widget-pro for web channel"</text>
+  <text x="60" y="583" class="node-metadata">→ Graph traverses edges → Evaluates rules → Returns: Article + validated hero image + verified reviews</text>
+</svg>

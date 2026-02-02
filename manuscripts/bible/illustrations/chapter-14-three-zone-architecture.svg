@@ -1,0 +1,125 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Georgia, serif; font-size: 24px; font-weight: bold; fill: #1a1a1a; }
+      .subtitle { font-family: system-ui, sans-serif; font-size: 16px; font-weight: 600; fill: #2c3e50; }
+      .zone-title { font-family: system-ui, sans-serif; font-size: 18px; font-weight: 600; }
+      .zone-subtitle { font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; fill: #5a6c7d; }
+      .label { font-family: system-ui, sans-serif; font-size: 12px; fill: #34495e; }
+      .small-label { font-family: system-ui, sans-serif; font-size: 11px; fill: #5a6c7d; }
+      .comparison { font-family: system-ui, sans-serif; font-size: 11px; fill: #7f8c8d; font-style: italic; }
+      .zone-box { fill: #ffffff; stroke: #3498db; stroke-width: 3; }
+      .zone-1 { stroke: #e74c3c; }
+      .zone-2 { stroke: #f39c12; }
+      .zone-3 { stroke: #27ae60; }
+      .zone-1-text { fill: #e74c3c; }
+      .zone-2-text { fill: #f39c12; }
+      .zone-3-text { fill: #27ae60; }
+      .arrow { stroke: #3498db; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .bullet { fill: #3498db; }
+    </style>
+
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#3498db" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" class="title">Intent-Driven Publishing: Three-Zone Architecture</text>
+  <text x="450" y="58" text-anchor="middle" class="subtitle">Metadata-first content lifecycle</text>
+
+  <!-- Zone 1: Raw -->
+  <rect x="50" y="100" width="220" height="380" rx="8" class="zone-box zone-1"/>
+  <text x="160" y="130" text-anchor="middle" class="zone-title zone-1-text">ZONE 1: RAW</text>
+  <text x="160" y="150" text-anchor="middle" class="zone-subtitle">(Ingestion)</text>
+
+  <!-- Zone 1 content -->
+  <g transform="translate(60, 170)">
+    <text x="0" y="0" class="label" font-weight="600">Draft Assets</text>
+    <circle cx="5" cy="18" r="3" class="bullet"/>
+    <text x="15" y="22" class="small-label">Raw HTML/Markdown</text>
+    <circle cx="5" cy="38" r="3" class="bullet"/>
+    <text x="15" y="42" class="small-label">Incomplete metadata</text>
+    <circle cx="5" cy="58" r="3" class="bullet"/>
+    <text x="15" y="62" class="small-label">Local editing</text>
+    <circle cx="5" cy="78" r="3" class="bullet"/>
+    <text x="15" y="82" class="small-label">No governance</text>
+    <circle cx="5" cy="98" r="3" class="bullet"/>
+    <text x="15" y="102" class="small-label">Git version control</text>
+  </g>
+
+  <rect x="60" y="300" width="190" height="60" rx="4" fill="#fef3f3" stroke="#e74c3c" stroke-width="1"/>
+  <text x="155" y="320" text-anchor="middle" class="comparison">AEM Equivalent:</text>
+  <text x="155" y="337" text-anchor="middle" class="label">Author Instance</text>
+  <text x="155" y="352" text-anchor="middle" class="small-label">Content creation and editing</text>
+
+  <!-- Zone 2: Curated -->
+  <rect x="340" y="100" width="220" height="380" rx="8" class="zone-box zone-2"/>
+  <text x="450" y="130" text-anchor="middle" class="zone-title zone-2-text">ZONE 2: CURATED</text>
+  <text x="450" y="150" text-anchor="middle" class="zone-subtitle">(Validation)</text>
+
+  <!-- Zone 2 content -->
+  <g transform="translate(350, 170)">
+    <text x="0" y="0" class="label" font-weight="600">Validated Assets</text>
+    <circle cx="5" cy="18" r="3" class="bullet"/>
+    <text x="15" y="22" class="small-label">Complete metadata</text>
+    <circle cx="5" cy="38" r="3" class="bullet"/>
+    <text x="15" y="42" class="small-label">Schema.org valid</text>
+    <circle cx="5" cy="58" r="3" class="bullet"/>
+    <text x="15" y="62" class="small-label">WCAG 2.1 AA pass</text>
+    <circle cx="5" cy="78" r="3" class="bullet"/>
+    <text x="15" y="82" class="small-label">Rules evaluated</text>
+    <circle cx="5" cy="98" r="3" class="bullet"/>
+    <text x="15" y="102" class="small-label">Graph linked</text>
+  </g>
+
+  <rect x="350" y="300" width="190" height="60" rx="4" fill="#fef9ed" stroke="#f39c12" stroke-width="1"/>
+  <text x="445" y="320" text-anchor="middle" class="comparison">AEM Equivalent:</text>
+  <text x="445" y="337" text-anchor="middle" class="label">Activation Workflow</text>
+  <text x="445" y="352" text-anchor="middle" class="small-label">Quality gates + approval</text>
+
+  <!-- Zone 3: Serving -->
+  <rect x="630" y="100" width="220" height="380" rx="8" class="zone-box zone-3"/>
+  <text x="740" y="130" text-anchor="middle" class="zone-title zone-3-text">ZONE 3: SERVING</text>
+  <text x="740" y="150" text-anchor="middle" class="zone-subtitle">(Hosting)</text>
+
+  <!-- Zone 3 content -->
+  <g transform="translate(640, 170)">
+    <text x="0" y="0" class="label" font-weight="600">Published Content</text>
+    <circle cx="5" cy="18" r="3" class="bullet"/>
+    <text x="15" y="22" class="small-label">Customer-owned repo</text>
+    <circle cx="5" cy="38" r="3" class="bullet"/>
+    <text x="15" y="42" class="small-label">Git-based hosting</text>
+    <circle cx="5" cy="58" r="3" class="bullet"/>
+    <text x="15" y="62" class="small-label">Version controlled</text>
+    <circle cx="5" cy="78" r="3" class="bullet"/>
+    <text x="15" y="82" class="small-label">CDN-ready</text>
+    <circle cx="5" cy="98" r="3" class="bullet"/>
+    <text x="15" y="102" class="small-label">Multi-channel</text>
+  </g>
+
+  <rect x="640" y="300" width="190" height="60" rx="4" fill="#f0f9f4" stroke="#27ae60" stroke-width="1"/>
+  <text x="735" y="320" text-anchor="middle" class="comparison">AEM Equivalent:</text>
+  <text x="735" y="337" text-anchor="middle" class="label">Publish Instance</text>
+  <text x="735" y="352" text-anchor="middle" class="small-label">Production serving</text>
+
+  <!-- Arrows between zones -->
+  <path d="M 270 290 L 330 290" class="arrow"/>
+  <path d="M 560 290 L 620 290" class="arrow"/>
+
+  <!-- Flow labels -->
+  <rect x="280" y="265" width="40" height="30" rx="4" fill="#ecf0f1"/>
+  <text x="300" y="283" text-anchor="middle" class="small-label">Validate</text>
+
+  <rect x="570" y="265" width="40" height="30" rx="4" fill="#ecf0f1"/>
+  <text x="590" y="283" text-anchor="middle" class="small-label">Deploy</text>
+
+  <!-- Bottom section: Cloudflare Workers Layer -->
+  <rect x="50" y="500" width="800" height="80" rx="8" fill="#e8f4f8" stroke="#3498db" stroke-width="2"/>
+  <text x="450" y="525" text-anchor="middle" class="zone-subtitle">CLOUDFLARE WORKERS LAYER</text>
+  <text x="450" y="545" text-anchor="middle" class="small-label">(AEM: Dispatcher + CDN Layer)</text>
+  <text x="450" y="565" text-anchor="middle" class="label">Custom Domain → Workers Routing → Customer Repo (Origin) → Edge Cache → User</text>
+</svg>
