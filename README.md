@@ -8,7 +8,7 @@ A practical guide examining how modern web design optimized for human users fail
 
 This is the manuscript repository for "The Invisible Users" by Tom Cranstoun. The content is maintained separately from the main project repository and integrated as a git submodule.
 
-**Main Repository:** <https://github.com/ddttom/invisible-users>
+**Main Repository:** <https://github.com/Digital-Domain-Technologies-Ltd/MX-hub>
 
 **Status:** Complete manuscript (13 chapters, 12 appendices, ~140,000 words total)
 
@@ -130,7 +130,7 @@ The `npm run illustrations:generate` command performs three steps:
 When cloning the parent repository:
 
 ```bash
-git clone https://github.com/ddttom/invisible-users.git
+git clone https://github.com/Digital-Domain-Technologies-Ltd/MX-hub.git
 cd invisible-users
 git submodule update --init --recursive
 ```

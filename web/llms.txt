@@ -74,6 +74,6 @@ Looking for more information about this book and its appendices?
 - **LinkedIn:** https://www.linkedin.com/in/tom-cranstoun/
 - **About llms.txt:** https://llmstxt.org
 - **Full Book:** Available at https://allabout.network/invisible-users/
-- **Web Audit Suite:** Implementation tool at https://github.com/ddttom/invisible-users
+- **Web Audit Suite:** Implementation tool at https://github.com/Digital-Domain-Technologies-Ltd/MX-hub
 
 This llms.txt file follows the specification at llmstxt.org to help AI agents discover and understand our content.

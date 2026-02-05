@@ -76,23 +76,23 @@ These invisible users represent real humans trying to accomplish tasks. When an 
 
 ## A Diverse Ecosystem
 
-When I refer to "AI agents" throughout this book, I'm describing a diverse ecosystem with varying capabilities and operational contexts:
+When I refer to "AI agents" throughout this book, I'm describing a diverse ecosystem with five primary types, each with different capabilities and operational contexts:
 
-**CLI agents** like Claude Code or Cline run as command-line tools on your local machine. They can access your files and execute commands but must fetch web content remotely.
+**Server-Side Agents** (ChatGPT, Claude) run on remote servers and fetch your website as raw text. They cannot execute JavaScript or render CSS. They see HTML structure and text content, but miss everything that loads dynamically. If your product catalogue loads via JavaScript, server-side agents see an empty page.
 
-**Local (SMOL) agents** are lightweight tools running entirely on your device, often with privacy-focused approaches that keep all data local.
+**In-Browser Agents** (Microsoft Copilot, browser extensions) run within web browsers and have full access to rendered pages. They can execute JavaScript and access the DOM after it updates. They inherit your authenticated sessions, cookies, and proof-of-humanity tokens. When you're logged into your bank, they're logged into your bank. They see dynamic content but miss visual hierarchy from CSS. If your form submission shows a toast notification that vanishes in 3 seconds, in-browser agents might miss it.
 
-**Server-based agents** like ChatGPT or Claude via API operate from cloud infrastructure. They access websites as external visitors, without any inherited browser state or authentication.
+**Browser Automation Agents** (Perplexity, Playwright-based tools) control full browsers programmatically and can take screenshots. They can see layout, colour, and size relationships through computer vision. They can see your "Add to Cart" button is red and prominent, but still need proper HTML button elements to click reliably. These are more resource-intensive and slower than other types.
 
-**Browser agents** use full browser automation through tools like Playwright or Selenium. They can execute JavaScript, handle dynamic content, and interact with complex web applications - but they're also more resource-intensive and slower.
+**Local Agents** (Ollama, on-device LLMs, Claude Code, Cline) run on users' personal computers with limited resources. They use smaller models with limited context windows. These include both CLI tools that can access files and execute commands, and lightweight privacy-focused agents that keep all data local. If your page serves 10,000 words of marketing copy before getting to product details, local agents may never reach the important content.
 
-**Browser extension assistants** like the ChatGPT sidebar or Claude browser extension run inside your browser. They inherit your authenticated sessions, cookies, and proof-of-humanity tokens. When you're logged into your bank, they're logged into your bank.
+**Agentic Operating Systems** (Anthropic Cowork) orchestrate multiple agents working in parallel. They combine capabilities of other agent types - managing files, executing browser automation, processing server-side content - whilst coordinating complex multi-step workflows. If your checkout works for browser agents but breaks for server-side agents, agentic operating systems cannot reliably complete purchases.
 
-**IDE-integrated browser controls** like Google Antigravity combine development environment features with browser capabilities, offering unique workflows for developers.
+*Note: This taxonomy aligns with The MX Handbook for consistency across both books. Each type represents distinct technical capabilities that affect how agents interact with websites.*
 
-Each type has different capabilities:
+**Each type has different capabilities:**
 
-Session access varies - browser extensions inherit your authenticated sessions whilst external agents must authenticate independently (if they can at all).
+Session access varies - in-browser agents inherit your authenticated sessions whilst server-side agents must authenticate independently (if they can at all).
 
 JavaScript execution differs - some agents run full browsers and can track dynamic state changes, whilst others parse only the static HTML and miss asynchronous updates entirely.
 
@@ -100,7 +100,7 @@ State detection capabilities range from sophisticated tracking of page changes t
 
 Authentication approaches differ fundamentally - some inherit your proof-of-humanity tokens, others must solve CAPTCHAs independently (often unsuccessfully).
 
-**The critical insight:** We cannot design for just one agent type. A pattern that works brilliantly for browser extensions might fail completely for server-based agents. An approach that requires JavaScript execution excludes half the agent ecosystem.
+**The critical insight:** We cannot design for just one agent type. A pattern that works brilliantly for in-browser agents might fail completely for server-side agents. An approach that requires JavaScript execution excludes server-side agents entirely. An interface optimised for vision models might be impenetrable to text-only parsers.
 
 This book focuses on universal patterns that work across this entire spectrum:
 
@@ -112,7 +112,7 @@ Structured data that remains machine-readable whether the agent executes JavaScr
 
 Clear feedback that persists and doesn't rely on timing or visual-only indicators.
 
-When I write "agents struggle with toast notifications", I mean server-based agents miss them because they've moved on to other elements, CLI agents miss them because they parse static HTML, and even browser agents sometimes miss them due to timing. When I write "session inheritance creates security challenges", I'm specifically discussing browser extensions that inherit your authenticated state.
+When I write "agents struggle with toast notifications", I mean server-side agents miss them because they've moved on to other elements, local agents miss them because they parse static HTML, and even in-browser agents sometimes miss them due to timing. When I write "session inheritance creates security challenges", I'm specifically discussing in-browser agents that inherit your authenticated state.
 
 Throughout this book, when agent type matters to understanding a problem or solution, I'll specify which type. When I refer to "agents" generally, I mean patterns that affect the entire ecosystem - because those are the patterns we need to fix.
 

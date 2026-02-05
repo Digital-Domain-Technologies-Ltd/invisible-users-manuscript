@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is the manuscript repository for "The Invisible Users: Designing the Web for AI Agents and Everyone Else" by Tom Cranstoun. This repository is maintained as a git submodule of the main invisible-users project.
 
-**Main Repository:** <https://github.com/ddttom/invisible-users>
+**Main Repository:** <https://github.com/Digital-Domain-Technologies-Ltd/MX-hub>
 **This Repository:** <https://github.com/Digital-Domain-Technologies-Ltd/invisible-users-manuscript>
 
 ## Publication Status: In Review (Pre-Publication)

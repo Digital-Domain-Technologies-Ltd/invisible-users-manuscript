@@ -55,3 +55,6 @@ notes/
 drafts/
 .private/
 
+
+# Obsolete MX format (use .mx.yaml.md instead)
+.mx.yaml

@@ -181,7 +181,7 @@ test('price visible in both states', async ({ page }) => {
 
 ## Measuring Your Progress: Web Audit Suite
 
-Before implementing patterns, you need a way to measure your starting point and track improvements. Web Audit Suite (<https://github.com/ddttom/invisible-users/tree/main/web-audit-suite>) provides automated analysis of AI agent compatibility.
+Before implementing patterns, you need a way to measure your starting point and track improvements. Web Audit Suite (<https://github.com/Digital-Domain-Technologies-Ltd/MX-hub/tree/main/web-audit-suite>) provides automated analysis of AI agent compatibility.
 
 ### What It Measures
 
@@ -206,7 +206,7 @@ Web Audit Suite generates comprehensive reports covering:
 
 ```bash
 # Install
-git clone https://github.com/ddttom/invisible-users.git
+git clone https://github.com/Digital-Domain-Technologies-Ltd/MX-hub.git
 cd invisible-users/packages/web-audit-suite
 npm install
 

@@ -10,6 +10,21 @@ The practice of making websites usable by people with disabilities. The book arg
 **Agent** (or **AI Agent**)
 An artificial intelligence system that acts on behalf of a human user to complete tasks on the web. Examples include ChatGPT browsing the web, Claude with computer use capabilities, or browser extensions with AI functionality.
 
+**Agent Types** (Five Primary Categories)
+This book uses five standardised agent types aligned with The MX Handbook:
+
+1. **Server-Side Agents** (ChatGPT, Claude) - Run on remote servers, fetch raw HTML text only, cannot execute JavaScript or render CSS.
+
+2. **In-Browser Agents** (Microsoft Copilot, browser extensions) - Run within web browsers with full DOM access, can execute JavaScript, inherit authenticated sessions and cookies.
+
+3. **Browser Automation Agents** (Perplexity, Playwright-based) - Control browsers programmatically, can take screenshots and use computer vision, see layout and colour relationships.
+
+4. **Local Agents** (Ollama, Claude Code, Cline) - Run on users' personal computers with limited resources and context windows, includes CLI tools and privacy-focused implementations.
+
+5. **Agentic Operating Systems** (Anthropic Cowork) - Orchestrate multiple agents in parallel, combine capabilities of other types for complex multi-step workflows.
+
+Each type has different capabilities for JavaScript execution, session access, state detection, and authentication. See Chapter 1 for detailed explanations.
+
 **Agent-Friendly Design**
 Web design patterns that work well for both human users and AI agents. Characterised by explicit state, persistent errors, complete information, and semantic structure.
 
