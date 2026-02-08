@@ -104,7 +104,7 @@ This is a git submodule integrated at `packages/manuscript/manuscript/` in the p
   - Special: `back-cover.png` must be generated manually (see Build Operations below)
 - `cover-design.svg` - Book cover design (600×900)
 
-**Build Configuration:**
+**Build Configuration (in datalake/book-configs/bible/):**
 
 - `metadata.yaml` - Pandoc metadata for PDF (A4 format)
 - `metadata-kindle.yaml` - Metadata for Kindle/EPUB (6"×9" format)
@@ -301,7 +301,7 @@ The manuscript supports dual-format publication:
    - Clean metadata
    - Optimized for digital reading
 
-Two metadata files control rendering:
+Two metadata files in `datalake/book-configs/bible/` control rendering:
 
 - `metadata.yaml` - LaTeX configuration for PDF with watermark ("Review Copy")
 - `metadata-kindle.yaml` - Clean metadata for Kindle/EPUB

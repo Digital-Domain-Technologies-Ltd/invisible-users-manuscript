@@ -1,16 +1,16 @@
-# Invisible Users Manuscript
+# MX: The Codex — Manuscript Repository
 
-**The Invisible Users: Designing the Web for AI Agents and Everyone Else**
+**The Codex: Designing the Web for AI Agents and Everyone Else**
 
 A practical guide examining how modern web design optimized for human users fails for AI agents, and how fixing this benefits everyone.
 
 ## About This Repository
 
-This is the manuscript repository for "The Invisible Users" by Tom Cranstoun. The content is maintained separately from the main project repository and integrated as a git submodule.
+This is the manuscript repository for The Codex by Tom Cranstoun. The content is maintained separately from the main project repository and integrated as a git submodule.
 
 **Main Repository:** <https://github.com/Digital-Domain-Technologies-Ltd/MX-hub>
 
-**Status:** Complete manuscript (13 chapters, 12 appendices, ~140,000 words total)
+**Status:** Complete manuscript (14 chapters, 12 appendices, ~140,000 words total)
 
 ## Repository Structure
 
@@ -22,45 +22,37 @@ This is the manuscript repository for "The Invisible Users" by Tom Cranstoun. Th
 │   ├── hooks/                  # Git hooks for workflow automation
 │   ├── commands/               # Custom commands (step-commit, md-fix)
 │   └── skills/                 # AI agent skills
-├── manuscripts/                # Multiple book variants
-│   ├── bible/                  # The Bible (full comprehensive guide)
-│   │   ├── chapter-01-*.md through chapter-13-*.md
-│   │   ├── preface.md
-│   │   ├── Glossary.md
-│   │   ├── web/                # Generated HTML pages
-│   │   └── illustrations/      # SVG + PNG illustrations
-│   ├── dont-make-ai-think/     # Don't Make AI Think (slim practical guide)
-│   │   ├── chapter-01-*.md through chapter-10-*.md
-│   │   └── README.md
-│   └── shared-appendices/      # Shared appendices (A-L) for all books
-│       ├── appendix-a-*.md through appendix-l-*.md  # 12 appendices
-│       ├── appendix-d-ai-friendly-html-guide.txt    # Appendix D source
-│       └── appendix-h-live-llms.txt                 # Appendix H source
-├── code/                       # All code examples
-│   ├── agent-friendly-starter-kit/  # Good vs bad patterns
-│   └── examples/               # Production-ready implementations
-│       ├── apache/             # Apache configuration
-│       ├── nginx/              # Nginx configuration
-│       ├── nextjs/             # Next.js examples
-│       ├── wordpress/          # WordPress integration
-│       ├── eds/                # Adobe EDS examples
-│       ├── static-site/        # Static site generators
-│       ├── monitoring/         # Analytics and logging
-│       └── validation/         # Verification scripts
-├── marketing/                  # All promotional content
-│   ├── blog/                   # Blog and promotional materials
-│   └── talks/                  # Presentation materials
-├── metadata.yaml               # Pandoc metadata for PDF
-├── metadata-kindle.yaml        # Metadata for Kindle/EPUB
-└── cover-page.tex              # LaTeX cover template
+├── manuscripts/
+│   └── bible/                  # The Codex (full comprehensive guide)
+│       ├── chapter-00-*.md through chapter-14-*.md
+│       ├── preface.md
+│       ├── executive-summary.md
+│       ├── Glossary.md
+│       ├── illustrations/      # SVG + PNG illustrations
+│       └── reading-guide.md
+├── web/                        # Generated HTML appendix pages
+│   ├── appendix-*.html
+│   └── llms.txt
+├── todo.txt                    # Manuscript task tracking
+└── CONTRIBUTING.md
 ```
+
+## Related Packages (canonical homes for shared content)
+
+Content that was previously in this repository now lives in dedicated packages:
+
+- **mx-handbook** — "Don't Make AI Think" slim practical guide (chapters)
+- **mx-code-examples** — All code examples (starter kit, platform implementations)
+- **mx-appendices** — Shared appendices (A-L) for all books
+- **datalake/book-configs/** — PDF/Kindle build metadata (metadata-kindle.yaml, cover-page.tex)
+- **datalake/presentations/** — Talk slides and presentation materials
 
 ## Content Overview
 
 ### Core Manuscript (~78,000 words)
 
 - **Preface** (~2,678 words): Author's discovery of the problem
-- **13 Chapters** (~72,498 words): Complete narrative from problem to solutions
+- **14 Chapters** (~72,498 words): Complete narrative from problem to solutions
 - **The End** (~570 words): Directing readers to online appendices
 - **Glossary** (~2,350 words): 60+ technical terms with cross-references
 
@@ -74,16 +66,6 @@ This is the manuscript repository for "The Invisible Users" by Tom Cranstoun. Th
 - **Reading Guide** (~1,151 words): Navigation for different audiences
 - **Rear Cover** (~598 words): Book description
 
-### Code Examples
-
-- **agent-friendly-starter-kit/**: Good vs bad patterns for AI agent compatibility
-- **code-examples/**: Platform-specific implementations (Apache, Nginx, Next.js, WordPress, EDS, static sites) plus monitoring and validation tools
-
-### Blog & Talks
-
-- **blog/**: Promotional materials including AI-Native website implementation guide
-- **talks/**: Presentation materials for members calls and conferences
-
 ## Key Themes
 
 1. **The Convergence Principle**: What AI agents need is mostly what everyone needs
@@ -93,11 +75,11 @@ This is the manuscript repository for "The Invisible Users" by Tom Cranstoun. Th
 
 ## Parent Repository Integration
 
-This manuscript repository is a git submodule of the main invisible-users repository. Build tools and npm scripts are maintained in the parent repository:
+This manuscript repository is a git submodule of the main MX-hub repository. Build tools and npm scripts are maintained in the parent repository:
 
 ```bash
 # To build PDF from parent repository:
-cd /path/to/invisible-users
+cd /path/to/MX-hub
 npm run pdf:generate        # Full A4 PDF with cover
 npm run pdf:kindle          # 6"×9" Kindle Direct Publishing format
 npm run pdf:simple          # Simplified PDF
@@ -131,13 +113,13 @@ When cloning the parent repository:
 
 ```bash
 git clone https://github.com/Digital-Domain-Technologies-Ltd/MX-hub.git
-cd invisible-users
+cd MX-hub
 git submodule update --init --recursive
 ```
 
 ### Making Changes
 
-This repository is the source of truth for manuscript content. To make changes:
+This repository is the source of truth for The Codex manuscript content. To make changes:
 
 1. Navigate to manuscript directory (as a submodule)
 2. Create a branch for your changes
