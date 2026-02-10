@@ -1,3 +1,15 @@
+---
+title: "Generative Engine Optimization"
+description: "Discovery patterns that work for both search engines and AI agents, bridging SEO and GEO strategies"
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: draft
+book: mx-codex
+chapter: "10"
+---
+
 \newpage
 
 # Chapter 10 - Generative Engine Optimization

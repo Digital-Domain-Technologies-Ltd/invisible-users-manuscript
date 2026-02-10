@@ -1,3 +1,15 @@
+---
+title: "The Security Maze"
+description: "Security implications of AI agents inheriting authenticated sessions and acting on behalf of users"
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: draft
+book: mx-codex
+chapter: "6"
+---
+
 \newpage
 
 # Chapter 6 - Security Maze

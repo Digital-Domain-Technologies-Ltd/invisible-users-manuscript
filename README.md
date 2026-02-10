@@ -1,3 +1,13 @@
+---
+title: "MX: The Codex -- Manuscript Repository"
+description: "Repository README for the MX: The Codex manuscript, a guide to designing the web for AI agents and everyone else"
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: draft
+---
+
 # MX: The Codex — Manuscript Repository
 
 **The Codex: Designing the Web for AI Agents and Everyone Else**

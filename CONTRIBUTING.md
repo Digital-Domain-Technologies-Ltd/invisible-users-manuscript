@@ -1,3 +1,13 @@
+---
+title: "Contributing"
+description: "Contribution policy for MX: The Codex repository — read-only, no external contributions accepted."
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: active
+---
+
 # Contributing
 
 ## Read-Only Repository

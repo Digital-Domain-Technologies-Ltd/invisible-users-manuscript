@@ -1,3 +1,14 @@
+---
+title: "Book Plan"
+description: "Production plan for MX: The Codex including chapter outline, word counts, and publication status"
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: draft
+book: mx-codex
+---
+
 # Book Plan
 
 **Title:** The Invisible Users: Designing the Web for AI Agents and Everyone Else

@@ -1,3 +1,15 @@
+---
+title: "The Content Creator's Dilemma"
+description: "How AI consumption threatens advertising-funded content creators and the existential challenge of agent-mediated traffic"
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: draft
+book: mx-codex
+chapter: "5"
+---
+
 \newpage
 
 # Chapter 5 - Content Creator's Dilemma

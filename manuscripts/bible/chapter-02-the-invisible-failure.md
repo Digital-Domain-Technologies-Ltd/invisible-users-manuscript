@@ -1,3 +1,15 @@
+---
+title: "The Invisible Failure"
+description: "When websites break for AI agents -- silent failures in forms, notifications, and navigation that never appear in analytics"
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: draft
+book: mx-codex
+chapter: "2"
+---
+
 \newpage
 
 # Chapter 2 - The Invisible Failure

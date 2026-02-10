@@ -1,3 +1,14 @@
+---
+title: "The End"
+description: "Closing chapter directing readers to online appendices and additional resources at allabout.network"
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: draft
+book: mx-codex
+---
+
 \newpage
 
 # The End

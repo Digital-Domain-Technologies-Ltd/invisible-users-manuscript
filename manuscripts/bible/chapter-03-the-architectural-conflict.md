@@ -1,3 +1,15 @@
+---
+title: "The Architectural Conflict"
+description: "How modern web architecture creates conflicts between human cognition and machine parsing"
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: draft
+book: mx-codex
+chapter: "3"
+---
+
 \newpage
 
 # Chapter 3 - Architectural Conflict

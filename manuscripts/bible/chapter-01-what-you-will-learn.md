@@ -1,3 +1,15 @@
+---
+title: "What You Will Learn"
+description: "Introduction to the accessibility connection between AI agent failures and human usability challenges on the web"
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: draft
+book: mx-codex
+chapter: "1"
+---
+
 \newpage
 
 # Chapter 1 - What You Will Learn

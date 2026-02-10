@@ -1,3 +1,13 @@
+---
+title: "AI assistant configuration for MX: The Codex"
+description: "Guidance for Claude Code when working with MX: The Codex book manuscript."
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: active
+---
+
 # CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with content in this repository.

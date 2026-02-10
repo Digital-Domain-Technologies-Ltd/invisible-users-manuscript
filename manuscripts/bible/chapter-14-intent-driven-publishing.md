@@ -1,3 +1,15 @@
+---
+title: "Intent-Driven Publishing"
+description: "Metadata-first architecture for agents and humans, where metadata drives content assembly and deployment"
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: draft
+book: mx-codex
+chapter: "14"
+---
+
 \newpage
 
 # Chapter 14 - Intent-Driven Publishing

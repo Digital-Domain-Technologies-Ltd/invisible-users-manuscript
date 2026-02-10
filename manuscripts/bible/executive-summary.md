@@ -1,3 +1,14 @@
+---
+title: "Executive Summary"
+description: "Overview of the AI agent commerce revolution and why websites must adapt to serve both human and machine users"
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: draft
+book: mx-codex
+---
+
 # Executive Summary: The Invisible Users
 
 ## What Is Happening

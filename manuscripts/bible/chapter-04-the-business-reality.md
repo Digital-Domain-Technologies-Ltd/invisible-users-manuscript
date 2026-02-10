@@ -1,3 +1,15 @@
+---
+title: "The Business Reality"
+description: "The commercial implications of agent-mediated commerce and why agent-friendly design conflicts with existing revenue models"
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: draft
+book: mx-codex
+chapter: "4"
+---
+
 \newpage
 
 # Chapter 4 - Business Reality

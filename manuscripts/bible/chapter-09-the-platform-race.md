@@ -1,3 +1,15 @@
+---
+title: "The Platform Race"
+description: "How Amazon, Microsoft, and Google launched agent commerce systems within seven days in January 2026"
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: draft
+book: mx-codex
+chapter: "9"
+---
+
 \newpage
 
 # Chapter 9 - Platform Race

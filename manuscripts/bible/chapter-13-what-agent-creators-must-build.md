@@ -1,3 +1,15 @@
+---
+title: "What Agent Creators Must Build"
+description: "Implementation patterns, validation layers, and guardrails for building reliable AI agent systems"
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: draft
+book: mx-codex
+chapter: "13"
+---
+
 \newpage
 
 # Chapter 13 - What Agent Creators Must Build

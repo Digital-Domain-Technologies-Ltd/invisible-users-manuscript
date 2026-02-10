@@ -1,3 +1,15 @@
+---
+title: "Technical Advice"
+description: "Practical implementation code, testing strategies, and tools for making websites work for AI agents"
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: draft
+book: mx-codex
+chapter: "12"
+---
+
 \newpage
 
 # Chapter 12 - Technical Advice

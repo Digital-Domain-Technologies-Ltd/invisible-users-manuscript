@@ -1,3 +1,14 @@
+---
+title: "Reading Guide"
+description: "Tailored reading paths for business leaders, developers, content creators, and other audiences"
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: draft
+book: mx-codex
+---
+
 # Reading Guide
 
 The Invisible Users is designed to be read sequentially, with each chapter building on concepts introduced earlier. However, you don't need to read everything with equal depth. This guide provides tailored reading paths for different audiences, allowing you to focus on the sections most relevant to your role.

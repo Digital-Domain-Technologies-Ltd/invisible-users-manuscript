@@ -1,3 +1,14 @@
+---
+title: "Glossary of Terms"
+description: "Definitions of key terms used throughout the book including AI agents, MX concepts, and web architecture"
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: draft
+book: mx-codex
+---
+
 # Glossary of Terms {.unnumbered .unlisted}
 
 \addtocontents{toc}{\protect\setcounter{tocdepth}{0}}

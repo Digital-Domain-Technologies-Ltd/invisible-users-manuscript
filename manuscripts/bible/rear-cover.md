@@ -1,3 +1,14 @@
+---
+title: "Rear Cover"
+description: "Back cover text summarising the book for web professionals, business leaders, and content creators"
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: draft
+book: mx-codex
+---
+
 # Rear Cover
 
 ## Main Text

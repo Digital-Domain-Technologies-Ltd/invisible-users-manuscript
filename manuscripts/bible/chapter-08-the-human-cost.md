@@ -1,3 +1,15 @@
+---
+title: "The Human Cost"
+description: "The digital divide implications of agent-mediated web access and who gets left behind"
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: draft
+book: mx-codex
+chapter: "8"
+---
+
 \newpage
 
 # Chapter 8 - Human Cost

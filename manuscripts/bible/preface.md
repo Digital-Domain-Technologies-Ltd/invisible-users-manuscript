@@ -1,3 +1,14 @@
+---
+title: "Preface"
+description: "How a failed holiday booking revealed that AI agents struggle with the same web patterns that frustrate humans"
+author: Tom Cranstoun
+created: 2026-01-15
+modified: 2026-02-09
+version: "1.0"
+status: draft
+book: mx-codex
+---
+
 # Preface
 
 I didn't set out to write a book about AI agents. I set out to book a holiday.
