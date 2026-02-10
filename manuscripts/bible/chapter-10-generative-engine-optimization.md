@@ -2074,7 +2074,7 @@ This gives you a baseline. Track quarterly to measure progress.
 
 By designing for the Invisible User, you're future-proofing your business. You're earning what I call the **Trust Dividend.**
 
-In 2026, the platforms - Google, OpenAI, Anthropic, Perplexity - act as gatekeepers. Their agents will only send traffic to sites that have a high success rate for automated tasks.
+In 2026, the platforms - Google, OpenAI, Anthropic, Perplexity - act as guardrails. Their agents will only send traffic to sites that have a high success rate for automated tasks.
 
 If agents consistently fail on your site - timeout errors, confusing structure, missing information - platforms will deprioritise you in citations. Why would ChatGPT cite a restaurant it can't extract menu information from? Why would Claude reference a product page where the price is ambiguous?
 
