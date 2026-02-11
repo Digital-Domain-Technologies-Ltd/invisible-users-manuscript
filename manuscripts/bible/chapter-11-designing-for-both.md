@@ -1029,7 +1029,7 @@ Page-specific meta tags can override site-wide defaults from llms.txt. Whilst no
 
 ```html
 <meta name="ai-api-endpoint" content="/api/v1/products/WH-1000">
-<meta name="ai-freshness" content="hourly">
+<meta name="sop-freshness" content="hourly">
 ```
 
 **Status:** Proposed pattern, not yet standardised. Use where it makes semantic sense, but prioritise llms.txt and Schema.org JSON-LD for broader compatibility.

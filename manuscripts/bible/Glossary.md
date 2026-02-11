@@ -46,7 +46,7 @@ A design pattern that works for humans but breaks for AI agents. Examples includ
 An open-source protocol (Apache 2.0 license) for agent-mediated commerce, announced by OpenAI and Stripe in September 2024. ACP enables AI agents to complete purchases on behalf of users whilst preserving merchant-of-record relationships and avoiding platform lock-in. Over 1 million merchants on Shopify and Etsy support ACP. Powers "Instant Checkout" in ChatGPT. See Chapter 9 for competitive analysis with Universal Commerce Protocol (UCP) and Microsoft Copilot Checkout.
 
 **ai-\* meta tags**
-Proposed naming convention for HTML meta tags that provide guidance to AI agents. Not yet standardised, but follows the pattern of existing meta tag conventions like robots and viewport. Examples include ai-api-endpoint, ai-freshness, ai-content-policy, and ai-attribution. These proposed patterns use the ai-\* namespace to avoid conflicts with existing standards and remain harmless if agents don't recognise them.
+Proposed naming convention for HTML meta tags that provide guidance to AI agents. Not yet standardised, but follows the pattern of existing meta tag conventions like robots and viewport. Examples include ai-api-endpoint, sop-freshness, sop-content-policy, and sop-attribution. These proposed patterns use the ai-\* namespace to avoid conflicts with existing standards and remain harmless if agents don't recognise them.
 
 **ai-agent-instructions**
 Meta tag dynamically injected by JavaScript handshake scripts to provide session-specific guidance to browser-based AI agents. Typically contains instructions about prioritising certain resources (like llms.txt) and citation requirements. Not typically present in static HTML - instead injected when AI User-Agents are detected.

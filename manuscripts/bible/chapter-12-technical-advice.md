@@ -1237,7 +1237,7 @@ These patterns are proposed, not standardised. They work today because they're s
   <meta name="ai-api-docs" content="https://developers.example.com/docs">
 
   <!-- How agents should access this content -->
-  <meta name="ai-preferred-access" content="api">
+  <meta name="sop-preferred-access" content="api">
 
   <!-- Rate limits for this resource -->
   <meta name="ai-rate-limit" content="60/minute">
@@ -1246,16 +1246,16 @@ These patterns are proposed, not standardised. They work today because they're s
   <meta name="ai-identity-delegation" content="/api/auth/delegate">
 
   <!-- What extraction is permitted -->
-  <meta name="ai-content-policy" content="summaries-allowed, prices-allowed">
+  <meta name="sop-content-policy" content="summaries-allowed, prices-allowed">
 
   <!-- Structured data formats available -->
-  <meta name="ai-structured-data" content="json-ld, microdata">
+  <meta name="sop-structured-data" content="json-ld, microdata">
 
   <!-- How often this content changes -->
-  <meta name="ai-freshness" content="daily">
+  <meta name="sop-freshness" content="daily">
 
   <!-- Attribution requirement -->
-  <meta name="ai-attribution" content="required">
+  <meta name="sop-attribution" content="required">
 </head>
 ```
 
@@ -1266,10 +1266,10 @@ These patterns are proposed, not standardised. They work today because they're s
   <title>Wireless Headphones - Example Shop</title>
 
   <meta name="ai-api-endpoint" content="/api/v1/products/WH-1000">
-  <meta name="ai-preferred-access" content="api">
-  <meta name="ai-structured-data" content="json-ld">
-  <meta name="ai-freshness" content="hourly">
-  <meta name="ai-content-policy" content="full-extraction-allowed">
+  <meta name="sop-preferred-access" content="api">
+  <meta name="sop-structured-data" content="json-ld">
+  <meta name="sop-freshness" content="hourly">
+  <meta name="sop-content-policy" content="full-extraction-allowed">
   <meta name="ai-identity-delegation" content="/api/auth/delegate">
 
   <script type="application/ld+json">
@@ -1290,10 +1290,10 @@ These patterns are proposed, not standardised. They work today because they're s
 <head>
   <title>Market Analysis: Q4 2025 - NewsDaily</title>
 
-  <meta name="ai-preferred-access" content="html">
-  <meta name="ai-content-policy" content="summary-only, max-words-150">
-  <meta name="ai-attribution" content="required">
-  <meta name="ai-freshness" content="static">
+  <meta name="sop-preferred-access" content="html">
+  <meta name="sop-content-policy" content="summary-only, max-words-150">
+  <meta name="sop-attribution" content="required">
+  <meta name="sop-freshness" content="static">
   <meta name="ai-commercial-use" content="prohibited">
 
   <link rel="alternate" type="application/json"
@@ -1341,8 +1341,8 @@ extraction: product-data-allowed
 <head>
   <!-- Page-specific overrides -->
   <meta name="ai-api-endpoint" content="/api/v1/products/WH-1000">
-  <meta name="ai-freshness" content="hourly">
-  <meta name="ai-structured-data" content="json-ld">
+  <meta name="sop-freshness" content="hourly">
+  <meta name="sop-structured-data" content="json-ld">
 
   <!-- Semantic content -->
   <script type="application/ld+json">
@@ -1374,7 +1374,7 @@ An agent visiting this page:
 For content creators worried about extraction (Chapter 5's concerns), explicit policies help:
 
 ```html
-<meta name="ai-content-policy" content="
+<meta name="sop-content-policy" content="
   summaries: allowed (max 100 words);
   quotes: allowed (max 50 words, with attribution);
   full-text: prohibited;
@@ -1382,7 +1382,7 @@ For content creators worried about extraction (Chapter 5's concerns), explicit p
   commercial-use: prohibited without license
 ">
 
-<meta name="ai-attribution" content="
+<meta name="sop-attribution" content="
   required: true;
   format: 'Source: [site-name] - [article-title] ([url])';
   link-back: required
@@ -2957,8 +2957,8 @@ extraction: product-data-allowed
 ```html
 <head>
   <meta name="ai-api-endpoint" content="/api/v1/products/WH-1000">
-  <meta name="ai-freshness" content="hourly">
-  <meta name="ai-content-policy" content="full-extraction-allowed">
+  <meta name="sop-freshness" content="hourly">
+  <meta name="sop-content-policy" content="full-extraction-allowed">
 </head>
 ```
 
