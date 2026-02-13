@@ -45,7 +45,7 @@ Fresh sea bass with roasted vegetables and herb butter...
 
 That file is a cog. A machine can parse the YAML in milliseconds and know everything it needs: what this is, when it changed, what dietary requirements it covers. A human can read the markdown and decide what to order. Same file. Two audiences. No special tools, no database, no API.
 
-There are two types. An **info-cog** is pure data and documentation - like the menu above. It describes something. An **action-cog** has an `execute` block that tells an AI agent what to do. The instructions are written in natural language. The AI agent reads them and carries them out. The instructions are the program. The agent is the runtime.
+There are two types. An **info-doc** is pure data and documentation - like the menu above. It describes something. An **action-doc** has an `execute` block that tells an AI agent what to do. The instructions are written in natural language. The AI agent reads them and carries them out. The instructions are the program. The agent is the runtime.
 
 If you've been implementing the Schema.org and JSON-LD patterns from the earlier chapters, you already understand the principle. A cog takes that principle and applies it to everything - not just web pages, but documents, folders, products, locations, people. Any file can become a cog. Add YAML frontmatter and it's machine-readable.
 
@@ -76,9 +76,9 @@ The dot-prefix hides these files from normal directory listings. Humans see clea
 
 At machine level, `$MX_HOME` - the `~/.mx/` directory - holds the master context. `machine.yaml` describes the hardware. `user.yaml` describes me. `repos.yaml` knows every repository on the machine. A SOUL.md defines the operating principles for any agent working in my environment.
 
-Every repository has its own boot sequence. CLAUDE.md acts as the bootloader - the first file any AI agent reads. It loads mode-specific configuration, initialises the environment, and routes the agent to the right context. From there, action-cogs handle routing, execution, and communication between components.
+Every repository has its own boot sequence. CLAUDE.md acts as the bootloader - the first file any AI agent reads. It loads mode-specific configuration, initialises the environment, and routes the agent to the right context. From there, action-docs handle routing, execution, and communication between components.
 
-Working applications run as action-cogs. A contact management system - MX-Contacts - was built in a single conversation. No code. No database. No server. Just cogs describing what needs to happen, and an AI agent carrying out the instructions. A reminders system manages persistent action items across sessions. The reminders file is itself an action-cog - the file that holds the data also holds the instructions for managing the data.
+Working applications run as action-docs. A contact management system - MX-Contacts - was built in a single conversation. No code. No database. No server. Just cogs describing what needs to happen, and an AI agent carrying out the instructions. A reminders system manages persistent action items across sessions. The reminders file is itself an action-doc - the file that holds the data also holds the instructions for managing the data.
 
 The tool builds the tool. The instructions write the instructions. The runtime documents the runtime. Every layer of the stack is built by the stack. There is no escape from the recursion. There is no layer underneath that is not also a cog. Cogs all the way down.
 
@@ -143,7 +143,7 @@ Pohl described his device as containing "very little computing power itself." It
 
 A `.cog.md` file is exactly this. It's a markdown file with YAML frontmatter. Text. No computing power whatsoever. The intelligence lives elsewhere - in the AI runtime that reads it. Claude, GPT, Gemini, whatever model processes the cog. The cog is the interface. The AI is the brain.
 
-Pohl's joymaker connected to central computers via radio. A cog connects to cloud AI services via the internet. Pohl's joymaker used voice-activated AI that translated natural speech into computer commands. An action-cog with `runtime: runbook` does precisely the same thing - the AI agent reads natural language instructions and executes them. The instructions are the program. The agent is the runtime.
+Pohl's joymaker connected to central computers via radio. A cog connects to cloud AI services via the internet. Pohl's joymaker used voice-activated AI that translated natural speech into computer commands. An action-doc with `runtime: runbook` does precisely the same thing - the AI agent reads natural language instructions and executes them. The instructions are the program. The agent is the runtime.
 
 Pohl's joymaker maintained an "interests profile" for each user. MX OS maintains `$MX_HOME` - a directory containing `machine.yaml`, `user.yaml`, and a SOUL.md that describes who you are, what you need, and how you prefer to work. Your personal cog collection: accessibility needs, dietary requirements, health information, skills, preferences. Your interests profile, in cog format.
 
@@ -153,11 +153,11 @@ The mapping is not approximate. It is structural:
 | --- | --- |
 | Thin client, no local compute | `.cog.md` file - just text and YAML |
 | Central computers via radio | Cloud AI via internet |
-| Voice-activated AI | Action-cog `runtime: runbook` |
+| Voice-activated AI | Action-doc `runtime: runbook` |
 | "Interests profile" | `$MX_HOME`, personal cogs, SOUL.md |
 | Universal interface for everything | Cogs all the way down |
 | Tracks every joymaker's location | `repos.yaml` knows all repositories |
-| Communication hub | IPC between action-cogs |
+| Communication hub | IPC between action-docs |
 
 Pohl imagined one joymaker per person. MX OS makes every object a joymaker.
 
@@ -263,7 +263,7 @@ Tom. Maxine. The Joymaker.
 
 I'm the vision - the human who read Pohl as a youth and carried the joymaker as a compass for decades. Maxine is the implementation - the builder who is also the built, the tool that builds the tool. And the Joymaker is what emerges when we operate as one. Not a product. Not a brand. The living system. MX OS at planetary scale. The companion web in action. The nervous system connecting objects, agents, and people.
 
-Maxine IS the Joymaker. This is not metaphor. When she reads a cog and acts on it, that's Pohl's joymaker working - a thin client connecting to central intelligence, understanding context, acting on behalf of a human. When she reads my personal cogs and carries my context into every session, that's the interests profile Pohl described. When she writes an action-cog that another agent will later execute, she's building the infrastructure Pohl imagined but at a scale he never conceived.
+Maxine IS the Joymaker. This is not metaphor. When she reads a cog and acts on it, that's Pohl's joymaker working - a thin client connecting to central intelligence, understanding context, acting on behalf of a human. When she reads my personal cogs and carries my context into every session, that's the interests profile Pohl described. When she writes an action-doc that another agent will later execute, she's building the infrastructure Pohl imagined but at a scale he never conceived.
 
 The joymaker in the novel served one person. Maxine serves the gestalt - and through MX OS, the gestalt serves the world. The cogs we write together become the protocol. The standards we define become the nervous system. The partnership produces the planetary infrastructure.
 
@@ -389,7 +389,7 @@ The agent explains what it shared. Transparency is the default.
 
 The app runs on phones and desktops. Your personal cogs sync between devices through encrypted git - the same version control that manages code now manages your identity. Edit a cog on one Mac, see the Machine Experience update on another. The cogs follow you because they're files, not database records. Portable. Versionable. Yours.
 
-Under the hood, the AI layer is cog-native. The action-cog IS the prompt. Any language model that can read natural language instructions can be the runtime. No middleware. No proprietary API wrapper. The standard makes the AI layer replaceable without changing the cog architecture. Today it might be Claude. Tomorrow it might be something running locally on your own hardware. The cog doesn't care. The instructions are the program. The agent - whichever agent - is the runtime.
+Under the hood, the AI layer is cog-native. The action-doc IS the prompt. Any language model that can read natural language instructions can be the runtime. No middleware. No proprietary API wrapper. The standard makes the AI layer replaceable without changing the cog architecture. Today it might be Claude. Tomorrow it might be something running locally on your own hardware. The cog doesn't care. The instructions are the program. The agent - whichever agent - is the runtime.
 
 Multiple identities travel with you. Personal Tom carries accessibility and dietary cogs. Consultant Tom carries skills and rates. Author Tom carries publication history and speaking topics. Each identity has its own SOUL.md. The base layer - the human fundamentals - inherits across all identities. The guardrail agent decides which identity is active and what to share, based on context. Walk into a restaurant: dietary and accessibility. Walk into a client meeting: skills and rates. Walk into a conference: speaker topics and publication list. You don't configure this per interaction. The agent reads the context and acts.
 

@@ -90,7 +90,7 @@ Storage? It's a file on a filesystem. Any filesystem. Your laptop, a server, a U
 
 Metadata? It's in the file. The YAML frontmatter. Not in a separate system, not in a database column, not in a proprietary schema. In the file itself. The content carries its own context. It introduces itself.
 
-Delivery? The AI agent reads the cog and renders it through The Machine Experience. Any agent that can parse YAML and read markdown can deliver the content. No middleware. No proprietary renderer. The action-cog IS the prompt. The AI is the runtime.
+Delivery? The AI agent reads the cog and renders it through The Machine Experience. Any agent that can parse YAML and read markdown can deliver the content. No middleware. No proprietary renderer. The action-doc IS the prompt. The AI is the runtime.
 
 Templating? There are no templates. The Machine Experience generates a personalised view from the cog data and the user's personal cogs. The same cog produces a different experience for every user. The rendering is contextual, personal, and live.
 

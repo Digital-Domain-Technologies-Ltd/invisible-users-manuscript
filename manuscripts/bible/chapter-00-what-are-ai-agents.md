@@ -1,8 +1,8 @@
 ---
 author: "Tom Cranstoun"
-date: "2026-01-22"
+created: "2026-01-22"
 description: "Understanding Machine Experience (MX) as the practice of adding metadata and instructions so AI agents don't have to think, preventing hallucination and enabling agents to complete desired actions"
-keywords: [sop-agents, web-accessibility, metadata, semantic-html, machine-experience]
+tags: [sop-agents, web-accessibility, metadata, semantic-html, machine-experience]
 book: "MX Bible"
 chapter: 0
 wordcount: 10183
